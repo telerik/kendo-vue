@@ -1,6 +1,6 @@
-# KendoVue
+# Kendo UI for Vue 3 and Vue 2
 
-KendoVue uses GitHub Issues as a bug tracker. This repository is here for that purpose&mdash;it does not contain the actual components source code.
+Kendo UI for Vue uses GitHub Issues as a bug tracker. This repository is here for that purpose&mdash;it does not contain the actual components source code.
 
 ## How do I&hellip;?
 
