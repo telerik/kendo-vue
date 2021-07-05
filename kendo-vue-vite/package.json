@@ -1,0 +1,34 @@
+{
+  "name": "kendo-vue-vite",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.0",
+    "@progress/kendo-data-query": "1.5.4",
+    "@progress/kendo-drawing": "1.13.7",
+    "@progress/kendo-licensing": "^1.1.3",
+    "@progress/kendo-vue-animation": "^2.1.0",
+    "@progress/kendo-vue-data-tools": "^2.1.0",
+    "@progress/kendo-vue-dateinputs": "^2.1.0",
+    "@progress/kendo-vue-dialogs": "^2.1.0",
+    "@progress/kendo-vue-dropdowns": "^2.1.0",
+    "@progress/kendo-vue-excel-export": "^2.1.0",
+    "@progress/kendo-vue-grid": "^2.1.0",
+    "@progress/kendo-vue-inputs": "^2.1.0",
+    "@progress/kendo-vue-intl": "^2.1.0",
+    "@progress/kendo-vue-pdf": "^2.1.0",
+    "@progress/kendo-vue-popup": "^2.1.0",
+    "cldr-core": "^38.0.0",
+    "cldr-dates-full": "^38.0.0",
+    "cldr-numbers-full": "^38.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.0.4",
+    "@vue/compiler-sfc": "^3.0.5",
+    "vite": "^2.0.0-beta.12"
+  }
+}
