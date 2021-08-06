@@ -168,6 +168,7 @@
             },
             dataStateChange: function (event) {
                 this.sort = event.data.sort;
+                this.filter = event.data.filter;
                 this.skip = event.data.skip;
                 this.take = event.data.take;
                 this.fetchData(event.data);
