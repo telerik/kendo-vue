@@ -1,6 +1,100 @@
 # Kendo UI for Vue 3 and Vue 2
 
-Kendo UI for Vue uses GitHub Issues as a bug tracker. This repository is here for that purpose&mdash;it does not contain the actual components source code.
+Kendo UI for Vue uses GitHub Issues as a bug tracker. This repository is here for that purpose&mdash;it does not contain the actual components source code. 
+
+In this repository you will also find examples of how our components can be integrated in more complex scenarios. 
+
+## Table of Contents  
+* [Features of Kendo UI for Vue suite](#features-of-kendo-ui-for-vue-suite)  
+* [Components planned for the next official release](#components-planned-for-the-next-release)  
+* [How do I…?](#how-do-i)  
+* [When do you plan on releasing Feature X](#when-do-you-plan-on-releasing-feature-x)  
+* [I think I found a bug](#i-think-i-found-a-bug)  
+* [I want to report a bug](#i-want-to-report-a-bug)  
+* [I need a tailor-made solution](#i-need-a-tailor-made-solution)  
+
+## Features of Kendo UI for Vue suite
+
+The following table lists the widgets and features available in Kendo UI for Vue Native suite. In this document you will also find a list of the components we plan to release with our next official release. 
+
+| Component name | Kendo UI for Vue Native |
+| ------- | :------------------: |
+| **Data Management**       |
+| [Grid](https://www.telerik.com/kendo-vue-ui/components/grid/)                 | :white_check_mark:           |
+| **Buttons**            |
+| [Button](https://www.telerik.com/kendo-vue-ui/components/buttons/button/)              | :white_check_mark:           |
+| [ButtonGroup](https://www.telerik.com/kendo-vue-ui/components/buttons/buttongroup/)    | :white_check_mark:           |
+| [Chip](https://www.telerik.com/kendo-vue-ui/components/buttons/chip/)    | :white_check_mark:           |
+| [ChipList](https://www.telerik.com/kendo-vue-ui/components/buttons/chiplist/)    | :white_check_mark:           |
+| [FloatingActionButton ](https://www.telerik.com/kendo-vue-ui/components/buttons/floatingactionbutton/)          | :white_check_mark:           |
+| **Dropdowns**            |
+| [AutoComplete](https://www.telerik.com/kendo-vue-ui/components/dropdowns/autocomplete/)              | :white_check_mark:           |
+| [ComboBox](https://www.telerik.com/kendo-vue-ui/components/dropdowns/combobox/)    | :white_check_mark:           |
+| [DropDownList](https://www.telerik.com/kendo-vue-ui/components/dropdowns/dropdownlist/)    | :white_check_mark:           |
+| [MultiSelect](https://www.telerik.com/kendo-vue-ui/components/dropdowns/multiselect/)    | :white_check_mark:           |
+| **Dialogs**            |
+| [Dialog](https://www.telerik.com/kendo-vue-ui/components/dialogs/dialog/)              | :white_check_mark:           |
+| [Window](https://www.telerik.com/kendo-vue-ui/components/dialogs/window/)    | :white_check_mark:           |
+| **Inputs**            |
+| [Input](https://www.telerik.com/kendo-vue-ui/components/inputs/input/)              | :white_check_mark:           |
+| [MaskedTextBox](https://www.telerik.com/kendo-vue-ui/components/inputs/maskedtextbox/)    | :white_check_mark:           |
+| [NumericTextBox](https://www.telerik.com/kendo-vue-ui/components/inputs/numerictextbox/)    | :white_check_mark:           |
+| [Slider](https://www.telerik.com/kendo-vue-ui/components/inputs/slider/)    | :white_check_mark:           |
+| [Checkbox](https://www.telerik.com/kendo-vue-ui/components/inputs/checkbox/)    | :white_check_mark:           |
+| [RadioButton](https://www.telerik.com/kendo-vue-ui/components/inputs/radiobutton/)    | :white_check_mark:           |
+| [RadioGroup](https://www.telerik.com/kendo-vue-ui/components/inputs/radiogroup/)    | :white_check_mark:           |
+| **Date Inputs**                |
+| [Calendar](https://www.telerik.com/kendo-vue-ui/components/dateinputs/calendar/)          | :white_check_mark:           |
+| [DateInput](https://www.telerik.com/kendo-vue-ui/components/dateinputs/dateinput/)          | :white_check_mark:           |
+| [DatePicker](https://www.telerik.com/kendo-vue-ui/components/dateinputs/datepicker/)          | :white_check_mark:           |
+| [DateTimePicker](https://www.telerik.com/kendo-vue-ui/components/dateinputs/datetimepicker/)          | :white_check_mark:           |
+| [TimePicker](https://www.telerik.com/kendo-vue-ui/components/dateinputs/timepicker/)          | :white_check_mark:           |
+| **Layout**                |
+| [Avatar](https://www.telerik.com/kendo-vue-ui/components/layout/avatar/)          | :white_check_mark:           |
+| [Card](https://www.telerik.com/kendo-vue-ui/components/layout/card/)          | :white_check_mark:           |
+| [TabStrip](https://www.telerik.com/kendo-vue-ui/components/layout/tabstrip/)          | :white_check_mark:           |
+| **Data Tools**                |
+| [Pager](https://www.telerik.com/kendo-vue-ui/components/datatools/pager/)          | :white_check_mark:           |
+| **Animations**                |
+| [Expand](https://www.telerik.com/kendo-vue-ui/components/animation/api/ExpandProps/)          | :white_check_mark:           |
+| [Fade](https://www.telerik.com/kendo-vue-ui/components/animation/api/FadeProps/)          | :white_check_mark:           |
+| [Push](https://www.telerik.com/kendo-vue-ui/components/animation/api/PushProps/)          | :white_check_mark:           |
+| [Reveal](https://www.telerik.com/kendo-vue-ui/components/animation/api/RevealProps/)          | :white_check_mark:           |
+| [Slide](https://www.telerik.com/kendo-vue-ui/components/animation/api/SlideProps/)          | :white_check_mark:           |
+| [Zoom](https://www.telerik.com/kendo-vue-ui/components/animation/api/ZoomProps/)          | :white_check_mark:           |
+| **Popup**                |
+| [Popup](https://www.telerik.com/kendo-vue-ui/components/popup/)          | :white_check_mark:           |
+| **Upload**                |
+| [Upload](https://www.telerik.com/kendo-vue-ui/components/upload/)          | :white_check_mark:           |
+| **Form**                |
+| [Form](https://www.telerik.com/kendo-vue-ui/components/form/)          | :white_check_mark:           |
+| **Labels**                |
+| [Label](https://www.telerik.com/kendo-vue-ui/components/labels/label/)          | :white_check_mark:           |
+| [FloatingLabel](https://www.telerik.com/kendo-vue-ui/components/labels/floating-label/)          | :white_check_mark:           |
+| [Hint](https://www.telerik.com/kendo-vue-ui/components/labels/hint/)          | :white_check_mark:           |
+| [Error](https://www.telerik.com/kendo-vue-ui/components/labels/error/)          | :white_check_mark:           |
+| **Tools & Features**   |
+| [Data Query](https://www.telerik.com/kendo-vue-ui/components/dataquery/)        | :white_check_mark:           |
+| [Date Math](https://www.telerik.com/kendo-vue-ui/components/datemath/)        | :white_check_mark:           |
+| [Drawing](https://www.telerik.com/kendo-vue-ui/components/drawing/)        | :white_check_mark:           |
+| [Excel Export](https://www.telerik.com/kendo-vue-ui/components/excel-export/) | :white_check_mark: | :white_check_mark: | :white_check_mark:   |
+| [File Saver](https://www.telerik.com/kendo-vue-ui/components/filesaver/) | :white_check_mark: | :white_check_mark: | :white_check_mark:   |
+| [Globalization](https://www.telerik.com/kendo-vue-ui/components/intl/)| :white_check_mark:           |
+| [Localization](https://www.telerik.com/kendo-vue-ui/components/intl/localization/) | :white_check_mark:           |
+| [PDF Processing](https://www.telerik.com/kendo-vue-ui/components/pdf-processing/)      | :white_check_mark:           |
+| [ThemeBuilder](https://www.telerik.com/kendo-vue-ui/components/styling/theme-builder/)        | :white_check_mark:           |
+
+
+## Components planned for the next release
+
+| Component name | Kendo UI for Vue Native |
+| ------- | :------------------: |
+| **Chart**              | Planned for R1 2022           |
+| **Editor**              | Planned for R1 2022           |
+| **Gauge**              | Planned for R1 2022           |
+| **Loader**              | Planned for R1 2022           |
+| **Menu**              | Planned for R1 2022           |
+
 
 ## How do I&hellip;?
 
