@@ -1,0 +1,45 @@
+{
+  "name": "vue3-typescript-tests",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "@progress/kendo-licensing": "^1.1.4",
+    "@progress/kendo-vue-data-tools": "latest",
+    "@progress/kendo-vue-dropdowns": "latest",
+    "@progress/kendo-vue-dateinputs": "latest",
+    "@progress/kendo-data-query": "latest",
+    "@progress/kendo-drawing": "latest",
+    "@progress/kendo-vue-inputs": "latest",
+    "@progress/kendo-vue-grid": "latest",
+    "@progress/kendo-vue-intl": "latest",
+    "core-js": "^3.8.1",
+    "vue": "^3.2.9"
+  },
+  "latestDependencies": {
+    "@types/jest": "^24.9.1",
+    "@vue/cli-plugin-babel": "^4.5.9",
+    "@vue/cli-plugin-typescript": "^4.5.9",
+    "@vue/cli-plugin-unit-jest": "^4.5.9",
+    "@vue/cli-service": "^4.5.9",
+    "@vue/compiler-sfc": "^3.1.4",
+    "@vue/test-utils": "^2.0.0-rc.14",
+    "typescript": "^3.9.7",
+    "vue-jest": "^5.0.0-alpha.10"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "jest": {
+    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
+    "transform": {
+      "^.+\\.vue$": "vue-jest"
+    }
+  }
+}
