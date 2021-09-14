@@ -68,6 +68,24 @@ The following table lists the widgets and features available in Kendo UI for Vue
 | [Upload](https://www.telerik.com/kendo-vue-ui/components/upload/)          | :white_check_mark:           |
 | **Form**                |
 | [Form](https://www.telerik.com/kendo-vue-ui/components/form/)          | :white_check_mark:           |
+| **Charts**                |
+| [Area](https://www.telerik.com/kendo-vue-ui/components/charts/area/)          | :white_check_mark:           |
+| [Bar](https://www.telerik.com/kendo-vue-ui/components/charts/bar/)          | :white_check_mark:           |
+| [Box Plot](https://www.telerik.com/kendo-vue-ui/components/charts/box-plot/)          | :white_check_mark:           |
+| [Bubble](https://www.telerik.com/kendo-vue-ui/components/charts/bubble/)          | :white_check_mark:           |
+| [Bullet](https://www.telerik.com/kendo-vue-ui/components/charts/bullet/)          | :white_check_mark:           |
+| [Donut](https://www.telerik.com/kendo-vue-ui/components/charts/donut/)          | :white_check_mark:           |
+| [Funnel](https://www.telerik.com/kendo-vue-ui/components/charts/)          | :white_check_mark:           |
+| [Line](https://www.telerik.com/kendo-vue-ui/components/charts/)          | :white_check_mark:           |
+| [Pie](https://www.telerik.com/kendo-vue-ui/components/charts/)          | :white_check_mark:           |
+| [Polar](https://www.telerik.com/kendo-vue-ui/components/charts/)          | :white_check_mark:           |
+| [Radar](https://www.telerik.com/kendo-vue-ui/components/charts/)          | :white_check_mark:           |
+| [Range Area](https://www.telerik.com/kendo-vue-ui/components/charts/)          | :white_check_mark:           |
+| [Range Bar](https://www.telerik.com/kendo-vue-ui/components/charts/)          | :white_check_mark:           |
+| [Scatter](https://www.telerik.com/kendo-vue-ui/components/charts/)          | :white_check_mark:           |
+| [Sparkline](https://www.telerik.com/kendo-vue-ui/components/charts/sparkline/)          | :white_check_mark:           |
+| [StockChart](https://www.telerik.com/kendo-vue-ui/components/charts/stockchart/)          | :white_check_mark:           |
+| [Waterfall](https://www.telerik.com/kendo-vue-ui/components/charts/waterfall)          | :white_check_mark:           |
 | **Labels**                |
 | [Label](https://www.telerik.com/kendo-vue-ui/components/labels/label/)          | :white_check_mark:           |
 | [FloatingLabel](https://www.telerik.com/kendo-vue-ui/components/labels/floating-label/)          | :white_check_mark:           |
@@ -89,7 +107,6 @@ The following table lists the widgets and features available in Kendo UI for Vue
 
 | Component name | Kendo UI for Vue Native |
 | ------- | :------------------: |
-| **Chart**              | Planned for R1 2022           |
 | **Editor**              | Planned for R1 2022           |
 | **Gauge**              | Planned for R1 2022           |
 | **Loader**              | Planned for R1 2022           |

@@ -1,0 +1,33 @@
+{
+  "name": "kendo-nuxt",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@progress/kendo-licensing": "1.2.0",
+    "@progress/kendo-vue-animation": "dev",
+    "@progress/kendo-drawing": "1.11.0",
+    "@progress/kendo-data-query": "1.5.5",
+    "@progress/kendo-vue-dropdowns": "dev",
+    "@progress/kendo-vue-charts": "dev",
+    "@progress/kendo-vue-inputs": "dev",
+    "@progress/kendo-vue-intl": "dev",
+    "@progress/kendo-vue-dateinputs": "dev",
+    "@progress/kendo-vue-pdf": "dev",
+    "@progress/kendo-vue-excel-export": "dev",
+    "cldr-core": "36.0.0",
+    "cldr-numbers-full": "36.0.0",
+    "cldr-dates-full": "36.0.0",
+    "@progress/kendo-vue-grid": "dev",
+    "@progress/kendo-vue-data-tools": "dev",
+    "@progress/kendo-vue-popup": "dev",
+    "core-js": "^3.15.1",
+    "nuxt": "^2.15.7"
+  },
+  "devDependencies": {}
+}
