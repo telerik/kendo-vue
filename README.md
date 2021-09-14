@@ -102,6 +102,10 @@ The following table lists the widgets and features available in Kendo UI for Vue
 | [PDF Processing](https://www.telerik.com/kendo-vue-ui/components/pdf-processing/)      | :white_check_mark:           |
 | [ThemeBuilder](https://www.telerik.com/kendo-vue-ui/components/styling/theme-builder/)        | :white_check_mark:           |
 
+## When do you plan on releasing Feature X?
+
+1. Check the [Roadmap](https://www.telerik.com/support/whats-new/kendo-vue-ui/roadmap) for the planned items.
+1. If the item you need is not present there, [check our feedback portal](https://feedback.telerik.com/kendo-vue-ui). If someone has already posted it there, you can upvote it. If nobody has requested it so far, you can post a new idea.
 
 ## Components planned for the next release
 
@@ -118,11 +122,6 @@ The following table lists the widgets and features available in Kendo UI for Vue
 1. Check out the [**Components** &nearr;](https://www.telerik.com/kendo-vue-ui/components/)or  [**Troubleshooting** &nearr;](http://www.telerik.com/kendo-vue-ui/components/troubleshooting/) pages.
 1. Browse the [kendo-vue-ui &nearr;](https://stackoverflow.com/questions/tagged/kendo-vue-ui) questions on Stack Overflow. If you haven't found what you are looking for there, pose a question for the Stack Overflow community to follow or answer.
 1. Use our official support channel and [submit a support ticket &nearr;](https://www.telerik.com/account/support-tickets).
-
-## When do you plan on releasing Feature X?
-
-1. Check the [Roadmap](https://www.telerik.com/kendo-vue-ui/roadmap/) for the planned items.
-1. If the item you need is not present there, [check our feedback portal](https://feedback.telerik.com/kendo-vue-ui). If someone has already posted it there, you can upvote it. If nobody has requested it so far, you can post a new idea.
 
 ## I think I found a bug
 
