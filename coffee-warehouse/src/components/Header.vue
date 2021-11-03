@@ -1,5 +1,4 @@
 <template>
-  <link rel="stylesheet" :href="theme" />
   <div class="header header-bg">
     <div class="nav-container">
       <div class="title">
@@ -51,7 +50,7 @@ export default {
   },
   emits: {
     localeChange: null,
-    themeChange: null
+    themeChange: null,
   },
   inject: {
     kendoLocalizationService: { default: null },
@@ -70,6 +69,11 @@ export default {
   methods: {
     onThemeChange(e) {
       this.theme = e.value.href;
+      const linkTag = document.getElementById("theme-link");
+      linkTag.setAttribute(
+        "href",
+        `/static/themes/kendo-theme-${this.theme}/all.css`
+      );
       this.$emit("themeChange", e.value.text);
     },
     localeChange(e) {
@@ -82,20 +86,18 @@ export default {
   },
   data() {
     return {
-      theme:
-        "https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css",
-
+      theme: "default",
       themes: [
         {
-          href: "https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css",
+          href: "default",
           text: "Default",
         },
         {
-          href: "https://unpkg.com/@progress/kendo-theme-bootstrap@latest/dist/all.css",
+          href: "bootstrap",
           text: "Bootstrap",
         },
         {
-          href: "https://unpkg.com/@progress/kendo-theme-material@latest/dist/all.css",
+          href: "material",
           text: "Material",
         },
       ],
@@ -127,8 +129,11 @@ export default {
 .ddl-theme {
   width: 60px;
 }
+.localeDropDownList {
+  min-width: 100px;
+}
 
-.k-widget.k-dropdown{
+.k-widget.k-dropdown {
   min-height: 30px;
 }
 </style>
