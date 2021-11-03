@@ -234,3 +234,8 @@ $container-max-widths: (
 .k-menu-vertical > .k-menu-item.default > .k-menu-link {
   color: #424242;
 }
+
+.k-widget.k-dropdown.localeDropDownList, .k-widget.k-dropdown.ddl-theme{
+  background-color: #f5f5f5;
+  border-radius: 2px;
+}
