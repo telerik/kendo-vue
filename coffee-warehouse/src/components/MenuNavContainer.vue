@@ -14,17 +14,17 @@ export default {
   },
   mounted() {
     this.$router.push(this.items[0].data);
-    this.setSelectedState(
-      this.selectedMenuItem,
-      this.currentTheme.toLowerCase()
-    );
+    this.selectedItemID = 1;
   },
   inject: {
     kendoLocalizationService: { default: null },
   },
   watch: {
-    currentTheme(currentTheme) {
-      this.setSelectedState(this.selectedMenuItem, currentTheme.toLowerCase());
+    currentTheme() {
+      this.updateSelectedMenuItem(this.selectedMenuItem);
+    },
+    selectedItemID(e) {
+      this.updateSelectedMenuItem(e);
     },
   },
   data() {
@@ -34,6 +34,7 @@ export default {
       dashboardClass: "",
       profileClass: "",
       infoClass: "",
+      selectedItemID: null,
     };
   },
   computed: {
@@ -118,36 +119,27 @@ export default {
     },
   },
   methods: {
-    setSelectedState(id, theme) {
-      if (id === 1) {
-        this.teamClass = theme + " k-state-selected";
-        this.dashboardClass = theme;
-        this.profileClass = theme;
-        this.infoClass = theme;
-        this.selectedMenuItem = id;
-      } else if (id === 2) {
-        this.teamClass = theme;
-        this.dashboardClass = theme + " k-state-selected";
-        this.profileClass = theme;
-        this.infoClass = theme;
-        this.selectedMenuItem = id;
-      } else if (id === 3) {
-        this.teamClass = theme;
-        this.dashboardClass = theme;
-        this.profileClass = theme + " k-state-selected";
-        this.infoClass = theme;
-        this.selectedMenuItem = id;
-      } else if (id === 4) {
-        this.teamClass = theme;
-        this.dashboardClass = theme;
-        this.profileClass = theme;
-        this.infoClass = theme + " k-state-selected";
-        this.selectedMenuItem = id;
-      }
-    },
     onSelect(e) {
       this.$router.push(e.item.data);
-      this.setSelectedState(e.item.id, this.currentTheme.toLowerCase());
+      this.selectedItemID = e.item.id;
+    },
+    updateSelectedMenuItem(menuItemID) {
+      this.teamClass =
+        menuItemID === 1
+          ? this.currentTheme + " k-state-selected"
+          : this.currentTheme;
+      this.dashboardClass =
+        menuItemID === 2
+          ? this.currentTheme + " k-state-selected"
+          : this.currentTheme;
+      this.profileClass =
+        menuItemID === 3
+          ? this.currentTheme + " k-state-selected"
+          : this.currentTheme;
+      this.infoClass =
+        menuItemID === 4
+          ? this.currentTheme + " k-state-selected"
+          : this.currentTheme;
     },
   },
 };

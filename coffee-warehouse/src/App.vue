@@ -5,7 +5,7 @@
         <Header @localeChange="onLocaleChange" @themeChange="onThemeChange" />
         <div class="content-wrapper">
           <div class="column">
-            <MenuNavContainer :current-theme="currentTheme" />
+            <MenuNavContainer :current-theme="currentTheme.toLowerCase()" />
           </div>
           <div class="column content">
             <div class="k-drawer-container k-drawer-mini k-drawer-push">
