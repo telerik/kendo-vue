@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <div class="card-header-wrapper">
       <h3 class="card-title">{{ teamMembersMessage }}</h3>
       <buttongroup>
@@ -23,7 +23,7 @@
     <pdfexport ref="gridPdfExport">
       <Grid
         ref="grid"
-        :style="{ height: '500px'}"
+        :style="{ height: '500px' }"
         :data-items="gridData"
         :resizable="true"
         :reorderable="true"
@@ -67,14 +67,22 @@
           </span>
         </toolbar>
         <template v-slot:contactTemplate="{ props }">
-          <td><contact :data-item="props.dataItem"></contact></td>
+          <td>
+            <contact
+              v-if="props.rowType !== 'groupHeader'"
+              :data-item="props.dataItem"
+            ></contact>
+          </td>
         </template>
         <template v-slot:flagTemplate="{ props }">
           <td class="text-center"><flag :data-item="props.dataItem"></flag></td>
         </template>
         <template v-slot:isOnlineTemplate="{ props }">
           <td class="text-center">
-            <isonline :data-item="props.dataItem"></isonline>
+            <isonline
+              v-if="props.rowType !== 'groupHeader'"
+              :data-item="props.dataItem"
+            ></isonline>
           </td>
         </template>
         <template v-slot:budgetTemplate="{ props }">
@@ -228,7 +236,7 @@ export default {
             {
               field: "address",
               title: this.addressMessage,
-              minResizableWidth: "220px",
+              width: "400px",
             },
           ],
         },
