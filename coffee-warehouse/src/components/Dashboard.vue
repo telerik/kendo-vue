@@ -1,142 +1,134 @@
 <template>
   <div>
-    <localization :language="localizationLanguage">
-      <div class="card-header-wrapper">
-        <h3 class="card-title">{{ teamEfficiencyMessage }}</h3>
-        <buttongroup>
-          <k-button
-            :togglable="true"
-            @click="buttonGroupClick($event, 0)"
-            :selected="selectedIndex === 0"
-          >
-            {{ trendMessage }}
-          </k-button>
-          <k-button
-            :togglable="true"
-            @click="buttonGroupClick($event, 1)"
-            :selected="selectedIndex === 1"
-          >
-            {{ volumeMessage }}
-          </k-button>
-        </buttongroup>
-        <div class="card-ranges">
-          <datepicker
-            style="width: 120px"
-            :value="dateRange.start"
-            @change="onFromDateChange"
-          >
-          </datepicker>
-          <span> - </span>
-          <datepicker
-            style="width: 120px"
-            :value="dateRange.end"
-            @change="onToDateChange"
-          >
-          </datepicker>
-        </div>
+    <div class="card-header-wrapper">
+      <h3 class="card-title">{{ teamEfficiencyMessage }}</h3>
+      <buttongroup>
+        <k-button
+          :togglable="true"
+          @click="buttonGroupClick($event, 0)"
+          :selected="selectedIndex === 0"
+        >
+          {{ trendMessage }}
+        </k-button>
+        <k-button
+          :togglable="true"
+          @click="buttonGroupClick($event, 1)"
+          :selected="selectedIndex === 1"
+        >
+          {{ volumeMessage }}
+        </k-button>
+      </buttongroup>
+      <div class="card-ranges">
+        <datepicker
+          style="width: 120px"
+          :value="dateRange.start"
+          @change="onFromDateChange"
+        >
+        </datepicker>
+        <span> - </span>
+        <datepicker
+          style="width: 120px"
+          :value="dateRange.end"
+          @change="onToDateChange"
+        >
+        </datepicker>
       </div>
-      <div v-if="selectedIndex===0">
-        <Chart>
-          <ChartTooltip :render="myToolTipTemplate">
-            <template v-slot:myToolTipTemplate="{ props = { point: {} } }">
-              <div>
+    </div>
+    <div v-if="selectedIndex === 0">
+      <Chart>
+        <ChartTooltip :render="myToolTipTemplate">
+          <template v-slot:myToolTipTemplate="{ props = { point: {} } }">
+            <div>
+              {{
+                provideIntlService(this)
+                  .formatDate(props.point.category, "MMMM yyyy")
+                  .toUpperCase()
+              }}
+              <br />
+              <div class="chart-tooltip">
                 {{
-                  provideIntlService(this)
-                    .formatDate(props.point.category, "MMMM yyyy")
-                    .toUpperCase()
+                  provideIntlService(this).formatNumber(props.point.value, "n3")
                 }}
-                <br />
-                <div class="chart-tooltip">
-                  {{
-                    provideIntlService(this).formatNumber(
-                      props.point.value,
-                      "n3"
-                    )
-                  }}
-                </div>
               </div>
-            </template>
-          </ChartTooltip>
-          <ChartLegend
-            :position="'bottom'"
-            :orientation="'horizontal'"
-            :background="'#f4f5f8'"
-            :spacing="140"
-            :padding="{ left: 80, right: 80 }"
-          >
-          </ChartLegend>
-          <ChartCategoryAxis>
-            <ChartCategoryAxisItem
-              :labels="{ format: 'MMMM yyyy', rotation: 'auto' }"
-              :base-unit="'months'"
-              :min="dateRange.start"
-              :max="dateRange.end"
-              :categories="categories"
-            />
-          </ChartCategoryAxis>
-          <ChartSeries>
-            <ChartSeriesItem
-              v-for="(item, index) in series"
-              :key="index"
-              :type="'line'"
-              :data-items="item.data"
-              :name="item.name"
-            />
-          </ChartSeries>
-        </Chart>
-      </div>
-      <div v-else>
-        <Chart>
-          <ChartTooltip :render="myToolTipLineTemplate">
-            <template v-slot:myToolTipLineTemplate="{ props = { point: {} } }">
-              <div>
+            </div>
+          </template>
+        </ChartTooltip>
+        <ChartLegend
+          :position="'bottom'"
+          :orientation="'horizontal'"
+          :background="'#f4f5f8'"
+          :spacing="140"
+          :padding="{ left: 80, right: 80 }"
+        >
+        </ChartLegend>
+        <ChartCategoryAxis>
+          <ChartCategoryAxisItem
+            :labels="{ format: 'MMMM yyyy', rotation: 'auto' }"
+            :base-unit="'months'"
+            :min="dateRange.start"
+            :max="dateRange.end"
+            :categories="categories"
+          />
+        </ChartCategoryAxis>
+        <ChartSeries>
+          <ChartSeriesItem
+            v-for="(item, index) in series"
+            :key="index"
+            :type="'line'"
+            :data-items="item.data"
+            :name="item.name"
+          />
+        </ChartSeries>
+      </Chart>
+    </div>
+    <div v-else>
+      <Chart>
+        <ChartTooltip :render="myToolTipLineTemplate">
+          <template v-slot:myToolTipLineTemplate="{ props = { point: {} } }">
+            <div>
+              {{
+                provideIntlService(this)
+                  .formatDate(props.point.category, "MMMM yyyy")
+                  .toUpperCase()
+              }}
+              <br />
+              <div class="chart-tooltip">
                 {{
-                  provideIntlService(this)
-                    .formatDate(props.point.category, "MMMM yyyy")
-                    .toUpperCase()
+                  provideIntlService(this).formatNumber(props.point.value, "n3")
                 }}
-                <br />
-                <div class="chart-tooltip">
-                  {{
-                    provideIntlService(this).formatNumber(
-                      props.point.value,
-                      "n3"
-                    )
-                  }}
-                </div>
               </div>
-            </template>
-          </ChartTooltip>
-          <ChartLegend
-            :position="'bottom'"
-            :orientation="'horizontal'"
-            :background="'#f4f5f8'"
-            :spacing="140"
-            :padding="{ left: 80, right: 80 }"
-          >
-          </ChartLegend>
-          <ChartCategoryAxis>
-            <ChartCategoryAxisItem
-              :labels="{ format: 'MMMM yyyy', rotation: 'auto' }"
-              :base-unit="'months'"
-              :min="dateRange.start"
-              :max="dateRange.end"
-              :categories="categories"
-            />
-          </ChartCategoryAxis>
-          <ChartSeries>
-            <ChartSeriesItem
-              v-for="(item, index) in series"
-              :key="index"
-              :type="'column'"
-              :data-items="item.data"
-              :color="item.color"
-              :name="item.name"
-            />
-          </ChartSeries>
-        </Chart>
-      </div>
-    </localization>
+            </div>
+          </template>
+        </ChartTooltip>
+        <ChartLegend
+          :position="'bottom'"
+          :orientation="'horizontal'"
+          :background="'#f4f5f8'"
+          :spacing="140"
+          :padding="{ left: 80, right: 80 }"
+        >
+        </ChartLegend>
+        <ChartCategoryAxis>
+          <ChartCategoryAxisItem
+            :labels="{ format: 'MMMM yyyy', rotation: 'auto' }"
+            :base-unit="'months'"
+            :min="dateRange.start"
+            :max="dateRange.end"
+            :categories="categories"
+          />
+        </ChartCategoryAxis>
+        <ChartSeries>
+          <ChartSeriesItem
+            v-for="(item, index) in series"
+            :key="index"
+            :type="'column'"
+            :data-items="item.data"
+            :color="item.color"
+            :name="item.name"
+          />
+        </ChartSeries>
+      </Chart>
+    </div>
   </div>
 </template>
 
@@ -156,7 +148,6 @@ import { DatePicker } from "@progress/kendo-vue-dateinputs";
 import {
   provideIntlService,
   provideLocalizationService,
-  LocalizationProvider,
 } from "@progress/kendo-vue-intl";
 
 import { orders } from "../assets/orders.js";
@@ -177,7 +168,6 @@ export default {
     "k-button": Button,
     buttongroup: ButtonGroup,
     datepicker: DatePicker,
-    localization: LocalizationProvider,
   },
   inject: {
     kendoIntlService: { default: null },
