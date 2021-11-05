@@ -1,8 +1,7 @@
 <template>
-  <span v-if="dataItem.budget < 0" class="red text-bold"
+  <span :class="[dataItem.budget < 0 ? 'red text-bold' : '']"
     >{{ formattedNumber }}
   </span>
-  <span v-else>{{ formattedNumber }} </span>
 </template>
 
 <script>
