@@ -23,7 +23,7 @@ export default {
   },
   watch: {
     currentTheme() {
-      this.updateSelectedMenuItem(this.selectedMenuItem);
+      this.updateSelectedMenuItem(this.selectedItemID);
     },
     selectedItemID(e) {
       this.updateSelectedMenuItem(e);
@@ -31,7 +31,6 @@ export default {
   },
   data() {
     return {
-      selectedMenuItem: 1,
       teamClass: "",
       dashboardClass: "",
       profileClass: "",
