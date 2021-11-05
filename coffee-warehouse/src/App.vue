@@ -4,7 +4,7 @@
       <intl :locale="locale">
         <Header @localeChange="onLocaleChange" @themeChange="onThemeChange" />
         <div class="content-wrapper">
-          <div class="column">
+          <div class="column menu">
             <MenuNavContainer :current-theme="currentTheme.toLowerCase()" />
           </div>
           <div class="column content">
@@ -120,9 +120,10 @@ export default {
   display: inline-block;
 }
 
-.column.content {
-  min-width: 1130px;
+.column.content{
+  min-width: 500px;
 }
+
 
 .k-item.k-menu-item.k-drawer-item.k-state-selected {
   color: #ffffff;
@@ -131,7 +132,6 @@ export default {
 .content-wrapper {
   display: grid;
   grid-template-columns: 220px 1fr;
-  width: 50%;
 }
 
 .k-drawer-container.k-drawer-push {

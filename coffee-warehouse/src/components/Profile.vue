@@ -1,5 +1,5 @@
 <template>
-<div style="display: flex; justify-content: center">
+<div>
   <k-form @submit="handleSubmit" :initial-values="formValues">
     <formcontent />
   </k-form>

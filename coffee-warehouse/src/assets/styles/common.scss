@@ -14,6 +14,7 @@ a {
 // App styles
 .k-drawer-container {
     background-color: $background-color;
+    min-height: 100%;
 
     .k-drawer {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -39,6 +40,7 @@ a {
 }
 
 .card-container {
+    min-height: 100%;
     background-color: $white;
     padding: 40px 0;
     text-align: center;
@@ -101,6 +103,9 @@ a {
 }
 
 @media (min-width: 480px) {
+    .content-wrapper > .column.menu{
+        display: none;
+    }
     .card-container {
         text-align: initial;
         padding: 30px;
@@ -129,6 +134,9 @@ a {
 }
 
 @media (min-width: 768px) {
+    .content-wrapper > .column.menu{
+        display: inherit;
+    }
     .card-container {
         margin: 25px;
         border-radius: 5px;
@@ -449,7 +457,6 @@ a {
 
 // Info page
 .info-page {
-    height: 870px;
     background-color: #06163e;
     background-image: url('./assets/images/info-bg.png');
     background-position: right 0px top 0px;
@@ -471,7 +478,8 @@ a {
         padding-top: 40px;
         margin: 0 auto;
         position: relative;
-        max-width: 1040px;
+        background-image: url('./assets/images/info-bg-line.png');
+        background-repeat: repeat-y;
     }
 
     .section-1 {
@@ -558,7 +566,7 @@ a {
 @media (min-width: 480px) {
     .info-page {
         .content {
-            padding: 40px 40px 0;
+            padding: 40px 40px 40px;
         }
 
         .section-1 {

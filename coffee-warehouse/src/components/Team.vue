@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <div class="card-header-wrapper">
       <h3 class="card-title">{{ teamMembersMessage }}</h3>
       <buttongroup>
@@ -23,7 +23,7 @@
     <pdfexport ref="gridPdfExport">
       <Grid
         ref="grid"
-        :style="{ height: '500px' }"
+        :style="{ height: '500px'}"
         :data-items="gridData"
         :resizable="true"
         :reorderable="true"
@@ -228,7 +228,7 @@ export default {
             {
               field: "address",
               title: this.addressMessage,
-              width: "200px",
+              minResizableWidth: "220px",
             },
           ],
         },

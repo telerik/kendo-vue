@@ -1,5 +1,5 @@
 <template>
-  <form-element :horizontal="true" :style="{ width: '700px' }">
+  <form-element :horizontal="true" :style="{ 'max-width': '700px', margin: '0 auto' }">
     <fieldset class="k-form-fieldset">
       <field :id="'avatar'" :name="'avatar'" :component="'myTemplate'">
         <template v-slot:myTemplate="{ props }">

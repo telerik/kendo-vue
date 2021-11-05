@@ -1,5 +1,7 @@
 <template>
-  <kendo-menu :items="items" @select="onSelect" :vertical="true" />
+  <div>
+    <kendo-menu :items="items" @select="onSelect" :vertical="true" />
+  </div>
 </template>
 <script>
 import { Menu } from "@progress/kendo-vue-layout";
