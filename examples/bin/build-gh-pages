@@ -13,7 +13,7 @@ do
   echo Building ${PROJECT}
   npm ci
   rm -rf dist
-  node --max_old_space_size=6144 npm run build 
+  npm run build
   mv dist ../../examples/dist
 
   popd > /dev/null
