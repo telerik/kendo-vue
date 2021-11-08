@@ -72,7 +72,7 @@ export default {
       const linkTag = document.getElementById("theme-link");
       linkTag.setAttribute(
         "href",
-        `/static/themes/kendo-theme-${this.theme}/all.css`
+        `${process.env.BASE_URL}/static/themes/kendo-theme-${this.theme}/all.css`
       );
       this.$emit("themeChange", e.value.text);
     },
