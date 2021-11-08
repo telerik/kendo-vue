@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
 # Builds example projects and deploys them to GH Pages
-STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse)
+STANDALONE_PROJECTS=(coffee-warehouse)
 
 set -e
-
-# Workspace Projects
-npm ci
-rm -rf dist
 
 # Standalone Projects
 for PROJECT in "${STANDALONE_PROJECTS[@]}"
@@ -17,8 +13,8 @@ do
   echo Building ${PROJECT}
   npm ci
   rm -rf dist
-  node --max_old_space_size=6144 npm run build --prod --base-href
-  mv dist/${PROJECT} ../../examples/dist
+  node --max_old_space_size=6144 npm run build 
+  mv dist ../../examples/dist
 
   popd > /dev/null
 done
