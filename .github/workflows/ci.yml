@@ -1,0 +1,33 @@
+# Builds and tests example applications
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+env:
+  NODE_OPTIONS: --max_old_space_size=6144
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use NodeJS v12
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Build Coffee warehouse app
+        working-directory: ./examples-standalone/coffee-warehouse
+        run: |
+          npm ci
+          npm run build
+
+      - name: Cleanup
+        run: git clean -xdf
+
