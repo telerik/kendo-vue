@@ -15,7 +15,6 @@ export default {
     "kendo-menu": Menu,
   },
   mounted() {
-    this.$router.push(this.items[0].data);
     this.selectedItemID = 1;
   },
   inject: {
@@ -51,7 +50,7 @@ export default {
           },
           icon: "k-icon k-i-grid",
           data: {
-            path: "/Team",
+            path: "/",
           },
           id: 1,
         },

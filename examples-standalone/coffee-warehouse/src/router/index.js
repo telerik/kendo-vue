@@ -6,7 +6,7 @@ import Info from "../components/Info";
 
 const routes = [
   {
-    path: "/Team",
+    path: "/",
     name: "Team",
     component: Team
   },
