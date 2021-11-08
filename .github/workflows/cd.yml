@@ -26,9 +26,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Install modules
-        run: npm ci
-
       - name: Build
         run: ./bin/build-gh-pages
         env:
