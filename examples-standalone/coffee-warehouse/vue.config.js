@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/kendo-vue/coffee-warehouse/' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/kendo-vue/coffee-warehouse/' : '',
     chainWebpack: config => {
       config.performance
         .maxEntrypointSize(400000)
