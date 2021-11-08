@@ -15,7 +15,7 @@ do
   rm -rf dist
   npm run build
   mkdir -p ../../examples/dist/${PROJECT}
-  mv dist ../../examples/dist/${PROJECT}
+  mv -v dist/* ../../examples/dist/${PROJECT}
 
   popd > /dev/null
 done
