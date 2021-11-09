@@ -9,7 +9,7 @@
           <a
             class="github-link"
             target="_blank"
-            href="https://github.com/telerik/kendo-vue/tree/master/coffee-warehouse"
+            href="https://github.com/telerik/kendo-vue/tree/master/examples-standalone/coffee-warehouse"
           >
             <img src="../assets/images/github-icon.svg" alt="github icon" />
             <span class="github-text">
