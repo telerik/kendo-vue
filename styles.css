@@ -12,7 +12,7 @@ body, h1, h2, h3 {
 .info-page {
   height: 100%;
   background-image: url('./assets/images/info-bg.png');
-  background-position: right 0px top 0px;
+  background-position: center 0px top 0px;
   color: #FFFFFF;
   background-repeat: no-repeat;
   opacity: 0.9;
@@ -29,7 +29,9 @@ body, h1, h2, h3 {
 .content-wrapper {
   padding-top: 40 px;
   height: 100%;
+  background-color: #172c4d;
   background-image: url('./assets/images/info-bg-line.png');
+  background-position: center 0px top 0px;
   background-repeat: repeat-y;
 }
 
