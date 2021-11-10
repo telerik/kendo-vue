@@ -75,7 +75,12 @@
           </td>
         </template>
         <template v-slot:flagTemplate="{ props }">
-          <td class="text-center"><flag :data-item="props.dataItem"></flag></td>
+          <td class="text-center">
+            <flag
+              v-if="props.rowType !== 'groupHeader'"
+              :data-item="props.dataItem"
+            ></flag>
+          </td>
         </template>
         <template v-slot:isOnlineTemplate="{ props }">
           <td class="text-center">
@@ -87,12 +92,18 @@
         </template>
         <template v-slot:budgetTemplate="{ props }">
           <td class="text-center">
-            <budget :data-item="props.dataItem"></budget>
+            <budget
+              v-if="props.rowType !== 'groupHeader'"
+              :data-item="props.dataItem"
+            ></budget>
           </td>
         </template>
         <template v-slot:engagementTemplate="{ props }">
           <td class="text-center">
-            <engagement :data-item="props.dataItem"></engagement>
+            <engagement
+              v-if="props.rowType !== 'groupHeader'"
+              :data-item="props.dataItem"
+            ></engagement>
           </td>
         </template>
       </Grid>
