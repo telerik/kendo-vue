@@ -1,4 +1,71 @@
-html {
+html, body {
   font-family: sans-serif;
   line-height: 1.15;
+  height: 100%;
+}
+
+body, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.info-page {
+  height: 100%;
+  background-image: url('./assets/images/info-bg.png');
+  background-position: right 0px top 0px;
+  color: #FFFFFF;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
+.info-page .component-link, .info-page h1, .info-page h2, .info-page h3 {
+  font-family: Metric, Helvetica, Arial, sans-serif;
+}
+
+.info-page .section-1 {
+  text-align: center;
+}
+
+.content-wrapper {
+  padding-top: 40 px;
+  height: 100%;
+  background-image: url('./assets/images/info-bg-line.png');
+  background-repeat: repeat-y;
+}
+
+.content {
+  min-height: 100 vh;
+}
+
+h3 {
+  margin-bottom: 2em;
+}
+
+.info-page a:not(.k-button) {
+  color: #71a6ff;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  padding-block-start: 1.67em;
+  padding-block-end: 0.67em;
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+  font-weight: bold;
+}
+
+.card-container {
+  min-height: 100%;
+  background-color: #fff;
+  padding: 40 px 0;
+  text-align: center;
+}
+
+.info-page .section-1 h1 {
+  font-weight: 700;
+}
+
+.github-link {
+  margin-top: 2.67em;
 }
