@@ -1,6 +1,7 @@
-html {
+html, body {
   font-family: sans-serif;
   line-height: 1.15;
+  height: 100%;
 }
 
 body, h1, h2, h3 {
@@ -9,8 +10,7 @@ body, h1, h2, h3 {
 }
 
 .info-page {
-  min-height: 870px;
-  background-color: #06163e;
+  height: 100%;
   background-image: url('./assets/images/info-bg.png');
   background-position: right 0px top 0px;
   color: #FFFFFF;
@@ -26,11 +26,10 @@ body, h1, h2, h3 {
   text-align: center;
 }
 
-.info-page .content {
+.content-wrapper {
   padding-top: 40 px;
-  margin: 0 auto;
-  position: relative;
-  background-image: url(../img/info-bg-line.9236e999.png);
+  height: 100%;
+  background-image: url('./assets/images/info-bg-line.png');
   background-repeat: repeat-y;
 }
 
@@ -38,7 +37,7 @@ body, h1, h2, h3 {
   min-height: 100 vh;
 }
 
-h3{
+h3 {
   margin-bottom: 2em;
 }
 
@@ -66,6 +65,7 @@ h1 {
 .info-page .section-1 h1 {
   font-weight: 700;
 }
-.github-link{
+
+.github-link {
   margin-top: 2.67em;
 }
