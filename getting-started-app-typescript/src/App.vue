@@ -49,7 +49,7 @@
 import { defineComponent } from 'vue';
 import { products } from './appdata/products';
 import { categories } from './appdata/categories';
-import { process, DataResult, State } from '@progress/kendo-data-query';
+import { process, DataResult, State, CompositeFilterDescriptor, SortDescriptor } from '@progress/kendo-data-query';
 import { Grid, GridDataStateChangeEvent, GridRowClickEvent, GridColumnProps } from '@progress/kendo-vue-grid';
 import { DropDownList, DropDownListChangeEvent } from '@progress/kendo-vue-dropdowns';
 import { Window } from '@progress/kendo-vue-dialogs';
@@ -70,12 +70,12 @@ export default defineComponent({
       dropdownlistCategory: null,
       pageable: true,
       sortable: true,
-      skip: 0 as State["skip"],
-      take: 10 as State["take"],
+      skip: 0 as number | undefined,
+      take: 10 as number | undefined,
       sort: [
         { field: "ProductName", dir: "asc" }
-      ] as State["sort"],
-      filter: {} as State["filter"],
+      ] as SortDescriptor[] | undefined,
+      filter: {} as CompositeFilterDescriptor,
       columns: [
         { field: 'ProductName', title: 'Product Name' },
         { field: 'UnitPrice', title: 'Price' },
@@ -107,7 +107,7 @@ export default defineComponent({
         }
         this.skip = 0
       } else {
-        this.filter = {} as State["filter"]
+        this.filter = {} as CompositeFilterDescriptor
         this.skip = 0
       }
       const event: GridDataStateChangeEvent = {
