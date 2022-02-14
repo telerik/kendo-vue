@@ -5,6 +5,8 @@ This repository contains examples related to [Kendo UI for Vue](https://www.tele
 ## Projects
 
 - [Getting Started App](https://github.com/telerik/kendo-vue-examples/tree/main/getting-started-app)
+- [Getting Started App with TypeScript](https://github.com/telerik/kendo-vue-examples/tree/main/getting-started-app-typescript)
+- [Getting Started App with TypeScript and Composition API](https://github.com/telerik/kendo-vue-examples/tree/main/getting-started-typescript-composition-api)
 - [Kendo UI for Vue in a Vite project](https://github.com/telerik/kendo-vue-examples/tree/main/kendo-vue-vite)
 - [Kendo UI for Vue Grid with ASP .NET Core binding](https://github.com/telerik/kendo-vue-examples/tree/main/kendo-vue-demo-aspnetcore-data)
 - [Kendo UI for Vue Grid Performance demo - Vue 2](https://github.com/telerik/kendo-vue-examples/tree/main/vue2-grid-performance)
