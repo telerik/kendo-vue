@@ -142,8 +142,6 @@ export default defineComponent({
           sort: event.data.sort,
         });
       }
-
-
     },
     rowClick(event: GridRowClickEvent) {
       this.windowVisible = true;
