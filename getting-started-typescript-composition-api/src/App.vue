@@ -53,7 +53,6 @@ import { process, DataResult, State, CompositeFilterDescriptor, SortDescriptor }
 import { Grid, GridDataStateChangeEvent, GridRowClickEvent, GridColumnProps } from '@progress/kendo-vue-grid';
 import { DropDownList, DropDownListChangeEvent } from '@progress/kendo-vue-dropdowns';
 import { Window } from '@progress/kendo-vue-dialogs';
-import '@progress/kendo-theme-default/dist/all.css';
 
 export default defineComponent({
   components: {
