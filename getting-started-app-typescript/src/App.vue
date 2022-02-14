@@ -110,7 +110,7 @@ export default defineComponent({
         this.filter = {} as State["filter"]
         this.skip = 0
       }
-      let event: GridDataStateChangeEvent = {
+      const event: GridDataStateChangeEvent = {
         data: {
           skip: this.skip,
           take: this.take,
