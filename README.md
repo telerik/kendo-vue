@@ -148,11 +148,11 @@ The following table lists the widgets and features available in Kendo UI for Vue
 
 | Component name | Kendo UI for Vue Native |
 | ------- | :------------------: |
-| **Editor**              | Planned for R1 2022           |
-| **Gauge**              | Planned for R1 2022           |
-| **Loader**              | Planned for R1 2022           |
-| **Menu**              | Planned for R1 2022           |
-
+| **TreeList**              | Planned for R3 2022           |
+| **ColorPicker**              | Planned for R3 2022           |
+| **FlatColorPicker**              | Planned for R3 2022           |
+| **ColorGradient**              | Planned for R3 2022           |
+| **ColorPalette**              | Planned for R3 2022           |
 
 ## How do I&hellip;?
 
