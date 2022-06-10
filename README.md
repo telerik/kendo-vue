@@ -21,17 +21,31 @@ The following table lists the widgets and features available in Kendo UI for Vue
 | ------- | :------------------: |
 | **Data Management**       |
 | [Grid](https://www.telerik.com/kendo-vue-ui/components/grid/)                 | :white_check_mark:           |
+| **Editor**       |
+| [Editor](https://www.telerik.com/kendo-vue-ui/components/editor/)                 | :white_check_mark:           |
+| **Scheduler**       |
+| [Scheduler](https://www.telerik.com/kendo-vue-ui/components/scheduler/)                 | :white_check_mark:           |
+| **TreeView**       |
+| [TreeView](https://www.telerik.com/kendo-vue-ui/components/treeview/)                 | :white_check_mark:           |
 | **Buttons**            |
 | [Button](https://www.telerik.com/kendo-vue-ui/components/buttons/button/)              | :white_check_mark:           |
 | [ButtonGroup](https://www.telerik.com/kendo-vue-ui/components/buttons/buttongroup/)    | :white_check_mark:           |
+| [DropDownButton](https://www.telerik.com/kendo-vue-ui/components/buttons/dropdownbutton/)    | :white_check_mark:           |
 | [Chip](https://www.telerik.com/kendo-vue-ui/components/buttons/chip/)    | :white_check_mark:           |
 | [ChipList](https://www.telerik.com/kendo-vue-ui/components/buttons/chiplist/)    | :white_check_mark:           |
 | [FloatingActionButton ](https://www.telerik.com/kendo-vue-ui/components/buttons/floatingactionbutton/)          | :white_check_mark:           |
+| [SplitButton](https://www.telerik.com/kendo-vue-ui/components/buttons/splitbutton/)          | :white_check_mark:           |
+| [ToolBar ](https://www.telerik.com/kendo-vue-ui/components/buttons/toolbar/)          | :white_check_mark:           |
 | **Dropdowns**            |
 | [AutoComplete](https://www.telerik.com/kendo-vue-ui/components/dropdowns/autocomplete/)              | :white_check_mark:           |
 | [ComboBox](https://www.telerik.com/kendo-vue-ui/components/dropdowns/combobox/)    | :white_check_mark:           |
 | [DropDownList](https://www.telerik.com/kendo-vue-ui/components/dropdowns/dropdownlist/)    | :white_check_mark:           |
 | [MultiSelect](https://www.telerik.com/kendo-vue-ui/components/dropdowns/multiselect/)    | :white_check_mark:           |
+| **Gauges**            |
+| [ArcGauge](https://www.telerik.com/kendo-vue-ui/components/gauges/arcgauge/)              | :white_check_mark:           |
+| [CircularGauge](https://www.telerik.com/kendo-vue-ui/components/gauges/circulargauge/)    | :white_check_mark:           |
+| [LinearGauge](https://www.telerik.com/kendo-vue-ui/components/gauges/lineargauge/)    | :white_check_mark:           |
+| [RadialGauge](https://www.telerik.com/kendo-vue-ui/components/gauges/radialgauge/)    | :white_check_mark:           |
 | **Dialogs**            |
 | [Dialog](https://www.telerik.com/kendo-vue-ui/components/dialogs/dialog/)              | :white_check_mark:           |
 | [Window](https://www.telerik.com/kendo-vue-ui/components/dialogs/window/)    | :white_check_mark:           |
@@ -43,17 +57,31 @@ The following table lists the widgets and features available in Kendo UI for Vue
 | [Checkbox](https://www.telerik.com/kendo-vue-ui/components/inputs/checkbox/)    | :white_check_mark:           |
 | [RadioButton](https://www.telerik.com/kendo-vue-ui/components/inputs/radiobutton/)    | :white_check_mark:           |
 | [RadioGroup](https://www.telerik.com/kendo-vue-ui/components/inputs/radiogroup/)    | :white_check_mark:           |
+| [RangeSlider](https://www.telerik.com/kendo-vue-ui/components/inputs/rangeslider/)    | :white_check_mark:           |
+| [Switch](https://www.telerik.com/kendo-vue-ui/components/inputs/switch/)    | :white_check_mark:           |
+| [TextArea](https://www.telerik.com/kendo-vue-ui/components/inputs/textarea/)    | :white_check_mark:           |
 | **Date Inputs**                |
 | [Calendar](https://www.telerik.com/kendo-vue-ui/components/dateinputs/calendar/)          | :white_check_mark:           |
 | [DateInput](https://www.telerik.com/kendo-vue-ui/components/dateinputs/dateinput/)          | :white_check_mark:           |
 | [DatePicker](https://www.telerik.com/kendo-vue-ui/components/dateinputs/datepicker/)          | :white_check_mark:           |
+| [DateRangePicker](https://www.telerik.com/kendo-vue-ui/components/dateinputs/daterangepicker/)          | :white_check_mark:           |
 | [DateTimePicker](https://www.telerik.com/kendo-vue-ui/components/dateinputs/datetimepicker/)          | :white_check_mark:           |
+| [MultiView Calendar](https://www.telerik.com/kendo-vue-ui/components/dateinputs/multiview-calendar/)          | :white_check_mark:           |
 | [TimePicker](https://www.telerik.com/kendo-vue-ui/components/dateinputs/timepicker/)          | :white_check_mark:           |
 | **Layout**                |
 | [Avatar](https://www.telerik.com/kendo-vue-ui/components/layout/avatar/)          | :white_check_mark:           |
 | [Card](https://www.telerik.com/kendo-vue-ui/components/layout/card/)          | :white_check_mark:           |
+| [Drawer](https://www.telerik.com/kendo-vue-ui/components/layout/drawer/)          | :white_check_mark:           |
+| [Menu](https://www.telerik.com/kendo-vue-ui/components/layout/menu/)          | :white_check_mark:           |
+| [PanelBar](https://www.telerik.com/kendo-vue-ui/components/layout/panelbar/)          | :white_check_mark:           |
+| [Splitter](https://www.telerik.com/kendo-vue-ui/components/layout/splitter/)          | :white_check_mark:           |
+| [Stepper](https://www.telerik.com/kendo-vue-ui/components/layout/stepper/)          | :white_check_mark:           |
 | [TabStrip](https://www.telerik.com/kendo-vue-ui/components/layout/tabstrip/)          | :white_check_mark:           |
+| [Wizard](https://www.telerik.com/kendo-vue-ui/components/layout/wizard/)          | :white_check_mark:           |
+| **ScrollView**                |
+| [ScrollView](https://www.telerik.com/kendo-vue-ui/components/scrollview/)          | :white_check_mark:           |
 | **Data Tools**                |
+| [Filter](https://www.telerik.com/kendo-vue-ui/components/datatools/filter/)          | :white_check_mark:           |
 | [Pager](https://www.telerik.com/kendo-vue-ui/components/datatools/pager/)          | :white_check_mark:           |
 | **Animations**                |
 | [Expand](https://www.telerik.com/kendo-vue-ui/components/animation/api/ExpandProps/)          | :white_check_mark:           |
@@ -91,6 +119,15 @@ The following table lists the widgets and features available in Kendo UI for Vue
 | [FloatingLabel](https://www.telerik.com/kendo-vue-ui/components/labels/floating-label/)          | :white_check_mark:           |
 | [Hint](https://www.telerik.com/kendo-vue-ui/components/labels/hint/)          | :white_check_mark:           |
 | [Error](https://www.telerik.com/kendo-vue-ui/components/labels/error/)          | :white_check_mark:           |
+| **Notification**                |
+| [Notification](https://www.telerik.com/kendo-vue-ui/components/notification/)          | :white_check_mark:           |
+| **Tooltip**                |
+| [Tooltip](https://www.telerik.com/kendo-vue-ui/components/tooltip/)          | :white_check_mark:           |
+| **Indicators**                |
+| [Loader](https://www.telerik.com/kendo-vue-ui/components/indicators/loader/)          | :white_check_mark:           |
+| [Skeleton](https://www.telerik.com/kendo-vue-ui/components/indicators/skeleton/)          | :white_check_mark:           |
+| **Progress Bars**                |
+| [Progress Bar](https://www.telerik.com/kendo-vue-ui/components/progressbars/progressbar/)          | :white_check_mark:           |
 | **Tools & Features**   |
 | [Data Query](https://www.telerik.com/kendo-vue-ui/components/dataquery/)        | :white_check_mark:           |
 | [Date Math](https://www.telerik.com/kendo-vue-ui/components/datemath/)        | :white_check_mark:           |

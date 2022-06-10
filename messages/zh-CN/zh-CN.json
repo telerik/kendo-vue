@@ -1,0 +1,75 @@
+{
+    "grid": {
+      "groupPanelEmpty": "拖拽列头至此分组",
+      "pagerItemsPerPage": "条每页",
+      "pagerInfo": "{0} - {1} 共 {2} 条",
+      "pagerFirstPage": "第一页",
+      "pagerPreviousPage": "上一页",
+      "pagerNextPage": "下一页",
+      "pagerLastPage": "最后页",
+      "pagerPage": "页",
+      "pagerOf": "共",
+      "filterClearButton": "清除",
+      "filterEqOperator": "等于",
+      "filterNotEqOperator": "不等于",
+      "filterIsNullOperator": "为NULL值",
+      "filterIsNotNullOperator": "非NULL值",
+      "filterIsEmptyOperator": "为空",
+      "filterIsNotEmptyOperator": "非空",
+      "filterStartsWithOperator": "开始",
+      "filterContainsOperator": "包含",
+      "filterNotContainsOperator": "不包含",
+      "filterEndsWithOperator": "结束",
+      "filterGteOperator": "大于或等于",
+      "filterGtOperator": "大于",
+      "filterLteOperator": "小于或等于",
+      "filterLtOperator": "小于",
+      "filterIsTrue": "为True",
+      "filterIsFalse": "为False",
+      "filterBooleanAll": "(所有)",
+      "filterAfterOrEqualOperator": "晚于或等于",
+      "filterAfterOperator": "晚于",
+      "filterBeforeOperator": "早于",
+      "filterBeforeOrEqualOperator": "早于或等于",
+      "noRecords": "没有记录"
+    },
+    "dateinput": {
+      "increment": "增大",
+      "decrement": "减小"
+    },
+    "calendar": {
+      "today": "今天"
+    },
+    "datepicker": {
+      "toggleCalendar": "切换日历"
+    },
+    "dropdowns": {
+      "nodata": "没有数据",
+      "clear": "清除"
+    },
+    "numerictextbox": {
+      "increment": "增大",
+      "decrement": "减小"
+    },
+    "upload": {
+      "cancel": "取消",
+      "clearSelectedFiles": "清除",
+      "dropFilesHere": "拖拽文件到此上传",
+      "headerStatusUploaded": "完成",
+      "headerStatusUploading": "上传中...",
+      "invalidFileExtension": "不允许的文件类型",
+      "invalidFiles": "无效的文件，请检查文件上传配置",
+      "invalidMaxFileSize": "文件太大",
+      "invalidMinFileSize": "文件太小",
+      "remove": "移除",
+      "retry": "重试",
+      "select": "选择文件...",
+      "uploadSelectedFiles": "上传",
+      "total": "总计",
+      "files": "文件"
+    },
+    "sortable": {
+      "noData": "没有数据"
+    }
+  }
+  
