@@ -1,0 +1,77 @@
+﻿
+{
+    "grid":{
+        "groupPanelEmpty": "یک ستون را برای گروه بندی اینجا بکشید.",
+        "pagerItemsPerPage": "موارد در هر صفحه",
+        "pagerInfo": "{0} - {1} از {2} مورد",
+        "pagerFirstPage": "برو به صفحه نخست",
+        "pagerPreviousPage": "برو به آخرین صفحه",
+        "pagerNextPage": "برو به صفحه بعد",
+        "pagerLastPage": "برو به سفحه قبل",
+        "pagerPage": "صفحه",
+        "pagerOf": "از",
+        "filterClearButton":"حذف فیلتر",
+        "filterEqOperator": "برابر باشد با",
+        "filterNotEqOperator": "برابر نباشد با",
+        "filterIsNullOperator": "برابر با هیچ",
+        "filterIsNotNullOperator": "برابر با هیچ نباشد",
+        "filterIsEmptyOperator": "خالی باشد",
+        "filterIsNotEmptyOperator": "خالی نباشد",
+        "filterStartsWithOperator": "شروع شود با",
+        "filterContainsOperator": "حاوی",
+        "filterNotContainsOperator": "شامل این نباشد",
+        "filterEndsWithOperator": "پایان پذیرد با",
+        "filterGteOperator": "بزرگتر مساوی",
+        "filterGtOperator": "بزرگتر از",
+        "filterLteOperator": "کوچکتر مساوی با",
+        "filterLtOperator":"کوچکتر از",
+        "filterIsTrue":"صحیح باشد",
+        "filterIsFalse": "غلط باشد",
+        "filterBooleanAll": "(همه)",
+        "filterAfterOrEqualOperator": "بعد و مساوی باشد با",
+        "filterAfterOperator": "بعد باش",
+        "filterBeforeOperator":"قبل باشد",
+        "filterBeforeOrEqualOperator":"قبل یا مساوی باشد با",
+        "noRecords":"ردیفی برای نمایش وجود ندارد.",
+        "sortAscending": "مرتب سازی صعودی",
+        "sortDescending": "مرتب سازی نزولی"
+    },
+    "dateinput":{
+        "increment": "افزایش",
+        "decrement": "کاهش"
+    },
+    "calendar":{
+        "today":"امروز"
+    },
+    "datepicker":{
+        "toggleCalendar": "تقویم"
+    },
+    "dropdowns":{
+        "nodata": "داده ای وجود ندارد.",
+        "clear": "پاکسازی"
+    },
+    "numerictextbox":{
+        "increment": "افزایش",
+        "decrement": "کاهش"
+    },
+    "upload": {
+        "cancel": "لغو",
+        "clearSelectedFiles": "پاک کردن",
+        "dropFilesHere": "پاکسازی فایل های بارگذاری شده.",
+        "headerStatusUploaded": "انجام شد",
+        "headerStatusUploading": "در حال بارگذاری",
+        "invalidFileExtension": "نوع فایل معتبر نیست",
+        "invalidFiles": "بارگذاری فایل اجباری ست.",
+        "invalidMaxFileSize": "حجم فایل خیلی زیاد است.",
+        "invalidMinFileSize": "حجم فایل خیلی کم است.",
+        "remove": "حذف",
+        "retry": "مجدد",
+        "select": "بارگذاری فایل...",
+        "uploadSelectedFiles": "بارگذاری",
+        "total": "اصلی",
+        "files": "فایلها"
+    },
+    "sortable": {
+        "noData": "داده ای وجود ندارد"
+    }
+}
