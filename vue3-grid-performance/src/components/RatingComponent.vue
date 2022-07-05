@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { trends } from './utils';
+import { trends } from '../data-service/utils';
 
 export default {
   props: {

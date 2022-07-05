@@ -300,9 +300,6 @@ export class FinancialData {
       const country = COUNTRIES[this.generateRandomNumber(0, 5)];
       dataObj.Country = country.Country;
       dataObj.City = this.randomizeCity(country);
-      // for (let y = 0; y < 80; y++) {
-      //     dataObj["Text" + y] = "Text";
-      // }
 
       for (const mockData of MOCKFINANCEDATA) {
         for (const prop in mockData) {
@@ -332,14 +329,11 @@ export class FinancialData {
 
   updateRandomPrices(data) {
     const currData = data.slice(0, data.length + 1);
-    // let y = 0;
     for (let i = Math.round(Math.random() * 10); i < data.length; i += Math.round(Math.random() * 10)) {
       const dataObj = Object.assign({}, data[i]);
       this.randomizeObjectData(dataObj);
       currData[i] = dataObj;
-      // y++;
     }
-    // return {data: currData, recordsUpdated: y };
     return currData;
   }
 

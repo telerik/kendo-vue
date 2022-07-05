@@ -51,12 +51,11 @@
 </template>
 
 <script>
-// import { RadioGroup } from '@progress/kendo-vue-inputs';
-import Grid from './Grid.vue';
+import Grid from './components/Grid.vue';
 import { Slider, Switch } from "@progress/kendo-vue-inputs";
 import { Button, ButtonGroup } from "@progress/kendo-vue-buttons";
-import { FinancialData } from './financial-data';
-import { updateRandomPrices, updateAllPrices } from './services';
+import { FinancialData } from './data-service/financial-data';
+import { updateRandomPrices, updateAllPrices } from './data-service/services';
 
 
 export default {
