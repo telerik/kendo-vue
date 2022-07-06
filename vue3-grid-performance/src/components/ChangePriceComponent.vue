@@ -1,11 +1,10 @@
 <template>
-  <span :class="[currentTrends.negative ? 'red' : 'green']">
-    {{ formattedNumber }}
-  </span>
+  <span :class="currentTrends"> {{ formattedNumber }}</span>
 </template>
 
 <script>
 import { provideIntlService } from '@progress/kendo-vue-intl';
+import { classNames } from '@progress/kendo-vue-common';
 import { trends } from '../data-service/utils';
 
 export default {
@@ -18,7 +17,7 @@ export default {
   },
   computed: {
     currentTrends() {
-      return trends(this.dataItem);
+      return classNames(trends(this.dataItem));
     },
     formattedNumber: function () {
       return provideIntlService(this).formatNumber(

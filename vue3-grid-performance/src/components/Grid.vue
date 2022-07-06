@@ -5,44 +5,24 @@
       :column-virtualization="enableColumnVirtualization" :scrollable="'virtual'" :skip="skip" :take="take"
       :total="processedData.length" @datastatechange="onDataStateChange" :data-item-key="'ID'"
       :key="enableColumnVirtualization" :row-height="40">
-      <template v-slot:tickerTemplate="{ props }">
-        <td>
-          <ticker :data-item="props.dataItem" :field="props.field"></ticker>
-        </td>
-      </template>
       <template v-slot:priceTemplate="{ props }">
         <td class="text-center">
           <price :data-item="props.dataItem" :field="props.field"></price>
         </td>
       </template>
       <template v-slot:pricechangepercentageTemplate="{ props }">
-        <td class="text-center">
+        <td class="text-right">
           <pricechange :data-item="props.dataItem" :field="props.field"></pricechange>
         </td>
       </template>
       <template v-slot:pricechangeTemplate="{ props }">
-        <td class="text-center">
+        <td class="text-right">
           <pricechange :data-item="props.dataItem" :field="props.field"></pricechange>
         </td>
       </template>
-      <template v-slot:highpriceTemplate="{ props }">
+      <template v-slot:chartTemplate="{ }">
         <td class="text-center">
-          <price :data-item="props.dataItem" :field="props.field"></price>
-        </td>
-      </template>
-      <template v-slot:lowpriceTemplate="{ props }">
-        <td class="text-center">
-          <price :data-item="props.dataItem" :field="props.field"></price>
-        </td>
-      </template>
-      <template v-slot:volumeTemplate="{ props }">
-        <td class="text-center">
-          <volume :data-item="props.dataItem" :field="props.field"></volume>
-        </td>
-      </template>
-      <template v-slot:ratingTemplate="{ props }">
-        <td class="text-center">
-          <rating :data-item="props.dataItem" :field="props.field"></rating>
+          <chart />
         </td>
       </template>
     </Grid>
@@ -52,11 +32,9 @@
 <script>
 import { Grid } from '@progress/kendo-vue-grid';
 import { process } from '@progress/kendo-data-query';
-import TickerComponent from './TickerComponent.vue';
 import PriceComponent from './PriceComponent.vue';
 import ChangePriceComponent from './ChangePriceComponent.vue';
-import VolumeComponent from './VolumeComponent.vue';
-import RatingComponent from './RatingComponent.vue';
+import ChartComponent from './ChartComponent.vue';
 
 const columnsData = [
   {
@@ -64,45 +42,93 @@ const columnsData = [
     width: 110,
   },
   {
-    field: 'Price',
-    title: 'LAST',
+    field: 'Open Price',
     width: 120,
-    cell: 'priceTemplate',
+    filter: 'numeric',
+    format: '{0:c4}'
   },
   {
-    field: 'Change(%)',
-    title: 'CHG %',
-    width: 90,
-    cell: 'pricechangepercentageTemplate',
+    field: 'Price',
+    title: 'LAST',
+    width: 130,
+    cell: 'priceTemplate',
+    filter: 'numeric',
+
   },
   {
     field: 'Change',
-    title: 'CHG',
     width: 90,
     cell: 'pricechangeTemplate',
+    filter: 'numeric',
+    className: "numeric change"
   },
   {
-    field: 'High(D)',
-    title: 'High',
-    width: 110,
-    cell: 'highpriceTemplate',
+    field: 'Change(%)',
+    width: 90,
+    cell: 'pricechangepercentageTemplate',
+    filter: 'numeric',
+    className: "numeric change"
+
   },
   {
-    field: 'Low(D)',
-    title: 'LOW',
+    field: 'Buy',
     width: 110,
-    cell: 'lowpriceTemplate',
+    filter: 'numeric',
+    format: '{0:c4}'
+  },
+  {
+    field: 'Sell',
+    width: 110,
+    filter: 'numeric',
+    format: '{0:c4}'
+  },
+  {
+    field: 'Spread',
+    width: 110,
+    filter: 'numeric',
+    format: '{0:c4}'
   },
   {
     field: 'Volume',
-    title: 'VOL',
-    width: 90,
-    cell: 'volumeTemplate',
+    width: 110,
+    filter: 'numeric',
+    format: '{0:c4}'
   },
   {
-    title: 'RATING',
-    cell: 'ratingTemplate',
-    width: 130,
+    field: 'High(D)',
+    width: 110,
+    filter: 'numeric',
+    format: '{0:c4}'
+  },
+  {
+    field: 'Low(D)',
+    width: 110,
+    filter: 'numeric',
+    format: '{0:c4}'
+  },
+  {
+    field: 'High(Y)',
+    width: 110,
+    filter: 'numeric',
+    format: '{0:c4}'
+  },
+  {
+    field: 'Low(Y)',
+    width: 110,
+    filter: 'numeric',
+    format: '{0:c4}'
+  },
+  {
+    field: 'Start(Y)',
+    width: 110,
+    filter: 'numeric',
+    format: '{0:c4}'
+  },
+  {
+    field: 'Chart',
+    width: 60,
+    className: 'text-center',
+    cell: "chartTemplate"
   },
   { field: 'Country', width: 110 },
   { field: 'City', width: 100 },
@@ -217,9 +243,7 @@ export default {
     Grid: Grid,
     price: PriceComponent,
     pricechange: ChangePriceComponent,
-    ticker: TickerComponent,
-    volume: VolumeComponent,
-    rating: RatingComponent,
+    chart: ChartComponent
   },
   props: {
     gridData: Array,
@@ -274,6 +298,10 @@ export default {
 <style>
 td.text-center {
   text-align: center;
+}
+
+td.text-right {
+  text-align: right;
 }
 
 .red {
