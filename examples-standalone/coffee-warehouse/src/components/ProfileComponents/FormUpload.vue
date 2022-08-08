@@ -1,34 +1,17 @@
 <template>
   <fieldwrapper>
     <klabel :editor-id="id" :editor-valid="valid">
-      <avatar
-        :shape="'circle'"
-        :type="'image'"
-        :size="'large'"
-        :style="{ width: '80px', height: '80px', 'flex-basis': '80px' }"
-      >
+      <avatar :rounded="'full'" :type="'image'" :size="'large'"
+        :style="{ width: '80px', height: '80px', 'flex-basis': '80px' }">
         <img src="../../assets/images/user.jpg" />
       </avatar>
     </klabel>
     <div class="k-form-field-wrap">
       <span>
-        <upload
-          :valid="valid"
-          :value="value"
-          :id="id"
-          :auto-upload="false"
-          :multiple="false"
-          :show-file-list="false"
-          :show-action-buttons="false"
-          :files="value"
-          :restrictions="{
+        <upload :valid="valid" :value="value" :id="id" :auto-upload="false" :multiple="false" :show-file-list="false"
+          :show-action-buttons="false" :files="value" :restrictions="{
             allowedExtensions: ['.jpg', '.png'],
-          }"
-          @blur="handleBlur"
-          @focus="handleFocus"
-          @add="onAddHandler"
-          @remove="onRemoveHandler"
-        />
+          }" @blur="handleBlur" @focus="handleFocus" @add="onAddHandler" @remove="onRemoveHandler" />
       </span>
       <error v-if="showValidationMessage">
         {{ validationMessage }}

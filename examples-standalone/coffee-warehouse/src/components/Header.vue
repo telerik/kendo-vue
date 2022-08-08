@@ -6,35 +6,20 @@
         <span class="vl"></span>
         <h2>{{ teamMessage }}</h2>
       </div>
-      <dropdownlist
-        class="localeDropDownList"
-        :value="currentLocale"
-        :text-field="'language'"
-        @change="localeChange"
-        :data-items="locales"
-      >
-      </dropdownlist>
-      <dropdownlist
-        :data-items="themes"
-        :text-field="'text'"
-        :popup-settings="themesPopupSettings"
-        :value-render="myDropDownValueTemplate"
-        class="ddl-theme"
-        @change="onThemeChange"
-      >
+      <DropDownList :style="{ width: '230px' }" class="localeDropDownList" :value="currentLocale"
+        :text-field="'language'" @change="localeChange" :data-items="locales">
+      </DropDownList>
+      <DropDownList :data-items="themes" :text-field="'text'" :popup-settings="themesPopupSettings"
+        :value-render="myDropDownValueTemplate" class="ddl-theme" @change="onThemeChange">
         <template v-slot:myDropDownValueTemplate="{}">
           <div style="margin: auto 8px auto 10px">
             <span class="k-icon k-i-palette"> </span>
           </div>
         </template>
-      </dropdownlist>
-      <avatar
-        :shape="'circle'"
-        :type="'image'"
-        :style="{ width: '40px', height: '40px', 'flex-basis': '40px' }"
-      >
+      </DropDownList>
+      <Avatar :rounded="'full'" :type="'image'" :style="{ width: '40px', height: '40px', 'flex-basis': '40px' }">
         <img src="../assets/images/user.jpg" />
-      </avatar>
+      </Avatar>
     </div>
   </div>
 </template>
@@ -45,8 +30,8 @@ import { provideLocalizationService } from "@progress/kendo-vue-intl";
 
 export default {
   components: {
-    avatar: Avatar,
-    dropdownlist: DropDownList,
+    Avatar,
+    DropDownList,
   },
   emits: {
     localeChange: null,
@@ -128,12 +113,15 @@ export default {
 <style scoped>
 .ddl-theme {
   width: 60px;
-}
-.localeDropDownList {
-  min-width: 100px;
+  min-width: 60px;
 }
 
-.k-widget.k-dropdown {
+.localeDropDownList {
+  min-width: 100px;
+  margin: 10px;
+}
+
+.k-dropdownlist {
   min-height: 30px;
 }
 </style>
