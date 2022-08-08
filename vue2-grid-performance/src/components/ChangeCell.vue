@@ -1,12 +1,12 @@
 <template>
- <td :class="className" colSpan="colSpan">
-            <div :class="currentTrends">
-                {{formattedNumber}}
-            </div>
-        </td>
+    <td :class="className" colSpan="colSpan">
+        <div :class="currentTrends">
+            {{ formattedNumber }}
+        </div>
+    </td>
 </template>
 <script>
-import { formatNumber } from '@telerik/kendo-intl';
+import { provideIntlService } from '@progress/kendo-vue-intl';
 import { trends } from "../utils";
 
 export default {
@@ -23,17 +23,17 @@ export default {
         editor: String
     },
     computed: {
-        formattedNumber(){
-            return formatNumber(this.$props.dataItem[this.$props.field], 'c4', 'en')
+        formattedNumber() {
+            return provideIntlService(this).formatNumber(this.$props.dataItem[this.$props.field], 'c4', 'en')
         },
-        currentTrends(){
+        currentTrends() {
             return trends(this.$props.dataItem);
         },
-        trendsClass(){
+        trendsClass() {
             return {
                 'fintech-icons': true,
                 ...this.currentTrends
-                };
+            };
         }
     }
 }
