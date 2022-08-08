@@ -1,62 +1,41 @@
 <template>
-<div class="example-wrapper">
-  <localization :language="currentLocale.language">
-        <intl :locale="currentLocale.locale" >
-            <div>
-                <pdfexport ref="gridPdfExport">
-                    <Grid 
-                        :style="{ height: '700px', width: '1500px' }"
-                        :sortable="sortable"
-                        :filterable="filterable"
-                        :groupable="groupable"
-                        :reorderable="reorderable"
-                        :pageable="{ buttonCount: 4, pageSizes: true }"
-                        :data-items="dataResult"
-                        :skip="skip" 
-                        :take="take" 
-                        :sort="sort" 
-                        :group="group" 
-                        :filter="filter" 
-                        :columns="columns"
-                        @datastatechange="dataStateChange"
-                        :detail="detailComponent"
-                        :expand-field="'expanded'"
-                        @expandchange="expandChange"
-                        @columnreorder="columnReorder"
-                    >
-                    <template v-slot:myTemplate="{props}">
-                        <custom :data-item="props.dataItem" />
-                    </template>
-                        <toolbar>
-                            Locale:&nbsp;&nbsp;&nbsp;
-                            <dropdownlist
-                                :value="currentLocale"
-                                :text-field="'language'"
-                                @change="dropDownChange"
-                                :data-items="locales" >
-                            </dropdownlist>&nbsp;&nbsp;&nbsp;
-                            <button
-                                title="Export to Excel"
-                                class="k-button k-primary"
-                                @click="exportExcel"
-                            >
-                                Export to Excel
-                            </button>&nbsp;
-                            <button class="k-button k-primary"
-                                @click="exportPDF">
-                                Export to PDF
-                            </button>
-                        </toolbar>
-                    </Grid>
-                </pdfexport>
-            </div>
-        </intl>
-    </localization>
-</div>
+    <div class="example-wrapper">
+        <localization :language="currentLocale.language">
+            <intl :locale="currentLocale.locale">
+                <div>
+                    <pdfexport ref="gridPdfExport">
+                        <Grid :style="{ height: '700px', width: '1500px' }" :sortable="sortable"
+                            :filterable="filterable" :groupable="groupable" :reorderable="reorderable"
+                            :pageable="{ buttonCount: 4, pageSizes: true }" :data-items="dataResult" :skip="skip"
+                            :take="take" :sort="sort" :group="group" :filter="filter" :columns="columns"
+                            @datastatechange="dataStateChange" :detail="detailComponent" :expand-field="'expanded'"
+                            @expandchange="expandChange" @columnreorder="columnReorder">
+                            <template v-slot:myTemplate="{ props }">
+                                <custom :data-item="props.dataItem" />
+                            </template>
+                            <toolbar>
+                                Locale:&nbsp;&nbsp;&nbsp;
+                                <dropdownlist :value="currentLocale" :text-field="'language'" @change="dropDownChange"
+                                    :data-items="locales">
+                                </dropdownlist>&nbsp;&nbsp;&nbsp;
+                                <KButton :theme-color="'primary'" @click="exportExcel">
+                                    Export to Excel
+                                </KButton>&nbsp;
+                                <KButton :theme-color="'primary'" @click="exportPDF">
+                                    Export to PDF
+                                </KButton>
+                            </toolbar>
+                        </Grid>
+                    </pdfexport>
+                </div>
+            </intl>
+        </localization>
+    </div>
 </template>
 <script>
 import { Grid, GridToolbar } from '@progress/kendo-vue-grid';
 import { DropDownList } from '@progress/kendo-vue-dropdowns';
+import { Button } from '@progress/kendo-vue-buttons';
 import { GridPdfExport } from '@progress/kendo-vue-pdf';
 import { saveExcel } from '@progress/kendo-vue-excel-export';
 import { IntlProvider, load, LocalizationProvider, loadMessages, IntlService } from '@progress/kendo-vue-intl';
@@ -106,11 +85,12 @@ export default {
         'dropdownlist': DropDownList,
         'intl': IntlProvider,
         'localization': LocalizationProvider,
-        'custom': DetailComponent
+        'custom': DetailComponent,
+        KButton: Button
     },
     data: function () {
         return {
-            
+
             skip: 0,
             take: 20,
             sort: [
@@ -121,7 +101,7 @@ export default {
             ],
             filter: null,
             dataResult: [],
-            locales:  [
+            locales: [
                 {
                     language: 'en-US',
                     locale: 'en'
@@ -138,13 +118,13 @@ export default {
             reorderable: true,
             detailComponent: 'myTemplate',
             columns: [
-                { field: "customerID", width: "200px"},
-                { field: "orderDate", filter: "date", format: "{0:D}", width: "300px"},
-                { field: "shipName", width: "280px"},
-                { field: "freight", filter: "numeric", width: "200px"},
-                { field: "shippedDate", filter: "date", format: "{0:D}", width: "300px"},
-                { field: "employeeID", filter: "numeric", width: "200px"},
-                { field: "orderID", filterable: "false", title: "ID", width: "90px", locked: "true"}
+                { field: "customerID", width: "200px" },
+                { field: "orderDate", filter: "date", format: "{0:D}", width: "300px" },
+                { field: "shipName", width: "280px" },
+                { field: "freight", filter: "numeric", width: "200px" },
+                { field: "shippedDate", filter: "date", format: "{0:D}", width: "300px" },
+                { field: "employeeID", filter: "numeric", width: "200px" },
+                { field: "orderID", filterable: "false", title: "ID", width: "90px", locked: "true" }
             ]
         };
     },
@@ -160,7 +140,7 @@ export default {
         this.dataResult = process(orders, dataState);
     },
     methods: {
-        createAppState: function(dataState) {
+        createAppState: function (dataState) {
             this.take = dataState.take;
             this.skip = dataState.skip;
             if (dataState.group) {
@@ -170,7 +150,7 @@ export default {
             this.filter = dataState.filter;
             this.sort = dataState.sort;
         },
-        dataStateChange (event) {
+        dataStateChange(event) {
             this.createAppState(event.data);
             this.dataResult = process(orders, {
                 skip: this.skip,
@@ -180,37 +160,37 @@ export default {
                 group: this.group
             });
         },
-        expandChange (event) {
+        expandChange(event) {
             const isExpanded =
                 event.dataItem.expanded === undefined ?
                     event.dataItem.aggregates : event.dataItem.expanded;
-            event.dataItem.expanded =  !isExpanded;
+            event.dataItem.expanded = !isExpanded;
         },
-        exportExcel () {
+        exportExcel() {
             saveExcel({
                 data: orders,
                 fileName: "myFile",
                 columns: this.columns
             });
         },
-        exportPDF () {
-            const tempSort = this.sort; 
+        exportPDF() {
+            const tempSort = this.sort;
             this.sort = null;
-            this.$nextTick(()=>{
-               (this.$refs.gridPdfExport).save(process(orders,
-                { skip: this.skip, take: this.take }));
+            this.$nextTick(() => {
+                (this.$refs.gridPdfExport).save(process(orders,
+                    { skip: this.skip, take: this.take }));
                 this.sort = tempSort;
             })
         },
-        pageChangeHandler: function(event) {
+        pageChangeHandler: function (event) {
             this.skip = event.page.skip;
             this.take = event.page.take;
         },
-        columnReorder: function(options) {
+        columnReorder: function (options) {
             this.columns = options.columns;
         },
         dropDownChange: function (e) {
-             this.currentLocale = e.target.value;
+            this.currentLocale = e.target.value;
         }
     }
 };
