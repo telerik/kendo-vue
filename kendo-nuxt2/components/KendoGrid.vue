@@ -37,17 +37,17 @@
                                 @change="dropDownChange"
                                 :data-items="locales" >
                             </dropdownlist>&nbsp;&nbsp;&nbsp;
-                            <button
-                                title="Export to Excel"
-                                class="k-button k-primary"
+                            <KButton
+                                :theme-color="'primary'"
                                 @click="exportExcel"
                             >
                                 Export to Excel
-                            </button>&nbsp;
-                            <button class="k-button k-primary"
+                            </KButton>&nbsp;
+                            <KButton 
+                                :theme-color="'primary'"
                                 @click="exportPDF">
                                 Export to PDF
-                            </button>
+                            </KButton>
                         </toolbar>
                     </Grid>
                 </pdfexport>
@@ -57,8 +57,10 @@
   </div>
 </template>
 <script>
+import Vue from "vue";
 import { Grid, GridToolbar } from '@progress/kendo-vue-grid';
 import { DropDownList } from '@progress/kendo-vue-dropdowns';
+import { Button } from '@progress/kendo-vue-buttons';
 import { GridPdfExport } from '@progress/kendo-vue-pdf';
 import { saveExcel } from '@progress/kendo-vue-excel-export';
 import { IntlProvider, load, LocalizationProvider, loadMessages, IntlService } from '@progress/kendo-vue-intl';
@@ -108,7 +110,8 @@ export default {
         'dropdownlist': DropDownList,
         'intl': IntlProvider,
         'localization': LocalizationProvider,
-        'custom': DetailComponent
+        'custom': DetailComponent,
+        KButton: Button
     },
     data: function () {
         return {
@@ -183,10 +186,11 @@ export default {
             });
         },
         expandChange (event) {
+            
             const isExpanded =
                 event.dataItem.expanded === undefined ?
                     event.dataItem.aggregates : event.dataItem.expanded;
-            event.dataItem.expanded =  !isExpanded;
+            Vue.set(event.dataItem, "expanded" ,!isExpanded);
         },
         exportExcel () {
             saveExcel({
