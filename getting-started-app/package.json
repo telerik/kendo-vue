@@ -10,6 +10,7 @@
   "dependencies": {
     "@progress/kendo-data-query": "latest",
     "@progress/kendo-drawing": "latest",
+    "@progress/kendo-licensing": "latest",
     "@progress/kendo-theme-default": "latest",
     "@progress/kendo-vue-animation": "latest",
     "@progress/kendo-vue-data-tools": "latest",
@@ -17,6 +18,7 @@
     "@progress/kendo-vue-dialogs": "latest",
     "@progress/kendo-vue-dropdowns": "latest",
     "@progress/kendo-vue-grid": "latest",
+    "@progress/kendo-vue-indicators": "latest",
     "@progress/kendo-vue-inputs": "latest",
     "@progress/kendo-vue-intl": "latest",
     "core-js": "^3.6.5",

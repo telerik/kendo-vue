@@ -17,6 +17,7 @@
     "@progress/kendo-vue-dropdowns": "latest",
     "@progress/kendo-vue-excel-export": "latest",
     "@progress/kendo-vue-grid": "latest",
+    "@progress/kendo-vue-indicators": "latest",
     "@progress/kendo-vue-inputs": "latest",
     "@progress/kendo-vue-intl": "latest",
     "core-js": "^3.6.5",

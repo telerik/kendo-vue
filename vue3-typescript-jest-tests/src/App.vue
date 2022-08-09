@@ -1,33 +1,32 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld   msg="Welcome to Your Vue.js + TypeScript App"/>
-   <div class="col-xs-12 col-sm-7 example-col">
-            <p>DropDownList</p>
-            <dropdownlist  :data-items='sports' :default-value="'Basketball'" ></dropdownlist>
-        </div>
+  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="col-xs-12 col-sm-7 example-col">
+    <p>DropDownList</p>
+    <dropdownlist :data-items='sports' :default-value="'Basketball'"></dropdownlist>
+  </div>
 
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
-import { DropDownList, DropDownListVue3, AutoCompleteProps
-   } from '@progress/kendo-vue-dropdowns';
-
-let ddl: typeof DropDownListVue3 = DropDownList;
+import {
+  DropDownList
+} from '@progress/kendo-vue-dropdowns';
 
 export default defineComponent({
   name: 'App',
   components: {
     HelloWorld,
-    'dropdownlist': ddl,
+    'dropdownlist': DropDownList,
   },
-  data () {
+  data() {
     return {
-       sports: ["Baseball", "Basketball", "Cricket", "Field Hockey", "Football", "Table Tennis", "Tennis", "Volleyball" ]
+      sports: ["Baseball", "Basketball", "Cricket", "Field Hockey", "Football", "Table Tennis", "Tennis", "Volleyball"]
     }
   }
-});
+} as any);
 </script>
 
 <style>

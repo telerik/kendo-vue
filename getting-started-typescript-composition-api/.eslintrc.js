@@ -22,7 +22,7 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
+        "semi": "off",
+        "@typescript-eslint/semi": ["error"]
     },
-    "semi": "off",
-    "@typescript-eslint/semi": ["error"]
 };
