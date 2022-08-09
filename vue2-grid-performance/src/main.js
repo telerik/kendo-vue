@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import '@progress/kendo-theme-default'
 
 Vue.config.productionTip = false
 

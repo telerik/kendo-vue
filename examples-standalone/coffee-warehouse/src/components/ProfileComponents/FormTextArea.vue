@@ -5,16 +5,15 @@
         </klabel>
         <div class="k-form-field-wrap">
         <span class="k-textarea">
-            <textarea 
-                class="k-input"
-                style="margin-top: 0px; margin-bottom: 0px; height: 120px;"
+            <KTextArea 
+                style="height: 120px;"
                 :valid="valid"
                 :value="value"
                 :id="id"
                 @change="handleChange"
                 @blur="handleBlur"
                 @focus="handleFocus"
-            ></textarea>
+            ></KTextArea>
           </span>
             <error v-if="showValidationMessage">
                 {{validationMessage}}
@@ -25,6 +24,7 @@
 </template>
 <script>
 import { FieldWrapper } from "@progress/kendo-vue-form";
+import { TextArea } from "@progress/kendo-vue-inputs";
 import { Error, Hint, Label } from "@progress/kendo-vue-labels";
 export default {
     props: {
@@ -44,6 +44,7 @@ export default {
         error: Error,
         hint: Hint,
         klabel: Label,
+        KTextArea: TextArea
     },
     emits: {
         change: null,

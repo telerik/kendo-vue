@@ -128,21 +128,22 @@
     </fieldset>
     <hr />
     <div class="k-form-buttons">
-      <button type="button" class="k-button" @click="clear">
+      <KButton @click="clear">
         {{ cancelMessage }}
-      </button>
-      <button
+      </KButton>
+      <KButton
         type="submit"
-        class="k-button k-primary"
+        :theme-color="'primary'"
         :disabled="!kendoForm.allowSubmit"
       >
         {{ saveChangesMessage }}
-      </button>
+      </KButton>
     </div>
   </form-element>
 </template>
 <script>
 import { Field, FormElement } from "@progress/kendo-vue-form";
+import { Button } from "@progress/kendo-vue-buttons";
 import FormInput from "./FormInput.vue";
 import FormMaskedTextBox from "./FormMaskedTextBox.vue";
 import FormAutoComplete from "./FormAutoComplete.vue";
@@ -169,6 +170,7 @@ export default {
     formtextarea: FormTextArea,
     formradiogroup: FormRadioGroup,
     formupload: FormUpload,
+    KButton:Button
   },
   inject: {
     kendoForm: { default: {} },

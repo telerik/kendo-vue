@@ -1,7 +1,7 @@
 
 import { mount } from '@vue/test-utils'
 // GridVue3 is a special vue 3 type of the Kendo Grid component - in our next major release it will be available in the default Grid object.
-import { GridVue3 as Grid } from '@progress/kendo-vue-grid'
+import { Grid } from '@progress/kendo-vue-grid'
 
 describe('HelloWorld.vue', () => {
 

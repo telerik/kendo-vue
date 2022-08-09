@@ -9,11 +9,18 @@
     "production": "vue-cli-service serve --mode production"
   },
   "dependencies": {
-    "@progress/kendo-data-query": "^1.6.0",
-    "@progress/kendo-theme-default": "^5.5.0",
-    "@progress/kendo-vue-grid": "^3.4.1",
-    "@progress/kendo-vue-inputs": "^3.4.1",
-    "@progress/kendo-vue-intl": "^3.4.1",
+    "@progress/kendo-data-query": "latest",
+    "@progress/kendo-drawing": "latest",
+    "@progress/kendo-licensing": "latest",
+    "@progress/kendo-theme-default": "latest",
+    "@progress/kendo-vue-data-tools": "latest",
+    "@progress/kendo-vue-dateinputs": "latest",
+    "@progress/kendo-vue-dropdowns": "latest",
+    "@progress/kendo-vue-excel-export": "latest",
+    "@progress/kendo-vue-grid": "latest",
+    "@progress/kendo-vue-inputs": "latest",
+    "@progress/kendo-vue-intl": "latest",
+    "@progress/kendo-vue-indicators": "latest",
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
   },

@@ -1,6 +1,3 @@
-
-import { FinancialData } from './local-data/financial-data';
-
 export const updateRandomPrices = (data) => {
     // console.time('randomizerandom');
 

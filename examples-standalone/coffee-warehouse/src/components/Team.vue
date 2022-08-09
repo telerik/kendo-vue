@@ -3,20 +3,20 @@
     <div class="card-header-wrapper">
       <h3 class="card-title">{{ teamMembersMessage }}</h3>
       <buttongroup>
-        <k-button
+        <KButton
           :togglable="true"
           @click="onTeamChange(25)"
           :selected="myTeamSelected"
         >
           {{ myTeamMessage }}
-        </k-button>
-        <k-button
+        </KButton>
+        <KButton
           :togglable="true"
           @click="onTeamChange(100)"
           :selected="!myTeamSelected"
         >
           {{ allTeamsMessage }}
-        </k-button>
+        </KButton>
       </buttongroup>
       <span></span>
     </div>
@@ -45,25 +45,34 @@
         @datastatechange="dataStateChange"
         @expandchange="expandChange"
       >
-        <toolbar>
+       <toolbar>
           <span class="k-textbox k-grid-search k-display-flex">
-            <k-input
+            <k-input :style="{ width: '230px' }"
               :placeholder="gridSearchMessage"
               :value="searchWord"
               @input="onFilter"
             ></k-input>
           </span>
           <span class="export-buttons">
-            <button
+             <dropdownlist
+          :style="{ width: '230px' }"
+              class="localeDropDownList"
+              :value="currentLocale"
+              :text-field="'language'"
+              @change="localeChange"
+              :data-items="locales"
+            >
+            </dropdownlist>
+            <KButton
               title="Export to Excel"
-              class="k-button k-primary"
+              :theme-color="'primary'"
               @click="exportExcel"
             >
-              {{ exportExcelMessage }}</button
+              {{ exportExcelMessage }}</KButton
             >&nbsp;
-            <button class="k-button k-primary" @click="exportPDF">
+            <KButton :theme-color="'primary'" @click="exportPDF">
               {{ exportPdfMessage }}
-            </button>
+            </KButton>
           </span>
         </toolbar>
         <template v-slot:contactTemplate="{ props }">
@@ -140,7 +149,7 @@ export default {
     flag: Flag,
     contact: ContactName,
     "k-input": Input,
-    "k-button": Button,
+    KButton: Button,
     buttongroup: ButtonGroup,
   },
   inject: {

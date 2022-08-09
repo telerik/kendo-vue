@@ -885,7 +885,7 @@ export const DATA = [
 ];
 
 export class FinancialData {
-     generateData(count) {
+    generateData(count) {
         console.time('generateData');
         const currData = [];
         for (let i = 0; i < count; i++) {
@@ -903,7 +903,7 @@ export class FinancialData {
 
             for (const mockData of MOCKFINANCEDATA) {
                 for (const prop in mockData) {
-                    if (mockData.hasOwnProperty(prop)) {
+                    if (Object.prototype.hasOwnProperty.call(mockData, prop)) {
                         dataObj[prop] = mockData[prop];
                     }
                 }
@@ -917,7 +917,7 @@ export class FinancialData {
         return currData;
     }
 
-     updateAllPrices(data) {
+    updateAllPrices(data) {
         const currData = [];
         for (const dataRow of data) {
             const dataObj = Object.assign({}, dataRow);
@@ -927,20 +927,17 @@ export class FinancialData {
         return currData;
     }
 
-     updateRandomPrices(data) {
+    updateRandomPrices(data) {
         const currData = data.slice(0, data.length + 1);
-        let y = 0;
         for (let i = Math.round(Math.random() * 10); i < data.length; i += Math.round(Math.random() * 10)) {
             const dataObj = Object.assign({}, data[i]);
             this.randomizeObjectData(dataObj);
             currData[i] = dataObj;
-            y++;
         }
-        // return {data: currData, recordsUpdated: y };
         return currData;
     }
 
-     updateRandomPrices2(data) {
+    updateRandomPrices2(data) {
         const currData = data.slice(0, data.length + 1);
         let y = 0;
         for (let i = Math.round(Math.random() * 10); i < data.length; i += Math.round(Math.random() * 10)) {
@@ -952,7 +949,7 @@ export class FinancialData {
         return { data: currData, recordsUpdated: y };
     }
 
-     randomizeObjectData(dataObj) {
+    randomizeObjectData(dataObj) {
         const changeP = 'Change(%)';
         const res = this.generateNewPrice(dataObj.Price);
         dataObj.Change = res.Price - dataObj.Price;
@@ -960,7 +957,7 @@ export class FinancialData {
         dataObj[changeP] = res.ChangePercent;
     }
 
-     generateNewPrice(oldPrice) {
+    generateNewPrice(oldPrice) {
         const rnd = parseFloat(Math.random().toFixed(2));
         const volatility = 2;
         let newPrice = 0;
@@ -984,7 +981,7 @@ export class FinancialData {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-     randomizeCountry(region) {
+    randomizeCountry(region) {
         let country;
         switch (region.Region) {
             case 'North America': {

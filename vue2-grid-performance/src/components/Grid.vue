@@ -160,7 +160,7 @@ const BUTTON_META = {
 
 
 export default {
-  name: 'HelloWorld',
+  name: 'Grid',
   components: {
     grid: Grid,
     toolbar: GridToolbar,
@@ -192,7 +192,7 @@ export default {
                     { field: 'Country', width:100 },
                     { field: 'Open Price', width: 120, filter: 'numeric', format:"{0:c4}"},
                     { field: 'Price', width: 130, filter: 'numeric', cell: 'myPriceCell'},
-                    { field: 'Change', width: 90, className: 'numeric change', filter: 'numeric', headerClassName: 'headerAlignStyle', cell: 'myChangeCell' }, 
+                    { field: 'Change', width: 120, className: 'numeric change', filter: 'numeric', headerClassName: 'headerAlignStyle', cell: 'myChangeCell' }, 
                     { field: 'Change(%)', width: 90, className: 'numeric change', filter: 'numeric',  cell: 'myChangePercentCell' },
                     { field: 'Buy', width: 110, filter: 'numeric', format:'{0:c4}' },
                     { field: 'Sell', width: 110, filter: 'numeric', format: '{0:c4}'},

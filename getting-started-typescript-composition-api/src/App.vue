@@ -2,29 +2,14 @@
   <div id="app">
     <h1>Hello Kendo UI for Vue!</h1>
     <p>
-      <dropdownlist
-        :data-items="categories"
-        :data-item-key="'CategoryID'"
-        :text-field="'CategoryName'"
-        :default-item="defaultItems"
-        @change="handleDropDownChange"
-        @rowclick="rowClick"
-      ></dropdownlist>&nbsp; Selected category ID:
+      <dropdownlist :data-items="categories" :data-item-key="'CategoryID'" :text-field="'CategoryName'"
+        :default-item="defaultItems" @change="handleDropDownChange" @rowclick="rowClick"></dropdownlist>&nbsp; Selected
+      category ID:
       <strong>{{ dropdownlistCategory }}</strong>
     </p>
 
-    <grid
-      :data-items="dataResult"
-      :pageable="pageable"
-      :sortable="sortable"
-      :sort="sort"
-      :take="take"
-      :skip="skip"
-      :columns="columns"
-      @datastatechange="dataStateChange"
-      @rowclick="rowClick"
-      :style="{ height: '400px' }"
-    >
+    <grid :data-items="dataResult" :pageable="pageable" :sortable="sortable" :sort="sort" :take="take" :skip="skip"
+      :columns="columns" @datastatechange="dataStateChange" @rowclick="rowClick" :style="{ height: '400px' }">
       <template v-slot:discontinuedTemplate="{ props }">
         <td :colspan="1">
           <input type="checkbox" :checked="props.dataItem.Discontinued" disabled="disabled" />
@@ -82,7 +67,7 @@ export default defineComponent({
       { field: "ProductName", dir: "asc" }
     ]);
 
-    const filter = ref<CompositeFilterDescriptor>({logic: "and", filters: []});
+    const filter = ref<CompositeFilterDescriptor>({ logic: "and", filters: [] });
 
 
     const columns = [
@@ -102,12 +87,12 @@ export default defineComponent({
         filter.value = {
           logic: 'and',
           filters: [{ field: 'CategoryID', operator: 'eq', value: e.target.value.CategoryID }]
-        }
-        skip.value = 0
+        };
+        skip.value = 0;
       } else {
-        filter.value = {} as CompositeFilterDescriptor
-        skip.value = 0
-      };
+        filter.value = {} as CompositeFilterDescriptor;
+        skip.value = 0;
+      }
 
       const event: GridDataStateChangeEvent = {
         data: {
@@ -117,6 +102,7 @@ export default defineComponent({
           filter: filter.value
         }
       };
+
       dataStateChange(event);
     };
 
@@ -151,17 +137,17 @@ export default defineComponent({
 
     const closeWindow = () => {
       windowVisible.value = false;
-    }
+    };
 
     return {
       dropdownlistCategory, categories, defaultItems,
       pageable, sortable, dataResult, columns,
       sort, take, skip, gridClickedRow, windowVisible,
       dataStateChange, handleDropDownChange, rowClick, closeWindow,
-    }
+    };
   }
 
-})
+});
 </script>
 
 <style>
@@ -173,6 +159,7 @@ export default defineComponent({
   color: #2c3e50;
   margin-top: 60px;
 }
+
 dt {
   font-weight: bold;
 }

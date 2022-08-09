@@ -9,4 +9,4 @@ const categories = [
   { "CategoryID": 8, "CategoryName": "Seafood" }
 ];
 
-export { categories as categoriesData }
+export { categories as categoriesData };
