@@ -3,7 +3,6 @@
         <div class="signin-form p-5">
             <h1 id="app-title">ISSUES</h1>
             <p id="app-subtitle">SAMPLE DASHBOARD</p>
-
             <div class="form-group mt-4">
                 <KInput :size="'large'" :placeholder="'Email or Username'" />
             </div>
@@ -14,19 +13,20 @@
                 </p>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary btn-block" @click="onLoginClick">Log in</button>
+                <KButton class="btn btn-primary btn-block" @click="onLoginClick">Log in</KButton>
             </div>
-
         </div>
     </div>
 </template>
 
 <script>
 import { Input } from "@progress/kendo-vue-inputs";
+import { Button } from "@progress/kendo-vue-buttons";
 export default {
     name: 'signin',
     components: {
-        KInput: Input
+        KInput: Input,
+        KButton: Button
     },
     methods: {
         onLoginClick() {

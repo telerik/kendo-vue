@@ -1,8 +1,9 @@
 <template>
   <div class="row menu">
-    <div class="col-xs-3 bg-inverse text-white py-5 k-vbox" :style="{ 'background-color': '#252830', width: '312px' }">
-      <div id="nav" v-if="this.$route.path.toLowerCase() !== '/signin'" :class="{ expand: navState }">
-        <span id="nav-toggle" class="nav-toggle d-md-none" @click="navState = !navState">
+    <div v-if="this.$route.path.toLowerCase() !== '/signin'" class="col-xs-3 bg-inverse text-white py-5 k-vbox"
+      :style="{ 'background-color': '#252830', width: '312px', justifyContent: 'space-between' }">
+      <div id="nav">
+        <span id="nav-toggle" class="nav-toggle d-md-none">
           <span class="k-icon k-i-hamburger"></span>
         </span>
         <h1 id="app-title">Issues</h1>
@@ -10,7 +11,7 @@
         <hr />
         <div class="nav nav-pills flex-column">
 
-          <Drawer :expanded="expanded" :position="position" :width="300" :mode="mode" :items="
+          <Drawer ref="drawer" :expanded="expanded" :position="position" :width="300" :mode="mode" :items="
             items.map((item, index) => ({
               ...item,
               selected: index === selectedId,
@@ -21,7 +22,6 @@
         </div>
       </div>
       <div id="nav">
-
         <hr class="k-flex" />
         <div id="copy">
           <p>Copyright &copy; {{ year }},<br /><a href="http://www.progress.com">Progress Software Corporation</a>
@@ -80,17 +80,20 @@ export default {
         },
       ],
       expanded: true,
-      selectedId: 0,
       position: "start",
       mode: "push",
     };
   },
   methods: {
     onSelect(e) {
-      this.selectedId = e.itemIndex;
       this.$router.push(this.items[e.itemIndex].data);
     },
   },
+  computed: {
+    selectedId() {
+      return this.items.map((item) => item.data.path).indexOf(this.$route.path.toLowerCase());
+    }
+  }
 };
 </script>
 
@@ -99,7 +102,7 @@ export default {
   background-color: transparent;
 }
 
-#nav ul > li.k-drawer-item.k-selected {
+#nav ul>li.k-drawer-item.k-selected {
   color: #111;
   background-color: #1ca8dd;
 }
