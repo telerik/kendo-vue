@@ -322,7 +322,6 @@ export default {
             },
         }).then((response) => response.json())
             .then((data) => {
-                console.log(data)
                 this.response = data;
             })
     },
