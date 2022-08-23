@@ -192,4 +192,8 @@ export class IssuesProcessor {
         return since;
     }
 
+    static getColors() {
+        return colors;
+    }
+
 }
