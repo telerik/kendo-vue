@@ -1,0 +1,41 @@
+{
+  "name": "vue-dashboard-new",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "@progress/kendo-data-query": "^1.6.0",
+    "@progress/kendo-drawing": "^1.17.0",
+    "@progress/kendo-licensing": "^1.2.2",
+    "@progress/kendo-theme-default": "^5.6.0",
+    "@progress/kendo-vue-buttons": "^3.5.0",
+    "@progress/kendo-vue-charts": "^3.5.1",
+    "@progress/kendo-vue-data-tools": "^3.5.1",
+    "@progress/kendo-vue-dateinputs": "^3.5.1",
+    "@progress/kendo-vue-dialogs": "^3.5.0",
+    "@progress/kendo-vue-dropdowns": "^3.5.1",
+    "@progress/kendo-vue-form": "^3.5.1",
+    "@progress/kendo-vue-grid": "^3.5.1",
+    "@progress/kendo-vue-indicators": "^3.5.1",
+    "@progress/kendo-vue-inputs": "^3.5.0",
+    "@progress/kendo-vue-intl": "^3.5.1",
+    "@progress/kendo-vue-layout": "^3.5.0",
+    "@progress/kendo-vue-progressbars": "^3.5.1",
+    "bootstrap": "^5.2.0",
+    "hammerjs": "^2.0.8",
+    "marked": "^4.0.19",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.0",
+    "sass": "^1.54.4",
+    "vite": "^3.0.0"
+  }
+}
