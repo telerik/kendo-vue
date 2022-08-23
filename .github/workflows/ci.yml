@@ -28,6 +28,12 @@ jobs:
           npm ci
           npm run build
 
+      - name: Build Dashboard app
+        working-directory: ./examples-standalone/dashboard
+        run: |
+          npm ci
+          npm run build
+
       - name: Cleanup
         run: git clean -xdf
 
