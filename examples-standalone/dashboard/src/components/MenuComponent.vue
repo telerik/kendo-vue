@@ -1,16 +1,18 @@
 <template>
   <div class="row menu">
-    <div v-if="this.$route.path.toLowerCase() !== '/signin'" class="col-xs-3 bg-inverse text-white py-5 k-vbox"
-      :style="{ 'background-color': '#252830', width: '312px', justifyContent: 'space-between' }">
+    <div v-if="this.$route.path.toLowerCase() !== '/signin'" class="col-3 bg-inverse text-white py-5 k-vbox"
+      :style="{ 'background-color': '#252830', width: '311px', justifyContent: 'space-between' }">
       <div id="nav">
-        <span id="nav-toggle" class="nav-toggle d-md-none">
-          <span class="k-icon k-i-hamburger"></span>
-        </span>
+        <div style="margin-bottom:50px">
+          <div id="app-title">Change theme:</div>
+          <DropDownList :style="{ width: '230px' }" :data-items="themes" :text-field="'text'" :data-item-key="'value'"
+            :value="themeValue" @change="onThemeChange">
+          </DropDownList>
+        </div>
         <h1 id="app-title">Issues</h1>
         <p id="app-subtitle">Sample Dashboard</p>
         <hr />
         <div class="nav nav-pills flex-column">
-
           <Drawer ref="drawer" :expanded="expanded" :position="position" :width="300" :mode="mode" :items="
             items.map((item, index) => ({
               ...item,
@@ -20,9 +22,9 @@
 
           </Drawer>
         </div>
+
       </div>
       <div id="nav">
-        <hr class="k-flex" />
         <div id="copy">
           <p>Copyright &copy; {{ year }},<br /><a href="http://www.progress.com">Progress Software Corporation</a>
             and/or
@@ -41,17 +43,32 @@
 </template>
 
 <script>
+import { DropDownList } from "@progress/kendo-vue-dropdowns";
 import { Drawer, DrawerContent } from "@progress/kendo-vue-layout";
 
 export default {
   name: "App",
-  components: { Drawer, DrawerContent },
+  components: { Drawer, DrawerContent, DropDownList },
   mounted() {
     this.$router.push(this.items[0].data);
   },
   data() {
     return {
+      themeValue: {
+        text: "Kendo Theme Default",
+        value: "kendo-theme-default"
+      },
       year: '2022',
+      themes: [{
+        text: "Kendo Theme Default",
+        value: "kendo-theme-default"
+      }, {
+        text: "Kendo Theme Bootstrap",
+        value: "kendo-theme-bootstrap"
+      }, {
+        text: "Kendo Theme Material",
+        value: "kendo-theme-material"
+      }],
       items: [
         {
           text: "Dashboard",
@@ -84,10 +101,15 @@ export default {
       mode: "push",
     };
   },
+  emits: ['themeChange'],
   methods: {
     onSelect(e) {
       this.$router.push(this.items[e.itemIndex].data);
     },
+    onThemeChange(e) {
+      this.themeValue = e.value;
+      this.$emit("themeChange", this.themeValue.value)
+    }
   },
   computed: {
     selectedId() {

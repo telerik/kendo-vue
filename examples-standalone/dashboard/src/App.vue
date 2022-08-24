@@ -1,14 +1,36 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import MenuComponent from './components/MenuComponent.vue'
-</script>
-
 <template>
+  <link rel="stylesheet" :href="themeLink" />
   <div id="app" class="app">
-    <MenuComponent />
+    <MenuComponent @theme-change="onThemeChange" />
   </div>
 </template>
+
+<script>
+import MenuComponent from './components/MenuComponent.vue'
+
+
+export default {
+  components: {
+    MenuComponent
+  },
+  data() {
+    return {
+      currentTheme: "kendo-theme-default"
+    }
+  },
+  methods: {
+    onThemeChange(value) {
+      this.currentTheme = value;
+    }
+  },
+  computed: {
+    themeLink() {
+      return "https://unpkg.com/@progress/" + this.currentTheme + "@latest/dist/all.css"
+    }
+  }
+}
+</script>
+
 
 <style scoped>
 .logo {

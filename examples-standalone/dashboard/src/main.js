@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import '@progress/kendo-theme-default'
+// import '@progress/kendo-theme-bootstrap'
 // Import our custom CSS
 import './scss/styles.scss'
 
