@@ -1,11 +1,11 @@
 <template>
     <div class="issues">
-        <Grid ref="grid" :data-items="issues" :detail="cellTemplate" :columns="columns" :pageable="pageable"
+        <Grid ref="grid" :data-items="issues" :detail="detailTemplate" :columns="columns" :pageable="pageable"
             :filterable="true" :loader="loader" :skip="skip" :take="take" :total="total" :page-size="pageSize"
             @pagechange="pageChangeHandler" @datastatechange="dataStateChange" @expandchange="expandChange"
             :expand-field="'expanded'">
-            <template v-slot:myTemplate="{ props }">
-                <custom :data-item="props.dataItem" />
+            <template v-slot:DetailComponent="{ props }">
+                <DetailComponent :data-item="props.dataItem" />
             </template>
             <template v-slot:IDTemplate="{ props }">
                 <IDTemplate :data-item="props.dataItem" />
@@ -50,7 +50,7 @@ const token = ['6170ac11463601b547', '224777b801f2e889077ca9'].join('');
 export default {
     components: {
         "Grid": Grid,
-        custom: DetailComponent,
+        DetailComponent,
         IDTemplate: markRaw(IDTemplate),
         TitleTemplate: markRaw(TitleTemplate),
         LabelsTemplate: markRaw(LabelsTemplate),
@@ -78,7 +78,7 @@ export default {
         return {
             loader: false,
             response: [],
-            cellTemplate: 'myTemplate',
+            detailTemplate: 'DetailComponent',
             expandedItems: [],
             columns: [
                 { field: 'number', title: 'ID', width: 100, filterable: false, cell: IDTemplate },
