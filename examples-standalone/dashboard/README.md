@@ -1,6 +1,20 @@
-# Vue 3 + Vite
+# Kendo UI for Vue Dashboard Application
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+The current example shows how the Native Grid, Charts, Inputs, Labels, etc. component can be combined in a real-life application. The project uses Vue 3 in Vite. 
+
+## Project setup
+
+Install the NPM packages using:
+
+```
+npm install
+```
+
+Start the project using:
+
+```
+npm run dev
+```
 
 ## Recommended IDE Setup
 
