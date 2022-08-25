@@ -26,7 +26,6 @@
     </div>
 </template>
 <script>
-import { markRaw } from "vue";
 import { Grid } from '@progress/kendo-vue-grid';
 import DetailComponent from './DetailComponent.vue';
 import { filterBy } from '@progress/kendo-data-query';
@@ -51,11 +50,11 @@ export default {
     components: {
         "Grid": Grid,
         DetailComponent,
-        IDTemplate: markRaw(IDTemplate),
-        TitleTemplate: markRaw(TitleTemplate),
-        LabelsTemplate: markRaw(LabelsTemplate),
-        MilestoneTemplate: markRaw(MilestoneTemplate),
-        AssigneeTemplate: markRaw(AssigneeTemplate),
+        IDTemplate: IDTemplate,
+        TitleTemplate: TitleTemplate,
+        LabelsTemplate: LabelsTemplate,
+        MilestoneTemplate: MilestoneTemplate,
+        AssigneeTemplate: AssigneeTemplate,
     },
     created() {
         fetch('https://api.github.com/repos/telerik/kendo-ui-core/issues?' + new URLSearchParams({
@@ -81,11 +80,11 @@ export default {
             detailTemplate: 'DetailComponent',
             expandedItems: [],
             columns: [
-                { field: 'number', title: 'ID', width: 100, filterable: false, cell: IDTemplate },
-                { field: 'title', title: 'Title', cell: TitleTemplate },
-                { field: 'labels', title: 'Labels', filterable: false, width: 200, cell: LabelsTemplate },
-                { field: 'milestone', title: 'Milestone', filterable: false, width: 150, cell: MilestoneTemplate },
-                { field: 'assignee', title: 'Assignee', filterable: false, width: 150, cell: AssigneeTemplate },
+                { field: 'number', title: 'ID', width: 100, filterable: false, cell: 'IDTemplate' },
+                { field: 'title', title: 'Title', cell: 'TitleTemplate' },
+                { field: 'labels', title: 'Labels', filterable: false, width: 200, cell: 'LabelsTemplate' },
+                { field: 'milestone', title: 'Milestone', filterable: false, width: 150, cell: 'MilestoneTemplate' },
+                { field: 'assignee', title: 'Assignee', filterable: false, width: 150, cell: 'AssigneeTemplate' },
             ],
             pageSize: 10,
             skip: 0,
