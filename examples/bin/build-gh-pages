@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Builds example projects and deploys them to GH Pages
-STANDALONE_PROJECTS=(coffee-warehouse)
+STANDALONE_PROJECTS=(coffee-warehouse dashboard)
 
 set -e
 

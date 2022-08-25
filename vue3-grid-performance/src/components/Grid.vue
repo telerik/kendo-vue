@@ -275,7 +275,6 @@ export default {
       this.take = event.page.take;
     },
     onDataStateChange(event) {
-      console.log("DataStateChange")
       this.createAppState(event.data);
     },
     createAppState(dataState) {

@@ -120,7 +120,6 @@ export default {
       }, interval);
     },
     startLiveUpdateAll(interval) {
-      console.log(this.intervalRef)
       clearInterval(this.intervalRef);
       this.intervalRef = setInterval(() => {
         this.gridData = updateAllPrices(this.data);
