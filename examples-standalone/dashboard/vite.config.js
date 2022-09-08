@@ -4,11 +4,8 @@ import path from 'path'
 
 
 // https://vitejs.dev/config/
-
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/kendo-vue/coffee-warehouse/' : '';
-
 export default defineConfig({
-  base: `${BASE_URL}/kendo-vue/dashboard/`,
+  base: './',
   plugins: [vue()],
   resolve: {
     alias: {
