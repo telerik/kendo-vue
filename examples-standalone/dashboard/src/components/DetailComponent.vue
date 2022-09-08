@@ -34,14 +34,14 @@
         </div>
     </div>
     <div class="row my-4">
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <h4 class="small text-muted">Labels</h4>
             <span v-for="(label, index) in dataItem.labels" class="badge"
                 :style="{ 'background-color': getColor(dataItem.labels[index].name) }"> {{
                         dataItem.labels[index].name
                 }}</span>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-9">
             <h4 class="small text-muted">Description</h4>
             <div v-html="mdText">
             </div>

@@ -139,3 +139,12 @@ h4 {
 .row {
     margin-right: initial;
 }
+
+.badge{
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
+
+}
