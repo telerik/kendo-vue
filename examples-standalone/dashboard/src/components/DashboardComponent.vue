@@ -196,8 +196,8 @@
                     </CardBody>
                 </Card>
             </div>
-            <div class="col-md-12 k-card-deck">
-                <div class="col-md-4 k-card-list">
+            <div :class="['col-md-12', currentScreenWidth>=1150?'k-card-deck': 'k-card-list']">
+                <div :class="[currentScreenWidth>=1150?'col-md-4':'']">
                     <Card>
                         <CardHeader :class="'h4'">Issue Types</CardHeader>
                         <CardBody>
@@ -219,7 +219,7 @@
                         </CardBody>
                     </Card>
                 </div>
-                <div class="col-md-8">
+                <div :class="[currentScreenWidth>=1150?'col-md-8':'']">
                     <Card>
                         <CardHeader :class="'h4'">Types Distribution</CardHeader>
                         <CardBody>
@@ -316,6 +316,10 @@ export default {
         CardBody,
     },
     created() {
+        window.onresize = () => {
+            this.currentScreenWidth = window.innerWidth;
+        };
+
         fetch('https://api.github.com/repos/telerik/kendo-ui-core/issues?' + new URLSearchParams({
             state: 'all',
             page: 1,
@@ -336,6 +340,7 @@ export default {
             today: new Date(),
             selectedIndex: 2,
             response: [],
+            currentScreenWidth: null
         }
     },
     computed: {
