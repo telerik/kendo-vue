@@ -340,7 +340,7 @@ export default {
             today: new Date(),
             selectedIndex: 2,
             response: [],
-            currentScreenWidth: null
+            currentScreenWidth: 1150
         }
     },
     computed: {

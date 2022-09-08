@@ -4,8 +4,9 @@ import path from 'path'
 
 
 // https://vitejs.dev/config/
+
 export default defineConfig({
-  base: './',
+  base: `/kendo-vue/dashboard/`,
   plugins: [vue()],
   resolve: {
     alias: {
