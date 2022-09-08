@@ -54,15 +54,6 @@
             ></k-input>
           </span>
           <span class="export-buttons">
-             <dropdownlist
-          :style="{ width: '230px' }"
-              class="localeDropDownList"
-              :value="currentLocale"
-              :text-field="'language'"
-              @change="localeChange"
-              :data-items="locales"
-            >
-            </dropdownlist>
             <KButton
               title="Export to Excel"
               :theme-color="'primary'"
