@@ -32,11 +32,13 @@
                                     <ChartCategoryAxis>
                                         <ChartCategoryAxisItem :type="'date'" :base-unit="'days'" :labels="{
                                             step: 4,
-                                            font: '10px sans-serif', format: 'dd MMM'
+                                            font: '10px sans-serif', 
+                                            format: 'dd MMM', 
+                                            rotation: 'auto'
                                         }" :major-grid-lines="{
-    visible:
-        false
-}" :line="{ visible: false }" />
+                                            visible:
+                                                false
+                                        }" :line="{ visible: false }" />
                                     </ChartCategoryAxis>
                                     <ChartValueAxis>
                                         <ChartValueAxisItem :visible="false" :major-grid-lines="{
@@ -63,11 +65,13 @@
                                     <ChartCategoryAxis>
                                         <ChartCategoryAxisItem :type="'date'" :base-unit="'days'" :labels="{
                                             step: 4,
-                                            font: '10px sans-serif', format: 'dd MMM'
+                                            font: '10px sans-serif', 
+                                            format: 'dd MMM',
+                                            rotation: 'auto'
                                         }" :major-grid-lines="{
-    visible:
-        false
-}" :line="{ visible: false }" />
+                                            visible:
+                                                false
+                                        }" :line="{ visible: false }" />
                                     </ChartCategoryAxis>
                                     <ChartValueAxis>
                                         <ChartValueAxisItem :visible="false" :major-grid-lines="{
@@ -94,11 +98,13 @@
                                     <ChartCategoryAxis>
                                         <ChartCategoryAxisItem :type="'date'" :base-unit="'days'" :labels="{
                                             step: 4,
-                                            font: '10px sans-serif', format: 'dd MMM'
+                                            font: '10px sans-serif', 
+                                            format: 'dd MMM',
+                                            rotation: 'auto'
                                         }" :major-grid-lines="{
-    visible:
-        false
-}" :line="{ visible: false }" />
+                                            visible:
+                                                false
+                                        }" :line="{ visible: false }" />
                                     </ChartCategoryAxis>
                                     <ChartValueAxis>
                                         <ChartValueAxisItem :visible="false" :major-grid-lines="{
