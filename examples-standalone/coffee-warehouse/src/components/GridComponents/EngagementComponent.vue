@@ -5,7 +5,7 @@
     :type="'bar'"
     :series-defaults="seriesDefaults"
   >
-    <ChartArea :opacity="0" :width="200" :height="40" />
+    <ChartArea :opacity="0" :width="180" :height="40" />
     <ChartValueAxis>
       <ChartValueAxisItem :max="max" :min="min" />
     </ChartValueAxis>
