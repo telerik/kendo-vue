@@ -20,14 +20,14 @@
       </buttongroup>
       <div class="card-ranges">
         <datepicker
-          style="width: 120px"
+          style="width: 130px"
           :value="dateRange.start"
           @change="onFromDateChange"
         >
         </datepicker>
         <span> - </span>
         <datepicker
-          style="width: 120px"
+          style="width: 130px"
           :value="dateRange.end"
           @change="onToDateChange"
         >

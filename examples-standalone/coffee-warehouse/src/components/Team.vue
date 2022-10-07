@@ -3,64 +3,30 @@
     <div class="card-header-wrapper">
       <h3 class="card-title">{{ teamMembersMessage }}</h3>
       <buttongroup>
-        <KButton
-          :togglable="true"
-          @click="onTeamChange(25)"
-          :selected="myTeamSelected"
-        >
+        <KButton :togglable="true" @click="onTeamChange(25)" :selected="myTeamSelected">
           {{ myTeamMessage }}
         </KButton>
-        <KButton
-          :togglable="true"
-          @click="onTeamChange(100)"
-          :selected="!myTeamSelected"
-        >
+        <KButton :togglable="true" @click="onTeamChange(100)" :selected="!myTeamSelected">
           {{ allTeamsMessage }}
         </KButton>
       </buttongroup>
       <span></span>
     </div>
     <pdfexport ref="gridPdfExport">
-      <Grid
-        ref="grid"
-        :style="{ height: '500px' }"
-        :data-items="gridData"
-        :resizable="true"
-        :reorderable="true"
-        :sortable="true"
-        :pageable="gridPageable"
-        :groupable="true"
-        :group="group"
-        :sort="sort"
-        :filter="filter"
-        :take="take"
-        :skip="skip"
-        :expand-field="expandField"
-        :selectable="true"
-        :selected-field="selectedField"
-        :columns="columns"
-        :column-menu="columnMenu"
-        @selectionchange="onSelectionChange"
-        @headerselectionchange="onHeaderSelectionChange"
-        @datastatechange="dataStateChange"
-        @expandchange="expandChange"
-      >
-       <toolbar>
+      <Grid ref="grid" :style="{ height: '500px' }" :data-items="gridData" :resizable="true" :reorderable="true"
+        :sortable="true" :pageable="gridPageable" :groupable="true" :group="group" :sort="sort" :filter="filter"
+        :take="take" :skip="skip" :expand-field="expandField" :selectable="true" :selected-field="selectedField"
+        :columns="columns" :column-menu="columnMenu" @selectionchange="onSelectionChange"
+        @headerselectionchange="onHeaderSelectionChange" @datastatechange="dataStateChange"
+        @expandchange="expandChange">
+        <toolbar>
           <span class="k-textbox k-grid-search k-display-flex">
-            <k-input :style="{ width: '230px' }"
-              :placeholder="gridSearchMessage"
-              :value="searchWord"
-              @input="onFilter"
-            ></k-input>
+            <k-input :style="{ width: '230px' }" :placeholder="gridSearchMessage" :value="searchWord" @input="onFilter">
+            </k-input>
           </span>
           <span class="export-buttons">
-            <KButton
-              title="Export to Excel"
-              :theme-color="'primary'"
-              @click="exportExcel"
-            >
-              {{ exportExcelMessage }}</KButton
-            >&nbsp;
+            <KButton title="Export to Excel" :theme-color="'primary'" @click="exportExcel">
+              {{ exportExcelMessage }}</KButton>&nbsp;
             <KButton :theme-color="'primary'" @click="exportPDF">
               {{ exportPdfMessage }}
             </KButton>
@@ -68,42 +34,27 @@
         </toolbar>
         <template v-slot:contactTemplate="{ props }">
           <td>
-            <contact
-              v-if="props.rowType !== 'groupHeader'"
-              :data-item="props.dataItem"
-            ></contact>
+            <contact v-if="props.rowType !== 'groupHeader'" :data-item="props.dataItem"></contact>
           </td>
         </template>
         <template v-slot:flagTemplate="{ props }">
           <td class="text-center">
-            <flag
-              v-if="props.rowType !== 'groupHeader'"
-              :data-item="props.dataItem"
-            ></flag>
+            <flag v-if="props.rowType !== 'groupHeader'" :data-item="props.dataItem"></flag>
           </td>
         </template>
         <template v-slot:isOnlineTemplate="{ props }">
           <td class="text-center">
-            <isonline
-              v-if="props.rowType !== 'groupHeader'"
-              :data-item="props.dataItem"
-            ></isonline>
+            <isonline v-if="props.rowType !== 'groupHeader'" :data-item="props.dataItem"></isonline>
           </td>
         </template>
         <template v-slot:budgetTemplate="{ props }">
           <td class="text-center">
-            <budget
-              v-if="props.rowType !== 'groupHeader'"
-              :data-item="props.dataItem"
-            ></budget>
+            <budget v-if="props.rowType !== 'groupHeader'" :data-item="props.dataItem"></budget>
           </td>
         </template>
         <template v-slot:engagementTemplate="{ props }">
           <td class="text-center">
-            <engagement
-              v-if="props.rowType !== 'groupHeader'"
-              :data-item="props.dataItem"
-            ></engagement>
+            <engagement v-if="props.rowType !== 'groupHeader'" :data-item="props.dataItem"></engagement>
           </td>
         </template>
       </Grid>
@@ -146,6 +97,9 @@ export default {
   inject: {
     kendoLocalizationService: { default: null },
   },
+  props: {
+    currentTheme: String,
+  },
   data: function () {
     return {
       myTeamSelected: true,
@@ -171,20 +125,26 @@ export default {
     };
   },
   created: function () {
-    this.getData(this.employees);
+    this.gridData = this.getData(this.employees);
     this.onTeamChange(25);
   },
   computed: {
+    selectedDataItems() {
+      return this.gridData.data.filter((item) => item.selected === true);
+    },
     areAllSelected() {
-      return this.employees.findIndex((item) => item.selected === false) === -1;
+      return (
+        this.selectedDataItems.length === this.gridData.data.length &&
+        this.selectedDataItems.length !== 0
+      );
     },
     columns() {
       return [
         {
           field: "selected",
-          width: "50px",
+          width: this.getSelectColumnWidth(this.currentTheme),
           columnMenu: false,
-          headerSelectionValue: !this.areAllSelected,
+          headerSelectionValue: this.areAllSelected,
         },
         {
           title: this.employeeMessage,
@@ -195,7 +155,7 @@ export default {
               width: "220px",
               cell: "contactTemplate",
             },
-            { field: "job_title", title: this.jobTitleMessage, width: "220px" },
+            { field: "job_title", title: this.jobTitleMessage, width: "250px" },
             {
               field: "country",
               title: this.countryMessage,
@@ -229,7 +189,7 @@ export default {
             {
               field: "budget",
               title: this.budgetMessage,
-              width: "100px",
+              width: "120px",
               filter: "numeric",
               format: "{0:c}",
               cell: "budgetTemplate",
@@ -242,7 +202,7 @@ export default {
             {
               field: "phone",
               title: this.phoneMessage,
-              width: "130px",
+              width: "160px",
             },
             {
               field: "address",
@@ -360,52 +320,56 @@ export default {
     onFilter(e) {
       let inputValue = e.value;
       this.searchWord = inputValue;
-      const filteredData = process(this.employees, {
-        filter: {
-          logic: "or",
+      this.take = 10;
+      this.skip = 0;
+      if (inputValue !== '') {
+        this.filter = {
+          logic: 'or',
           filters: [
             {
-              field: "full_name",
-              operator: "contains",
+              field: 'full_name',
+              operator: 'contains',
               value: inputValue,
             },
             {
-              field: "job_title",
-              operator: "contains",
+              field: 'job_title',
+              operator: 'contains',
               value: inputValue,
             },
             {
-              field: "budget",
-              operator: "contains",
+              field: 'budget',
+              operator: 'contains',
               value: inputValue,
             },
             {
-              field: "phone",
-              operator: "contains",
+              field: 'phone',
+              operator: 'contains',
               value: inputValue,
             },
             {
-              field: "address",
-              operator: "contains",
+              field: 'address',
+              operator: 'contains',
               value: inputValue,
             },
           ],
-        },
-        take: this.take,
-        skip: this.skip,
-        group: this.group,
-        sort: this.sort,
-      });
-      this.gridData = filteredData;
+        };
+      } else this.filter = null;
+      this.gridData = this.getData(this.employees);
     },
     onHeaderSelectionChange(event) {
       let checked = event.event.target.checked;
-      this.gridData.data = this.gridData.data.map((item) => {
+      const tempData = this.employees.map((item) => {
         return { ...item, selected: checked };
       });
+
+      const tempGridData = this.gridData.data.map((item) => {
+        return { ...item, selected: checked };
+      });
+      this.gridData.data = tempGridData;
+      this.employees = tempData;
     },
-    getData: function (data) {
-      this.gridData = process(data, {
+    getData(data) {
+      return process(data, {
         take: this.take,
         skip: this.skip,
         group: this.group,
@@ -419,7 +383,8 @@ export default {
       this.skip = dataState.skip;
       this.sort = dataState.sort;
       this.filter = dataState.filter;
-      this.getData(this.employees);
+
+      this.gridData = this.getData(this.employees);
     },
     dataStateChange: function (event) {
       this.createAppState(event.data);
@@ -464,6 +429,9 @@ export default {
       }
       this.getData(slicedEmployees);
     },
+    getSelectColumnWidth(theme){
+      return theme === "Default"? "42px":  theme === "Material" ? "65px" : "32px";
+    }
   },
 };
 </script>
@@ -500,6 +468,7 @@ td.text-center {
 .text-bold {
   font-weight: 600;
 }
+
 .export-buttons {
   margin-left: auto;
   margin-right: 0;

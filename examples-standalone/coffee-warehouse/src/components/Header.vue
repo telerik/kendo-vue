@@ -6,7 +6,7 @@
         <span class="vl"></span>
         <h2>{{ teamMessage }}</h2>
       </div>
-      <DropDownList :style="{ width: '230px' }" class="localeDropDownList" :value="currentLocale"
+      <DropDownList :style="{ width: '230px', height: '30px' }" class="localeDropDownList" :value="currentLocale"
         :text-field="'language'" @change="localeChange" :data-items="locales">
       </DropDownList>
       <DropDownList :data-items="themes" :text-field="'text'" :popup-settings="themesPopupSettings"

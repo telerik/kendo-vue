@@ -12,6 +12,7 @@
               <div class="card-container">
                 <router-view
                   :localization-language="localizationLanguage"
+                  :current-theme="currentTheme"
                 ></router-view>
               </div>
             </div>

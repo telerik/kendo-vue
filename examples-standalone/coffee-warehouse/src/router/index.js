@@ -8,7 +8,8 @@ const routes = [
   {
     path: "/",
     name: "Team",
-    component: Team
+    component: Team,
+    props: true
   },
   {
     path: "/Profile",
