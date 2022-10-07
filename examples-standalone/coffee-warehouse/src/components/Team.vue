@@ -155,7 +155,7 @@ export default {
               width: "220px",
               cell: "contactTemplate",
             },
-            { field: "job_title", title: this.jobTitleMessage, width: "230px" },
+            { field: "job_title", title: this.jobTitleMessage, width: "250px" },
             {
               field: "country",
               title: this.countryMessage,
@@ -202,7 +202,7 @@ export default {
             {
               field: "phone",
               title: this.phoneMessage,
-              width: "140px",
+              width: "160px",
             },
             {
               field: "address",
@@ -320,12 +320,10 @@ export default {
     onFilter(e) {
       let inputValue = e.value;
       this.searchWord = inputValue;
-      this.gridData = this.getData(this.employees, {
-        take: this.take,
-        skip: this.skip,
-        group: this.group,
-        sort: this.sort,
-        filter: {
+      this.take = 10;
+      this.skip = 0;
+      if (inputValue !== '') {
+        this.filter = {
           logic: 'or',
           filters: [
             {
@@ -354,8 +352,9 @@ export default {
               value: inputValue,
             },
           ],
-        },
-      });
+        };
+      } else this.filter = null;
+      this.gridData = this.getData(this.employees);
     },
     onHeaderSelectionChange(event) {
       let checked = event.event.target.checked;
@@ -369,24 +368,14 @@ export default {
       this.gridData.data = tempGridData;
       this.employees = tempData;
     },
-    getData(data, dataState) {
-      if (dataState) {
-        return process(data, {
-          take: dataState.take,
-          skip: dataState.skip,
-          group: dataState.group,
-          sort: dataState.sort,
-          filter: dataState.filter,
-        });
-      } else {
-        return process(data, {
-          take: this.take,
-          skip: this.skip,
-          group: this.group,
-          sort: this.sort,
-          filter: this.filter,
-        });
-      }
+    getData(data) {
+      return process(data, {
+        take: this.take,
+        skip: this.skip,
+        group: this.group,
+        sort: this.sort,
+        filter: this.filter,
+      });
     },
     createAppState: function (dataState) {
       this.group = dataState.group;
@@ -441,7 +430,7 @@ export default {
       this.getData(slicedEmployees);
     },
     getSelectColumnWidth(theme){
-      return theme === "Default"? "42px":  theme === "Material" ? "70px" : "32px";
+      return theme === "Default"? "42px":  theme === "Material" ? "65px" : "32px";
     }
   },
 };
