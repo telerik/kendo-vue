@@ -1,0 +1,85 @@
+[
+    {
+      "name": "2011",
+      "data": [
+        {
+          "category": "Asia",
+          "value": 30.8,
+          "color": "#9de219",
+          "labelColor": "#f00"
+        },
+        {
+          "category": "Europe",
+          "value": 21.1,
+          "color": "#90cc38",
+          "labelColor": "#f00"
+        },
+        {
+          "category": "Latin America",
+          "value": 16.3,
+          "color": "#068c35",
+          "labelColor": "#f00"
+        },
+        {
+          "category": "Africa",
+          "value": 17.6,
+          "color": "#006634",
+          "labelColor": "#f00"
+        },
+        {
+          "category": "Middle East",
+          "value": 9.2,
+          "color": "#004d38",
+          "labelColor": "#f00"
+        },
+        {
+          "category": "North America",
+          "value": 4.6,
+          "color": "#033939",
+          "labelColor": "#f00"
+        }
+      ]
+    },
+    {
+      "name": "2012",
+      "data": [
+        {
+          "category": "Asia",
+          "value": 53.8,
+          "color": "#9de219",
+          "labelColor": "#0f0"
+        },
+        {
+          "category": "Europe",
+          "value": 16.1,
+          "color": "#90cc38",
+          "labelColor": "#0f0"
+        },
+        {
+          "category": "Latin America",
+          "value": 11.3,
+          "color": "#068c35",
+          "labelColor": "#0f0"
+        },
+        {
+          "category": "Africa",
+          "value": 9.6,
+          "color": "#006634",
+          "labelColor": "#0f0"
+        },
+        {
+          "category": "Middle East",
+          "value": 5.2,
+          "color": "#004d38",
+          "labelColor": "#0f0"
+        },
+        {
+          "category": "North America",
+          "value": 3.6,
+          "color": "#033939",
+          "labelColor": "#0f0"
+        }
+      ]
+    }
+  ]
+  
