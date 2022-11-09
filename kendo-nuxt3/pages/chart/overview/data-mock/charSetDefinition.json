@@ -1,0 +1,50 @@
+[
+    {
+        "id": "07c28dcb-b8e7-4671-8320-7e6a7809b961",
+        "title": "Project Duration by Status auto",
+        "table": "projects",
+        "multiTable": false,
+        "type": "column",
+        "fields": [
+            {
+                "fieldName": "Duration",
+                "aggregate": "sum"
+            }
+        ],
+        "category": "Status",
+        "dataProcessOptions": {
+            "sort": [
+                {
+                    "field": "Name",
+                    "dir": "desc"
+                }
+            ]
+        }
+    },
+    {
+        "id": "3ae19e1c-5220-11ec-bf63-0242ac130002",
+        "title": "Two fields",
+        "table": "projects",
+        "multiTable": false,
+        "type": "column",
+        "fields": [
+            {
+                "fieldName": "Duration",
+                "aggregate": "sum"
+            },
+            {
+                "fieldName": "ProgressComplete",
+                "aggregate": "avg"
+            }
+        ],
+        "category": "Status",
+        "dataProcessOptions": {
+            "sort": [
+                {
+                    "field": "Name",
+                    "dir": "desc"
+                }
+            ]
+        }
+    }
+]

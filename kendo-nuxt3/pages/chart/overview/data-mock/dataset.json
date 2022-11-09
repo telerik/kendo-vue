@@ -1,0 +1,70 @@
+{
+    "projects": [
+        {
+            "Id": 5098,
+            "Name": "Project 1",
+            "Duration": 12,
+            "ProgressComplete": 25,
+            "Status": "Initial"
+        },
+        {
+            "Id": 5099,
+            "Name": "Project 2",
+            "Duration": 22,
+            "ProgressComplete": 2,
+            "Status": "Initial"
+        },
+        {
+            "Id": 5097,
+            "Name": "Project 3",
+            "Duration": 22,
+            "ProgressComplete": 50,
+            "Status": "Final"
+        },
+        {
+            "Id": 5096,
+            "Name": "Project 4",
+            "Duration": 32,
+            "ProgressComplete": 15,
+            "Status": "Final"
+        }
+    ],
+    "tasks": [
+        {
+            "Id": 1198228,
+            "ProjectId": 5098,
+            "Name": "Task 1",
+            "Status": "Completed"
+        },
+        {
+            "Id": 1198228,
+            "ProjectId": 5098,
+            "Name": "Task 2",
+            "Status": "Completed"
+        },
+        {
+            "Id": 1198228,
+            "ProjectId": 5098,
+            "Name": "Task 3",
+            "Status": "In Progress"
+        },
+        {
+            "Id": 1198228,
+            "ProjectId": 5097,
+            "Name": "Task 1",
+            "Status": "In Progress"
+        },
+        {
+            "Id": 1198228,
+            "ProjectId": 5097,
+            "Name": "Task 2",
+            "Status": "In Progress"
+        },
+        {
+            "Id": 1198228,
+            "ProjectId": 5097,
+            "Name": "Task 3",
+            "Status": "In Progress"
+        }
+    ]
+}

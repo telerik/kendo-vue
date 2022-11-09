@@ -8,6 +8,47 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "latest"
+    "nuxt": "rc"
+  },
+  "dependencies": {
+    "@progress/kendo-theme-default": "latest",
+    "@progress/kendo-data-query": "^1.5.0",
+    "@progress/kendo-date-math": "^1.5.4",
+    "@progress/kendo-drawing": "^1.8.0",
+    "@progress/kendo-licensing": "^1.0.1",
+    "@progress/kendo-vue-common": "3.7.3",
+    "@progress/kendo-vue-animation": "3.7.3",
+    "@progress/kendo-vue-buttons": "3.7.3",
+    "@progress/kendo-vue-charts": "3.7.3",
+    "@progress/kendo-vue-data-tools": "3.7.3",
+    "@progress/kendo-vue-dateinputs": "3.7.3",
+    "@progress/kendo-vue-dialogs": "3.7.3",
+    "@progress/kendo-vue-dropdowns": "3.7.3",
+    "@progress/kendo-vue-excel-export": "3.7.3",
+    "@progress/kendo-vue-form": "3.7.3",
+    "@progress/kendo-vue-grid": "3.7.3",
+    "@progress/kendo-vue-treelist": "3.7.3",
+    "@progress/kendo-vue-indicators": "3.7.3",
+    "@progress/kendo-vue-inputs": "3.7.3",
+    "@progress/kendo-vue-intl": "3.7.3",
+    "@progress/kendo-vue-labels": "3.7.3",
+    "@progress/kendo-vue-layout": "3.7.3",
+    "@progress/kendo-vue-pdf": "3.7.3",
+    "@progress/kendo-vue-popup": "3.7.3",
+    "@progress/kendo-vue-upload": "3.7.3",
+    "@progress/kendo-vue-progressbars": "3.7.3",
+    "@progress/kendo-vue-editor": "3.7.3",
+    "@progress/kendo-vue-gauges": "3.7.3",
+    "@progress/kendo-vue-tooltip": "3.7.3",
+    "@progress/kendo-vue-scheduler": "3.7.3",
+    "@progress/kendo-vue-notification": "3.7.3",
+    "@progress/kendo-vue-treeview": "3.7.3",
+    "@progress/kendo-vue-scrollview": "3.7.3",
+    "@progress/kendo-vue-listview": "3.7.3",
+    "prosemirror-markdown": "1.10.1",
+    "hammerjs": "^2.0.0",
+    "cldr-core": "^41.0.0",
+    "cldr-dates-full": "^41.0.0",
+    "cldr-numbers-full": "^41.0.0"
   }
 }
