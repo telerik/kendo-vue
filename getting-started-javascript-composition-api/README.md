@@ -1,4 +1,4 @@
-# This is the Kendo UI for Vue Typescript + Composition API Getting started example 
+# This is the Kendo UI for Vue Javascript + Composition API Getting started example 
 
 ## Project setup
 ```
@@ -18,3 +18,5 @@ npm run build
 ### Locally preview production build
 ```
 npm run preview
+```
+
