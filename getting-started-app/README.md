@@ -1,4 +1,4 @@
-# This is the Kendo UI Getting started application
+# This is the Kendo UI for Vue Javascript + Options API Getting started example 
 
 ## Project setup
 ```
