@@ -32,8 +32,8 @@
 
 <script>
 import { ref, onMounted, defineComponent } from 'vue';
-import { productsData } from './appdata/products';
-import { categoriesData } from './appdata/categories';
+import categoriesData from './appdata/categories.json';
+import productsData from './appdata/products.json';
 import { process } from '@progress/kendo-data-query';
 import { Grid } from '@progress/kendo-vue-grid';
 import { DropDownList } from '@progress/kendo-vue-dropdowns';
