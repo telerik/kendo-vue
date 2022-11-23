@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0"
+  },
+  "dependencies": {
+    "@progress/kendo-data-query": "^1.6.0",
+    "@progress/kendo-drawing": "^1.17.2",
+    "@progress/kendo-licensing": "^1.2.2",
+    "@progress/kendo-theme-default": "^5.11.0",
+    "@progress/kendo-vue-animation": "^3.7.3",
+    "@progress/kendo-vue-data-tools": "^3.7.3",
+    "@progress/kendo-vue-dateinputs": "^3.7.3",
+    "@progress/kendo-vue-dialogs": "^3.7.3",
+    "@progress/kendo-vue-dropdowns": "^3.7.3",
+    "@progress/kendo-vue-grid": "^3.7.3",
+    "@progress/kendo-vue-indicators": "^3.7.3",
+    "@progress/kendo-vue-inputs": "^3.7.3",
+    "@progress/kendo-vue-intl": "^3.7.3"
+  }
+}
