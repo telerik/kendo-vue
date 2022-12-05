@@ -13,12 +13,12 @@
       <span></span>
     </div>
     <pdfexport ref="gridPdfExport">
-      <Grid ref="grid" :style="{ height: '500px' }" :data-items="gridData" :resizable="true" :reorderable="true"
-        :sortable="true" :pageable="gridPageable" :groupable="true" :group="group" :sort="sort" :filter="filter"
-        :take="take" :skip="skip" :expand-field="expandField" :selectable="true" :selected-field="selectedField"
-        :columns="columns" :column-menu="columnMenu" @selectionchange="onSelectionChange"
-        @headerselectionchange="onHeaderSelectionChange" @datastatechange="dataStateChange"
-        @expandchange="expandChange">
+      <Grid ref="grid" :style="{ height: gridHeight + 'px' }" :data-items="gridData" :resizable="true"
+        :reorderable="true" :sortable="true" :pageable="gridPageable" :groupable="true" :group="group" :sort="sort"
+        :filter="filter" :take="take" :skip="skip" :expand-field="expandField" :selectable="true"
+        :selected-field="selectedField" :columns="columns" :column-menu="columnMenu"
+        @selectionchange="onSelectionChange" @headerselectionchange="onHeaderSelectionChange"
+        @datastatechange="dataStateChange" @expandchange="expandChange">
         <toolbar>
           <span class="k-textbox k-grid-search k-display-flex">
             <k-input :style="{ width: '230px' }" :placeholder="gridSearchMessage" :value="searchWord" @input="onFilter">
@@ -117,7 +117,6 @@ export default {
       employees: employees,
       gridData: [],
       skip: 0,
-      take: 10,
       group: [],
       sort: [],
       filter: null,
@@ -129,6 +128,14 @@ export default {
     this.onTeamChange(25);
   },
   computed: {
+    gridHeight() {
+      const newGridHeight = document.querySelectorAll(".k-drawer-container")[0].offsetHeight - 280;
+      return newGridHeight < 500 ? 500 : newGridHeight;
+    },
+    take() {
+      //Divide the Grid Heigh by the height of a single row
+      return Math.floor(this.gridHeight / 56);
+    },
     selectedDataItems() {
       return this.gridData.data.filter((item) => item.selected === true);
     },
@@ -320,7 +327,6 @@ export default {
     onFilter(e) {
       let inputValue = e.value;
       this.searchWord = inputValue;
-      this.take = 10;
       this.skip = 0;
       if (inputValue !== '') {
         this.filter = {
@@ -379,12 +385,10 @@ export default {
     },
     createAppState: function (dataState) {
       this.group = dataState.group;
-      this.take = dataState.take;
       this.skip = dataState.skip;
       this.sort = dataState.sort;
       this.filter = dataState.filter;
-
-      this.gridData = this.getData(this.employees);
+      this.gridData = this.myTeamSelected? this.getData(this.employees.slice(0, 25)) : this.getData(this.employees);
     },
     dataStateChange: function (event) {
       this.createAppState(event.data);
@@ -427,10 +431,10 @@ export default {
         slicedEmployees = this.employees.slice(0, pageSize);
         this.myTeamSelected = false;
       }
-      this.getData(slicedEmployees);
+      this.gridData = this.getData(slicedEmployees);
     },
-    getSelectColumnWidth(theme){
-      return theme === "Default"? "42px":  theme === "Material" ? "65px" : "32px";
+    getSelectColumnWidth(theme) {
+      return theme === "Default" ? "42px" : theme === "Material" ? "65px" : "32px";
     }
   },
 };
