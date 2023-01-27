@@ -1,8 +1,6 @@
 <template>
 <div>
-   	<div id="nav">
-        <NuxtLink to="/notification/overview/main">Overview</NuxtLink> |
-    </div>
+
 
 </div>
 </template>

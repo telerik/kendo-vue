@@ -1,8 +1,5 @@
 <template>
 <div>
-   	<div id="nav">
-        <NuxtLink to="/datepicker/overview/main">Overview</NuxtLink> |
-    </div>
 
 </div>
 </template>
