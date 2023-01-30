@@ -1,9 +1,14 @@
 <template>
-   <div>
-    <div class="custom-toolbar">
-      <kbutton :icon="'menu'" :fill-mode="'flat'" @click="handleClick" />
-      <NuxtLink to="/">Home</NuxtLink>
-    </div>
+  <div>
+    <AppBar>
+        <AppBarSection>
+          <kbutton :icon="'menu'" :fill-mode="'flat'" @click="handleClick" />
+        </AppBarSection>
+        <AppBarSpacer :width="4" />
+        <AppBarSection>
+          <NuxtLink to="/">Home</NuxtLink>
+        </AppBarSection>
+    </AppBar>
     <Drawer
       :expanded="expanded"
       :position="position"
@@ -19,12 +24,13 @@
 
 </template>
 <script>
-import { Drawer, DrawerContent } from "@progress/kendo-vue-layout";
+import { Drawer, DrawerContent, AppBar, AppBarSection, AppBarSpacer } from "@progress/kendo-vue-layout";
 import { Button } from "@progress/kendo-vue-buttons";
 
 export default {
   name: "App",
-  components: { Drawer, DrawerContent, "kbutton": Button },
+  components: { Drawer, DrawerContent, "kbutton": Button,
+  AppBar, AppBarSection, AppBarSpacer },
   mounted() {
     this.$router.push(this.items[0].data);
   },
@@ -43,16 +49,26 @@ export default {
                             path: t.path
                           }
                         }})
-                  : this.$router.options.routes
-                        .filter(r=>r.path.startsWith('/' + currentRootName))
-                        .map(t=>{
-                          return {
-                          text: t.name,
-                          selected: t.name === this.$route.name,
-                          data: {
-                            path: t.path
-                          }
-                        }});
+                  : [
+                      {
+                        text: 'Go Back',
+                        data: {
+                          path: '/'
+                        }
+                      },
+                      ...this.$router.options.routes
+                          .filter(r=> {
+                            return r.path.startsWith('/' + currentRootName) && r.path.endsWith('main')
+                          })
+                          .map(t=>{
+                            return {
+                            text: t.name.split('-main')[0],
+                            selected: t.name === this.$route.name,
+                            data: {
+                              path: t.path
+                            }
+                          }})
+                    ];
       return rootroutes;
     }
   },

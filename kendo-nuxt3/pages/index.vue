@@ -1,80 +1,10 @@
 <template>
-  <div class="example-wrapper">
-    <div>
-      <div>Favorite sports:</div>
-
-      <dropdownlist
-        aria-label="Select a Customer"
-        :fill-mode="'outline'"
-        :data-items="allData"
-        :text-field="'text'"
-        :data-item-key="'id'"
-        :defaultValue="customerInfo"
-        :filterable="true"
-        :popup-settings="{
-          height: '250px',
-        }"
-        @scroll="handleScroll"
-      />
-<br />
-<br />
-<br />
-<br />
-       <combobox
-        aria-label="Select a Customer"
-        :fill-mode="'outline'"
-        :data-items="allData"
-        :text-field="'text'"
-        :data-item-key="'id'"
-        :defaultValue="customerInfo"
-        :filterable="true"
-        :popup-settings="{
-          height: '250px',
-        }"
-        @scroll="handleScroll"
-      />
-    </div>
-  </div>
+<a href="https://www.telerik.com/kendo-vue-ui/?utm_medium=referral&amp;utm_source=npm&amp;utm_campaign=kendo-ui-vue-trial-npm-utils&amp;utm_content=banner" rel="nofollow">
+<img src="https://camo.githubusercontent.com/e1de088440453e2ad64df3f79fdd0c606337b143312846fbec008c2b2ea8c068/68747470733a2f2f7777772e74656c6572696b2e636f6d2f6b656e646f2d7675652d75692f6e706d2d62616e6e65722e737667" alt="Kendo UI for Vue NPM Banner" data-canonical-src="https://www.telerik.com/kendo-vue-ui/npm-banner.svg" style="max-width: 100%;">
+</a>
 </template>
 <script>
-import { MultiSelect, DropDownList, ComboBox } from "@progress/kendo-vue-dropdowns";
-
 export default {
-  components: {
-    multiselect: MultiSelect,
-    dropdownlist: DropDownList,
-    combobox: ComboBox,
-  },
-  data: function () {
-    return {
-      total: 105,
-      pageSize: 100,
-      skip: 0,
-      take: undefined,
-      popupSettings: {
-        height: "250px",
-      },
-      customerInfo: { id: 1, text: "Item 1" },
-    };
-  },
-  computed: {
-    allData() {
-      const allData = [];
-      for (let i = 0; i < this.total; i++) {
-        allData.push({ id: i, text: "Item " + i });
-      }
-      return allData;
-    },
-  },
-  methods: {
-    handleScroll(e) {
-      if (
-        e.target.scrollTop + 10 >=
-        e.target.scrollHeight - e.target.clientHeight
-      ) {
-        this.total = this.total + 20;
-      }
-    },
-  },
+ 
 };
 </script>
