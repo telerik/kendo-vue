@@ -21,7 +21,8 @@
     "@progress/kendo-vue-grid": "latest",
     "@progress/kendo-vue-indicators": "latest",
     "@progress/kendo-vue-inputs": "latest",
-    "@progress/kendo-vue-intl": "latest"
+    "@progress/kendo-vue-intl": "latest",
+    "@progress/kendo-svg-icons": "latest"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
