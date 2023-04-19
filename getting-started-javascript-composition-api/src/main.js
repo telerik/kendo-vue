@@ -1,4 +1,4 @@
-import '@progress/kendo-theme-default/dist/all.css';
+import '@progress/kendo-theme-default';
 import { createApp } from 'vue'
 import App from './App.vue'
 

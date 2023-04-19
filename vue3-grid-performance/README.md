@@ -1,24 +1,15 @@
 # vue3-grid-performance
 
 ## Project setup
+
+Install the NPM packages using:
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Start the project using:
 
-### Compiles and minifies for production
 ```
-npm run build
+npm run dev
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

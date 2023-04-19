@@ -32,7 +32,7 @@ export default {
   components: { Drawer, DrawerContent, "kbutton": Button,
   AppBar, AppBarSection, AppBarSpacer },
   mounted() {
-    this.$router.push(this.items[0].data);
+    navigateTo(this.items[0].data);
   },
   computed: {
     items() {
@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     onSelect(e) {
-      this.$router.push(this.items[e.itemIndex].data);
+      navigateTo(this.items[e.itemIndex].data);
     },
     handleClick() {
       this.expanded = !this.expanded;
