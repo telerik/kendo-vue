@@ -59,31 +59,57 @@ Icon fonts support the following options for visual enhancement:
 
 * Application of [different sizes](#toc-sizes).
 * Application of [icon colors](#toc-colors).
-* [Flipping](#toc-flipping) of icons.
+* [Flipping and rotating](#toc-flipping-and-rotating) of icons.
 
 ### Sizes
 
-The Kendo UI font icons are designed on a 16px grid base. To achieve a pixel-perfect icon display, scale up by maintaining the 16-unit measure (32, 48, 64, and so on).
+The default size of all Kendo UI icons is 16 px (Font-size: 16 px; Width: 16 px; Height: 16 px). However, Kendo UI provides the following predefined sizes for icons:
 
-You can scale icons by setting the `font-size` configuration option.  
+* `xsmall`&mdash;Font-size: 12 px; Width: 12 px; Height: 12 px.
+* `small`&mdash;Font-size: 14 px; Width: 14 px; Height: 14 px.
+* `medium`&mdash;Font-size: 16 px; Width: 16 px; Height: 16 px.
+* `large`&mdash;Font-size: 20 px; Width: 20 px; Height: 20 px.
+* `xlarge`&mdash;Font-size: 24 px; Width: 24 px; Height: 24 px.
+* `xxlarge`&mdash;Font-size: 32 px; Width: 32 px; Height: 32 px.
+* `xxxlarge`&mdash;Font-size: 48 px; Width: 48 px; Height: 48 px.
+
+You can set each of them by using the respective class:
+
+* `k-icon-xs`
+* `k-icon-sm`
+* `k-icon-md`
+* `k-icon-lg`
+* `k-icon-xl`
+* `k-icon-xxl`
+* `k-icon-xxxl`
 
 ```html
-<span class="k-icon k-i-gear"></span>
-<span class="k-icon k-i-gear k-icon-32"></span>
-<span class="k-icon k-i-gear k-icon-48"></span>
-<span class="k-icon k-i-gear k-icon-64"></span>
+<span class="k-icon k-i-gear k-icon-xs"></span>
+<span class="k-icon k-i-gear k-icon-md"></span>
+<span class="k-icon k-i-gear k-icon-xl"></span>
+```
+
+For font icons, you can apply any custom size by using the CSS `font-size` property.
+
+```html
+<span class="k-icon k-i-gear k-icon-24"></span>
 
 <style>
-    .k-icon-32 {
-        font-size: 32px; /* Sets icon size to 32px */
+    .k-icon-24 {
+        font-size: 24px; /* Sets icon size to 24 px */
     }
+</style>
+```
 
-    .k-icon-48 {
-        font-size: 48px; /* Sets icon size to 48px */
-    }
+For SVG icons, you can change the size with the `width` and `height` CSS properties.
 
-    .k-icon-64 {
-        font-size: 64px; /* Sets icon size to 64px */
+```html
+<span class="k-svg-icon k-svg-i-gear k-icon-24"></span>
+
+<style>
+    .k-icon-24 {
+        width: 24px;
+        height: 24px;
     }
 </style>
 ```
@@ -103,7 +129,22 @@ To set the icon color, use the `color` CSS property.
 </style>
 ```
 
-### Flipping
+### Colors
+
+To set the icon color, use the `color` CSS property.
+
+```html
+<span class="k-icon k-i-gear" style="color: blue;"></span>
+<span class="k-icon k-i-gear colored-icon"></span>
+
+<style>
+    .colored-icon {
+        color: green;
+    }
+</style>
+```
+
+### Flipping and Rotating
 
 To better accommodate an icon in your application, flip it by using the `k-flip-h` and `k-flip-v` predefined CSS classes.
 
@@ -112,6 +153,21 @@ To better accommodate an icon in your application, flip it by using the `k-flip-
 <span class="k-icon k-i-pencil k-flip-h"></span>
 <span class="k-icon k-i-pencil k-flip-v"></span>
 <span class="k-icon k-i-pencil k-flip-h k-flip-v"></span>
+```
+
+You can also rotate the icon with the help of the following predefined CSS classes:
+
+* `k-rotate-0`&mdash;Rotates an icon 0°.
+* `k-rotate-45`&mdash;Rotates an icon 45°.
+* `k-rotate-90`&mdash;Rotates an icon 90°.
+* `k-rotate-135`&mdash;Rotates an icon 135°.
+* `k-rotate-180`&mdash;Rotates an icon 180°.
+* `k-rotate-225`&mdash;Rotates an icon 225°.
+* `k-rotate-270`&mdash;Rotates an icon 270°.
+* `k-rotate-315`&mdash;Rotates an icon 315°.
+
+```html
+<span class="k-icon k-i-pencil k-rotate-90"></span>
 ```
 
 ## Loading Indicator
