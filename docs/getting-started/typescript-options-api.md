@@ -100,8 +100,8 @@ Now, when we are ready with the blank Vue project, we can continue the developme
 
 Add dummy data needed by the components. Create folder `appdata` in the `src` folder. Add the following files to the `appdata` folder.
 
-* Add a `src/appdata/categories.ts` file and copy the content from [this GitHub file](https://github.com/telerik/kendo-vue/blob/master/getting-started-app-typescript/src/appdata/categories.ts).
-* Add a `src/appdata/products.ts` file and copy the content from [this GitHub file](https://github.com/telerik/kendo-vue/blob/master/getting-started-app-typescript/src/appdata/products.ts).
+* Add a `src/appdata/categories.ts` file and copy the content from [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-typescript-options-api/src/appdata/categories.ts).
+* Add a `src/appdata/products.ts` file and copy the content from [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-typescript-options-api/src/appdata/products.ts).
 
 ## 4. Import Kendo UI for Vue components
 
