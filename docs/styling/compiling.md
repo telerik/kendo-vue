@@ -2,7 +2,7 @@
 title: Compiling Themes
 description: "Get started with the Kendo UI themes and learn how to compile them in your Vue project."
 slug: compilingthemes
-position: 3
+position: 20
 category: styling
 level: 0
 ---
@@ -136,5 +136,9 @@ Due the complexity of the themes, nested or otherwise invalid calc expressions c
 * [Styling Overview](slug:themesandstyles)
 * [Customizing Themes](slug:customizingthemes)
 * [Web Font Icons in Kendo UI for Vue Native](slug:icons)
-* [Getting Started with Kendo UI for Vue Native](slug:getting_started)
+* [Getting Started with Kendo UI for Vue - JavaScript (Online Guide)](slug:getting_started_javascript_composition_api)
+* [Getting Started with Kendo UI for Vue - TypeScript (Online Guide)](slug:getting_started_typescript_composition_api)
+* [Getting Started with Kendo UI for Vue - JavaScript + Options API (Online Guide)](slug:getting_started_javascript_options_api)
+* [Getting Started with Kendo UI for Vue - TypeScript + Options API (Online Guide)](slug:getting_started_typescript_options_api)
+* [Getting Started with Kendo UI for Vue - Nuxt 3 (Online Guide)](slug:getting_started_nuxt_3)
 * [Browse the Components](https://www.telerik.com/kendo-vue-ui/components/)
