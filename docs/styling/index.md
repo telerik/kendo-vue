@@ -178,5 +178,9 @@ ThemeBuilder is a web application that enables you to create new themes and cust
 ## Suggested Links
 
 * [Web Font Icons in Kendo UI for Vue](slug:icons)
-* [Getting Started with Kendo UI for Vue](slug:getting_started)
+* [Getting Started with Kendo UI for Vue - JavaScript (Online Guide)](slug:getting_started_javascript_composition_api)
+* [Getting Started with Kendo UI for Vue - TypeScript (Online Guide)](slug:getting_started_typescript_composition_api)
+* [Getting Started with Kendo UI for Vue - JavaScript + Options API (Online Guide)](slug:getting_started_javascript_options_api)
+* [Getting Started with Kendo UI for Vue - TypeScript + Options API (Online Guide)](slug:getting_started_typescript_options_api)
+* [Getting Started with Kendo UI for Vue - Nuxt 3 (Online Guide)](slug:getting_started_nuxt_3)
 * [Browse the Components](https://www.telerik.com/kendo-vue-ui/components)

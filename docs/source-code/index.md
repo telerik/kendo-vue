@@ -122,6 +122,8 @@ fatal: unable to access 'https://kendo.git.progress.com/kendo-vue-private.git/':
 
 ## Suggested Links
 
-* [Getting Started - First steps with Javascript](slug:getting_started)
-* [Getting Started - First steps with Typescript](slug:getting_started_typescript)
-* [Getting Started - First steps with Typescript + Composition API](slug:getting_started_typescript_composition_api)
+* [Getting Started with Kendo UI for Vue - JavaScript (Online Guide)](slug:getting_started_javascript_composition_api)
+* [Getting Started with Kendo UI for Vue - TypeScript (Online Guide)](slug:getting_started_typescript_composition_api)
+* [Getting Started with Kendo UI for Vue - JavaScript + Options API (Online Guide)](slug:getting_started_javascript_options_api)
+* [Getting Started with Kendo UI for Vue - TypeScript + Options API (Online Guide)](slug:getting_started_typescript_options_api)
+* [Getting Started with Kendo UI for Vue - Nuxt 3 (Online Guide)](slug:getting_started_nuxt_3)
