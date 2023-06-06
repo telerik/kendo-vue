@@ -136,6 +136,7 @@ Follow the instructions on the Kendo UI for Vue [My License page]({% slug my_lic
 
 * [Productivity Tools VS Code Template Project Wizard]({% slug vue_vscode_project_wizard %})
 * [Productivity Tools VS Code for Code Snippets]({% slug vue_vscode_snippets %})
+* [Productivity Tools VS Code Scaffolders]({% slug scaffolders_vscode_installation %})
 * [Getting Started with Kendo UI for Vue - JavaScript (Online Guide)](slug:getting_started_javascript_composition_api)
 * [Getting Started with Kendo UI for Vue - TypeScript (Online Guide)](slug:getting_started_typescript_composition_api)
 * [Getting Started with Kendo UI for Vue - JavaScript + Options API (Online Guide)](slug:getting_started_javascript_options_api)
