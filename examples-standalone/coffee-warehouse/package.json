@@ -21,6 +21,7 @@
     "@progress/kendo-vue-data-tools": "^3.11.0",
     "@progress/kendo-vue-dateinputs": "^3.11.0",
     "@progress/kendo-vue-dropdowns": "^3.11.0",
+    "@progress/kendo-vue-treeview": "^3.11.0",
     "@progress/kendo-vue-excel-export": "^3.11.0",
     "@progress/kendo-vue-form": "^3.11.0",
     "@progress/kendo-vue-grid": "^3.11.0",
