@@ -10,7 +10,7 @@
   "dependencies": {
     "@progress/kendo-data-query": "latest",
     "@progress/kendo-drawing": "latest",
-    "@progress/kendo-licensing": "^1.2.2",
+    "@progress/kendo-licensing": "^1.3.0",
     "@progress/kendo-vue-data-tools": "latest",
     "@progress/kendo-vue-dateinputs": "latest",
     "@progress/kendo-vue-dropdowns": "latest",
