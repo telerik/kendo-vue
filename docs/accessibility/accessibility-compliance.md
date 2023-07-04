@@ -14,6 +14,14 @@ When implementing any Kendo UI for Vue component, the Kendo UI for Vue team foll
 
 Due to the complexity of some of the components in the Kendo UI for Vue UI library, the team sometimes runs into scenarios not covered by the WAI-ARIA specification. In those cases, they tap into the web development accessibility know-how of the rest of the Progress organization, including feedback from accessibility-minded users, for expertise and feedback based on 10 years of creating web component libraries. This knowledge-sharing across internal teams and clients helps the team ensure that Kendo UI for Vue can reach a certain level of accessibility compliance even with its most advanced components.
 
+## Voluntary Product Accessibility Template (VPAT)
+
+A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov/sell/vpat/) is a document that explains how information and communication technology (ICT) products such as software, hardware, electronic content, and support documentation meet (conform to) the Revised 508 Standards for IT accessibility.
+
+> You can review and download the latest version of the Kendo UI for Vue VPAT document [here](https://www.telerik.com/kendo-vue-ui-develop/components/VueVPAT2.4RevINT(June2023).pdf).
+
+## Accessibility Support per Component
+
 The following table lists the accessibility compliance levels and keyboard navigation support provided by the Kendo UI for Vue UI components.
 
 |Component |Section 508|WCAG 2.1| Accessibility Example | Accessibility Documentation |
