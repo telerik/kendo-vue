@@ -18,7 +18,7 @@ Due to the complexity of some of the components in the Kendo UI for Vue UI libra
 
 A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov/sell/vpat/) is a document that explains how information and communication technology (ICT) products such as software, hardware, electronic content, and support documentation meet (conform to) the Revised 508 Standards for IT accessibility.
 
-> You can review and download the latest version of the Kendo UI for Vue VPAT document [here](https://www.telerik.com/kendo-vue-ui-develop/components/VueVPAT2.4RevINT(June2023).pdf).
+> You can review and download the latest version of the Kendo UI for Vue VPAT document [here](https://www.telerik.com/kendo-vue-ui-develop/VueVPAT2.4RevINT(June2023).pdf).
 
 ## Accessibility Support per Component
 
