@@ -129,7 +129,9 @@ Last but not least, navigate to <http://localhost:8080/chartPage> and see the ad
 
 Using any of the UI components in the Kendo UI for Vue library requires either a commercial license key or an active trial license key.
 
-Follow the instructions on the Kendo UI for Vue [My License page]({% slug my_license %}) to activate your trial or commercial license. You can skip this step if your application already contains a Kendo UI for Vue license file.
+> Since version 3.14.0 (13 September 2023) of Kendo UI for Vue, a missing license causes a watermark to appear over selected components. For more information, see the [Invalid License](slug:my_license#toc-invalid-license) section. 
+
+To experience the full potential of the Kendo UI for Vue components, follow the [license activation instructions](slug:my_license) and hide the invalid/not-activated license messages and attributes. You can skip this step if your application already contains a Kendo UI for Vue license file.
 
 
 ## Suggested Links
