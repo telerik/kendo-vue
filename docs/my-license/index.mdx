@@ -3,6 +3,7 @@ title: Set Up Your Kendo UI for Vue License Key
 page_title: Kendo UI for Vue License Key - Setup and FAQs
 description: "Set up your license key to use the Kendo UI for Vue components in your Vue projects."
 slug: my_license_vue
+tag: updated
 noindex: true
 ---
 
@@ -13,6 +14,8 @@ import LicenseScriptKey from "gatsby-theme-k3-docs/src/components/license/licens
 # Set Up Your Kendo UI for Vue License Key
 
 In this article, you’ll learn how to activate the Kendo UI for Vue components by installing a personal license key.
+
+> Since version 3.14.0 (13 September 2023) of Kendo UI for Vue, a missing license causes a watermark to appear over selected components. For more information, see the [Invalid License](#toc-invalid-license) section below. 
 
 Kendo UI for Vue is a professionally developed library distributed under a [commercial license](https://www.telerik.com/purchase/license-agreement/kendo-ui).
 Starting from [version 2.0.0](https://www.telerik.com/kendo-vue-ui/components/changelogs/ui-for-vue/), using any of the UI components from the Kendo UI for Vue library requires either a commercial license key or an active trial license key.
@@ -194,13 +197,43 @@ To activate the license of the `@progress/kendo-ui` package, you can follow the 
 
 >The above instructions should be followed `only` when you are using the `Kendo UI for Vue Wrapper` components. If you are using the Kendo UI for Vue Native components, you should skip the current section of this article. 
 
+## Invalid License
+
+An invalid license can be caused by any of the following:
+
+* Using an invalid or expired commercial license.
+* Using an expired trial license.
+* Not [installing or updating the Kendo UI for Vue license key](#toc-install-or-update-a-license-key) in your application.
+
+If you use Kendo UI for Vue in a project with an expired or missing license, the UI components will exhibit the following behavior:
+1. A watermark appears over a number of selected components:
+    * A watermark appearing in the `Light Theme` mode.
+    ![Kendo UI for Vue Grid with a watermark - Light theme](grid-watermark.png)
+    * A watermark appearing in the `Dark Theme` mode.
+    ![Kendo UI for Vue Grid with a watermark - Dark theme](grid-watermark-dark.png)
+1. A banner appears on pages that use unlicensed Kendo UI for Vue components.
+![Invalid Kendo UI for Vue License Banner](license-banner.png)
+    * Clicking the **?** button of the banner takes you to the Kendo UI for Vue licensing documentation.
+    * Clicking the **x** button of the banner closes the banner until the page is reloaded or a license is activated. 
+1. A warning message similar to the following is logged in the browser's console 
+  ![Kendo UI for Vue Console Warning for a missing or invalid license](console-warning.png)
+
 ## Frequently Asked Questions
 
 ### Will the product function without a license key?
 
-Yes, the product will continue to function normally without a license key. However, a warning message will appear in the browser console if a valid license key is not present.
+Yes, the product will continue to function normally without a license key. However, the following will happen if a valid license key is not present: 
+* A watermark will appear above selected Kendo UI for Vue components.
+* A licensing banner will pop over a page that uses unlicensed Kendo UI for Vue components.
+* A warning message will appear in the browser console.
+
+See the [Invalid License](#toc-invalid-license) section for more information.
 
 Please, be aware that future updates of the library may restrict or disable some features when no valid license is present.
+
+### Will a watermark and license banner appear if I use a Kendo UI for Vue version that was released prior to v.3.14.0?
+
+If you have a valid license activated for your project, you won't get any [invalid license attributes](#toc-invalid-license). 
 
 ### Does the license key expire?
 
@@ -211,6 +244,20 @@ For trial users, this is at the end of your 30-day trial. For licensed developer
 You will need to obtain and install a new license key after starting a trial, renewing a license, or upgrading a license.
 
 An expired license key is valid for all Kendo UI for Vue versions _published before its expiration date_. The publish date of each version is available in the [Kendo UI for Vue changelog](https://www.telerik.com/kendo-vue-ui/components/changelogs/ui-for-vue/).
+
+### I am using Vite in my project. I can't hide the invalid license watermarks, banner, and console warning even though the license activation is successful. What should I do? 
+
+The described scenario happens in Vite context and most often when you have previously activated a commercial or trial license in your project and now you want to renew this license. In the discussed case, once you run `npx kendo-ui-license activate`, the console message says you have successfully activated your license but in fact, all [invalid license attributes](#toc-invalid-license) are still presented. 
+
+The reason for the issue is that Vite is not updating its cache after the licensing command is executed. To make the warning disappear:
+1. Delete the `.vite` folder in the `node_modules` folder of the project.
+1. Execute the `npx kendo-ui-license activate` command. 
+
+### I updated the version of the Kendo UI for Vue packages in my project and the invalid license attributes appeared. How to hide these items?
+
+If this happens, the possible reason is that the end date of the license activated in your application is before the release date of the newly installed Kendo UI for Vue packages. To fix this issue:
+1. [Download a new license key](#toc-download-your-license-key).
+1. [Activate the new license key](#toc-install-or-update-a-license-key) in your project. 
 
 ### Do I need an Internet connection to activate the license?
 
