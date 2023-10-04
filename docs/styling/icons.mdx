@@ -27,13 +27,41 @@ Font icons demonstrate significant benefits such as:
 
 ## Basic Usage
 
-To use the Kendo UI for Vue font icons:
+To use the Kendo UI font icons:
 
-1. [Load](slug:themesandstyles) a Kendo UI for Vue theme into your project.
-2. Assign a `k-icon` CSS class followed by a predefined class from the [list of font icons](#toc-list-of-font-icons) to an HTML tag. For example, the `<span>` element as demonstrated in the following example.
+1. [Load a Kendo UI theme](slug:themesandstyles) in your project.
+1. Load the font icons either by [using the precompiled CSS](#toc-loading-icons-through-precompiled-css) or by [using a CDN link](#toc-loading-icons-through-a-cdn).
+1. Add an empty `<span>` element that will hold the font icon.
+1. Assign a `k-icon k-font-icon` CSS classes that are followed by a predefined class from the [list of font icons](#toc-list-of-font-icons) to an HTML tag. For example:
+    ```html
+    <span class="k-icon k-font-icon k-i-calendar"></span>`.
+    ```
+
+### Loading Icons through Precompiled CSS
+
+1. To load the font icons by using precompiled CSS, install the `Kendo Font Icons` package through NPM.
+
+    ```sh
+    npm i @progress/kendo-font-icons
+    ```
+
+1. Import the precompiled CSS by using the following:
+
+    - Import the font icons in the `styles.scss` file.
+
+        ```scss
+        @import "@progress/kendo-font-icons/dist/index.css";
+        ```
+
+### Loading Icons through a CDN
+
+Import the font icons by using the following CDN link in your `index.html` file.
 
     ```html
-    <span class="k-icon k-i-calendar"></span>
+    <link 
+        rel="stylesheet" 
+        href="https://unpkg.com/@progress/kendo-font-icons/dist/index.css"
+    />
     ```
 
 ## Rendering with Unicode Numbers
@@ -41,7 +69,7 @@ To use the Kendo UI for Vue font icons:
 Though the web icon font comes with a [set of predefined CSS classes](#toc-list-of-font-icons), you might need to use the icons with a custom CSS class name. To achieve this, set a `:before` pseudo content value for the relevant icon.
 
 ```html
-<span class="k-icon my-custom-icon-class"></span>
+<span class="k-icon k-font-icon my-custom-icon-class"></span>
 
 <style>
     .my-custom-icon-class:before {
@@ -81,15 +109,15 @@ You can set each of them by using the respective class:
 * `k-icon-xxxl`
 
 ```html
-<span class="k-icon k-i-gear k-icon-xs"></span>
-<span class="k-icon k-i-gear k-icon-md"></span>
-<span class="k-icon k-i-gear k-icon-xl"></span>
+<span class="k-icon k-font-icon k-i-gear k-icon-xs"></span>
+<span class="k-icon k-font-icon k-i-gear k-icon-md"></span>
+<span class="k-icon k-font-icon k-i-gear k-icon-xl"></span>
 ```
 
 For font icons, you can apply any custom size by using the CSS `font-size` property.
 
 ```html
-<span class="k-icon k-i-gear k-icon-24"></span>
+<span class="k-icon k-font-icon k-i-gear k-icon-24"></span>
 
 <style>
     .k-icon-24 {
@@ -116,8 +144,8 @@ For SVG icons, you can change the size with the `width` and `height` CSS propert
 To set the icon color, use the `color` CSS property.
 
 ```html
-<span class="k-icon k-i-gear" style="color: blue;"></span>
-<span class="k-icon k-i-gear colored-icon"></span>
+<span class="k-icon k-font-icon k-i-gear" style="color: blue;"></span>
+<span class="k-icon k-font-icon k-i-gear colored-icon"></span>
 
 <style>
     .colored-icon {
@@ -131,10 +159,10 @@ To set the icon color, use the `color` CSS property.
 To better accommodate an icon in your application, flip it by using the `k-flip-h` and `k-flip-v` predefined CSS classes.
 
 ```html
-<span class="k-icon k-i-pencil"></span>
-<span class="k-icon k-i-pencil k-flip-h"></span>
-<span class="k-icon k-i-pencil k-flip-v"></span>
-<span class="k-icon k-i-pencil k-flip-h k-flip-v"></span>
+<span class="k-icon k-font-icon k-i-pencil"></span>
+<span class="k-icon k-font-icon k-i-pencil k-flip-h"></span>
+<span class="k-icon k-font-icon k-i-pencil k-flip-v"></span>
+<span class="k-icon k-font-icon k-i-pencil k-flip-h k-flip-v"></span>
 ```
 
 You can also rotate the icon with the help of the following predefined CSS classes:
@@ -149,7 +177,7 @@ You can also rotate the icon with the help of the following predefined CSS class
 * `k-rotate-315`&mdash;Rotates an icon 315°.
 
 ```html
-<span class="k-icon k-i-pencil k-rotate-90"></span>
+<span class="k-icon k-font-icon k-i-pencil k-rotate-90"></span>
 ```
 
 ## Loading Indicator
@@ -157,9 +185,9 @@ You can also rotate the icon with the help of the following predefined CSS class
 To show a loading indicator, use the `k-i-loading` CSS class. You can adjust the size and color of the loading indicator in the same way you make adjustments to other icons.
 
 ```html
-<span class="k-icon k-i-loading"></span>
-<span class="k-icon k-i-loading" style="font-size: 64px;"></span>
-<span class="k-icon k-i-loading" style="color: limegreen;"></span>
+<span class="k-icon k-font-icon k-i-loading"></span>
+<span class="k-icon k-font-icon k-i-loading" style="font-size: 64px;"></span>
+<span class="k-icon k-font-icon k-i-loading" style="color: limegreen;"></span>
 ```
 
 ## List of Font Icons
