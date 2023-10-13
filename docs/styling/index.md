@@ -76,7 +76,7 @@ For a visual preview of the theme for all components and versatile color swatche
 With this setup, you can customize theme variables directly in your application. For example, you can change the default primary color from orange to pink with the following lines:
 
 ```scss
-$primary: #ff69b4;
+$kendo-color-primary: #ff69b4;
 
 @import "~@progress/kendo-theme-default/dist/all.scss";
 ```
@@ -109,7 +109,7 @@ To create a swatch:
 
 1. Clone the [kendo-themes](https://github.com/telerik/kendo-themes) GitHub repository.
 1. Install the [node-gyp](https://github.com/nodejs/node-gyp#installation).
-1. Install the dependencies for all themes with `npm install && npx lerna bootstrap`.
+1. Install the dependencies for all themes with `npm run setup`.
 1. Switch the working directory to `packages/<THEME_NAME>`.
 1. Create a `SWATCH_NAME.scss` swatch file in the `scss/swatches` folder.
 1. To build the swatches for the theme by running `npm run sass:swatches` or `npm run dart:swatches`.
@@ -133,8 +133,8 @@ $theme-type: dark;
 For the rest of the themes, the swatch should look like:
 ```scss
 // Variables.
-$primary: blue;
-$secondary: pink;
+$kendo-color-primary: blue;
+$kendo-color-secondary: pink;
 
 // Import the theme file for the components you use.
 @import "../grid/_index.scss";
@@ -148,7 +148,7 @@ $secondary: pink;
 To create a custom theme by modifying the themes source code:
 
 1. Clone the [kendo-themes](https://github.com/telerik/kendo-themes) GitHub repository.
-1. Install the dependencies for all themes with `npm install && npx lerna bootstrap`.
+1. Install the dependencies for all themes with `npm run setup`.
 1. Customize the theme variables in the `packages/THEME_NAME/scss/_variables.scss` files.
 1. Build the themes with the `npm run sass` or `npm run dart` command to create the customized version of the themes in the `packages/THEME_NAME/dist/all.css` file.
 1. After the build completes, use the [compiled CSS](#toc-using-precompiled-css).
@@ -158,7 +158,7 @@ To create a custom theme by modifying the themes source code:
 You might want to omit the styles for some components in the CSS output. To include only the styles that you need:
 
 1. Clone the [kendo-themes](https://github.com/telerik/kendo-themes) GitHub repository.
-1. Install the dependencies for all themes with `npm install && npx lerna bootstrap`.
+1. Install the dependencies for all themes with `npm run setup`.
 1. Switch the working directory to `packages/<THEME_NAME>`.
 1. Create a `CUSTOM_THEME.scss` file in the `scss` folder. For example, create `custom.scss` file with the following lines:
     ```scss
