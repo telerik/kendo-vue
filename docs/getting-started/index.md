@@ -566,9 +566,9 @@ You can learn more about the `Window component` and what it can do on the [Kendo
 ## 9. Activate Your Trial or Commercial License
 Kendo UI for Vue is a professionally developed library distributed under a [commercial license](https://www.telerik.com/purchase/license-agreement/kendo-ui). Starting from [version 2.0.0](https://www.telerik.com/kendo-vue-ui/components/changelogs/ui-for-vue/), using any of the UI components from the Kendo UI for Vue library requires either a commercial license key or an active trial license key.
 
-> Since version 3.14.0 (13 September 2023) of Kendo UI for Vue, a missing license causes a watermark to appear over selected components. For more information, see the [Invalid License](slug:my_license#toc-invalid-license) section. 
+> Since version 3.14.0 (13 September 2023) of Kendo UI for Vue, a missing license causes a watermark to appear over selected components. For more information, see the [Invalid License](slug:my_license_vue#toc-invalid-license) section. 
 
-To experience the full potential of the Kendo UI for Vue components, follow the [license activation instructions](slug:my_license) and hide the invalid/not-activated license messages and attributes. You can skip this step if your application already contains a Kendo UI for Vue license file.
+To experience the full potential of the Kendo UI for Vue components, follow the [license activation instructions](slug:my_license_vue) and hide the invalid/not-activated license messages and attributes. You can skip this step if your application already contains a Kendo UI for Vue license file.
 
 ## 10. Get the Complete Source Code
 Your Kendo UI for Vue Getting Started application is complete! You can download and run the complete sample application from the [kendo-vue GitHub repository](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-composition-api). Alternatively, run, fork and [experiment with the application directly in StackBlitz](https://stackblitz.com/edit/vue3-vite-starter-vfbur6?file=src%2FApp.vue).
