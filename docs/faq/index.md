@@ -27,8 +27,12 @@ If you have the choice between the Native and Wrapper suite, what we recommend i
 
 The Kendo UI for Vue suite works both with Vue 3 and Vue 2. 
 
+> Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
+
 ### Which Vue version is recommended for the Kendo UI for Vue suite? 
 Kendo UI for Vue supports both Vue 2 and Vue 3. If you you are now starting your project, `we recommend the usage of Vue 3`. If you have a legacy project that uses Vue 2, again you are good to continue its development but there could be some configuration specifics for some of the components. 
+
+> Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
 
 ### Does Kendo UI for Vue supports Server-Side Rendering(SSR)? 
 

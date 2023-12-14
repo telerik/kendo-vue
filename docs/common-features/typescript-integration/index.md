@@ -12,7 +12,7 @@ position: 1
 
 With the release of Vue 3, TypeScript is getting more and more popular among Vue users. The main reason for this change is because now it is much easier to configure your project to use TypeScript and benefit from the functionality the language provides. 
 
-> The Kendo UI for Vue Native components are TypeScript compatible in both the Vue 3 and Vue 2 scenarios. 
+> Historically, the Kendo UI for Vue Native components are TypeScript compatible in both the Vue 3 and Vue 2 scenarios, however Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. For more details about the Vue 2 support, please check our [Vue 2 End of Support article](slug:vue2-end-of-support).
 
 <div data-component="StartFreeTrialSection"></div>
 
