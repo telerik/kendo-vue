@@ -13,6 +13,8 @@ position: 30
 
 In this article you’ll learn how to use Kendo UI for Vue Native components in TypeScript context. Below we are building a small app that includes a Grid, a DropDownList, a Window and a design theme.
 
+> Historically, all Kendo UI for Vue Native components support both **Vue 2** and **Vue 3**, however, Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/) for more details.
+
 The current example uses the recommended by Vue [Vite build tool](https://vitejs.dev/) + [Vue Options API](https://vuejs.org/guide/introduction.html#options-api) + Typescript. If you need Getting started information that uses `Vue Composition API` + Typescript, you can check [this link](slug:getting_started_typescript_composition_api).
 
 > Prefer video tutorials? How about a free Telerik UI onboarding course? Check out the [Kendo UI for Vue with TypeScript](https://learn.telerik.com/learn/course/internal/view/elearning/45/kendo-ui-for-vue-with-typescript) training in [Telerik Virtual Classroom](https://learn.telerik.com/learn).
