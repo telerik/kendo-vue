@@ -7,7 +7,7 @@ slug: vue2-end-of-support
 
 
 # Vue 2 End of Life
-At Progress we are committed to staying at the forefront of technology, be compatible with the latest trends, and develop our products in sync with the lifecycle paths of the frameworks we support. Having the previous in mind, probably most of you know that[the official EOL(End of Life) support for Vue 2 is Dec 31, 2023](https://v2.vuejs.org/lts/). 
+At Progress we are committed to staying at the forefront of technology, be compatible with the latest trends, and develop our products in sync with the lifecycle paths of the frameworks we support. Having the previous in mind, probably most of you know that [the official EOL(End of Life) support for Vue 2 is Dec 31, 2023](https://v2.vuejs.org/lts/). 
 
 ## Vue 2 and Nuxt 2 End of Support in Kendo UI for Vue
 With the above in mind, we bid adieu to Vue 2 and Nuxt 2 support in November, 2024 to open up new opportunities and build future-proof products.
@@ -18,7 +18,7 @@ With the above in mind, we bid adieu to Vue 2 and Nuxt 2 support in November, 20
 While some of you may not be happy with the deprecation announcement, it is important to note that the official end of life of Vue 2 is a significant step forward for the framework itself, its community, and the Kendo UI for Vue suite. The deprecation of the Vue 2 support in the Kendo UI for Vue components will let us optimize the implementation of our components, focus the development efforts only on one version of Vue, diminish the introduction of bugs related to specific Vue 2 requirements and incompatibilities with Vue 3. 
 
 ## How does the Vue 2 Deprecation Affect Me? 
-Except for the Vue 2 deprecation, everything with the Kendo UI for Vue suite continues to be the same. `If you are worried about the future of the Vue components, don’t be!` The development of the suite continues. Our components can be used both with the Options and Composition APIs, and support Nuxt 3. We are periodically testing our suite for compatibility with new trends in the Vue world. New components are on the horizon for 2024 and we continue our effort to keep the high levels of support satisfaction you are used to.  
+Except for the Vue 2 deprecation, everything with the Kendo UI for Vue suite continues to be the same. `If you are worried about the future of the Vue components, don’t be!` The development of the suite continues. Our components can be used both with the Options and Composition APIs, and support Nuxt 3. We are periodically testing our suite for compatibility with new trends in the Vue world. [New components are on the horizon for 2024](https://www.telerik.com/support/whats-new/kendo-vue-ui/roadmap) and we continue our effort to keep the high levels of support satisfaction you are used to.  
 
 ## Should You Update to Vue 3? 
 
