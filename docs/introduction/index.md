@@ -13,7 +13,7 @@ The Kendo UI for Vue Native is a commercial UI library designed and built for de
 
 All Kendo UI for Vue Native components are distributed through npm packages. Kendo UI for Vue Native is distributed under a commercial license. In order to use the npm packages provided by the suite, you should either sign up for a **30-day free trial**, or be **a licensed developer**. As a bonus, the **Trial license** grants free access to our outstanding Technical support service. You can start a free trial from our [Overview page](https://www.telerik.com/kendo-vue-ui). 
 
-> All Kendo UI for Vue Native components support both **Vue 2** and **Vue 3**.
+> Historically, all Kendo UI for Vue Native components support both **Vue 2** and **Vue 3**, however Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
 
 The Native Kendo UI for Vue suite shares HTML rendering and web assets (like stylesheets) with the other Kendo UI suites, so you can reuse existing knowledge and classes.
 

@@ -16,6 +16,8 @@ In this article you will learn how to use **Kendo UI for Vue Native** components
 
 For the example discussed in the current article, we are using Vue 3. The Kendo UI for Vue Native components can be used with Composition API both in Vue 3 and Vue 2 context. More about the `Composition API`, you can learn on this [TypeScript Integration](slug:overview_typescript_integation) article. 
 
+> Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
+
 The current example uses the recommended by Vue [Vite build tool](https://vitejs.dev/) + [Vue Composition API](https://vuejs.org/guide/introduction.html#composition-api) + Typescript. If you need Getting started information that uses `Vue Options API` + Typescript, you can check [this link](slug:getting_started_typescript_options_api).
 
 > Prefer video tutorials? How about a free Telerik UI onboarding course? Check out the [Kendo UI for Vue with TypeScript](https://learn.telerik.com/learn/course/internal/view/elearning/45/kendo-ui-for-vue-with-typescript) training in [Telerik Virtual Classroom](https://learn.telerik.com/learn).

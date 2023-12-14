@@ -29,6 +29,7 @@ To check your Node.js version, run `node --version` in a terminal or console win
 
 All Kendo UI for Vue Native components work with the latest versions of `Vue 3` and `Vue 2`. 
 
+> Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
 
 
 ## API Compatibility
@@ -48,6 +49,7 @@ Kendo UI for Vue Native suite provides support for Internet Explorer 11 based on
 
 Vue 3.x uses ES2015 features that cannot be polyfilled in legacy browsers, so `if you need to support legacy browsers, you will need to use Vue 2.x` instead.
 
+> Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
 
 ## Suggested Links
 

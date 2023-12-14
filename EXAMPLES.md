@@ -2,6 +2,8 @@
 
 This repository contains examples related to [Kendo UI for Vue](https://www.telerik.com/kendo-vue-ui) that are not part of the documentation or demos. They provide scenarios and answers to common how-to questions. For most of them, a component and some classes are the core of the example.
 
+> Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
+
 ## Projects
 
 - [Getting Started App](https://github.com/telerik/kendo-vue-examples/tree/main/getting-started-app)

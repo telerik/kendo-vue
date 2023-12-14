@@ -575,6 +575,8 @@ Your Kendo UI for Vue Getting Started application is complete! You can download 
 
 * If you are using Vue 2, [here a link to the same project](https://codesandbox.io/s/goofy-rumple-hbcub4) implemented in Vue 2 context.
 
+> Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
+
 This article shows just a glimpse of what you can create with Kendo UI for Vue. We hope we’ve managed to get you excited about becoming more a productive Vue developer and building complex UI in a short time through our professional UI library. We’re in it for the long run, so dive in!"
 
 ## Additional Resources

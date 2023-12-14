@@ -4,6 +4,8 @@ Kendo UI for Vue uses GitHub Issues as a bug tracker. This repository is here fo
 
 In this repository you will also find examples of how our components can be integrated in more complex scenarios. 
 
+> Historically, all Kendo UI for Vue Native components support both **Vue 2** and **Vue 3**, however Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
+
 ## Table of Contents  
 * [Features of Kendo UI for Vue suite](#features-of-kendo-ui-for-vue-suite)  
 * [Components planned for the next official release](#components-planned-for-the-next-release)  
