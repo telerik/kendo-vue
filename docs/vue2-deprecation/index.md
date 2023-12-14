@@ -11,7 +11,7 @@ To be in sync with the latest trends, we need to say goodbye to the old technolo
 
 ## Vue 2 End of Life
 
-We at Progress aim to be up-to-date with the latest technologies, be compatible with the latest trends, and develop our products in sync with the lifecycle paths of the different frameworks we use. Having the previous in mind, probably most of you know that the official EOL(End of Life) support for Vue 2 is Dec 31, 2023. 
+We at Progress aim to be up-to-date with the latest technologies, be compatible with the latest trends, and develop our products in sync with the lifecycle paths of the different frameworks we use. Having the previous in mind, probably most of you know that [the official EOL(End of Life) support for Vue 2 is Dec 31, 2023](https://v2.vuejs.org/lts/). 
 
 
 > Because of the official EOL for Vue 2, we decided to act in sync with this deprecation and announce that the Vue 2 support in the Kendo UI for Vue components will officially end by the end of 2024.
@@ -20,9 +20,9 @@ We at Progress aim to be up-to-date with the latest technologies, be compatible 
 While some of you may not be happy with the deprecation announcement, it is important to note that the official end of life of Vue 2 is a significant step forward for the framework itself, its community, and the Kendo UI for Vue suite. The deprecation of the Vue 2 support in the Kendo UI for Vue components will let us optimize the implementation of our components, focus the development efforts only on one version of Vue, diminish the introduction of bugs related to specific Vue 2 requirements and incompatibilities with Vue 3. 
 
 ## Vue 2 Support in the Kendo UI for Vue Suite 
-During the last 3 years, after the introduction of Vue 3, many of you have already migrated your applications to it, however, we are aware that there are projects built and still running on Vue 2. We know that the migration process could be very time-consuming and needs additional resource planning, especially for big projects and this is why the deprecation of the Vue 2 support will take effect one year after the official EOL. To be more specific, our last `major release for 2024` will be the last one that will support Vue 2. 
+During the last 3 years, after the introduction of Vue 3, many of you have already migrated your applications to it, however, we are aware that there are projects built and still running on Vue 2. We know that the migration process could be very time-consuming and needs additional resource planning, especially for big projects and this is why the deprecation of the Vue 2 support will take effect one year after the official EOL. To be more specific, our last `major release for 2024`, planned for November, will be the last one that will support Vue 2. 
 
-For those of you who use Nuxt, the official EOL for Nuxt 2 is June 30, 2023. From the Kendo UI for Vue perspective, the support deprecation for Nuxt 2 will be the same as the one announced for Vue 2 – `the last major release for 2024`. 
+For those of you who use Nuxt, [the official EOL for Nuxt 2 is June 30, 2023](https://v2.nuxt.com/lts/). From the Kendo UI for Vue perspective, the support deprecation for Nuxt 2 will be the same as the one announced for Vue 2 – `the last major release for 2024`. 
 
 ## How does the Vue 2 Deprecation Affect Me? 
 Except for the Vue 2 deprecation, everything with the Kendo UI for Vue suite continues to be the same. `If you are worried about the future of the Vue components, don’t be!` The development of the suite continues. Our components can be used both with the Options and Composition APIs, and support Nuxt 3. We are periodically testing our suite for compatibility with new trends in the Vue world. New components are on the horizon for 2024 and we continue our effort to keep the high levels of support satisfaction you are used to.  
