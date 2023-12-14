@@ -14,6 +14,8 @@ In this article you’ll learn how to use Kendo UI for Vue components by buildin
 
 The current example uses the recommended by Vue [Vite build tool](https://vitejs.dev/) + [Vue Options API](https://vuejs.org/guide/introduction.html#options-api). If you need Getting started information that uses `Vue Composition API`, you can check [this link](slug:getting_started_javascript_composition_api).
 
+> Historically, all Kendo UI for Vue Native components support both **Vue 2** and **Vue 3**, however, Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/) for more details.
+
 ## 1. Set up the Vue project
 * The recommended way to start with Vue is to scaffold a project using [Vite](https://vuejs.org/guide/scaling-up/tooling.html#vite). To create a new Vite project use one of the following commands for NPM or Yarn.
 

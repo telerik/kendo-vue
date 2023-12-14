@@ -14,6 +14,8 @@ The training course is developed to help you get started with the Kendo UI for V
 
 The course starts with adding basic Kendo UI for Vue components to the application and shows how to harness the power of Kendo in no time. Further, you get into more advanced components, like the Chart and the Grid, and learn how to incorporate Kendo UI for Vue components to interact with existing functionality and with each other. Finally, the course explores how to build your own theme and change it for all components at once.
 
+> Historically, all Kendo UI for Vue Native components support both **Vue 2** and **Vue 3**, however, Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/) for more details.
+
 ## Course Overview
 
 The next video shares a glimpse of the format and structure of the whole training and provides a brief overview of what will be accomplished through the steps. 
