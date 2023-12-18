@@ -364,11 +364,12 @@ To try all discussed above features, copy the below code and paste it in the App
 
 <script>
 import { ref, onMounted, defineComponent } from 'vue';
-import { productsData } from './appdata/products';
-import { categoriesData } from './appdata/categories';
+import productsData from './appdata/products';
+import categoriesData from './appdata/categories';
 import { process } from '@progress/kendo-data-query';
 import { Grid } from '@progress/kendo-vue-grid';
 import { DropDownList } from '@progress/kendo-vue-dropdowns';
+import '@progress/kendo-theme-default/dist/all.css';
 
 export default defineComponent({
   components: {
