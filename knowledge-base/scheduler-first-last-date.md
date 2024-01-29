@@ -4,7 +4,7 @@ description: An example on how to retrieve the date values of the first and last
 type: how-to
 page_title: Get the date values of the first and last slot - Kendo UI for Vue Scheduler
 slug: scheduler-start-end-date-values
-tags: scheduler, kendo ui for view, start, end, slot, view
+tags: scheduler, kendo ui for vue, start, end, slot, view
 res_type: kb
 category: knowledge-base
 ---
