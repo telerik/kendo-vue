@@ -43,7 +43,7 @@ This can be achieved with CSS:
 ### Runnable example
 
 {% meta id:index height:800 %}
-{% embed_file scheduler-hide-all-day-row/main.vue preview %}
-{% embed_file scheduler-hide-all-day-row/events-utc.js %}
-{% embed_file scheduler-hide-all-day-row/main.js %}
+{% embed_file scheduler-hide-all-day/main.vue preview %}
+{% embed_file scheduler-hide-all-day/events-utc.js %}
+{% embed_file scheduler-hide-all-day/main.js %}
 {% endmeta %}
