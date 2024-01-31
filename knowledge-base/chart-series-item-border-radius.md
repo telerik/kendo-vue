@@ -1,6 +1,7 @@
 ---
 title: Add border-radius to the Chart Series items
 description: An example on how you can add border-radius to the Chart's series items
+type: how-to
 page_title: Add border-radius to Chart's Series - Kendo UI for Vue Native Chart
 slug: chart-series-item-border-radius
 tags: chart,series items, series, border-radius

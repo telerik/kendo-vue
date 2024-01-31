@@ -1,6 +1,7 @@
 ---
 title: Hide the all day row in the Scheduler
 description: An example on how you can hide the all day row in the Scheduler
+type: how-to
 page_title: Hide the all day row - Kendo UI for Vue Native Scheduler
 slug: scheduler-hide-all-day-row
 tags: scheduler, hide all day row
