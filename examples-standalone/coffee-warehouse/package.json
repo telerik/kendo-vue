@@ -32,7 +32,7 @@
     "@progress/kendo-vue-pdf": "^3.11.0",
     "@progress/kendo-vue-popup": "^3.11.0",
     "@progress/kendo-vue-progressbars": "^3.11.0",
-    "@progress/kendo-vue-upload": "^3.11.0",
+    "@progress/kendo-vue-upload": "^4.3.0",
     "cldr-core": "^40.0.0",
     "cldr-dates-full": "^40.0.0",
     "cldr-numbers-full": "^40.0.0",
