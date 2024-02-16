@@ -39,7 +39,8 @@
     "core-js": "3.19.0",
     "hammerjs": "2.0.8",
     "vue": "^3.2.20",
-    "vue-router": "^4.0.0"
+    "vue-router": "^4.0.0",
+    "socks": ">=2.7.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^5.0.8",
