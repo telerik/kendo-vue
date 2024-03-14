@@ -143,8 +143,8 @@ For the Default and Bootstrap themes, the swatch should look like:
 
 ```scss
 // Variables.
-$primary: blue;
-$secondary: pink;
+$kendo-color-primary: blue;
+$kendo-color-secondary: pink;
 
 // Import the theme file for the components you use.
 @import "../panelbar/_index.scss";

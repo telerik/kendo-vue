@@ -29,7 +29,7 @@ To improve the collaboration between designers and developers, Kendo UI for Vue 
    ![Color Styles in a UI Kit for Figma](./images/theme-builder-ui-kit-color-styles.png)
 
 1. Create a new project in the ThemeBuilder application. To choose the most suitable starting **Theme**, ask your designer which UI Kit was used: **Default**, **Bootstrap**, or **Material**.
-1. Copy the color codes from the **Color Styles** in Figma and paste them in the ThemeBuilder color editor with the same name. For example, copy the value of the `$primary` color in Figma and paste it in the **Primary** color editor in the ThemeBuilder.
+1. Copy the color codes from the **Color Styles** in Figma and paste them in the ThemeBuilder color editor with the same name. For example, copy the value of the `$primary` color in Figma and paste it in the `$kendo-color-primary` color editor in the ThemeBuilder.
 
 ## Suggested Links
 
