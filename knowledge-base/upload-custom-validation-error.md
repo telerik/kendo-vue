@@ -73,6 +73,8 @@ event.newState[0].validationErrors
 ```
 ### Runnable example
 
+To test the following example, upload files by either clicking on the "Select files" button or by dragging and dropping them. You will then see the custom error message being triggered:
+
 {% meta id:index height:480 %}
 {% embed_file upload-custom-validation-error/main.vue preview %}
 {% embed_file upload-custom-validation-error/main.js %}

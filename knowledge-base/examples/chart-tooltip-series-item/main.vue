@@ -105,7 +105,7 @@
           {
             Id: 31289,
             ApprovalStatus: {
-              Name: 'Approved by a very log whatnot label here sooo long',
+              Name: 'Approved by a very long, long and even longer label shown inside a tooltip',
             },
             ExternalClient: { Id: 5394 },
             Actual: { TotalConsumption: 7380 },
