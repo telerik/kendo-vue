@@ -27,7 +27,7 @@ category: knowledge-base
 
 ## Description
 
-How to add a tooltip to the Chart series items?
+How to add a tooltip to the Chart labels on the y-axis?
 
 ## Solution
 
