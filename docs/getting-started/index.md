@@ -1,5 +1,5 @@
 ---
-title: First Steps with JavaScript
+title: First Steps (Using JavaScript)
 page_title: Kendo UI for Vue Components Introduction - Kendo UI for Vue Docs & Demos
 description: "Get started with the Kendo UI for Vue Native Components using Vite and Composition API."
 slug: getting_started_javascript_composition_api
@@ -8,95 +8,93 @@ heading: Get Started
 position: 0
 ---
 
-# Get Started with Kendo UI for Vue Native Components with JavaScript and Composition API
+# Get Started with Kendo UI for Vue
 
-In this article you’ll learn how to use Kendo UI for Vue components by building a small app that includes a Grid, a DropDownList, a Window and a design theme. 
+This tutorial will help you develop a simple app that includes a few native Vue components: *[Grid]*, *[Component2]*, and *[Component3]*. To achieve this, you will build a project using [Vite](https://vitejs.dev/) and the [Vue Composition API](https://vuejs.org/guide/introduction.html#composition-api) paired with JavaScript.
 
-The current example uses the recommended by Vue [Vite build tool](https://vitejs.dev/) + [Vue Composition API](https://vuejs.org/guide/introduction.html#composition-api). If you need Getting started information that uses `Vue Options API`, you can check [this link](slug:getting_started_javascript_options_api).
+>Curious about TypeScript or the Options API? This tutorial comes in several additional variants:
+>* [Kendo UI for Vue with TypeScript and the Composition API](slug:getting_started_typescript_composition_api)
+>* [Kendo UI for Vue with TypeScript and the Options API](slug:getting_started_typescript_options_api)
+>* [Kendo UI for Vue with JavaScript and the Options API](slug:getting_started_javascript_options_api)
 
-## 1. Set up the Vue project
-* The recommended way to start with Vue is to scaffold a project using [Vite](https://vuejs.org/guide/scaling-up/tooling.html#vite). To create a new Vite project use one of the following commands for NPM or Yarn.
+## Create the Vue Project
 
-Create project commands:
+The recommended way to scaffold your Vue project is using [Vite](https://vuejs.org/guide/scaling-up/tooling.html#vite).
 
-```sh
-npm create vite@latest
+> You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. However, for the purposes of this tutorial, we demonstrate only NPM.
+
+1. Create the Vue project:
+
+    ```sh
+    npm create vite@latest
+    ```
+    <!--- 
+    ```sh
+    yarn create vite
+    ```
+    --->
+
+1. Enter the project name, for example, `my-app`.
+
+1. Select the Vue framework by using the arrow keys.
+
+    ```sh
+    ? Select a framework: » - Use arrow-keys. Return to submit.
+        Vanilla
+    >   Vue
+        React
+        ...
+    ```
+
+1. Select the JavaScript framework variant
+
+    ```sh
+    ? Select a variant: » - Use arrow-keys. Return to submit.
+        TypeScript
+    >   JavaScript
+        ...
+    ```
+1. Run the newly created project by executing the following commands:
+
+    ```sh
+    cd my-app
+    npm install
+    npm run dev
+    ```
+
+## Clean Up the Generated Project
+
+Before you start playing with Kendo UI for Vue, clean up the sample app created by Vite:
+
+1. In the `src/components` folder, delete the `HelloWorld.vue` file.
+1. Replace the content of the `src/App.vue` with the following:
+
+```html
+  <script setup>
+  </script>
+
+  <template>
+  </template>
+
+  <style scoped>
+  </style>
 ```
-or
-```sh
-yarn create vite
-```
 
-When one of the above commands is executed, the interface will ask you to apply additional configurations to your project:
-1. Set the project name: 
-Here we can define the name of our new project. For the needs of the current article, set the name of the application as `my-app`
+Now that the project is blank, you can start developing the sample application.
 
-2. Select the framework - Choose `Vue` here:
-<img src="./images/vite-select-framework.png" alt="Vite Select Framework" style="width: 80%" />
+## Add Application Data
 
-3. Select the framework variant - Choose `Javascript` to build a Vite project with Vue and Javascript.
-<img src="./images/vite-select-framework-variant.png" alt="Vite Select Framework Variant" style="width: 80%" />
+Components like the Grid need some data that the can display, so, in this step, you will add two files with sample data:
 
-When you are ready with the above steps, to run the newly created project do the following commands:
-```
-  cd my-app
-  npm install
-  npm run dev
-```
+1. In the `src` folder, create a new folder called `appdata`.
 
-## 2. Prepare the Generated Project
+1. Create a new `src/appdata/categories.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-composition-api/src/appdata/categories.json) and paste it into the `categories.json` file.
 
-> By default, the Vite scaffolding generates a template for Vue project that uses the [Composition API](https://vuejs.org/guide/introduction.html#composition-api) available in the framework. If you use the  [Vue Options API](https://vuejs.org/guide/introduction.html#options-api),a getting started article with it can be found on [this link](slug:getting_started_javascript_options_api). 
-
-Before you start playing with Kendo UI for Vue, let’s clean up the sample app a bit. Here is a list of suggested edits:
-* In the `src/components` folder, delete the `HelloWorld.vue` file
-* In the src/App.vue file:
-	* Remove the import of the HelloWorld component
-
-	```js
-	import HelloWorld from './components/HelloWorld.vue'
-	```
-	* Remove the following code from the template definition:
-
-	```html
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-	```
-
-  * Remove the following CSS styles
-  ```css
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
-  }
-  ``` 
-
-Now, when we are ready with the blank Vue project, we can continue the development of our sample application. 
-
-## 3. Add Application Data
-
-Add dummy data needed by the components. Create folder `appdata` in the `src` folder. Add the following files to the `appdata` folder.
-
-* Add a `src/appdata/categories.json` file and copy the content from [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-composition-api/src/appdata/categories.json).
-* Add a `src/appdata/products.json` file and copy the content from [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-composition-api/src/appdata/products.json).
+1. Create a new `src/appdata/products.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-composition-api/src/appdata/products.json) and paste it into the `products.json` file.
 
 ## 4. Import Kendo UI for Vue components
 
-Kendo UI for Vue is distributed as multiple NPM packages, scoped to `@progress`. For example, the name of the `Grid` package is `@progress/kendo-vue-grid`.
+Kendo UI for Vue is distributed as multiple NPM packages, scoped to `@progress`. For example, the name of the Grid package is `@progress/kendo-vue-grid`.
 
 Kendo UI for Vue is a rich suite of many modular components. For our dashboard example, we’ll use three of these components: The Grid, the DropDownList and the Window.
 
