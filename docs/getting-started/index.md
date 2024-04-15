@@ -1,7 +1,7 @@
 ---
-title: First Steps (Using JavaScript)
-page_title: Kendo UI for Vue Components Introduction - Kendo UI for Vue Docs & Demos
-description: "Get started with the Kendo UI for Vue Native Components using Vite and Composition API."
+title: First Steps (Composition API and JavaScript)
+page_title: Get Started with Kendo UI for Vue - Kendo UI for Vue Docs & Demos
+description: "Get started with the Kendo UI for Vue Native Components and build your first Data Grid by using Vite and the Composition API."
 slug: getting_started_javascript_composition_api
 brand: getting-started
 heading: Get Started
@@ -10,7 +10,7 @@ position: 0
 
 # Get Started with Kendo UI for Vue
 
-This tutorial will help you develop a simple app that includes a few native Vue components: *[Grid]*, *[Component2]*, and *[Component3]*. To achieve this, you will build a project using [Vite](https://vitejs.dev/) and the [Vue Composition API](https://vuejs.org/guide/introduction.html#composition-api) paired with JavaScript.
+This tutorial will help you develop a simple app that includes a native Vue Data Grid component. To achieve this, you will build a project using [Vite](https://vitejs.dev/) and the [Vue Composition API](https://vuejs.org/guide/introduction.html#composition-api) paired with JavaScript.
 
 >Curious about TypeScript or the Options API? This tutorial comes in several additional variants:
 >* [Kendo UI for Vue with TypeScript and the Composition API](slug:getting_started_typescript_composition_api)
@@ -66,161 +66,64 @@ The recommended way to scaffold your Vue project is using [Vite](https://vuejs.o
 
 Before you start playing with Kendo UI for Vue, clean up the sample app created by Vite:
 
-1. In the `src/components` folder, delete the `HelloWorld.vue` file.
-1. Replace the content of the `src/App.vue` with the following:
+1. Delete the `HelloWorld.vue` file in the `src/components` folder.
+1. Remove everything in the `src/App.vue` file and leave it blank.
+??? 1. Delete the `import './style.css'` line in the `src/main.js` file.
 
-```html
-  <script setup>
-  </script>
-
-  <template>
-  </template>
-
-  <style scoped>
-  </style>
-```
-
-Now that the project is blank, you can start developing the sample application.
+Now that the project is clean, you can start developing the sample application.
 
 ## Add Application Data
 
 Components like the Grid need some data that the can display, so, in this step, you will add two files with sample data:
 
-1. In the `src` folder, create a new folder called `appdata`.
+1. In the `src` folder, create a new folder called `appdata` where you will place the JSON files with the data.
 
 1. Create a new `src/appdata/categories.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-composition-api/src/appdata/categories.json) and paste it into the `categories.json` file.
 
 1. Create a new `src/appdata/products.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-composition-api/src/appdata/products.json) and paste it into the `products.json` file.
 
-## 4. Import Kendo UI for Vue components
+## Install the Data Grid Component
 
-Kendo UI for Vue is distributed as multiple NPM packages, scoped to `@progress`. For example, the name of the Grid package is `@progress/kendo-vue-grid`.
-
-Kendo UI for Vue is a rich suite of many modular components. For our dashboard example, we’ll use three of these components: The Grid, the DropDownList and the Window.
-
-Let’s add the mentioned components’ packages and their dependencies:
-```sh
-npm install --save @progress/kendo-vue-grid @progress/kendo-data-query @progress/kendo-vue-inputs @progress/kendo-vue-intl @progress/kendo-vue-dropdowns @progress/kendo-vue-dateinputs @progress/kendo-drawing @progress/kendo-vue-data-tools @progress/kendo-vue-animation @progress/kendo-licensing @progress/kendo-svg-icons @progress/kendo-vue-indicators
-```
-or
-```sh
-yarn add @progress/kendo-vue-grid @progress/kendo-data-query @progress/kendo-vue-inputs @progress/kendo-vue-intl @progress/kendo-vue-dropdowns @progress/kendo-vue-dateinputs @progress/kendo-drawing @progress/kendo-vue-data-tools @progress/kendo-vue-animation @progress/kendo-licensing @progress/kendo-svg-icons @progress/kendo-vue-indicators
-```
-With the above, we not only add the packages of the `Grid` and `DropDownList` but also add another important package – `kendo-data-query`. It contains useful functions for client-side data operations.
-
-To install the Window component run the following:
-```sh
-npm install --save @progress/kendo-vue-dialogs @progress/kendo-licensing @progress/kendo-svg-icons
-```
-or
-```sh
-yarn add @progress/kendo-vue-dialogs @progress/kendo-licensing @progress/kendo-svg-icons
-```
-## 5. Import the Kendo UI for Vue CSS styles
-
-Kendo UI for Vue includes four gorgeous themes, which are all available as separate NPM packages. The available theme packages are [@progress/kendo-theme-default](https://www.npmjs.com/package/@progress/kendo-theme-default), [@progress/kendo-theme-bootstrap](https://www.npmjs.com/package/@progress/kendo-theme-bootstrap), [@progress/kendo-theme-material](https://www.npmjs.com/package/@progress/kendo-theme-material) and [@progress/kendo-theme-fluent](https://www.npmjs.com/package/@progress/kendo-theme-fluent).
-
-Let’s take the Default theme and install it just like we did with the component packages:
-```sh
-npm install --save @progress/kendo-theme-default
-```
-or
+Kendo UI for Vue is distributed as multiple NPM packages, scoped to `@progress`. For example, the name of the Grid package is `@progress/kendo-vue-grid`. To use the Grid in your app, add the component and its dependencies:
 
 ```sh
-yarn add --save @progress/kendo-theme-default
+npm install --save @progress/kendo-data-query @progress/kendo-licensing @progress/kendo-vue-animation @progress/kendo-vue-data-tools @progress/kendo-vue-dateinputs @progress/kendo-vue-dropdowns @progress/kendo-vue-inputs @progress/kendo-vue-indicators @progress/kendo-vue-intl @progress/kendo-vue-popup
 ```
-
-Import the CSS files from the package in the `src/App.vue` file. If needed, any additional custom styles can be added in the `<styles>` tag of the `src/App.vue` file.
-
-Here is what we should add:
-```js
-import '@progress/kendo-theme-default/dist/all.css';
+<!---
+```sh
+yarn add @progress/kendo-data-query @progress/kendo-licensing @progress/kendo-vue-animation @progress/kendo-vue-data-tools @progress/kendo-vue-dateinputs @progress/kendo-vue-dropdowns @progress/kendo-vue-inputs @progress/kendo-vue-indicators @progress/kendo-vue-intl @progress/kendo-vue-popup
 ```
+--->
 
-## 6. Add a Kendo UI for Vue DropDownList
-Now that you have everything set up and ready to go, let’s begin using the Kendo UI for Vue components, starting with the [DropDownList](slug:overview_dropdownlist) component.
-Before we continue, the first thing we should do is to import the already installed DropDownList component into the `src/App.vue` file and the `appdata/categories.json` file using the following code:
-```js
-import { DropDownList } from '@progress/kendo-vue-dropdowns';
-import categories from './appdata/categories.json';
-```
-Add the DropDownList component with the following code:
-```js
-export default defineComponent({
-  components: {
-    'dropdownlist': DropDownList,
-  },
-//..............
-```
+## Import the Kendo UI for Vue CSS Styles
 
-After importing the component, use the code below to bind a DropDownList to a list of categories.
-```html
-<dropdownlist
-    :data-items="categories"
-    :data-item-key="'CategoryID'"
-    :text-field="'CategoryName'"
-    >
-</dropdownlist>
-```
-The data-items property of the DropDownList points to an array of objects or primitive values. In this case, you’re using an array of objects, and therefore specify both `data-item-key` and `text-field` properties.
+Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) available as separate NPM packages. To style the components, you can use each theme as is or [customize](slug:customizingthemes) it to your liking.
 
-You can also use the `default-item` property to display a hint for the users when no item is selected. The default item should have a field that matches the `text-field` name.
+1. Install the [Default theme](https://www.telerik.com/kendo-vue-ui/components/styling/theme-default/):
 
-To show a little more of the DropDownList in action, update the `src/App.vue` file to use the below code.
-```html
-<template>
-  <div id="app">
-    <h1>Hello Kendo UI for Vue!</h1>
-    <p>
-      <dropdownlist
-        :data-items="categories"
-        :data-item-key="'CategoryID'"
-        :text-field="'CategoryName'"
-        :default-item="defaultItems"
-        @change="handleDropDownChange"
-      ></dropdownlist>&nbsp; Selected category ID:
-      <strong>{{ dropdownlistCategory }}</strong>
-    </p>
-  </div>
-</template>
+  ```sh
+  npm install --save @progress/kendo-theme-default
+  ```
+  <!---
 
-<script>
-import { ref, defineComponent } from 'vue';
-import { categoriesData } from './appdata/categories';
-import { DropDownList } from '@progress/kendo-vue-dropdowns';
+  ```sh
+  yarn add --save @progress/kendo-theme-default
+  ```
+  --->
 
-export default defineComponent({
-  components: {
-    dropdownlist: DropDownList,
-  },
-  setup() {
-    const categories = categoriesData;
-    const defaultItems = { CategoryID: null, CategoryName: "Product categories" };
-    const dropdownlistCategory = ref(null);
-    const handleDropDownChange = (e) => {
-      dropdownlistCategory.value = e.target.value.CategoryID;
-    };
+1. In the `src/App.vue` file, import the CSS files provided by the installed theme package:  
 
-    return {
-      categories, defaultItems, handleDropDownChange, dropdownlistCategory
-    }
-  }
+  ```js
+  import '@progress/kendo-theme-default/dist/all.css';
+  ```
 
-})
-</script>
-```
-The above code additionally renders the ID of the selected category next to the `DropDownList`. You do this by defining a `dropdownlistCategory` field in the data options and implementing an [onChange](slug:api_dropdowns_dropdownlistchangeevent) handler to set it.
+You can add any additional custom styles in the `<styles>` tag of the `src/App.vue` file.
 
-> With the things added above, you can already test the Native DropDownList component. If you need a basic test of the `Kendo UI for Vue Native` suite, you can stop here or continue further with the more complex scenario where the [Grid](slug:overview_grid) and [Window](slug:overview_window) components are used.  
+## Add a Kendo UI for Vue Data Grid
 
-## 7. Add a Kendo UI for Vue Data Grid
-
-Now that you’ve seen what a basic Kendo UI for Vue component looks like, let’s next implement something more complex with the Kendo UI for Vue Data Grid.
-
-The [Kendo UI for Vue Data Grid](slug:overview_grid) provides 100+ ready-to-use features, covering everything from paging, sorting, filtering, editing and grouping, to row and column virtualization and Excel export.
 In this section you’ll try out several of these features, but let’s start by seeing a simple Grid in action.
 
-Import the `Grid` component, the `process` package and the products.json file to the `src/App.vue file`.
+Import the `Grid` component, the `process` package and the `products.json` file to the `src/App.vue file`.
 
 ```js
 import products from './appdata/products.json';
