@@ -74,7 +74,7 @@ Now that the project is clean, you can start developing the sample application.
 
 ## Add Application Data
 
-Components like the Grid need some data that the can display, so, in this step, you will add a file with sample data:
+Components like the Grid need some data that they can display, so, in this step, you will add a file with sample data:
 
 1. In the `src` folder, create a new folder called `appdata` where you will place the JSON file with the data.
 
@@ -143,31 +143,34 @@ Now that you've installed all required packages, you are ready to add the Kendo 
       </template>
     ```
 
-1. Define the Grid in the `<script>` block. Add user-friendly [column titles](slug:api_grid_gridcolumnprops#toc-title) by using the `title` property:
+1. Define the Grid in the `<script setup>` configuration. Add user-friendly [column titles](slug:api_grid_gridcolumnprops#toc-title) by using the `title` property:
 
     ```js
-        export default defineComponent({
-          components: {
-            'grid': Grid,
-          },
-        setup() {
-          const products = productsData;
-          const columns = [
-            { field: 'ProductName', title: 'Product Name' },
-            { field: 'UnitPrice', title: 'Price' },
-            { field: 'UnitsInStock', title: 'Units in Stock' },
-            { field: 'Discontinued' }
-          ];
+      <script setup>
+        import { ref, onMounted } from 'vue'
+
+        // reactive state
+        const count = ref(0)
+
+        // functions that mutate state and trigger updates
+        function increment() {
+          count.value++
         }
-        return {
-          products, columns,
-        }
+
+        // lifecycle hooks
+        onMounted(() => {
+          console.log(`The initial count is ${count.value}.`)
         })
+      </script>
+
+      <template>
+        <button @click="increment">Count is: {{ count }}</button>
+      </template>
     ```
 
 These steps let you render a very basic Grid by running `npm run dev` and navigating to the local URL displayed in the terminal.
 
-> Notice the `No valid license found` message and the watermark in the Grid. They are information and encourage you to activate your trial or commercial license and to [add a license file to your application](slug:my_license_vue). Once you add a valid license file, the license message and the watermark will disappear.
+> Notice the `No valid license found` message and the watermark in the Grid. They are informational and encourage you to activate your trial or commercial license and to [add a license file to your application](slug:my_license_vue). Once you complete these licensing steps, the license message and the watermark will disappear.
 
 ## Configure the Vue Data Grid
 
@@ -193,40 +196,17 @@ Now that you have a running Grid, you are ready to use some of its basic feature
   * Set the initial [`skip`](slug:api_grid_gridprops#toc-skip) for the paging.
   * Set the initial [sorting](slug:api_grid_gridprops#toc-sort) by Product name.
 
-    ```js
-      <script>
-        import { ref, defineComponent } from 'vue';
-        import productsData from './appdata/products.json';
-        import { Grid } from '@progress/kendo-vue-grid';
-        import '@progress/kendo-theme-default/dist/all.css';
+        ```js
+      <script setup>
+        import { ref, onMounted } from 'vue'
 
-        export default defineComponent({
-          components: {
-            'grid': Grid,
-          },
-          setup() {
-            const products = productsData;
-            const pageable = ref(true);
-            const sortable = ref(true);
-            const skip = ref(0);
-            const take = ref(10);
-            const sort = ref([
-              { field: "ProductName", dir: "asc" }
-            ]);
-
-            const columns = [
-            { field: 'ProductName', title: 'Product Name' },
-            { field: 'UnitPrice', title: 'Price' },
-            { field: 'UnitsInStock', title: 'Units in Stock' },
-            { field: 'Discontinued' }
-          ];
-
-            return {
-              products, columns, pageable, sortable, skip, take, sort,
-            }
-          }
-        });
+        // placeholder
+        
       </script>
+
+      <template>
+        // placeholder
+      </template>
     ```
 
 ## Get the Complete Source Code
