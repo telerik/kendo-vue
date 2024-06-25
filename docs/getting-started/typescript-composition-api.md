@@ -10,8 +10,6 @@ position: 20
 
 # Get Started with Kendo UI for Vue Native Components with TypeScript and Composition API
 
-Recently, the [Composition API](https://vuejs.org/guide/introduction.html#composition-api) in Vue is getting more and more popular, over the classic [Options API](https://vuejs.org/guide/introduction.html#options-api). 
-
 This tutorial will help you develop a simple app that includes a native Vue Data Grid component. To achieve this, you will build a project using [Vite](https://vitejs.dev/) and the [Vue Composition API](https://vuejs.org/guide/introduction.html#composition-api) paired with TypeScript.
 
 
@@ -20,8 +18,6 @@ This tutorial will help you develop a simple app that includes a native Vue Data
 >* [Kendo UI for Vue with JavaScript and the Options API](slug:getting_started_javascript_options_api)
 
 > Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
-
-The current example uses the recommended by Vue [Vite build tool](https://vitejs.dev/) + [Vue Composition API](https://vuejs.org/guide/introduction.html#composition-api) + Typescript. If you need Getting started information that uses `Vue Options API` + Typescript, you can check [this link](slug:getting_started_typescript_options_api).
 
 > Prefer video tutorials? How about a free Telerik UI onboarding course? Check out the [Kendo UI for Vue with TypeScript](https://learn.telerik.com/learn/course/internal/view/elearning/45/kendo-ui-for-vue-with-typescript) training in [Telerik Virtual Classroom](https://learn.telerik.com/learn).
 
@@ -137,7 +133,7 @@ Now that you've installed all required packages, you are ready to add the Kendo 
     ```js
       <script>
         import { ref, onMounted, defineComponent } from 'vue';
-        import products from './appdata/products.json';
+        import products from './appdata/products.ts';
         import { process } from '@progress/kendo-data-query';
         import { Grid } from '@progress/kendo-vue-grid';
       </script>
