@@ -73,7 +73,7 @@ Before you start playing with Kendo UI for Vue, clean up the sample app created 
 1. Delete the `HelloWorld.vue` file in the `src/components` folder.
 1. Remove everything in the `src/App.vue` file and leave it blank.
 1. Delete the `import './style.css'` line in the `src/main.js` file.
-1. Clear the script tag in src/App.vue for Options API configuration: 
+1. Clear the script tag in `src/App.vue` for Options API configuration: 
   ```html-no-run
   <script>
   </script>
