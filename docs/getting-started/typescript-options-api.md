@@ -9,7 +9,7 @@ position: 30
 ---
 
 
-# Get Started with Kendo UI for Vue Native Components with TypeScript and Options API
+# Get Started with Kendo UI for Vue
 
 This tutorial will help you develop a simple app that includes a native Vue Data Grid component. To achieve this, you will build a project using [Vite](https://vitejs.dev/) and the [Vue Composition API](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-options-api) paired with TypeScript.
 
@@ -75,7 +75,7 @@ Before you start playing with Kendo UI for Vue, clean up the sample app created 
 1. Delete the `HelloWorld.vue` file in the `src/components` folder.
 1. Remove everything in the `src/App.vue` file and leave it blank.
 1. Delete the `import './style.css'` line in the `src/main.ts` file.
-1. Clear the script tag in src/App.vue for Options API configuration: 
+1. Clear the script tag in `src/App.vue` for Options API configuration: 
   ```html-no-run
   <script>
   </script>

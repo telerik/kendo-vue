@@ -8,7 +8,7 @@ heading: Get Started
 position: 20
 ---
 
-# Get Started with Kendo UI for Vue Native Components with TypeScript and Composition API
+# Get Started with Kendo UI for Vue
 
 This tutorial will help you develop a simple app that includes a native Vue Data Grid component. To achieve this, you will build a project using [Vite](https://vitejs.dev/) and the [Vue Composition API](https://vuejs.org/guide/introduction.html#composition-api) paired with TypeScript.
 
