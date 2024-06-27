@@ -19,13 +19,11 @@ This tutorial will help you develop a simple app that includes a native Vue Data
 
 > Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](slug:vue2-end-of-support) for more details.
 
-> Prefer video tutorials? How about a free Telerik UI onboarding course? Check out the [Kendo UI for Vue with TypeScript](https://learn.telerik.com/learn/course/internal/view/elearning/45/kendo-ui-for-vue-with-typescript) training in [Telerik Virtual Classroom](https://learn.telerik.com/learn).
-
 ## Create the Vue Project
 
 The recommended way to scaffold your Vue project is using [Vite](https://vuejs.org/guide/scaling-up/tooling.html#vite).
 
-> You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. However, for the purposes of this tutorial, we demonstrate only NPM.
+> You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. This tutorial demonstrates only the NPM approach.
 
 1. Create the Vue project:
 
@@ -50,7 +48,7 @@ The recommended way to scaffold your Vue project is using [Vite](https://vuejs.o
         ...
     ```
 
-1. Select the TypeScript framework variant
+1. Select the TypeScript framework variant.
 
     ```sh
     ? Select a variant: » - Use arrow-keys. Return to submit.
@@ -79,7 +77,7 @@ Now that the project is clean, you can start developing the sample application.
 
 ## Add Application Data
 
-Add dummy data needed by the components. Create folder `appdata` in the `src` folder. Add the following files to the `appdata` folder.
+Components like the Grid need some data that they can display, so, in this step, you will add a file with sample data:
 
 1. Create a new `src/appdata/products.ts` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-typescript-composition-api/src/appdata/categories.ts) and paste it into the `products.ts` file.
 

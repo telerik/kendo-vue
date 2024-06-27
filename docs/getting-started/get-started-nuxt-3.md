@@ -18,9 +18,11 @@ This tutorial will help you develop a simple app that includes a native Vue Data
 >* [Kendo UI for Vue with JavaScript and the Options API](slug:getting_started_javascript_options_api)
 >* [Kendo UI for Vue with TypeScript and the Options API](slug:getting_started_typescript_options_api)
 
+> Historically, all Kendo UI for Vue Native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
+
 ## Create the Vue Project
 
-1. Create a Nuxt project named my-app:
+1. Create a Nuxt project named `my-app`:
 
 ```sh
 npx nuxi init my-app
@@ -86,13 +88,13 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
 ## Add a Vue Data Grid Component
 
 
-1. Create the file in which we will add the Grid's logic with the following command:
+1. Now that you've installed all required packages, you are ready to add the Kendo UI for Vue Data Grid to the application.
 
 ```sh
 npx nuxi add page KendoGrid
 ```
 
-1. In the pages/KendoGrid.vue file, add a `<script>` block and import the Grid and its data:
+1. In the `pages/KendoGrid.vue` file, add a `<script>` block and import the Grid and its data:
 
 
 ```js

@@ -1,6 +1,6 @@
 ---
 title: First Steps (Options API and JavaScript)
-page_title: Kendo UI for Vue Components Introduction - Kendo UI for Vue Docs & Demos
+page_title: Kendo UI for Vue Components with JavaScript and the Options API Introduction - Kendo UI for Vue Docs & Demos
 description: "Get started with the Kendo UI for Vue Native Components using Vite and Options API."
 slug: getting_started_javascript_options_api
 brand: getting-started
@@ -18,14 +18,14 @@ This tutorial will help you develop a simple app that includes a native Vue Data
 >* [Kendo UI for Vue with TypeScript and the Options API](slug:getting_started_typescript_options_api)
 
 
-> Historically, all Kendo UI for Vue Native components support both **Vue 2** and **Vue 3**, however, Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/) for more details.
+> Historically, all Kendo UI for Vue Native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
 
 ## Create the Vue Project
 
 The recommended way to scaffold your Vue project is using [Vite](https://vuejs.org/guide/scaling-up/tooling.html#vite).
 
 
-> You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. However, for the purposes of this tutorial, we demonstrate only NPM.
+> You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. This tutorial demonstrates only the NPM approach.
 
 1. Create the Vue project:
 
@@ -50,7 +50,7 @@ The recommended way to scaffold your Vue project is using [Vite](https://vuejs.o
         ...
     ```
 
-1. Select the JavaScript framework variant
+1. Select the JavaScript framework variant.
 
     ```sh
     ? Select a variant: » - Use arrow-keys. Return to submit.
