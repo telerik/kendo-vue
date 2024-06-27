@@ -100,7 +100,7 @@ const mentionPlugin = getMentionsPlugin({
 
 ```
 
-[Live demo here]
+<!--[Live demo here]-->
 
 Refer to the example project on CodeSandbox for a complete implementation: [Example Project](https://codesandbox.io/p/sandbox/elegant-faraday-hdm2hp?file=%2Fsrc%2Fmain.vue%3A16%2C21).
 
