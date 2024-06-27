@@ -1,6 +1,6 @@
 ---
 title: First Steps (Options API and TypeScript)
-page_title: Kendo UI for Vue Native Components with TypeScript Introduction - Kendo UI for Vue Docs & Demos
+page_title: Kendo UI for Vue Native Components with TypeScript  and Options API Introduction - Kendo UI for Vue Docs & Demos
 description: "Get started with the Kendo UI for Vue Native Components using Typescript, Vite and Options API."
 slug: getting_started_typescript_options_api
 brand: getting-started
@@ -11,6 +11,9 @@ position: 30
 
 # Get Started with Kendo UI for Vue
 
+> Prefer video tutorials? How about a free Telerik UI onboarding course? Check out the [Kendo UI for Vue with TypeScript](https://learn.telerik.com/learn/course/internal/view/elearning/45/kendo-ui-for-vue-with-typescript) training in [Telerik Virtual Classroom](https://learn.telerik.com/learn).
+
+
 This tutorial will help you develop a simple app that includes a native Vue Data Grid component. To achieve this, you will build a project using [Vite](https://vitejs.dev/) and the [Vue Composition API](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-options-api) paired with TypeScript.
 
 >Curious about JavaScript or the Composition API? This tutorial comes in several additional variants:
@@ -18,16 +21,14 @@ This tutorial will help you develop a simple app that includes a native Vue Data
 >* [Kendo UI for Vue with JavaScript and the Options API](slug:getting_started_javascript_options_api)
 
 
-> Historically, all Kendo UI for Vue Native components support both **Vue 2** and **Vue 3**, however, Vue 2 is currently in its end-of-support phase till Nov 2024. After our last major release for 2024, Vue 2 will no longer be supported in the new versions of the Kendo UI for Vue components. Please check our [Vue 2 End of Support article](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/) for more details.
-
-> Prefer video tutorials? How about a free Telerik UI onboarding course? Check out the [Kendo UI for Vue with TypeScript](https://learn.telerik.com/learn/course/internal/view/elearning/45/kendo-ui-for-vue-with-typescript) training in [Telerik Virtual Classroom](https://learn.telerik.com/learn).
+> Historically, all Kendo UI for Vue Native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
 
 ## Create the Vue Project
 
 The recommended way to scaffold your Vue project is using [Vite](https://vuejs.org/guide/scaling-up/tooling.html#vite).
 
 
-> You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. However, for the purposes of this tutorial, we demonstrate only NPM.
+> You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. This tutorial demonstrates only the NPM approach.
 
 1. Create the Vue project:
 
@@ -52,7 +53,7 @@ The recommended way to scaffold your Vue project is using [Vite](https://vuejs.o
         ...
     ```
 
-1. Select the TypeScript framework variant
+1. Select the TypeScript framework variant.
 
     ```sh
     ? Select a variant: » - Use arrow-keys. Return to submit.
@@ -81,14 +82,11 @@ Before you start playing with Kendo UI for Vue, clean up the sample app created 
   </script>
   ```
 
-Now that the project is clean, you can start developing the sample application.
-
-
 Now, when we are ready with the blank Vue project, we can continue the development of our sample application. 
 
 ## Add Application Data
 
-Add dummy data needed by the components. Create folder `appdata` in the `src` folder. Add the following files to the `appdata` folder.
+Components like the Grid need some data that they can display, so, in this step, you will add a file with sample data:
 
 1. Create a new `src/appdata/products.ts` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-typescript-composition-api/src/appdata/categories.ts) and paste it into the `products.ts` file.
 
