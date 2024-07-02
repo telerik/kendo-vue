@@ -21,7 +21,7 @@ This tutorial will help you develop a simple app that includes a native Vue Data
 
 The recommended way to scaffold your Vue project is using [Vite](https://vuejs.org/guide/scaling-up/tooling.html#vite).
 
-> You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. However, for the purposes of this tutorial, we demonstrate only NPM.
+> You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. This tutorial demonstrates only the NPM approach.
 
 1. Create the Vue project:
 
