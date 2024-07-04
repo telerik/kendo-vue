@@ -11,18 +11,12 @@ position: 30
 
 # Get Started with Kendo UI for Vue
 
-> Prefer video tutorials? How about a free Telerik UI onboarding course? Check out the [Kendo UI for Vue with TypeScript](https://learn.telerik.com/learn/course/internal/view/elearning/45/kendo-ui-for-vue-with-typescript) training in [Telerik Virtual Classroom](https://learn.telerik.com/learn).
-
-
 This tutorial will help you develop a simple app that includes a native Vue Data Grid component. To achieve this, you will build a project using [Vite](https://vitejs.dev/) and the [Vue Composition API](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-options-api) paired with TypeScript.
 
 >Curious about JavaScript or the Composition API? This tutorial comes in several additional variants:
 >* [Kendo UI for Vue with TypeScript and the Composition API](slug:getting_started_typescript_composition_api)
 >* [Kendo UI for Vue with JavaScript and the Options API](slug:getting_started_javascript_options_api)
 >* [Kendo UI for Vue with the Composition API and Nuxt 3](slug:getting_started_nuxt_3)
-
-
-> Historically, all Kendo UI for Vue Native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
 
 ## Create the Vue Project
 
@@ -224,6 +218,9 @@ data: function() {
   }
 }
 ```
+
+> Historically, all Kendo UI for Vue Native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
+
 ## Get the Complete Source Code
 
 Your Kendo UI for Vue Getting Started application is complete! You can download and run the complete sample application from the [kendo-vue GitHub repository](https://github.com/telerik/kendo-vue/tree/master/getting-started-typescript-options-api). Alternatively, run, fork and [experiment with the application directly in StackBlitz](https://stackblitz.com/edit/vite-jco3ua?file=src%2FApp.vue).
