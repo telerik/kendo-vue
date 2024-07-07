@@ -30,11 +30,6 @@ The recommended way to scaffold your Vue project is using [Vite](https://vuejs.o
     ```sh
     npm create vite@latest
     ```
-    <!--- 
-    ```sh
-    yarn create vite
-    ```
-    --->
 
 1. Enter the project name, for example, `my-app`.
 
@@ -94,11 +89,6 @@ Kendo UI for Vue is distributed as multiple NPM packages, scoped to `@progress`.
 ```sh
 npm install --save @progress/kendo-vue-grid @progress/kendo-data-query @progress/kendo-licensing @progress/kendo-vue-animation @progress/kendo-vue-data-tools @progress/kendo-vue-dateinputs @progress/kendo-vue-dropdowns @progress/kendo-vue-inputs @progress/kendo-vue-indicators @progress/kendo-vue-intl @progress/kendo-vue-popup
 ```
-<!---
-```sh
-yarn add @progress/kendo-vue-grid @progress/kendo-data-query @progress/kendo-licensing @progress/kendo-vue-animation @progress/kendo-vue-data-tools @progress/kendo-vue-dateinputs @progress/kendo-vue-dropdowns @progress/kendo-vue-inputs @progress/kendo-vue-indicators @progress/kendo-vue-intl @progress/kendo-vue-popup
-```
---->
 
 ## Import the CSS Styles
 
@@ -109,11 +99,6 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
     ```sh
       npm install --save @progress/kendo-theme-default
     ```
-    <!---
-    ```sh
-    yarn add --save @progress/kendo-theme-default
-    ```
-    --->
 
 1. In the `src/App.vue` file, import the CSS files provided by the installed theme package:  
 
