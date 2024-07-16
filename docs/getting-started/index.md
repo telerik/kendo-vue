@@ -74,9 +74,11 @@ Now that the project is clean, you can start developing the sample application.
 
 ## Add Application Data
 
-Components like the Grid need some data that they can display, so, in this step, you will add a file with sample data:
+Components like the Grid need some data that they can display, so, in this step, you will add a files with sample data:
 
-1. In the `src` folder, create a new folder called `appdata` where you will place the JSON file with the data.
+1. In the `src` folder, create a new folder called `appdata` where you will place the JSON files with the data.
+
+1. Create a new `src/appdata/categories.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/blob/master/getting-started-javascript-composition-api/src/appdata/categories.json) and paste it into the `categories.json` file.
 
 1. Create a new `src/appdata/products.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-composition-api/src/appdata/products.json) and paste it into the `products.json` file.
 
@@ -108,7 +110,7 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
     ```
     -->
 
-1. In the `src/App.vue` file, import the CSS files provided by the installed theme package:  
+1. In the `src/App.vue` file, add a `<script>` block and import the CSS files provided by the installed theme package:
 
     ```js
       import '@progress/kendo-theme-default/dist/all.css';
@@ -196,7 +198,7 @@ Now that you have a running Grid, you are ready to use some of its basic feature
   * Set the initial [`skip`](slug:api_grid_gridprops#toc-skip) for the paging.
   * Set the initial [sorting](slug:api_grid_gridprops#toc-sort) by Product name.
 
-        ```js
+    ```js
       <script setup>
         import { ref, onMounted } from 'vue'
 
