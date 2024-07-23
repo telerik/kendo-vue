@@ -10,8 +10,6 @@ position: 100
 
 # Get Started with Kendo UI for Vue
 
-> Prefer video tutorials? How about a free Telerik UI onboarding course? Check out the [Kendo UI for Vue with TypeScript](https://learn.telerik.com/learn/course/internal/view/elearning/45/kendo-ui-for-vue-with-typescript) training in [Telerik Virtual Classroom](https://learn.telerik.com/learn).
-
 This tutorial will help you develop a simple app that includes a native Vue Data Grid component. To achieve this, you will build a project using [Vite](https://vitejs.dev/) and the [Vue Composition API](https://vuejs.org/guide/introduction.html#composition-api) paired with [Nuxt 3](https://nuxt.com/docs/getting-started/introduction) 
 
 
@@ -19,8 +17,6 @@ This tutorial will help you develop a simple app that includes a native Vue Data
 >* [Kendo UI for Vue with TypeScript and the Composition API](slug:getting_started_typescript_composition_api)
 >* [Kendo UI for Vue with JavaScript and the Options API](slug:getting_started_javascript_options_api)
 >* [Kendo UI for Vue with TypeScript and the Options API](slug:getting_started_typescript_options_api)
-
-> Historically, all Kendo UI for Vue Native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
 
 ## Create the Vue Project
 
@@ -120,6 +116,8 @@ These steps let you render a very basic Grid by running `npm run dev` and naviga
 
 > Notice the `No valid license found` message and the watermark in the Grid. They are informational and encourage you to activate your trial or commercial license and to [add a license file to your application](slug:my_license_vue). Once you complete these licensing steps, the license message and the watermark will disappear.
 
+## Configure the Vue Data Grid
+
 Now that you have a running Grid, you are ready to use some of its basic features like sorting and paging:
 
 1. In the Grid declaration, add [paging](slug:paging_grid), [sorting](slug:sorting_grid), and a height style that activates [scrolling](slug:scrollmmodes_grid).
@@ -152,6 +150,7 @@ const sort = ref<SortDescriptor[] | undefined>([
 ]);
 ```
 
+> Historically, all Kendo UI for Vue native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
 
 ## Get the Complete Source Code
 

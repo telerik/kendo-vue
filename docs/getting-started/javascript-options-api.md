@@ -66,25 +66,18 @@ Before you start playing with Kendo UI for Vue, clean up the sample app created 
 1. Delete the `HelloWorld.vue` file in the `src/components` folder.
 1. Remove everything in the `src/App.vue` file and leave it blank.
 1. Delete the `import './style.css'` line in the `src/main.js` file.
-1. Clear the script tag in `src/App.vue` for Options API configuration: 
-  ```html-no-run
-  <script>
-  </script>
-  ```
 
 Now that the project is clean, you can start developing the sample application.
-
 
 ## Add Application Data
 
 Components like the Grid need some data that they can display, so, in this step, you will add a file with sample data:
 
-1. In the `src` folder, create a new folder called `appdata` where you will place the JSON file with the data.
+1. In the `src` folder, create a new folder called `appdata` where you will place the JSON files with the data.
 
-1. Create a new `src/appdata/categories.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-options-api/src/appdata/categories.json).json) and paste it into the `products.json` file.
+1. Create a new `src/appdata/categories.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-options-api/src/appdata/categories.json) and paste it into the `categories.json` file.
 
-1. Create a new `src/appdata/products.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-options-api/src/appdata/products.json).
-json) and paste it into the `products.json` file.
+1. Create a new `src/appdata/products.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-options-api/src/appdata/products.json) and paste it into the `products.json` file.
 
 
 ## Install the Data Grid Component
@@ -108,7 +101,7 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
       npm install --save @progress/kendo-theme-default
     ```
 
-1. In the `src/App.vue` file, import the CSS files provided by the installed theme package:  
+1. In the `src/App.vue` file, add a `<script>` block and import the CSS files provided by the installed theme package: 
 
     ```js
       import '@progress/kendo-theme-default/dist/all.css';
@@ -173,6 +166,8 @@ These steps let you render a very basic Grid by running `npm run dev` and naviga
 
 > Notice the `No valid license found` message and the watermark in the Grid. They are informational and encourage you to activate your trial or commercial license and to [add a license file to your application](slug:my_license_vue). Once you complete these licensing steps, the license message and the watermark will disappear.
 
+## Configure the Vue Data Grid
+
 Now that you have a running Grid, you are ready to use some of its basic features like sorting and paging:
 
 1. In the Grid declaration, add [paging](slug:paging_grid), [sorting](slug:sorting_grid), and a height style that activates [scrolling](slug:scrollmmodes_grid).
@@ -221,7 +216,7 @@ Now that you have a running Grid, you are ready to use some of its basic feature
         </template>
     ```
     
-> Historically, all Kendo UI for Vue Native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
+> Historically, all Kendo UI for Vue native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
 
 
 ## Get the Complete Source Code
