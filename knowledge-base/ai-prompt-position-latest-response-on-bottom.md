@@ -15,7 +15,7 @@ category: knowledge-base
     <tbody>
 	    <tr>
 	    	<td>Product Version</td>
-	    	<td>8.1.1</td>
+	    	<td>5.1.0</td>
 	    </tr>
 	    <tr>
 	    	<td>Product</td>
