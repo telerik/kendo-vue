@@ -149,25 +149,11 @@ Now that you've installed all required packages, you are ready to add the Kendo 
 
     ```js
       <script setup>
-        import { ref, onMounted } from 'vue'
-
-        // reactive state
-        const count = ref(0)
-
-        // functions that mutate state and trigger updates
-        function increment() {
-          count.value++
-        }
-
-        // lifecycle hooks
-        onMounted(() => {
-          console.log(`The initial count is ${count.value}.`)
-        })
+        export default defineComponent({
+        components: {
+        grid: Grid,
+        },
       </script>
-
-      <template>
-        <button @click="increment">Count is: {{ count }}</button>
-      </template>
     ```
 
 These steps let you render a very basic Grid by running `npm run dev` and navigating to the local URL displayed in the terminal.
@@ -199,16 +185,25 @@ Now that you have a running Grid, you are ready to use some of its basic feature
   * Set the initial [sorting](slug:api_grid_gridprops#toc-sort) by Product name.
 
     ```js
-      <script setup>
-        import { ref, onMounted } from 'vue'
-
-        // placeholder
-        
-      </script>
-
-      <template>
-        // placeholder
-      </template>
+        <script setup>
+        setup() {
+            //..............
+            const pageable = ref(true)
+            const sortable = ref(true)
+            const skip = ref(0)
+            const take = ref(10)
+            const sort = ref([{ field: 'ProductName', dir: 'asc' }])
+        }
+        </script>
+        <template>
+         <grid
+              :pageable="pageable"
+              :sortable="sortable"
+              :sort="sort"
+              :take="take"
+              :skip="skip"
+            >
+        </template>
     ```
 
 ## Get the Complete Source Code
