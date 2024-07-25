@@ -19,7 +19,7 @@ category: knowledge-base
 	    </tr>
 	    <tr>
 	    	<td>Product</td>
-	    	<td>Progress® Kendo UI for Vue Native TileLayout</td>
+	    	<td>Progress® Kendo UI for Vue Native</td>
 	    </tr>
     </tbody>
 </table>
