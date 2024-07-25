@@ -36,7 +36,7 @@ You can achieve this by passing the required styles to the [hintStyle]({% slug a
 
 To test this example, drag one of the tiles:
 
-{% meta id:index height:480 %}
+{% meta id:index height:500 %}
 {% embed_file tilelayout-set-custom-styles-to-hint/main.vue preview %}
 {% embed_file tilelayout-set-custom-styles-to-hint/main.js %}
 {% endmeta %}
