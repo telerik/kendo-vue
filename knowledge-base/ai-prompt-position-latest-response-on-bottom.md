@@ -1,10 +1,10 @@
 ---
-title: How to position the latest response on the the bottom
-description: An example that showcases how to position the latest response on the bottom
+title: How to position the latest response on the the bottom in the AIPrompt
+description: An example that showcases how to position the latest response on the bottom in the AIPrompt
 type: how-to
-page_title: Learn how to position the latest response on the bottom
+page_title: Learn how to position the latest response on the bottom in the AIPrompt
 slug: ai-prompt-position-latest-response-on-bottom
-tags: ai, aiprompt, position, response, bottom
+tags: ai, aiprompt, position, response, bottom, chatgpt
 res_type: kb
 category: knowledge-base
 ---
@@ -30,7 +30,7 @@ How can I position the latest response on the bottom of the UI similar to Chat G
 
 ## Solution 
 
-You can achieve this by using the `push` method to append the new entries to the end of the [outputs](slug:api_conversational-ui_aipromptprops#toc_outputs) array.
+You can achieve this by using the [push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) method to append the new entries to the end of the [outputs](slug:api_conversational-ui_aipromptprops#toc_outputs) array.
 
 ### Runnable example
 

@@ -26,11 +26,12 @@ category: knowledge-base
 
 ## Description
 
-The Kendo UI for Vue Native Window component can be dragged anywhere on the screen by the end user. How to restrict the end user from dragging it beyond a container viewport
+The Kendo UI for Vue Native Window component can be dragged anywhere on the screen by the end user. How to restrict the end user from dragging it beyond a container viewport?
 
 ## Solution 
 
-To restrict the movement of the Kendo UI for Vue Native Window, define a top and left value range, and update the Window's position only if the new left and top values fall within the specified range during the [onMove]({% slug api_dialogs_windowprops %}#toc-onmove) event.
+You can achieve that by using the Window position to determine if it is inside the set boundaries of the desired area and to restrict its movement inside them.
+In the [onMove]({% slug api_dialogs_windowprops %}#toc-onmove) event, you can get the left and top CSS positions of the Window component. You can use them to control the left and top positions of the Window, by setting them to state variables at a specific condition, and passing them to the [left]({% slug api_dialogs_windowprops %}#toc-left) and [top]({% slug api_dialogs_windowprops %}#toc-top) properties of the Window component.
 
 
 ### Runnable example
