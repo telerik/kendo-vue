@@ -112,7 +112,7 @@ To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vu
  
 Now that you've installed all required packages, you are ready to add the Kendo UI for Vue Data Grid to the application:
  
-1. In the `<script>` block of the `src/App.vue` file, import the Grid and its data. In addition, the `process` function from the [Data Query](https://www.telerik.com/kendo-vue-ui/components/dataquery/) package will allow you to use data operations like sorting, paging, and filtering.
+1. In the `<script>` block of the `src/App.vue` file, import the Grid and its data. In addition, the `process` function from the [Data Query](https://www.telerik.com/kendo-vue-ui/components/dataquery/) package will allow you to apply data operations like sorting, paging, and filtering.
  
     ```js
       import products from './appdata/products.json';
@@ -218,7 +218,7 @@ Now that you have a running Grid, you are ready to use some of its basic feature
     - Set the page size (`take`) to `10` to define how many items are rendered on each page.
     - Set the initial `skip` value, which allows the Grid to calculate how many items to skip when paging.
     - Set the initial sorting by product name.
-    - Initialize the `dataResult` empty array, which returns the results from the sorting and paging.
+    - Initialize the `dataResult` empty array, which holds the results from the sorting and paging.
 
     ```js
       data: function() {
