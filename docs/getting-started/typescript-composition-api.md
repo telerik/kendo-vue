@@ -104,7 +104,7 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
       import '@progress/kendo-theme-default/dist/all.css';
     ```
 
-You can add any additional custom styles in the `<styles>` tag of the `src/App.vue` file.
+To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vue` file and place your styles there.
 
 
 
@@ -112,7 +112,7 @@ You can add any additional custom styles in the `<styles>` tag of the `src/App.v
 
 Now that you've installed all required packages, you are ready to add the Kendo UI for Vue Data Grid to the application:
 
-1. In the `src/App.vue` file, add a `<script>` block and import the Grid and its data:
+1. In the `<script>` block of the `src/App.vue` file, import the Grid and its data. In addition, the `process` function from the [Data Query](https://www.telerik.com/kendo-vue-ui/components/dataquery/) package will allow you to apply data operations like sorting, paging, and filtering.
 
     ```js
       <script>
@@ -146,7 +146,10 @@ Now that you've installed all required packages, you are ready to add the Kendo 
     })
     ```
 
-1. In the `setup` function, add the following lines:
+1. In the `setup` function of the Grid:
+
+   * Load the data from the `categories` and `products` files.
+   * Define user friendly column names.
 
 
     ```js
@@ -166,28 +169,55 @@ Now that you've installed all required packages, you are ready to add the Kendo 
     }
     ```
 
-These steps let you render a very basic Grid by running `npm run dev` and navigating to the local URL displayed in the terminal.
+After completing all the steps above, your `App.vue` will look like this:
+
+```js
+<script>
+  import { ref, onMounted, defineComponent } from 'vue';
+  import { productsData } from './appdata/products';
+  import categories from "./appdata/categories.json";
+  import { categoriesData } from './appdata/categories';
+  import { process } from '@progress/kendo-data-query';
+  import { Grid, GridDataStateChangeEvent, GridColumnProps } from '@progress/kendo-vue-grid';
+
+  export default defineComponent({
+    components: {
+      grid: Grid,
+    },
+
+    setup() {
+      const products = productsData;
+      const categories = categoriesData;
+      const columns = [
+        { field: 'ProductName', title: 'Product Name' },
+        { field: 'UnitPrice', title: 'Price' },
+        { field: 'UnitsInStock', title: 'Units in Stock' },
+        { field: 'Discontinued' }
+      ] as GridColumnProps[];
+
+      return {
+        columns, categories
+      }
+    }
+  };
+</script>
+
+<template>
+  <h1>Hello Kendo UI for Vue!</h1>
+  <grid :data-items="products" :columns="columns"></grid>
+</template>
+```
+
+This sample code lets you run an application with a very basic Grid:
+
+1. Execute the `npm run dev` command.
+1. Navigate to the local URL displayed in the terminal.
 
 > Notice the `No valid license found` message and the watermark in the Grid. They are informational and encourage you to activate your trial or commercial license and to [add a license file to your application](slug:my_license_vue). Once you complete these licensing steps, the license message and the watermark will disappear.
 
 ## Configure the Vue Data Grid
 
-Now that you have a running Grid, you are ready to use some of its basic features like sorting and paging:
-
-1. In the Grid declaration, add paging, sorting, and a height style that activates scrolling.
-
-    ```html
-    <template>
-        <h1>Hello Kendo UI for Vue!</h1>
-        <grid
-          :data-items="products"
-          :columns="columns"
-          :pageable="pageable"
-          :sortable="sortable"
-          :style="{ height: '400px' }"
-        ></grid>
-    </template>
-    ```
+Now that you have a running Grid, you are ready to use some of its basic features like sorting and paging.
 
 1. Implement the paging and sorting functionality in the `setup` function:
 
@@ -234,15 +264,11 @@ Now that you have a running Grid, you are ready to use some of its basic feature
     </template>
     ```
 
-1. Set the initial `dataState` in the `setup` function and handle the `dataStateChange` event. Implement a `createAppState` helper method that will update the component's state based on the grid's current data state (`skip`, `take`, `sort`):
+1. Set the initial `dataState` in the `onMounted` hook. This allows the Grid to have the processed data ready for displaying when rendered for the first time.
 
     ```js
     <script lang="ts">
     setup() {
-      const skip = ref(0);
-      const take = ref(10);
-      const sort = ref([]);
-      const dataResult = ref({ data: [], total: 0 });
 
       onMounted(() => {
         const dataState = {
@@ -252,7 +278,20 @@ Now that you have a running Grid, you are ready to use some of its basic feature
         };
         dataResult.value = process(products, dataState);
       });
+    }
+    </script>
+    ```
 
+
+1. Inside the `setup` method handle the `dataStateChange` event and implement a `createAppState` helper method:
+
+   * The `dataStateChange` event is triggered when the user interacts with the Grid and calls the `createAppState` helper method.
+   * The `createAppState` helper method will update the component's state based on the Grid's current data state (`skip`, `take`, `sort`).
+   * The `dataResult` is updated with the newly processed data and causes the Grid to re-render and display the data according to the new state.
+
+    ```js
+    <script lang="ts">
+    setup() {
       const createAppState = (dataState) => {
         take.value = dataState.take;
         skip.value = dataState.skip;
@@ -280,7 +319,18 @@ Now that you have a running Grid, you are ready to use some of its basic feature
       };
     },
     </script>
+    ```
+  
+1. Re-define the Grid declaration to allow paging and sorting:
+
+    * Set Grid data to `data-items="dataResult"`&mdash;With paging enabled, the `data` option must contain only the items for the current page.
+    * Set the `pageable` and `sortable` props.
+    * Set the `skip`, `take`, and `sort` props that configure paging and sorting.
+    * Bind the `@datastatechange` event of the Grid to the `dataStateChange` method to handle the user interactions.
+    
+    ```html
     <template>
+      <h1>Hello Kendo UI for Vue!</h1>
       <grid
         :data-items="dataResult"
         :pageable="pageable"
@@ -294,6 +344,7 @@ Now that you have a running Grid, you are ready to use some of its basic feature
     </template>
     ```
 
+That's it. You now have a Data Grid configured for paging and sorting.
 
 > Historically, all Kendo UI for Vue native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
 

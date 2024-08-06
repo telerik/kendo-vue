@@ -72,6 +72,7 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
       import '@progress/kendo-theme-default/dist/all.css';
     ```
 
+To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vue` file and place your styles there.
 
 ## Add a Vue Data Grid Component
 
@@ -81,7 +82,7 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
     npx nuxi add page KendoGrid
     ```
 
-1. In the `pages/KendoGrid.vue` file, add a `<script>` block and import the Grid and its data:
+1. In the `<script>` block of the `src/App.vue` file, import the Grid and its data. In addition, the `process` function from the [Data Query](https://www.telerik.com/kendo-vue-ui/components/dataquery/) package will allow you to apply data operations like sorting, paging, and filtering.
 
     ```js
     import { productsData } from '../appdata/products';
@@ -101,7 +102,10 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
     </template>
     ```
 
-1. Add the Data Grid's data and columns in the `setup` section of the `KendoGrid.vue` file:
+1. In the `script` section of the `KendoGrid.vue` file:
+
+   * Load the `products` file.
+   * Define user friendly column names.
 
     ```js
     const products = productsData;
@@ -113,11 +117,39 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
     ] as GridColumnProps[];
     ```
 
-These steps let you render a very basic Grid by running `npm run dev` and navigating to the local URL displayed in the terminal.
+After completing all the steps above, your `App.vue` will look like this:
+
+    ```js
+    import { productsData } from '../appdata/products';
+    import { process, DataResult, State, SortDescriptor } from '@progress/kendo-data-query';
+    import { Grid as grid } from '@progress/kendo-vue-grid';
+
+    <script>
+    const products = productsData;
+    const columns = [
+      { field: 'ProductName', title: 'Product Name' },
+      { field: 'UnitPrice', title: 'Price' },
+      { field: 'UnitsInStock', title: 'Units in Stock' },
+      { field: 'Discontinued' }
+    ] as GridColumnProps[];
+    </script>
+    
+    <template>
+     <h1>Hello Kendo UI for Vue with Nuxt 3!</h1>
+     <grid :data-items="products" :columns="columns"></grid>
+    </template>
+    ```
+
+This sample code lets you run an application with a very basic Grid:
+
+1. Execute the `npm run dev` command.
+1. Navigate to the local URL displayed in the terminal.
 
 > Notice the `No valid license found` message and the watermark in the Grid. They are informational and encourage you to activate your trial or commercial license and to [add a license file to your application](slug:my_license_vue). Once you complete these licensing steps, the license message and the watermark will disappear.
 
 ## Configure the Vue Data Grid
+
+Now that you have a running Grid, you are ready to use some of its basic features like sorting and paging.
 
 1. In the Grid declaration, add [paging](slug:paging_grid), [sorting](slug:sorting_grid), and a height style that activates [scrolling](slug:scrollmmodes_grid).
 
@@ -173,7 +205,7 @@ These steps let you render a very basic Grid by running `npm run dev` and naviga
     </template>
     ```
 
-1. Set the initial `dataState` in the `onMounted` hook and handle the `dataStateChange` event. Implement a `createAppState` helper method that will update the component's state based on the grid's current data state (`skip`, `take`, `sort`):
+1. Inside the  `onMounted` set the initial `dataState`. This allows the Grid to have the processed data ready for displaying when rendered for the first time.
 
     ```js
     <script lang="ts" setup>
@@ -185,6 +217,16 @@ These steps let you render a very basic Grid by running `npm run dev` and naviga
       };
       dataResult.value = process(products, dataState);
     });
+    ```
+
+1. Inside the `script` tag handle the `dataStateChange` event and implement a `createAppState` helper method:
+
+   * The `dataStateChange` event is triggered when the user interacts with the Grid and calls the `createAppState` helper method.
+   * The `createAppState` helper method will update the component's state based on the Grid's current data state (`skip`, `take`, `sort`).
+   * The `dataResult` is updated with the newly processed data and causes the Grid to re-render and display the data according to the new state.
+
+    ```js
+    <script lang="ts" setup>
 
     const createAppState = (dataState: State) => {
       take.value = dataState.take;
@@ -201,14 +243,7 @@ These steps let you render a very basic Grid by running `npm run dev` and naviga
       });
     };
 
-    const pageable = ref(true);
-    const sortable = ref(true);
-    const skip = ref<number | undefined>(0);
-    const take = ref<number | undefined>(10);
-    const sort = ref<SortDescriptor[] | undefined>([
-      { field: 'ProductName', dir: 'asc' },
-    ]);
-    </script>
+   </script>
     <template>
       <grid
         :data-items="dataResult"
@@ -222,6 +257,30 @@ These steps let you render a very basic Grid by running `npm run dev` and naviga
       ></grid>
     </template>
     ```
+
+1. Re-define the Grid declaration to allow paging and sorting:
+
+    * Set Grid data to `data-items="dataResult"`&mdash;With paging enabled, the `data` option must contain only the items for the current page.
+    * Set the `pageable` and `sortable` props.
+    * Set the `skip`, `take`, and `sort` props that configure paging and sorting.
+    * Bind the `@datastatechange` event of the Grid to the `dataStateChange` method to handle the user interactions.
+
+    ```html
+    <template>
+      <grid
+        :data-items="dataResult"
+        :pageable="pageable"
+        :sortable="sortable"
+        :columns="columns"
+        :skip="skip"
+        :take="take"
+        :sort="sort"
+        @datastatechange="dataStateChange"
+      ></grid>
+    </template>
+    ```
+
+That's it. You now have a Data Grid configured for paging and sorting.
 
 > Historically, all Kendo UI for Vue native components have supported both **Vue 2** and **Vue 3**. However, Kendo UI for Vue versions released after **November 2024** will no longer support Vue 2. For more information, see [Vue 2 End of Life](https://www.telerik.com/kendo-vue-ui/components/vue2-deprecation/).
 
