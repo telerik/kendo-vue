@@ -98,10 +98,12 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
     ```
 
 
-1. In the `src/App.vue` file, import the CSS files provided by the installed theme package:  
+1. In the `src/App.vue` file, add a `<script>` block and import the CSS files provided by the installed theme package:
 
     ```js
-      import '@progress/kendo-theme-default/dist/all.css';
+      <script lang="ts">
+        import '@progress/kendo-theme-default/dist/all.css';
+      </script>
     ```
 
 To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vue` file and place your styles there.
