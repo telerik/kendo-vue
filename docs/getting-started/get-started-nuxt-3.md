@@ -22,23 +22,28 @@ This tutorial will help you develop a simple app that includes a native Vue Data
 
 1. Create a Nuxt project named `my-app`:
 
-```sh
-npx nuxi init my-app
-```
+    ```sh
+    npx nuxi init my-app
+    ```
+
+1. Select the NPM package manager.
+
+   > You can use both NPM and Yarn to create the project and import the Kendo UI for Vue components. This tutorial demonstrates only the NPM approach.
 
 1. Run the newly created project by executing the following commands:
 
-```
-cd my-app
-npm install
-npm run dev
-```
+    ```
+    cd my-app
+    npm install
+    npm run dev
+    ```
 
 ## Clean Up the Generated Project
 
-Before you start playing with Kendo UI for Vue, clean up the sample app created by Nuxt:
+Before you start playing with Kendo UI for Vue, clean up the Nuxt sample app:
 
-1. Delete the `<NuxtWelcome />` line inside the `app.vue` file
+1. Delete the `<NuxtWelcome />` line inside the `app.vue` file.
+1. Delete everything in the `nuxt.config.ts` file.
 
 ## Add Application Data
 
@@ -68,11 +73,15 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
 
 1. In the `nuxt.config.ts` file, import the CSS files provided by the installed theme package:  
 
-    ```js
-      import '@progress/kendo-theme-default/dist/all.css';
+    ```ts
+      export default defineNuxtConfig({
+        css: [
+          '@progress/kendo-theme-default/dist/all.css',
+        ],
+      })
     ```
 
-To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vue` file and place your styles there.
+>To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vue` file and place your styles there.
 
 ## Add a Vue Data Grid Component
 
@@ -82,12 +91,14 @@ To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vu
     npx nuxi add page KendoGrid
     ```
 
-1. In the `<script>` block of the `src/App.vue` file, import the Grid and its data. In addition, the `process` function from the [Data Query](https://www.telerik.com/kendo-vue-ui/components/dataquery/) package will allow you to apply data operations like sorting, paging, and filtering.
+1. Add a `<script>` block to the `src/App.vue` file, import the Grid and its data. In addition, the `process` function from the [Data Query](https://www.telerik.com/kendo-vue-ui/components/dataquery/) package will allow you to apply data operations like sorting, paging, and filtering.
 
     ```js
-    import { productsData } from '../appdata/products';
-    import { process, DataResult, State, SortDescriptor } from '@progress/kendo-data-query';
-    import { Grid as grid } from '@progress/kendo-vue-grid';
+    <script>
+        import { productsData } from '../appdata/products';
+        import { process, DataResult, State, SortDescriptor } from '@progress/kendo-data-query';
+        import { Grid as grid } from '@progress/kendo-vue-grid';
+    </script>
     ```
 
 1. Add a `<template>` block with a simple heading and create a Data Grid. Bind it to the `products` data:
@@ -102,7 +113,7 @@ To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vu
     </template>
     ```
 
-1. In the `script` section of the `KendoGrid.vue` file:
+1. In the `<script>` section of the `pages\KendoGrid.vue` file:
 
    * Load the `products` file.
    * Define user friendly column names.
