@@ -31,7 +31,7 @@ Currently, Kendo UI for Vue ships the following themes:
 
 Each theme package provides the two ways for including the theme in your project:
 
-* [By using a precompiled CSS file](#toc-using-precompiled-css)&mdash;This approach does not require a build step and is therefore the faster of the two.
+* [By using a precompiled CSS file](#toc-using-precompiled-css)&mdash;This approach does not require a build step and is faster of the two.
 * [By compiling the theme from SCSS source files](#toc-customizing-themes)&mdash;This approach reduces the CSS output and allows you to customize the theme.
 
 ## Using Precompiled CSS
@@ -81,7 +81,7 @@ $kendo-color-primary: #ff69b4;
 @import "~@progress/kendo-theme-default/dist/all.scss";
 ```
 
-The `dist/all` file adds the styles for all components that are available in the theme. To trim down the size of the generated CSS, import only the source for the components that you use in your application. Each of them could be found in `scss/` folder.
+The `dist/all` file adds the styles for all components that are available in the theme. To trim down the size of the generated CSS, import only the source for the components that you use in your application. You can find each of them in the `scss/` folder.
 
 ```scss
 // Import only the PanelBar and Grid styles using Node Sass
@@ -113,7 +113,7 @@ To create a swatch:
 1. Switch the working directory to `packages/<THEME_NAME>`.
 1. Create a `SWATCH_NAME.scss` swatch file in the `scss/swatches` folder.
 1. To build the swatches for the theme by running `npm run sass:swatches` or `npm run dart:swatches`.
-1. Include the compiled CSS swatch file in your project. It could be found under `dist/SWATCH_NAME.css`.
+1. Include the compiled CSS swatch file in your project. You can find it under `dist/SWATCH_NAME.css`.
 
 For example, in the Material theme create `blue-pink-dark` swatch with the following lines:
 ```scss
@@ -130,7 +130,7 @@ $theme-type: dark;
 @import "../all.scss";
 ```
 
-For the rest of the themes, the swatch should look like:
+For the rest of the themes, the swatch must look like:
 ```scss
 // Variables.
 $kendo-color-primary: blue;
@@ -167,13 +167,13 @@ You might want to omit the styles for some components in the CSS output. To incl
     ```
 
 1. To build the file, navigate to the theme folder and run `gulp sass --file "scss/CUSTOM_THEME.scss"`.
-1. Include the compiled CSS file in your project. It could be found under `dist/CUSTOM_THEME.css`.
+1. Include the compiled CSS file in your project. You can find it under `dist/CUSTOM_THEME.css`.
 
 ### Using ThemeBuilder
 
 To take full control over the appearance of the Kendo UI for Vue components, you can create your own styles by using [ThemeBuilder](slug:themebuilder).
 
-ThemeBuilder is a web application that enables you to create new themes and customize existing ones. Every change that you make is visualized almost instantly. Once you are done styling the Vue components, you can export a zip file with the styles for your theme and use them in your Vue app.
+ThemeBuilder is a web application that enables you to create new themes and customize existing ones. Every change that you make is visualized almost instantly. Once you finish styling the Vue components, export a zip file with the styles for your theme and use them in your Vue app.
 
 ## Suggested Links
 
