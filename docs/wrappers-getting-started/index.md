@@ -43,7 +43,7 @@ To create a new Vue project, use the [Create Vue App](https://vuejs.org/v2/guide
 	npm install --save @progress/kendo-theme-default
 	```
 
-1. Add the Kendo UI DateInputs wrappers package for Vue.
+1. Add the Kendo UI `DateInputs` wrappers package for Vue.
 
 	```sh
 	npm install --save @progress/kendo-dateinputs-vue-wrapper
@@ -99,7 +99,7 @@ To create a new Vue project, use the [Create Vue App](https://vuejs.org/v2/guide
 
 After you add the dependencies and the code, run the `npm run dev` command to start the application.
 
-As a result, the application is built and the Calendar component appears on the screen.
+As a result, the application builds and the Calendar component appears on the screen.
 
 ## VSCode Extension
 
