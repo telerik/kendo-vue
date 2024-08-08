@@ -23,26 +23,26 @@ Except for the Vue 2 deprecation, everything with the Kendo UI for Vue suite con
 ## Should You Update to Vue 3? 
 
 We recommend the upgrade from Vue 2 to Vue 3 for the following reasons:
-* Vue 3 has better overall performance, compared to Vue 2.
+* Vue 3 has improved performance, compared to Vue 2.
 * Vue 2 will no longer receive security updates after its EOL date.
 * Migrating to Vue 3 will give you the freedom to add new tools and improvements to your projects in the future.
 * The more you wait for the migration, the more complex, the migration will be in the future.
 * The implementation of new features could be easier in Vue 3.
-* If you need better Typescript support, Vue 3 is what you need.
-* Vue 3 is already widely spread among the community, and everyone can find support online.
+* If you need improved Typescript support, Vue 3 is what you need.
+* Vue 3 is already extensively spread among the community, and everyone can find support online.
 
 
 ## FAQs - Vue 3 vs Vue 2 in the context of Kendo UI for Vue suite
 * **Is the configuration of the Kendo UI for Vue components different in Vue 2 and Vue 3?**
 
-    The short answer is `No`. The configuration of the Kendo UI for Vue components is similar for both Vue 2 and Vue 3 with very minor exceptions related to the use of Vue.set in some specific scenarios. In almost all of the cases, a Kendo UI for Vue component configured to work in Vue 2 will work the same way in Vue 3.
+    The short answer is `No`. The configuration of the Kendo UI for Vue components is similar for both Vue 2 and Vue 3 with very minor exceptions related to the use of Vue.set in some specific scenarios. In almost all the cases, a Kendo UI for Vue component configured to work in Vue 2 will work the same way in Vue 3.
 * **Will the Vue 2 components get updates, bug fixes and will new components be released for Vue2?** 
     
     New components, features, bug fixes, and component improvements released after our last release for 2024 will no longer support Vue 2. Everything released before the mentioned period will be available for both Vue 2 and Vue 3.
 
 * **Will the Support Service answer Vue 2-related tickets?**
     
-    Nothing will be changed in our support service until the end of 2024. After this milestone, we will be happy to give advices related to previous versions of our components, but, in general, after the deprecation date, all support questions raised in Vue 2 context, won’t be handled.
+    Nothing will be changed in our support service until the end of 2024. After this milestone, we will be happy to give advises related to previous versions of our components, but after the deprecation date, all support questions raised in Vue 2 context, won’t be handled.
 
 * **Transition period**
     * The transition period is not long enough - we know that part of you, our clients, still use Vue 2 and we are aware that you could have issues with the deprecation of Vue 2. We believe that one year for migration is enough time if planned in advance, and because of this, our support is one year longer than the official Vue 2 EOL.
@@ -50,7 +50,7 @@ We recommend the upgrade from Vue 2 to Vue 3 for the following reasons:
     * Support service - we will keep the ongoing support for both Vue 2 and Vue 3 during the transition period.
 * **Do you really need to deprecate the Vue 2 support?**
     
-    The deprecation of not supported product versions is a normal product lifecycle milestone. The depreciation of Vue 2 will let us be in sync with the latest innovations related to the Vue framework and thus provide better components and features in the future. 
+    The deprecation of not supported product versions is a normal product lifecycle milestone. The depreciation of Vue 2 will let us be in sync with the latest innovations related to the Vue framework and thus provide improved components and features in the future. 
 
 ## Migration Guide
 
