@@ -136,7 +136,7 @@ You might want to omit the styles for some components in the CSS output. To incl
 
 To take full control over the appearance of the Kendo UI for Vue components, you can create your own styles by using [ThemeBuilder](slug:themebuilder).
 
-ThemeBuilder is a web application that enables you to create new themes and customize existing ones. Every change that you make is visualized almost instantly. Once you are done styling the Vue components, you can export a zip file with the styles for your theme and use them in your Vue app.
+ThemeBuilder is a web application that enables you to create new themes and customize existing ones. Every change that you make is visualized almost instantly. After styling the Vue components, export a zip file with the theme's styles and use them in your Vue app.
 
 ## Suggested Links
 
