@@ -27,11 +27,11 @@ category: knowledge-base
 
 ## Description
 
-I want to get the first and last date in my current Scheduler view. These start and end values should be updated when I change the view (DayView, WeekView, etc.), and when I navigate to a different date.
+I want to get the first and last date in my current Scheduler view. These start and end values must be updated when I change the view (`DayView`, `WeekView`, etc.), and when I navigate to a different date.
 
 ## Solution
 
-Get these values using the `data-slot-start` and `data-slot-end` properties of the SchedulerSlot.
+Get these values using the `data-slot-start` and `data-slot-end` properties of the `SchedulerSlot`.
 
 First, retrieve the first and last slots using the `.k-scheduler-body .k-scheduler-cell.k-slot-cell` class, where the first item in the array represents the first slot while the last one represents the last one. This allows you to get the date value of the `data-slot-start` of the first slot, and `data-slot-end` of the last slot. 
 

@@ -21,7 +21,7 @@ How can I make the Pie or Donut Chart series explode when clicking them?
 
 ## Solution
 
-To achieve click-to-expand functionality in a Vue pie chart you should:
+To achieve click-to-expand functionality in a Vue pie chart you must:
 
 1. Handle the [`seriesClick`](slug:api_charts_chartcomponent#toc-seriesclick) event:
 

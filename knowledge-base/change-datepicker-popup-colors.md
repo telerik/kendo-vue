@@ -33,7 +33,7 @@ How to customize the colors of the different elements inside the popup of the Ke
 
 Use the [`popup`](slug:api_dateinputs_datepickerprops#toc_popup) prop to pass a [`custom`](slug:custom_rendering_datepicker#toc-customizing-the-popup) popup template to the DatePicker. 
 
-In the custom popup template we should use the [`Popup`](slug:overview_popup) component and its [`popupClass`](slug:api_popup_popupprops#toc_popupclass) property. 
+In the custom popup template we must use the [`Popup`](slug:overview_popup) component and its [`popupClass`](slug:api_popup_popupprops#toc_popupclass) property. 
 
 Once the value of the `popupClass` property is defined, we can use this value to apply styles to the different DOM elements inside the popup. Here are the styles used in the below example:
 

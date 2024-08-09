@@ -54,7 +54,7 @@ exportExcel() {
 },
 ```
 
-The above calls the the `customSaveExcel` method in which we have these lines:
+The above calls the `customSaveExcel` method in which we have these lines:
 ```js-no-run
 const options = workbookOptions(exportOptions);
 const rows = options.sheets[0].rows;
@@ -84,7 +84,7 @@ this.grid2Data.forEach((category) => {
 });
 ```
 
-The actual export of the Grids' data is done by this line:
+This line exports the Grids' data:
 
 ```js-no-run
 toDataURL(options).then(saveFn);
