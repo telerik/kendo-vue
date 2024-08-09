@@ -18,12 +18,12 @@ Icon fonts are fonts which contain vector glyphs instead of letters and numbers.
 
 ## Why Use Icon Fonts
 
-The utilization of icon fonts in a user interface (UI) naturally succeeds the somehow outdated [icon sprite technique](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS).
+The usage of icon fonts in a user interface (UI) naturally succeeds the outdated [icon sprite technique](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS).
 
 Font icons demonstrate significant benefits such as:
 
 * [Improved scalability](#toc-sizes)&mdash;While icon sprites are bitmap raster images and do not scale well, icon fonts use vector graphics, look perfect on retina displays, and make scaling as easy as setting the `font-size` configuration option.
-* [Improved design capabilities](#toc-visual-adjustments)&mdash;You can easily apply CSS effects on the fly by setting the [text color](#toc-colors), shadow, or other options for different interaction states. For example, on `:hover`.
+* [Improved design capabilities](#toc-visual-adjustments)&mdash;You can effortlessly apply CSS effects on the fly by setting the [text color](#toc-colors), shadow, or other options for different interaction states. For example, on `:hover`.
 * Improved browser support&mdash;Font icons are browser-agnostic and are supported by all modern browsers.
 * Reduced number of HTTP requests&mdash;To load an icon font, you need a maximum of a few HTTP requests.
 * Reduced file size&mdash;A 100KB file contains approximately 500 vector icons.
