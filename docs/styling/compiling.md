@@ -8,7 +8,7 @@ level: 0
 ---
 # Compiling Themes
 
-All kendo-themes are written in [sass](https://sass-lang.com/), using [scss syntax](https://sass-lang.com/documentation/syntax), and you need a sass compiler to compile them. We support both [node-sass](https://www.npmjs.com/package/node-sass) and [dart-sass](https://www.npmjs.com/package/dart-sass).
+Kendo-themes use [sass](https://sass-lang.com/), using [scss syntax](https://sass-lang.com/documentation/syntax), and you need a sass compiler to compile them. We support both [node-sass](https://www.npmjs.com/package/node-sass) and [dart-sass](https://www.npmjs.com/package/dart-sass).
 
 Due to the complexity of the themes, we rely on _postcss_, _autoprefixer_, and _postcss-calc_ to properly compile them.
 
@@ -19,7 +19,7 @@ The following setup will generate `./dist/kendo-theme.css` from source `./sass/k
 Please note:
 
 * We include `/dist/all.scss`, which is a flattened single-file version of the theme for faster compilation.
-* Prefixes will be generated for browsers with at least 10% market share.
+* Prefixes will be generated for browsers with a minimum of 10% market share.
 * `sassOptions.precision` setting has no effect when using dart-sass.
 * Make sure you install [gulp-sass](https://www.npmjs.com/package/gulp-sass), [node-sass](https://www.npmjs.com/package/node-sass), [dart-sass](https://www.npmjs.com/package/dart-sass), [gulp-postcss](https://www.npmjs.com/package/gulp-postcss), [autoprefixer](https://www.npmjs.com/package/autoprefixer), [postcss-calc](https://www.npmjs.com/package/postcss-calc), and [fibers](https://www.npmjs.com/package/fibers).
 
@@ -119,9 +119,9 @@ Here is a list of common issues with kendo-themes and how to solve them.
 
 ### Compilation is slow
 
-Since day one of the themes, we wanted the themes to "automagically" load the styles needed for a given component. In other words, if you need just the grid, the themes will load all the input components, because they are needed for the editing functionality. That leads to multiple and repetitive child imports, hence a hit in performance when compiling.
+Since day one of the themes, we wanted the themes to "automagically" load the styles needed for a given component. In other words, if you need only the grid, the themes will load all the input components, because they are needed for the editing functionality. That leads to multiple and repetitive child imports, hence a hit in performance when compiling.
 
-If you need the entire theme, instead of importing `/scss/all.scss`, you can import `/dist/all.scss`. That's a single-file version of the theme and compiles much much faster.
+If you need the entire theme, instead of importing `/scss/all.scss`, you can import `/dist/all.scss`. That's a single-file version of the theme and compiles faster.
 
 If you need to import multiple components, you can take a look at our [theme task](https://github.com/telerik/kendo-themes/blob/develop/packages/theme-tasks/gulpfile.js) and the [sassimporter](https://github.com/telerik/kendo-themes/blob/develop/packages/theme-tasks/lib/sassimporter.js) helper, which implements a sort of caching mechanism to avoid repetitive file processing.
 
