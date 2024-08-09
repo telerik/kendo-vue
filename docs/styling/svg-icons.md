@@ -12,13 +12,13 @@ Kendo UI for Vue delivers more than 500 Scalable Vector Graphics (SVG) icons.
 > Currently, you can use the predefined set of SVG icons with the [Kendo UI for Vue SVG Icon component](slug:overview_svgicon) only.
 ## What Are SVG Icons
 
-SVG icons are vector images defined in an XML format. They are basically blocks of XML tags and allow vector graphics to be displayed on a webpage.
+SVG icons are vector images defined in an XML format. They are blocks of XML tags and allow vector graphics to be displayed on a webpage.
 
 ## Why Use SVG Icons
 
 If you need to display vector graphics within a webpage, you can use [font icons](slug:icons) and `SVG` icons.
 
-SVG icons are best suited to be used in terms of:
+SVG icons are best suited to be used when:
 
 * Rendering and scalability&mdash;They are treated by the browsers as images, so anti-aliasing issues are avoided. This ensures that SVG icons are sharp at all resolutions, without losing quality.
 * Flexibility&mdash;You can control individual parts of an SVG icon with CSS (font-size, color, animation). Also, you can use available SVG-specific CSS filters and stroke properties. Multi-color SVG icons are supported.
