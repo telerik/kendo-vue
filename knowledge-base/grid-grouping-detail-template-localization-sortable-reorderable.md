@@ -47,7 +47,7 @@ This Knowledge base article shows how we can implement some of the most widely u
 **Data grouping configuration**
 
 To make the Grid data groupable:
-1. First thing that should be done is to set the [groupable property](slug:api_grid_gridprops#toc-groupable) to `true`. 
+1. You must first set the [groupable property](slug:api_grid_gridprops#toc-groupable) to `true`. 
 2. To have a grouped data, by default, set a value for the [group property](slug:api_grid_gridprops#toc-group). In the below example the value of the `group` property is:
 ```js
 group: [

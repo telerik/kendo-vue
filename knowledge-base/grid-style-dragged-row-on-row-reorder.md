@@ -27,11 +27,11 @@ category: knowledge-base
 
 ## Description
 
-The current Knowledge base article demonstrates how we can add style to the row that is currently dragged inside the Native Grid component. With this styling, the users can easily identify which row is currently dragged and which will be its position when dropped. 
+The current Knowledge base article demonstrates how we can add style to the row that is currently dragged inside the Native Grid component. With this styling, the users can identify which row is currently dragged and which will be its position when dropped. 
 
 ## Solution
 
-To add style to the currently dragged row inside the Native Grid, we can use its built-in style for `selected` field. To use this functionality, in the setActive method in the example we set the `selected` field of the currently active row to `true`.
+To add style to the currently dragged row inside the Native Grid, we can use its built-in style for `selected` field. To use this functionality, in the `setActive` method in the example we set the `selected` field of the currently active row to `true`.
 
 ```js
 setActive(dataItem) {

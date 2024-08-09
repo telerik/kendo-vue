@@ -104,7 +104,7 @@ this.categories.forEach((category) => {
 });
 ```
 
-The actual export of the Grids' data is done by this line:
+This line exports the Grids' data:
 
 ```js-no-run
 toDataURL(options).then(saveFn);

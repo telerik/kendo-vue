@@ -30,7 +30,7 @@ I want to set the DateRangePicker to invalid state or show error message if the 
 
 
 ## Solution
-Set the "valid" property of the DateRangePicker to a state variable that can be changed to "true" or "false" within the onChange event of the DateRangePicker based on the "start" and "end" values.
+Set the "valid" property of the DateRangePicker to a state variable that can be changed to "true" or "false" within the `onChange` event of the DateRangePicker based on the "start" and "end" values.
 
 ### Runnable example
 {% meta height:500 %}

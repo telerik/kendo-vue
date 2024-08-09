@@ -36,7 +36,7 @@ The below example implements a logic that allows you to edit the column headers 
 
 ## Solution description
 
-To be able to edit the Grid's headers on the fly, we have to use the [headerCell](slug:api_grid_gridcolumnprops#toc-headercell) property of the `Native Grid's` columns and define a custom header for each column. The below example uses the following template that is passed to the `headerCell` prop of all column. 
+To edit the Grid's headers on the fly, we have to use the [headerCell](slug:api_grid_gridcolumnprops#toc-headercell) property of the `Native Grid's` columns and define a custom header for each column. The below example uses the following template that is passed to the `headerCell` prop of all column. 
 
 ```js
 <template v-slot:headerTemplate="{ props }">

@@ -37,7 +37,7 @@ This Knowledge base(KB) article demonstrates how we can add a confirmation Dialo
 
 ## Solution description
 
-To achieve the demonstrated behavior, we need to use the [list]({% slug api_upload_uploadprops %}#toc-list) prop of the Upload component and pass a custom template to it. More details about the usage of the list property can be found on our [Upload customization demo]({% slug rendering_upload %}).
+To achieve the demonstrated behavior, we need to use the [list]({% slug api_upload_uploadprops %}#toc-list) prop of the Upload component and pass a custom template to it. You can find more details about the usage of the list property on our [Upload customization demo]({% slug rendering_upload %}).
 
 
 ### Runnable example

@@ -40,7 +40,7 @@ The way we define the action button in the Grid column is through the [`cell`](s
 		/>
 </template>
 ```
-The definition of the `custom` component can be seen in the `ActionCell.vue` file in the below example.
+You can see the definition of the `custom` component in the `ActionCell.vue` file in the example below.
 
 ### Runnable example
 {% meta id:index height:560 %}

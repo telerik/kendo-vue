@@ -34,7 +34,7 @@ You can achieve this by using the [push](https://developer.mozilla.org/en-US/doc
 
 ### Runnable example
 
-To test the following example, type a couple of inputs and notice that the latest response will be shown on the bottom similar to Chat GPT:
+To test the following example, type some inputs and observe that the latest response will appear at the bottom, similar to Chat GPT.
 
 {% meta id:index height:480 %}
 {% embed_file ai-prompt-position-latest-response-on-bottom/main.vue preview %}

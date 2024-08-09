@@ -31,7 +31,7 @@ How can I render HTML inside the Kendo UI for Vue Native Grid?
 
 ## Solution
 
-Define a custom template for the Grid column that should display rendered HTML. Pass the custom template to the selected column using the cell [`cell`](slug:api_grid_gridcolumnprops#toc-cell) column property. Define the custom template as follows:
+Define a custom template for the Grid column that must display rendered HTML. Pass the custom template to the selected column using the cell [`cell`](slug:api_grid_gridcolumnprops#toc-cell) column property. Define the custom template as follows:
 
 ``` js
 <template v-slot:myTemplate="{props, listeners}">
