@@ -75,8 +75,6 @@ Components like the Grid need some data that they can display, so, in this step,
  
 1. In the `src` folder, create a new folder called `appdata` where you will place the JSON files with the data.
  
-1. Create a new `src/appdata/categories.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-options-api/src/appdata/categories.json) and paste it into the `categories.json` file.
- 
 1. Create a new `src/appdata/products.json` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-javascript-options-api/src/appdata/products.json) and paste it into the `products.json` file.
  
  
@@ -117,7 +115,6 @@ Now that you've installed all required packages, you are ready to add the Kendo 
     ```js
       import products from './appdata/products.json';
       import { process } from '@progress/kendo-data-query';
-      import categories from "./appdata/categories.json";
       import { Grid } from '@progress/kendo-vue-grid';
     ```
  
@@ -146,13 +143,12 @@ Now that you've installed all required packages, you are ready to add the Kendo 
 
 1. In the `data` options of the Grid:
 
-   * Load the data from the `categories` and `products` files.
+   * Load the data from the `products` file.
    * Define user friendly column names.
 
     ```js
     data: function() {
       return {
-        categories: categories,
         products: products,
         columns: [
           { field: 'ProductName', title: 'Product Name' },
@@ -170,7 +166,6 @@ After completing all the steps above, your `App.vue` will look like this:
   <script>
     import "@progress/kendo-theme-default/dist/all.css";
     import products from "./appdata/products.json";
-    import categories from "./appdata/categories.json";
     import { process } from "@progress/kendo-data-query";
     import { Grid } from "@progress/kendo-vue-grid";
 
@@ -181,7 +176,6 @@ After completing all the steps above, your `App.vue` will look like this:
       },
       data: function () {
         return {
-          categories: categories,
           products: products,
           columns: [
             { field: "ProductName", title: "Product Name" },
@@ -223,7 +217,6 @@ Now that you have a running Grid, you are ready to use some of its basic feature
     ```js
       data: function() {
         return {
-          categories: categories,
           products: products,
           sortable: true,
           pageable: true,

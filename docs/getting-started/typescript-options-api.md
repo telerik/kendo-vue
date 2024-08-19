@@ -73,9 +73,8 @@ Now, when we are ready with the blank Vue project, we can continue the developme
 
 Components like the Grid need some data that they can display, so, in this step, you will add a file with sample data:
 
-1. Create a new `src/appdata/products.ts` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-typescript-composition-api/src/appdata/categories.ts) and paste it into the `products.ts` file.
+1. Create a new `src/appdata/products.ts` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-typescript-composition-api/src/appdata/products.ts) and paste it into the `products.ts` file.
 
-1. Create a new `src/appdata/categories.ts` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-typescript-composition-api/src/appdata/categories.ts) and paste it into the `categories.ts` file.
 
 ## Install the Data Grid Component
 
@@ -113,9 +112,9 @@ Now that you've installed all required packages, you are ready to add the Kendo 
 
 
     ```js
-    import { products } from './appdata/products';
-    import { process } from '@progress/kendo-data-query';
-    import { Grid } from '@progress/kendo-vue-grid';
+    import { productsData } from './appdata/products';
+    import { process, SortDescriptor, State, DataResult } from '@progress/kendo-data-query';
+    import { Grid, GridColumnProps, GridDataStateChangeEvent } from '@progress/kendo-vue-grid';
     ```
 
 
@@ -144,14 +143,13 @@ Now that you've installed all required packages, you are ready to add the Kendo 
     
 1. In the `data` options of the Grid:
 
-   * Load the data from the `categories` and `products` files.
+   * Load the data from the `products` files.
    * Define user friendly column names.
 
     ```js
     data: function() {
       return {
-        categories: categories,
-        products: products,
+        products: productsData,
         columns: [
           { field: 'ProductName', title: 'Product Name' },
           { field: 'UnitPrice', title: 'Price' },
@@ -204,13 +202,12 @@ Now that you've installed all required packages, you are ready to add the Kendo 
 
 1. In the `data` options of the Grid:
 
-   * Load the data from the `categories` and `products` files.
+   * Load the data from `products` file.
    * Define user friendly column names.
 
     ```js
     data: function() {
       return {
-        categories: categories,
         products: products,
         columns: [
           { field: 'ProductName', title: 'Product Name' },
@@ -226,21 +223,19 @@ Now that you've installed all required packages, you are ready to add the Kendo 
 After completing all the steps above, your `App.vue` will look like this:
 
     ```js
-    <script>
-    import { products } from './appdata/products';
-    import { process } from '@progress/kendo-data-query';
-    import { Grid } from '@progress/kendo-vue-grid';
+    <script lang="ts">
+    import { productsData } from './appdata/products';
+    import { process, SortDescriptor, State, DataResult } from '@progress/kendo-data-query';
+    import { Grid, GridColumnProps, GridDataStateChangeEvent } from '@progress/kendo-vue-grid';
 
     export default {
       name: 'App',
       components: {
-        grid: Grid,
+        grid: Grid
       },
-    },
     data: function() {
       return {
-        categories: categories,
-        products: products,
+        products: productsData,
         columns: [
           { field: 'ProductName', title: 'Product Name' },
           { field: 'UnitPrice', title: 'Price' },
@@ -249,6 +244,7 @@ After completing all the steps above, your `App.vue` will look like this:
         ]
       }
     }
+  }
     </script>
 
     <template>
@@ -281,6 +277,7 @@ Now that you have a running Grid, you are ready to use some of its basic feature
     <script lang="ts">
     data: function() {
       return {
+        products: productsData,
         skip: 0 as number | undefined,
         take: 10 as number | undefined,
         pageable: true,
@@ -332,7 +329,12 @@ Now that you have a running Grid, you are ready to use some of its basic feature
       },
       dataStateChange(event: GridDataStateChangeEvent) {
         this.createAppState(event.data);
-      },
+        this.dataResult = process(this.products, {
+        skip: this.skip,
+        take: this.take,
+        sort: this.sort
+      });
+      }
     }
     </script>
     ```
