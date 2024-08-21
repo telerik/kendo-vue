@@ -73,7 +73,9 @@ Now that the project is clean, you can start developing the sample application.
 
 Components like the Grid need some data that they can display, so, in this step, you will add a file with sample data:
 
-1. Create a new `src/appdata/products.ts` file. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/tree/master/getting-started-typescript-composition-api/src/appdata/products.ts) and paste it into the `products.ts` file.
+1. In the `src` folder, create a new folder called `appdata`. 
+2. In the `appdata` folder, create a new file called `products.ts`.
+3. Copy the content of [this GitHub file](https://github.com/telerik/kendo-vue/blob/master/getting-started-typescript-composition-api/src/appdata/products.ts) and paste it into the `products.ts` file.
 
 ## Install the Data Grid Component
 
@@ -105,21 +107,16 @@ Kendo UI for Vue includes [four artfully designed themes](slug:themesandstyles) 
 
 To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vue` file and place your styles there.
 
-
-
 ## Add a Vue Data Grid Component
 
 Now that you've installed all required packages, you are ready to add the Kendo UI for Vue Data Grid to the application:
 
-1. In the `<script>` block of the `src/App.vue` file, import the Grid and its data. In addition, the `process` function from the [Data Query](https://www.telerik.com/kendo-vue-ui/components/dataquery/) package will allow you to apply data operations like sorting, paging, and filtering.
+1. In the `<script>` block of the `src/App.vue` file, import the Grid and its data. In addition, the `[GridColumnProps](https://www.telerik.com/kendo-vue-ui/components/grid/api/GridColumnProps/)` interface allows you to assign props to the Grid columns, for example, to define column names.
 
     ```js
-      <script lang="ts">
-        import { ref, onMounted, defineComponent } from 'vue';
-        import { productsData } from './appdata/products';
-        import { process, SortDescriptor, State, DataResult  } from '@progress/kendo-data-query';
-        import { Grid, GridDataStateChangeEvent, GridColumnProps } from '@progress/kendo-vue-grid';
-      </script>
+    import { defineComponent } from 'vue';
+    import { productsData } from './appdata/products';
+    import { Grid, GridColumnProps } from '@progress/kendo-vue-grid';                    
     ```
 
 1. Add a `<template>` block with a simple heading and create a Data Grid. Bind it to the `products` data:
@@ -140,8 +137,8 @@ Now that you've installed all required packages, you are ready to add the Kendo 
     export default defineComponent({
       components: {
         grid: Grid,
-      }
-    })
+      },
+    });
     ```
 
 1. In the `setup` function of the Grid:
@@ -161,7 +158,7 @@ Now that you've installed all required packages, you are ready to add the Kendo 
       ] as GridColumnProps[];
 
       return {
-        columns
+        columns, products
       }
     }
     ```
@@ -170,10 +167,10 @@ After completing all the steps above, your `App.vue` will look like this:
 
 ```js
 <script lang="ts">
-  import { ref, onMounted, defineComponent } from 'vue';
+  import '@progress/kendo-theme-default/dist/all.css';
+  import { defineComponent } from 'vue';
   import { productsData } from './appdata/products';
-  import { process, SortDescriptor, State, DataResult } from '@progress/kendo-data-query';
-  import { Grid, GridDataStateChangeEvent, GridColumnProps } from '@progress/kendo-vue-grid';
+  import { Grid, GridColumnProps } from '@progress/kendo-vue-grid';
 
   export default defineComponent({
     components: {
