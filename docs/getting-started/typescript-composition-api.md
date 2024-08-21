@@ -111,7 +111,7 @@ To add any custom styles to your app, insert a `<styles>` tag in the `src/App.vu
 
 Now that you've installed all required packages, you are ready to add the Kendo UI for Vue Data Grid to the application:
 
-1. In the `<script>` block of the `src/App.vue` file, import the Grid and its data. In addition, the `[GridColumnProps](https://www.telerik.com/kendo-vue-ui/components/grid/api/GridColumnProps/)` interface allows you to assign props to the Grid columns, for example, to define column names.
+1. In the `<script>` block of the `src/App.vue` file, import the Grid and its data. In addition, the [`GridColumnProps`](https://www.telerik.com/kendo-vue-ui/components/grid/api/GridColumnProps/) interface allows you to assign props to the Grid columns, for example, to define column names.
 
     ```js
     import { defineComponent } from 'vue';
