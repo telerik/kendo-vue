@@ -1,10 +1,10 @@
 ---
-title: Scroll to a specific row in the Kendo UI for Vue Native Grid
+title: Scroll to a Specific Row in the Kendo UI for Vue Native Grid
 description: Learn how scroll to a specific row in the Kendo UI for Vue Native Grid
 type: how-to
 page_title: How to scroll to a specific row in the Kendo UI for Vue Native Grid
 slug: grid-scroll-specific-row
-tags: grid, scroll, rows, row
+tags: vue, grid, datagrid, scroll, scrollTo, specific, row
 ticketid: 1660190
 res_type: kb
 category: knowledge-base
