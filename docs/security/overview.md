@@ -33,7 +33,7 @@ We value the contributions of security researchers and ethical hackers. If a res
 | ------------------ | ------------------------------------------------------------ |
 | First Response     | 7 days                                                       |
 | Time to Triage     | 10 days                                                      |
-| Time to Resolution | [Depends on severity](#vulnerability-remediation-guidelines) |
+| Time to Resolution | [Depends on severity](#toc-vulnerability-remediation-guidelines) |
 
 For more information, visit:
 - [Bugcrowd Vulnerability Disclosure Program](https://bugcrowd.com/engagements/devtools-vdp)
