@@ -32,7 +32,7 @@
     "cldr-dates-full": "^41.0.0",
     "cldr-numbers-full": "^41.0.0",
     "core-js": "^3.15.1",
-    "nuxt": "^2.15.7"
+    "nuxt": "^3.12.4"
   },
   "devDependencies": {}
 }
