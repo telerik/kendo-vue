@@ -22,7 +22,7 @@
     "@progress/kendo-vue-intl": "latest",
     "@progress/kendo-svg-icons": "latest",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^3.2.20"
   },
   "devDependencies": {
     "@vitejs/plugin-vue2": "^2.0.3",
