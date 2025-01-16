@@ -7,20 +7,20 @@ on:
       - master
 
 env:
-  NODE_OPTIONS: --max_old_space_size=6144
+  NODE_OPTIONS: --max_old_space_size=16384
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
-      - name: Use NodeJS v14
-        uses: actions/setup-node@v2
+      - name: Use NodeJS v20
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build Coffee warehouse app
         working-directory: ./examples-standalone/coffee-warehouse
