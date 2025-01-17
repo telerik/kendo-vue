@@ -43,7 +43,7 @@
                             >
                                 Export to Excel
                             </KButton>&nbsp;
-                            <KButton 
+                            <KButton
                                 :theme-color="'primary'"
                                 @click="exportPDF">
                                 Export to PDF
@@ -57,7 +57,6 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
 import { Grid, GridToolbar } from '@progress/kendo-vue-grid';
 import { DropDownList } from '@progress/kendo-vue-dropdowns';
 import { Button } from '@progress/kendo-vue-buttons';
@@ -186,7 +185,7 @@ export default {
             });
         },
         expandChange (event) {
-            
+
             const isExpanded =
                 event.dataItem.expanded === undefined ?
                     event.dataItem.aggregates : event.dataItem.expanded;

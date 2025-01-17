@@ -20,8 +20,10 @@ export default {
         "@progress/kendo-vue-buttons",
         "@progress/kendo-vue-dialogs",
         "@progress/kendo-svg-icons",
-        "@progress/kendo-date-math"
+        "@progress/kendo-date-math",
+        "@progress/kendo-vue-layout",
+        "@progress/kendo-vue-progressbars",
+        "@progress/kendo-vue-treeview",
       ],
     },
   };
-  
