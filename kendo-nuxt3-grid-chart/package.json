@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt dev",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "preview": "nuxt preview",
     "generate": "nuxt generate"
   },
   "dependencies": {
@@ -21,6 +21,9 @@
     "@progress/kendo-vue-grid": "latest",
     "@progress/kendo-vue-indicators": "latest",
     "@progress/kendo-vue-inputs": "latest",
+    "@progress/kendo-vue-layout": "latest",
+    "@progress/kendo-vue-progressbars": "latest",
+    "@progress/kendo-vue-treeview": "latest",
     "@progress/kendo-vue-intl": "latest",
     "@progress/kendo-vue-pdf": "latest",
     "@progress/kendo-vue-popup": "latest",
@@ -32,7 +35,7 @@
     "cldr-dates-full": "^41.0.0",
     "cldr-numbers-full": "^41.0.0",
     "core-js": "^3.15.1",
-    "nuxt": "^2.15.7"
+    "nuxt": "^3.12.4"
   },
   "devDependencies": {}
 }
