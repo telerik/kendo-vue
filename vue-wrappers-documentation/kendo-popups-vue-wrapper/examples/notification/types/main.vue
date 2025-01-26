@@ -1,0 +1,22 @@
+<template>
+    <kendo-notification ref="popupNotification"></kendo-notification>
+    <button id="showPopupNotification" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" @click="showPopupNotification">As a popup at bottom-right</button>
+</template>
+<script>
+import { Notification } from '@progress/kendo-popups-vue-wrapper';
+
+export default {
+  components: {
+    'kendo-notification': Notification
+  },
+   methods: {
+        showPopupNotification: function (e) {
+            this.popupNotificationWidget.show('myMessage', 'warning');
+        }
+    },
+    mounted: function () {
+        this.popupNotificationWidget = this.$refs.popupNotification.kendoWidget();
+    }
+}
+</script>
+
