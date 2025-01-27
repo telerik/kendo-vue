@@ -1,0 +1,6 @@
+.italic{
+    font-style: italic;
+  }
+  .custom{
+    font-weight: bold !important;
+}
