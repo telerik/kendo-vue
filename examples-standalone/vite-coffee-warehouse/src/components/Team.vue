@@ -77,7 +77,7 @@ import ContactName from "./GridComponents/ContactNameComponent.vue";
 import BudgetComponent from "./GridComponents/BudgetComponent.vue";
 import Flag from "./GridComponents/FlagComponent.vue";
 
-import employees from "../assets/employees.json";
+import employees from "../assets/employees";
 
 export default {
   name: "App",
@@ -434,7 +434,7 @@ export default {
       this.gridData = this.getData(slicedEmployees);
     },
     getSelectColumnWidth(theme) {
-      return theme === "Default" ? "42px" : theme === "Material" ? "65px" : "32px";
+      return theme === "kendo-theme-default" ? "42px" : theme === "kendo-theme-material" ? "65px" : "32px";
     }
   },
 };

@@ -2,6 +2,8 @@
 @import "./common.scss";
 @import './typography.scss';
 
+@import "@progress/kendo-font-icons/dist/index.css";
+
 $grid-columns: 12;
 $grid-gutter-width: 48px;
 $grid-column-width: 48px;
@@ -148,6 +150,13 @@ $container-max-widths: (
       flex-direction: column;
       align-items: flex-start;
       margin-left: 25px;
+      color: #ffffff;
+      
+        h1,
+        h2 {
+          font-size: 1.75rem;
+          font-weight: 400;
+        }
   }
 
   .k-avatar {
@@ -241,4 +250,13 @@ $container-max-widths: (
 
 .k-menu.k-menu-vertical:not(.k-context-menu){
   padding:0;
+}
+.k-picker.ddl-theme {
+  width: 60px;
+  min-width: 60px;
+}
+
+.k-dropdownlist.localeDropDownList {
+  min-width: 100px;
+  margin: 10px;
 }
