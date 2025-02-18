@@ -49,12 +49,12 @@
     "core-js": "3.19.0",
     "hammerjs": "^2.0.8",
     "less": "^4.2.2",
-    "less-loader": "^12.2.0",
+    "less-loader": "^12.2.0",   
     "socks": ">=2.7.3"
   },
   "devDependencies": {
-    "vite": "^3.2.10",
-    "@vitejs/plugin-vue": "^3.0.0",
+    "vite": "^5.4.14",
+    "@vitejs/plugin-vue": "^5.2.1",
     "@vue/compiler-sfc": "^3.0.4",
     "eslint": "^7.5.0",
     "eslint-plugin-vue": "^7.2.0",
