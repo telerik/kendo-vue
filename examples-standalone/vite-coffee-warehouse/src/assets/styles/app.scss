@@ -1,0 +1,262 @@
+@import "./variables.scss";
+@import "./common.scss";
+@import './typography.scss';
+
+@import "@progress/kendo-font-icons/dist/index.css";
+
+$grid-columns: 12;
+$grid-gutter-width: 48px;
+$grid-column-width: 48px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+
+// @import "~bootstrap/scss/grid";
+
+
+.app-header>.project-name{
+    text-align: left;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+  }
+  
+  .app-header>.nav{
+    float: righnpmt;
+  }
+  
+  .content {
+    min-height: 100vh;
+  }
+  
+  .logo {
+    font-weight: 700;
+    font-size: 24px;
+  }
+  
+  .welcome {
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+  }
+  
+  .sub-header {
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: #919191;
+    opacity: 1;
+    margin-bottom: 4rem;
+  }
+  
+  .get-started {
+    text-align: center;
+    font-weight: 900;
+    font-size: 78px;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+    margin-bottom: 1rem;
+  }
+  
+  .kendoka {
+    width: 12.5rem;
+    height: 12.5rem;
+    opacity: 1;
+  }
+  
+  .change-theme {
+    font-size: 14px;
+    color: #9098A5;
+  }
+  
+  .components-list>p>a {
+    margin-left: 0.6em;
+  }
+  .components-list>p>img {
+    width: 1.25rem;
+    height: 1.3125rem;
+  }
+
+  .divider {
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    opacity: 0.2;
+  }
+  
+  .copyright{
+    letter-spacing: 0.33px;
+    color: #FFFFFF;
+    opacity: 0.6;
+  }
+  
+  .k-widget.k-menu {
+    height: 100%;
+  }
+  
+  .social img {
+    margin-left: 3rem;
+  }
+
+  // Header
+.header-bg {
+  background-image: url('./assets/images/header-bg.png');
+}
+
+.header {
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+
+  .nav-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      color: $white;
+  }
+
+  .menu-button {
+      flex: 0 0 50px;
+      text-align: center;
+  }
+
+  .hamburger-icon {
+      background-image: url('./assets/images/hamburger-icon.svg');
+      background-repeat: no-repeat;
+      width: 20px;
+      cursor: pointer;
+  }
+
+  .title {
+      display: flex;
+      flex: 1 0 auto;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 25px;
+      color: #ffffff;
+      
+        h1,
+        h2 {
+          font-size: 1.75rem;
+          font-weight: 400;
+        }
+  }
+
+  .k-avatar {
+      display: block;
+      width: 40px;
+      height: 40px;
+      flex-basis: 40px;
+      margin: 0 25px;
+      box-shadow: 0 0 0px 1px $white;
+  }
+
+  .settings {
+      display: none;
+  }
+}
+
+@media (min-width: 480px) {
+  .header {
+      .title {
+          flex-direction: row;
+          align-items: center;
+      }
+      .vl {
+          border-left: 1px solid $white;
+          height: 25px;
+          margin: 6px 15px;
+      }
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+      .settings {
+          display: flex;
+          flex: 0 0 auto;
+          align-items: center;
+      }
+
+      .k-dropdown {
+          max-width: 90px;
+          margin-left: 15px;
+      }
+  }
+}
+
+.header {
+  .title {
+      flex-direction: row;
+      align-items: center;
+  }
+  .vl {
+      border-left: 1px solid $white;
+      height: 25px;
+      margin: 6px 15px;
+  }
+}
+
+.k-menu-vertical > .k-menu-item.k-state-selected.material > .k-menu-link {
+  color: #ff4081;;
+}
+
+.k-menu-vertical > .k-menu-item.material > .k-menu-link {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.k-menu-vertical > .k-menu-item.k-state-selected.bootstrap > .k-menu-link {
+  color: #ffffff;
+}
+.k-menu-vertical > .k-menu-item.k-state-selected.bootstrap {
+    background-color: #0071eb;
+}
+.k-menu-vertical > .k-menu-item.bootstrap > .k-menu-link {
+  color: #212529;
+}
+
+.k-menu-vertical > .k-menu-item.k-state-selected.default > .k-menu-link {
+  color: #ffffff;
+}
+.k-menu-vertical > .k-menu-item.k-state-selected.default {
+    background-color: #ff6358;
+}
+.k-menu-vertical > .k-menu-item.default > .k-menu-link {
+  color: #424242;
+}
+
+.k-widget.k-dropdown.localeDropDownList, .k-widget.k-dropdown.ddl-theme{
+  background-color: #f5f5f5;
+  border-radius: 2px;
+}
+
+
+.k-menu.k-menu-vertical:not(.k-context-menu){
+  padding:0;
+}
+.k-picker.ddl-theme {
+  width: 60px;
+  min-width: 60px;
+}
+
+.k-dropdownlist.localeDropDownList {
+  min-width: 100px;
+  margin: 10px;
+}
