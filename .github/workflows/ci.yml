@@ -1,4 +1,4 @@
-# Builds and tests example applications
+# Builds and tests examples-standalone applications
 name: CI
 
 on:
@@ -7,32 +7,50 @@ on:
       - master
 
 env:
-  NODE_OPTIONS: --max_old_space_size=6144
+  NODE_OPTIONS: --max_old_space_size=16384
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
-      - name: Use NodeJS v14
-        uses: actions/setup-node@v2
+      - name: Use NodeJS v20
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Build Coffee warehouse app
-        working-directory: ./examples-standalone/coffee-warehouse
-        run: |
-          npm ci
-          npm run build
+      - name: Get changed files
+        uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            dashboard:
+              - 'examples-standalone/dashboard/**'
+            vite-coffee-warehouse:
+              - 'examples-standalone/vite-coffee-warehouse/**'
+
+    #   - name: Build Coffee warehouse app
+    #     working-directory: ./examples-standalone/coffee-warehouse
+    #     run: |
+    #       npm ci
+    #       npm run build
 
       - name: Build Dashboard app
         working-directory: ./examples-standalone/dashboard
+        if: steps.changes.outputs.dashboard == 'true'
         run: |
           npm ci
           npm run build
+
+      - name: Build Vite Coffee warehouse app
+        working-directory: ./examples-standalone/vite-coffee-warehouse
+        if: steps.changes.outputs.vite-coffee-warehouse == 'true'
+        run: |
+            npm ci
+            npm run build
 
       - name: Cleanup
         run: git clean -xdf
