@@ -29,14 +29,8 @@ jobs:
           filters: |
             dashboard:
               - 'examples-standalone/dashboard/**'
-            vite-coffee-warehouse:
-              - 'examples-standalone/vite-coffee-warehouse/**'
-
-    #   - name: Build Coffee warehouse app
-    #     working-directory: ./examples-standalone/coffee-warehouse
-    #     run: |
-    #       npm ci
-    #       npm run build
+            coffee-warehouse:
+              - 'examples-standalone/coffee-warehouse/**'
 
       - name: Build Dashboard app
         working-directory: ./examples-standalone/dashboard
@@ -46,8 +40,8 @@ jobs:
           npm run build
 
       - name: Build Vite Coffee warehouse app
-        working-directory: ./examples-standalone/vite-coffee-warehouse
-        if: steps.changes.outputs.vite-coffee-warehouse == 'true'
+        working-directory: ./examples-standalone/coffee-warehouse
+        if: steps.changes.outputs.coffee-warehouse == 'true'
         run: |
             npm ci
             npm run build

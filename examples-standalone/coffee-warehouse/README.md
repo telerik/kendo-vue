@@ -1,26 +1,21 @@
-This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/).
+# Kendo UI for Vue Dashboard Application
 
-# kendo-vue-template-app
+The current example shows how the Native Grid, Charts, Inputs, Labels, etc. component can be combined in a real-life application. The project uses Vue 3 in Vite. 
 
 ## Project setup
+
+Install the NPM packages using:
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Start the project using:
+
 ```
-npm run serve
+npm run dev
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Recommended IDE Setup
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)

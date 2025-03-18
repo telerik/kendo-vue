@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <link rel="stylesheet" :href="themeLink" />
+  <div id="app" class="app">
     <localization :language="localizationLanguage">
       <intl :locale="locale">
         <Header @localeChange="onLocaleChange" @themeChange="onThemeChange" />
         <div class="content-wrapper">
           <div class="column menu">
-            <MenuNavContainer :current-theme="currentTheme.toLowerCase()" />
+            <MenuNavContainer :current-theme="currentTheme" />
           </div>
           <div class="column content">
             <div class="k-drawer-container k-drawer-mini k-drawer-push">
@@ -25,7 +26,7 @@
 
 <script>
 import Header from "./components/Header.vue";
-import MenuNavContainer from "./components/MenuNavContainer";
+import MenuNavContainer from "./components/MenuNavContainer.vue";
 import { enComponentMessages, enCustomMessages } from "./messages/en-US";
 import { esComponentMessages, esCustomMessages } from "./messages/es";
 import { frComponentMessages, frCustomMessages } from "./messages/fr";
@@ -85,6 +86,12 @@ export default {
     localization: LocalizationProvider,
     intl: IntlProvider,
   },
+  data() {
+    return {
+      localizationLanguage: "en",
+      currentTheme: "kendo-theme-default",
+    };
+  },
   methods: {
     onLocaleChange(e) {
       this.localizationLanguage = e.language;
@@ -94,6 +101,9 @@ export default {
     },
   },
   computed: {
+    themeLink() {
+      return "https://unpkg.com/@progress/" + this.currentTheme + "@latest/dist/all.css"
+    },
     locale() {
       if (this.localizationLanguage === "Spanish") {
         return "es";
@@ -105,13 +115,7 @@ export default {
 
       return "en";
     },
-  },
-  data() {
-    return {
-      localizationLanguage: "en",
-      currentTheme: "Default",
-    };
-  },
+  }
 };
 </script>
 
@@ -124,7 +128,6 @@ export default {
 .column.content{
   min-width: 500px;
 }
-
 
 .k-item.k-menu-item.k-drawer-item.k-state-selected {
   color: #ffffff;

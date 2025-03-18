@@ -1,5 +1,5 @@
 <template>
-  <img class="flag" :src="flagURL(dataItem)" style="width: 30px" />
+  <img class="flag" :src="flagURL(dataItem)" style="width: 30px" alt="" />
 </template>
 
 <script>

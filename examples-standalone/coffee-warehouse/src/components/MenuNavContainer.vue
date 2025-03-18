@@ -124,22 +124,28 @@ export default {
       this.selectedItemID = e.item.id;
     },
     updateSelectedMenuItem(menuItemID) {
+      const themeName =
+        this.currentTheme === "kendo-theme-default"
+          ? "default"
+          : this.currentTheme === "kendo-theme-bootstrap"
+          ? "bootstrap"
+          : "material";
       this.teamClass =
         menuItemID === 1
-          ? this.currentTheme + " k-state-selected"
-          : this.currentTheme;
+          ? themeName + " k-state-selected"
+          : themeName;
       this.dashboardClass =
         menuItemID === 2
-          ? this.currentTheme + " k-state-selected"
-          : this.currentTheme;
+          ? themeName + " k-state-selected"
+          : themeName;
       this.profileClass =
         menuItemID === 3
-          ? this.currentTheme + " k-state-selected"
-          : this.currentTheme;
+          ? themeName + " k-state-selected"
+          : themeName;
       this.infoClass =
         menuItemID === 4
-          ? this.currentTheme + " k-state-selected"
-          : this.currentTheme;
+          ? themeName + " k-state-selected"
+          : themeName;
     },
   },
 };
