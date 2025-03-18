@@ -37,9 +37,10 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
     "sass": "^1.54.4",
-    "vite": "^3.2.11"
+    "vite": "^5.4.14"
   },
   "overrides": {
-    "nanoid": "^3.3.8"
+    "nanoid": "^3.3.8",
+    "esbuild": "^0.25.1"
   }
 }
