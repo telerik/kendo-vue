@@ -11,9 +11,16 @@ do
   pushd ../examples-standalone/${PROJECT} > /dev/null
 
   echo Building ${PROJECT}
-  npm ci
-  rm -rf dist
-  npm run build
+  
+  # Skip build steps for coffee-warehouse
+  if [[ "${PROJECT}" != "coffee-warehouse" ]]; then
+    npm ci
+    rm -rf dist
+    npm run build
+  else
+    echo Skipping build for ${PROJECT}
+  fi
+
   mkdir -p ../../examples/dist/${PROJECT}
   mv -v dist/* ../../examples/dist/${PROJECT}
 
