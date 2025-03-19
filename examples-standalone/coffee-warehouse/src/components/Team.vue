@@ -63,21 +63,21 @@
 </template>
 
 <script>
-import { process } from "@progress/kendo-data-query";
-import { Grid, GridToolbar } from "@progress/kendo-vue-grid";
 import { Input } from "@progress/kendo-vue-inputs";
-import { Button, ButtonGroup } from "@progress/kendo-vue-buttons";
+import { process } from "@progress/kendo-data-query";
 import { GridPdfExport } from "@progress/kendo-vue-pdf";
 import { saveExcel } from "@progress/kendo-vue-excel-export";
-
-import BudgetComponent from "./GridComponents/BudgetComponent.vue";
-import EngagementComponent from "./GridComponents/EngagementComponent.vue";
-import IsOnlineComponent from "./GridComponents/IsOnlineComponent.vue";
-import Flag from "./GridComponents/FlagComponent.vue";
-import ContactName from "./GridComponents/ContactNameComponent.vue";
+import { Grid, GridToolbar } from "@progress/kendo-vue-grid";
+import { Button, ButtonGroup } from "@progress/kendo-vue-buttons";
 import { provideLocalizationService } from "@progress/kendo-vue-intl";
 
-import employees from "../assets/employees.json";
+import EngagementComponent from "./GridComponents/EngagementComponent.vue";
+import IsOnlineComponent from "./GridComponents/IsOnlineComponent.vue";
+import ContactName from "./GridComponents/ContactNameComponent.vue";
+import BudgetComponent from "./GridComponents/BudgetComponent.vue";
+import Flag from "./GridComponents/FlagComponent.vue";
+
+import employees from "../assets/employees";
 
 export default {
   name: "App",
@@ -434,7 +434,7 @@ export default {
       this.gridData = this.getData(slicedEmployees);
     },
     getSelectColumnWidth(theme) {
-      return theme === "Default" ? "42px" : theme === "Material" ? "65px" : "32px";
+      return theme === "kendo-theme-default" ? "42px" : theme === "kendo-theme-material" ? "65px" : "32px";
     }
   },
 };

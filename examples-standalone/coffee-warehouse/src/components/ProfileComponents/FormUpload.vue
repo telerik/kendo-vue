@@ -3,7 +3,7 @@
     <klabel :editor-id="id" :editor-valid="valid">
       <avatar :rounded="'full'" :type="'image'" :size="'large'"
         :style="{ width: '80px', height: '80px', 'flex-basis': '80px' }">
-        <img src="../../assets/images/user.jpg" />
+        <img src="../../assets/images/user.jpg" alt="" />
       </avatar>
     </klabel>
     <div class="k-form-field-wrap">

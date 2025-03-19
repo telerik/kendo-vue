@@ -150,7 +150,7 @@ import {
   provideLocalizationService,
 } from "@progress/kendo-vue-intl";
 
-import { orders } from "../assets/orders.js";
+import { orders } from "../assets/orders";
 import "hammerjs";
 
 export default {

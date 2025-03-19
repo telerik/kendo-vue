@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Builds example projects and deploys them to GH Pages
-STANDALONE_PROJECTS=(coffee-warehouse dashboard vite-coffee-warehouse)
+STANDALONE_PROJECTS=(coffee-warehouse dashboard)
 
 set -e
 
@@ -11,16 +11,9 @@ do
   pushd ../examples-standalone/${PROJECT} > /dev/null
 
   echo Building ${PROJECT}
-  
-  # Skip build steps for coffee-warehouse
-  if [[ "${PROJECT}" != "coffee-warehouse" ]]; then
-    npm ci
-    rm -rf dist
-    npm run build
-  else
-    echo Skipping build for ${PROJECT}
-  fi
-
+  npm ci
+  rm -rf dist
+  npm run build
   mkdir -p ../../examples/dist/${PROJECT}
   mv -v dist/* ../../examples/dist/${PROJECT}
 

@@ -29,7 +29,7 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHistory("/kendo-vue/vite-coffee-warehouse/"),
+    history: createWebHistory("/kendo-vue/coffee-warehouse/"),
   routes,
 });
 

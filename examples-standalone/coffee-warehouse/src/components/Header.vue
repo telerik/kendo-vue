@@ -13,12 +13,12 @@
         :value-render="myDropDownValueTemplate" class="ddl-theme" @change="onThemeChange">
         <template v-slot:myDropDownValueTemplate="{}">
           <div style="margin: auto 8px auto 10px">
-            <span class="k-icon k-i-palette"> </span>
+            <span class="k-icon k-font-icon k-i-palette"> </span>
           </div>
         </template>
       </DropDownList>
       <Avatar :rounded="'full'" :type="'image'" :style="{ width: '40px', height: '40px', 'flex-basis': '40px' }">
-        <img src="../assets/images/user.jpg" />
+        <img src="../assets/images/user.jpg" alt="" />
       </Avatar>
     </div>
   </div>
@@ -31,7 +31,7 @@ import { provideLocalizationService } from "@progress/kendo-vue-intl";
 export default {
   components: {
     Avatar,
-    DropDownList,
+    DropDownList
   },
   emits: {
     localeChange: null,
@@ -53,13 +53,8 @@ export default {
   },
   methods: {
     onThemeChange(e) {
-      this.theme = e.value.href;
-      const linkTag = document.getElementById("theme-link");
-      linkTag.setAttribute(
-        "href",
-        `${process.env.BASE_URL}/static/themes/kendo-theme-${this.theme}/all.css`
-      );
-      this.$emit("themeChange", e.value.text);
+      this.themeValue = e.value;
+      this.$emit("themeChange", this.themeValue.value)
     },
     localeChange(e) {
       this.currentLocale = e.target.value;
@@ -72,18 +67,23 @@ export default {
   data() {
     return {
       theme: "default",
+      themeValue: {
+        text: "Default",
+        value: "kendo-theme-default"
+      },
+      year: '2025',
       themes: [
         {
-          href: "default",
           text: "Default",
+          value: "kendo-theme-default"
         },
         {
-          href: "bootstrap",
           text: "Bootstrap",
+          value: "kendo-theme-bootstrap"
         },
         {
-          href: "material",
           text: "Material",
+          value: "kendo-theme-material"
         },
       ],
       myDropDownValueTemplate: "myDropDownValueTemplate",
