@@ -26,7 +26,7 @@
     "@progress/kendo-svg-icons": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.2.0",
-    "vite": "^3.2.3"
+    "@vitejs/plugin-vue": "^4.6.2",
+    "vite": "^4.5.6"
   }
 }
