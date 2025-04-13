@@ -1,0 +1,37 @@
+# Kendo UI for Vue Options API Demos Index
+
+This folder contains examples for the Options API demos of the Kendo UI for Vue suite. The examples demonstrate how the different Kendo UI for Vue components are used in various scenarios. Below is a list of subfolders, each containing examples for a specific feature:
+
+- [Animation](./animation/examples)
+- [Buttons](./buttons/examples)
+- [Charts](./charts/examples)
+- [Common](./common/examples)
+- [Conversational UI](./conversational-ui/examples)
+- [Data Tools](./datatools/examples)
+- [Date Inputs](./dateinputs/examples)
+- [Dialogs](./dialogs/examples)
+- [Dropdowns](./dropdowns/examples)
+- [Editor](./editor/examples)
+- [Excel](./excel/examples)
+- [Form](./form/examples)
+- [Gauges](./gauges/examples)
+- [Grid](./grid/examples)
+- [Indicators](./indicators/examples)
+- [Inputs](./inputs/examples)
+- [Internationalization (Intl)](./intl/examples)
+- [Labels](./labels/examples)
+- [Layout](./layout/examples)
+- [ListBox](./listbox/examples)
+- [ListView](./listview/examples)
+- [Notification](./notification/examples)
+- [PDF](./pdf/examples)
+- [Popup](./popup/examples)
+- [Progress Bars](./progressbars/examples)
+- [Scheduler](./scheduler/examples)
+- [ScrollView](./scrollview/examples)
+- [Tooltip](./tooltip/examples)
+- [TreeList](./treelist/examples)
+- [TreeView](./treeview/examples)
+- [Upload](./upload/examples)
+
+Each subfolder contains example implementations and usage scenarios for the respective feature, demonstrating the usage of the Kendo UI for Vue suite in the context of Options API.

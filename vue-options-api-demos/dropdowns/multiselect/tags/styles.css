@@ -1,0 +1,10 @@
+.custom-tag {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    margin-right: 3px;
+}

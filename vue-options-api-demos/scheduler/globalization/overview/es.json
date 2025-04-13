@@ -1,0 +1,19 @@
+{
+    "scheduler": {
+      "today": "Hoy",
+      "allDay": "todo el dia",
+      "showWorkDay": "Mostrar horas laborables",
+      "showFullDay": "Mostrar día completo",
+      "dayViewTitle": "Día",
+      "weekViewTitle": "Semana",
+      "monthViewTitle": "Mes",
+      "editorValidationRequired": "Field is required.",
+      "editorValidationStart": "Start time must be be before End time.",
+      "editorValidationEnd": "End time must be after Start time.",
+      "workWeekViewTitle": "Semana laboral",
+      "agendaViewTitle": "Agenda",
+      "previousTitle": "Previous",
+      "nextTitle": "Next"
+    }
+  }
+  
