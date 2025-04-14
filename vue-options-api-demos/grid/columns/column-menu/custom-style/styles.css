@@ -1,0 +1,4 @@
+th.k-header.active > div > a, th.k-header.active > div > a.k-grid-column-menu:hover {
+    color: #fff;
+    background-color: #ff6358;
+}

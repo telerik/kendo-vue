@@ -1,0 +1,20 @@
+.box {
+  padding: 4px;
+  text-align: center;
+  vertical-align: center;
+}
+.stacklayout-header {
+  background-color: #fae47a;
+}
+.nav {
+  background-color: #fbd17f;
+}
+.box.stacklayout-content {
+  background-color: #f5bf8b;
+}
+.toc {
+  background-color: #ebaa79;
+}
+.stacklayout-footer {
+  background-color: #e39a6a;
+}

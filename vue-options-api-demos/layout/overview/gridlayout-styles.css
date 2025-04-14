@@ -1,0 +1,22 @@
+.example-wrapper-gridlayout {
+  width: 300px;
+  margin: 0 auto;
+}
+.page {
+  padding: 20px 10px;
+}
+.content {
+  background: #f9f9f9;
+  overflow: auto;
+}
+.box {
+  padding: 4px;
+  background-color: #87dfce;
+  height: 100%;
+}
+.big {
+  background-color: #fea69c;
+}
+.rect {
+  background-color: #fee47c;
+}

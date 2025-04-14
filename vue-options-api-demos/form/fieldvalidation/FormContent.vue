@@ -1,0 +1,73 @@
+<template>
+    <form-element :style="{ maxWidth: '650px' }">
+          <fieldset class="k-form-fieldset">
+           
+            <div class="mb-3">
+              <field
+                :name="'email'"
+                :type="'email'"
+                :component="'myTemplate'"
+                :label="'Email'"
+                :validator="emailValidator"
+              >
+               <template v-slot:myTemplate="{props}">
+                 <forminput
+                    v-bind="props"
+                    @change="props.onChange"
+                    @blur="props.onBlur"
+                    @focus="props.onFocus"
+                  />
+              </template>
+              </field>
+            </div>
+          </fieldset>
+          <div class="k-form-buttons">
+           <kbutton
+              type="submit"
+              :disabled="!kendoForm.allowSubmit"
+            >
+              Submit
+            </kbutton>
+              <kbutton
+              type="button"
+                @click="clear">Clear
+              </kbutton>
+          </div>
+        </form-element>
+</template>
+<script>
+import { Field, FormElement } from "@progress/kendo-vue-form";
+import FormInput from "./FormInput.vue";
+import { Button } from '@progress/kendo-vue-buttons';
+
+const emailRegex = new RegExp(/\S+@\S+\.\S+/);
+const emailValidator = (value) =>
+  emailRegex.test(value) ? "" : "Please enter a valid email.";
+
+export default {
+    
+    components: {
+      field: Field,
+      'form-element': FormElement,
+      'forminput': FormInput,
+      'kbutton': Button
+    },
+    inject: {
+      kendoForm: { default: {} },  
+    },
+    data: function () {
+        return { 
+          emailValidator: emailValidator
+         };
+    },
+    methods: {
+      handleSubmit (dataItem) {
+         alert(JSON.stringify(dataItem, null, 2));
+      },
+      clear(){
+        this.kendoForm.onFormReset();
+      }
+    }
+};
+
+</script>

@@ -1,0 +1,11 @@
+{
+    "numerictextbox": {
+        "increment": "Incrementar valor",
+        "decrement": "Disminuir valor"
+    },
+    "slider": {
+        "increment": "Incrementar valor",
+        "decrement": "Disminuir valor",
+        "dragTitle": "arrastrar"
+    }
+}
