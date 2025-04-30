@@ -57,7 +57,6 @@
         </fieldset>
 
         <div class="k-form-buttons">
-          <!-- 3. Spinner icon + disable logic -->
           <kbutton
             type="submit"
             :disabled="disabled"
@@ -65,7 +64,6 @@
           >
             Submit
           </kbutton>
-          <kbutton type="button" @click="clear">Clear</kbutton>
         </div>
       </form-element>
     </k-form>
