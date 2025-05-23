@@ -31,6 +31,8 @@ jobs:
               - 'examples-standalone/dashboard/**'
             coffee-warehouse:
               - 'examples-standalone/coffee-warehouse/**'
+            vue-personal-finance-nuxt:
+              - 'examples-standalone/vue-personal-finance-nuxt/**'
 
       - name: Build Dashboard app
         working-directory: ./examples-standalone/dashboard
@@ -45,6 +47,13 @@ jobs:
         run: |
             npm ci
             npm run build
+
+      - name: Build Vue Personal Finance Nuxt app
+        working-directory: ./examples-standalone/vue-personal-finance-nuxt
+        if: steps.changes.outputs.vue-personal-finance-nuxt == 'true'
+        run: |
+          npm ci
+          npm run build
 
       - name: Cleanup
         run: git clean -xdf
