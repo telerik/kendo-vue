@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Builds example projects and deploys them to GH Pages
-STANDALONE_PROJECTS=(coffee-warehouse dashboard)
+STANDALONE_PROJECTS=(coffee-warehouse dashboard vue-personal-finance-nuxt)
 
 set -e
 
@@ -13,7 +13,11 @@ do
   echo Building ${PROJECT}
   npm ci
   rm -rf dist
-  npm run build
+  if [ "${PROJECT}" == "vue-personal-finance-nuxt" ]; then
+    npm run generate
+  else
+    npm run build
+  fi
   mkdir -p ../../examples/dist/${PROJECT}
   mv -v dist/* ../../examples/dist/${PROJECT}
 

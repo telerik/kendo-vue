@@ -1,0 +1,472 @@
+/* @import 'https://fonts.googleapis.com/css2?family=Outfit:wght@200..900&display=swap';
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.overlay-active {
+    opacity: 0.2;
+}
+
+.k-drawer-item {
+    white-space: nowrap;
+}
+
+.k-drawer-item.k-selected {
+    background-color: #9FA8DA;
+    color: black;
+}
+
+.listview-card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+}
+
+.amount {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    margin-bottom: 4px;
+}
+
+.positive {
+    color: #86B079;
+}
+
+.negative {
+    color: #B05768;
+}
+
+.transactions-container {
+    display: flex;
+    gap: 16px;
+    padding: 0px 24px;
+    width: 1140px;
+}
+
+.k-grid {
+    background-color: #1e1e1e;
+}
+
+.k-grid-header {
+    font-weight: 600;
+}
+
+.k-grid td {
+    border-color: #2a2a2a;
+    padding: 12px;
+}
+
+.grid-container {
+    padding: 12px 24px 24px;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+}
+
+.budget-values {
+    display: grid;
+}
+
+.gauge-center {
+    color: #1D84D6;
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.footer {
+    background-color: var(--kendo-color-surface-alt, #212121);
+    padding-top: 12px;
+}
+
+.badgeTemplate {
+    width: 70px;
+    height: 26px;
+}
+
+.selectColumn {
+    background-color: #2a2a2a;
+    border: 1px solid var(--kendo-color-border);
+    border-right: 1px solid white;
+    border-right-width: 1px !important;
+}
+
+.k-select-checkbox {
+    border: none;
+    background-color: var(--kendo-color-on-app-surface);
+    opacity: 0.1;
+}
+
+.k-progress-status {
+    display: none;
+}
+
+.inputLabel {
+    font: var(--font-family/kendo-font-family);
+    font-weight: var(--font-weight/kendo-font-weight-normal);
+    font-size: var(--font-size/kendo-font-size-lg);
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    justify-content: space-between;
+    display: flex;
+    padding-top: 1%;
+}
+
+.budget-labels {
+    display: flex;
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    justify-content: center;
+}
+
+.k-input-solid:has(> #search) {
+    border-bottom-right-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+}
+
+
+header .k-picker-solid {
+    border-bottom-right-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+}
+
+.separator {
+    width: 2px;
+    height: 50px;
+    background-color: #525252;
+    margin: 0 15px;
+}
+
+.settingsWeather {
+    font-size: 2.8rem;
+    color: #8CA5DA;
+}
+
+.tab {
+    color: #9B9B9B;
+    padding: 10px 10px 20px 0;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.selected {
+    color: #ffffff;
+    border-bottom: 2px solid #aeb8ff;
+    white-space: nowrap;
+}
+
+.stock-tabs {
+    overflow: hidden;
+}
+
+.k-expander-title {
+    font-weight: bold;
+    text-transform: none;
+}
+
+#aiprompt .k-button-text {
+    font-weight: bold;
+}
+
+#aiprompt,
+.k-prompt-header {
+    background-color: transparent;
+}
+
+.footerText {
+    color: #9B9B9B;
+}
+
+.k-autocomplete {
+    width: 60%;
+}
+
+
+
+@media (min-width: 768px) {
+    .top-bar {
+        align-items: center;
+    }
+}
+
+.k-drawer-content {
+    margin-left: 48px;
+}
+
+.k-table-row>.k-table-td:first-child {
+    background-color: var(--kendo-color-on-app-surface)1A !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+}
+
+.k-table-row>th:first-child,
+.k-table-row>.k-table-td.k-selected:first-child {
+    background-color: var(--kendo-color-on-app-surface)1A !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+}
+
+.k-table-row>th:not(:first-child) {
+    border-right: 1px solid #FFFFFF33 !important;
+}
+
+.k-table-row>.k-table-td input[type="checkbox"],
+.k-table-row>th input[type="checkbox"] {
+    width: 16;
+    height: 16;
+    border-radius: 2px;
+    padding: 2px;
+    border-width: 1px;
+    background: var(--kendo-color-opacity-sorted, var(--kendo-color-on-app-surface)1A);
+    border: 1px solid #00000014
+}
+
+.k-chip-label {
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.k-table-th.k-header {
+    justify-items: center;
+}
+
+.k-table-row .k-table-td {
+    text-align: center;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+.k-listview-content {
+    display: grid;
+    gap: 16px !important;
+}
+
+.k-listview {
+    line-height: unset;
+}
+
+.k-tabstrip-top>.k-tabstrip-items-wrapper {
+    border-bottom-width: 0px !important;
+}
+
+.k-expander-title {
+    color: #9FA8DA;
+}
+
+.k-prompt-suggestion {
+    background-color: #212121;
+}
+
+.k-calendar {
+    border-width: 0px;
+    border-style: none;
+}
+
+.k-tabstrip-content>.k-animation-container {
+    width: 100%;
+}
+
+@media (max-width: 820px) {
+    .k-justify-content-sm-start {
+        justify-content: flex-start;
+    }
+}
+
+.k-grid .k-grid-header .k-filterable>.k-cell-inner .k-link {
+    padding-left: 0px;
+}
+
+.k-grid .k-grid-header .k-filterable>.k-cell-inner .k-link {
+    padding-inline-end: 25px;
+}
+
+.k-grid-md .k-grid-header .k-grid-header-menu {
+    width: 15px;
+}
+
+.k-listview {
+    border-width: 0px;
+}
+
+.k-form-md .k-form-field {
+    margin-top: 0px;
+}
+
+.k-arcgauge-label{
+    z-index: 10 !important;
+    left: 42% !important;
+} */
+
+@import 'https://fonts.googleapis.com/css2?family=Outfit:wght@200..900&display=swap';
+
+body {
+    background-color: var(--kendo-color-app-surface);
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.overlay-active {
+    opacity: 0.2;
+}
+
+.k-drawer {
+    background: var(--kendo-color-surface-alt, #212121);
+}
+
+.k-drawer-item{
+    white-space: nowrap;
+}
+
+.positive {
+    color: #86B079;
+}
+
+.negative {
+    color: #B05768;
+}
+
+.k-grid td {
+    border-color: #2a2a2a;
+    padding: 12px;
+}
+
+.k-select-checkbox {
+    border: none;
+    background-color: var(--kendo-color-on-app-surface);
+    opacity: 0.1;
+}
+
+header .k-picker-solid {
+    border-bottom-right-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+}
+
+.separator {
+    width: 2px;
+    height: 50px;
+    background-color: #525252;
+    margin: 0 15px;
+}
+
+
+.stock-tabs{
+    overflow: hidden;
+}
+
+.k-expander-title {
+    font-weight: bold;
+    text-transform: none;
+    color: var(--kendo-color-primary) !important;
+}
+
+@media (min-width: 768px) {
+    .top-bar {
+        align-items: center;
+    }
+}
+
+.k-table-row > .k-table-td:first-child {
+    background-color: #E0E0E01A !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+}
+
+.k-table-row > th:first-child, .k-table-row > .k-table-td.k-selected:first-child{
+    background-color: #E0E0E01A !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+}
+
+.k-table-row > th:not(:first-child) {
+    border-right: 1px solid #FFFFFF33 !important;
+}
+
+.k-table-row > .k-table-td input[type="checkbox"], .k-table-row > th input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    padding: 2px;
+    border-width: 1px;
+    background: var(--kendo-color-opacity-sorted, #E0E0E01A);
+    border: 1px solid #00000014
+}
+
+.k-chip-label {
+    font-size: 10px;
+    font-weight: 400;
+}
+.k-table-th.k-header {
+    justify-items: center;
+}
+.k-table-row .k-table-td {
+    text-align: center !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+.k-listview-content{
+    display: grid;
+    gap: 16px !important;
+}
+
+.k-listview {
+    line-height: unset;
+}
+.k-tabstrip-top>.k-tabstrip-items-wrapper {
+    border-bottom-width: 0px !important;
+}
+
+.k-prompt-suggestion {
+    background-color: var(--kendo-color-surface-alt);
+
+}
+.k-calendar {
+    border-width: 0px;
+    border-style: none;
+}
+
+.k-tabstrip-content > .k-animation-container {
+    width: 100% !important;
+}
+
+@media (max-width: 820px) {
+    .k-justify-content-sm-start {
+        justify-content: flex-start;
+    }
+}
+
+.k-form-md .k-form-field {
+    margin-top: 0px;
+}
+.k-chip {
+    padding-inline: 2px !important;
+}
+
+.k-grid .k-chip {
+    padding-inline: 2px !important;
+    min-width: 80px !important;
+}
+
+.k-drawer-content {
+    min-height: 92vh; 
+    margin-left: 80px;
+}
+
+.k-arcgauge-label{
+    z-index: 10 !important;
+    left: 42% !important;
+}
+
+.k-calendar {
+    border-width: 0px !important;
+}

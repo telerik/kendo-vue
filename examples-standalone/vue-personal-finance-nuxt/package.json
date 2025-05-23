@@ -1,0 +1,37 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@progress/kendo-drawing": "^1.21.2",
+    "@progress/kendo-svg-icons": "^4.3.0",
+    "@progress/kendo-theme-material": "^11.0.2",
+    "@progress/kendo-theme-utils": "^11.0.2",
+    "@progress/kendo-vue-buttons": "^6.4.0",
+    "@progress/kendo-vue-charts": "^6.4.0",
+    "@progress/kendo-vue-conversational-ui": "^6.4.0",
+    "@progress/kendo-vue-dropdowns": "^6.4.0",
+    "@progress/kendo-vue-excel-export": "^6.4.0",
+    "@progress/kendo-vue-form": "^6.4.0",
+    "@progress/kendo-vue-gauges": "^6.4.0",
+    "@progress/kendo-vue-grid": "^6.4.0",
+    "@progress/kendo-vue-layout": "^6.4.0",
+    "@progress/kendo-vue-listview": "^6.4.0",
+    "@progress/kendo-vue-pdf": "^6.4.0",
+    "@progress/kendo-vue-progressbars": "^6.4.0",
+    "nuxt": "^3.17.3",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
