@@ -1,0 +1,7 @@
+import{d as n,W as d,aB as p,aQ as i,aR as c,B as a,G as u,Q as f,Z as h}from"./CoVIVF5Y.js";/**
+ * @license
+ *-------------------------------------------------------------------------------------------
+ * Copyright © 2025 Progress Software Corporation. All rights reserved.
+ * Licensed under commercial license. See LICENSE.md in the package root for more information
+ *-------------------------------------------------------------------------------------------
+ */const b=n({name:"KendoLabel",props:{id:String,editorId:String,editorRef:String,editorValid:{type:Boolean,default:void 0},editorDisabled:Boolean,optional:Boolean},inject:{kendoLocalizationService:{default:null}},created(){f(h)},computed:{labelClassName(){return{"k-label":!0,"k-label-empty":!this.defaultSlots,"k-text-error":this.$props.editorValid===!1,"k-text-disabled":this.$props.editorDisabled===!0}}},methods:{onLabelClick(e){if(this.$props.editorRef&&this.$props.editorRef.current&&!this.$props.editorDisabled){this.$props.editorRef.current.focus&&(e.preventDefault(),this.$props.editorRef.current.focus());const t=this.$props.editorRef.current.actionElement;t&&(e.preventDefault(),t.click())}}},setup(){return{kendoLocalizationService:u("kendoLocalizationService",{})}},render(){this.defaultSlots=d(this);const e=p(this),{id:t,editorId:s,optional:r}=this.$props,o=r?e.toLanguageString(i,c[i]):"",l=o&&a("span",{class:"k-label-optional"},[o]);return a("label",{id:t,for:s,onClick:this.onLabelClick,class:this.labelClassName},[this.defaultSlots,l])}});export{b as L};
