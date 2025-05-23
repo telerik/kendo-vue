@@ -15,11 +15,13 @@ do
   rm -rf dist
   if [ "${PROJECT}" == "vue-personal-finance-nuxt" ]; then
     npm run generate
+    mkdir -p ../../examples/dist/${PROJECT}
+    mv -v .output/public/* ../../examples/dist/${PROJECT}
   else
     npm run build
+    mkdir -p ../../examples/dist/${PROJECT}
+    mv -v dist/* ../../examples/dist/${PROJECT}
   fi
-  mkdir -p ../../examples/dist/${PROJECT}
-  mv -v dist/* ../../examples/dist/${PROJECT}
 
   popd > /dev/null
 done
