@@ -9,8 +9,8 @@
             @progress="onProgress"
             @statuschange="onStatusChange"
             :with-credentials="false"
-            :save-url="'https://demos.telerik.com/kendo-ui/service-v4/upload/save'"
-            :remove-url="'https://demos.telerik.com/kendo-ui/service-v4/upload/remove'"
+            :save-url="'https://demos.telerik.com/service/v2/odata/upload/save'"
+            :remove-url="'https://demos.telerik.com/service/v2/odata/upload/remove'"
         ></upload>
         <div class='example-config' :style="{ marginTop: '20px' }">
             <ul class='event-log'>

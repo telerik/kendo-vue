@@ -6,8 +6,8 @@
             :batch="false"
             :multiple="true"
             :with-credentials="false"
-            :save-url="'https://demos.telerik.com/kendo-ui/service-v4/upload/save'"
-            :remove-url="'https://demos.telerik.com/kendo-ui/service-v4/upload/remove'"
+            :save-url="'https://demos.telerik.com/service/v2/odata/upload/save'"
+            :remove-url="'https://demos.telerik.com/service/v2/odata/upload/remove'"
         >
          <template v-slot:myTemplate="{props}">
             <custom

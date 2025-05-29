@@ -291,8 +291,8 @@
                 :auto-upload="false"
                 :default-files="[]"
                 :with-credentials="false"
-                :save-url="'https://demos.telerik.com/kendo-ui/service-v4/upload/save'"
-                :remove-url="'https://demos.telerik.com/kendo-ui/service-v4/upload/remove'"       
+                :save-url="'https://demos.telerik.com/service/v2/odata/upload/save'"
+                :remove-url="'https://demos.telerik.com/service/v2/odata/upload/remove'"       
             ></Upload>
     </div>
 </template>

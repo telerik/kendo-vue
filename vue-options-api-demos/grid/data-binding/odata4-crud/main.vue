@@ -55,7 +55,7 @@ export default {
   },
   data: function () {
     return {
-      baseUrl: 'https://demos.telerik.com/kendo-ui/service-v4/odata/Products',
+      baseUrl: 'https://demos.telerik.com/service/v2/odata/Products',
       init: { method: 'GET', accept: 'application/json', headers: {} },
       filter: null,
       sort: null,
