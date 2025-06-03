@@ -25,7 +25,7 @@ export default {
             tempSkip: 0,
             requestInProgress: false,
             pageSize: 20,
-            baseUrl: 'https://demos.telerik.com/kendo-ui/service-v4/odata/Orders?$count=true&$top=60&$skip=',
+            baseUrl: 'https://demos.telerik.com/service/v2/odata/Orders?$count=true&$top=60&$skip=',
             init: { method: 'GET', accept: 'application/json', headers: {} },
             orders: [],
             items: [],

@@ -7,8 +7,8 @@
             :with-credentials="false"
             @beforeupload="onBeforeUpload"
             @beforeremove="onBeforeRemove"
-            :save-url="'https://demos.telerik.com/kendo-ui/service-v4/upload/save'"
-            :remove-url="'https://demos.telerik.com/kendo-ui/service-v4/upload/remove'"       
+            :save-url="'https://demos.telerik.com/service/v2/odata/upload/save'"
+            :remove-url="'https://demos.telerik.com/service/v2/odata/upload/remove'"       
             />
     </div>
 </template>
