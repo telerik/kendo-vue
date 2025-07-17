@@ -33,6 +33,8 @@ jobs:
               - 'examples-standalone/coffee-warehouse/**'
             vue-personal-finance-nuxt:
               - 'examples-standalone/vue-personal-finance-nuxt/**'
+            kendo-vue-tailwind:
+              - 'examples-standalone/kendo-vue-tailwind/**'
 
       - name: Build Dashboard app
         working-directory: ./examples-standalone/dashboard
@@ -51,6 +53,13 @@ jobs:
       - name: Build Vue Personal Finance Nuxt app
         working-directory: ./examples-standalone/vue-personal-finance-nuxt
         if: steps.changes.outputs.vue-personal-finance-nuxt == 'true'
+        run: |
+          npm ci
+          npm run build
+
+      - name: Build Kendo Vue app
+        working-directory: ./examples-standalone/kendo-vue-tailwind
+        if: steps.changes.outputs.kendo-vue-tailwind == 'true'
         run: |
           npm ci
           npm run build
