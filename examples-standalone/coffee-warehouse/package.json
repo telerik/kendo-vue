@@ -63,7 +63,7 @@
     "eslint": "^7.5.0",
     "eslint-plugin-vue": "^7.2.0",
     "sass": "^1.54.4",
-    "node-sass": "^7.0.3",
+    "node-sass": "^9.0.0",
     "sass-loader": "^13.2.0"
   }
 }
