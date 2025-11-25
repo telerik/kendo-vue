@@ -1,1 +1,0 @@
-import{X as o}from"./Bx0oO-DX.js";const e=(r,n,t)=>t==="EUR"?r/1.18:r,a=(r,n)=>o({}).formatNumber(e(r,"USD",n),`#,##0.00 ${n}`),c=(r,n)=>o({}).formatNumber(e(r,"USD",n),`${n==="USD"?"$":"€"} #,##0.00`);export{c as a,a as d};
