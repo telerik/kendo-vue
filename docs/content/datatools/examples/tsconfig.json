@@ -1,0 +1,29 @@
+{
+   "compilerOptions": {
+        "types": [],
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "ES5",
+        "jsx": "vue",
+        "lib": [
+            "es2015",
+            "es2017",
+            "dom"
+        ],
+        "declaration": true,
+        "moduleResolution": "node",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strictNullChecks": true,
+        "paths": {
+            "@progress/kendo-vue-conversational-ui": [
+                "../../src/main.ts",
+            ]
+        }
+    },
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+    ]
+}

@@ -1,0 +1,23 @@
+---
+title: Selection
+description: "Sets the selection mode of the Kendo UI for Vue Rating in Vue projects."
+slug: selection_rating
+position: 1
+---
+
+# Selection Mode
+
+By default, the Rating selection is set to `continues`.
+
+To change the component selection, set its [`selection`]({% slug api_inputs_ratingprops %}#toc-selection) property to `single`. Setting the `single` selection value allow to the user to select only one icon - the selection is no longer `continues`.
+
+
+{% meta height:260 %}
+{% embed_file rating/selection/main.vue preview %}
+{% embed_file rating/selection/main.js %}
+{% endmeta %}
+
+
+## Suggested Links
+
+* [API Reference of the RatingProps]({% slug api_inputs_ratingprops %})

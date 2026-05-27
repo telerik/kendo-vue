@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --text: #1f2328;
+  --text-secondary: #656d76;
+  --border: #d1d9e0;
+  --bg: #ffffff;
+  --bg-page: #f6f8fa;
+  --hover: #f0f4f8;
+  --accent: #ff6358;
+  --link: #0969da;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
+  color: var(--text);
+  background: var(--bg-page);
+  line-height: 1.6;
+}
+
+#app {
+  min-height: 100%;
+}
+
+.page {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.brand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: var(--link);
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.15);
+}
+
+.count-badge {
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.demo-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.demo-table th {
+  text-align: left;
+  padding: 10px 16px;
+  border-bottom: 2px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-page);
+}
+
+.demo-table td {
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.demo-table tbody tr:hover {
+  background: var(--hover);
+}
+
+.demo-table a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.demo-table a:hover {
+  text-decoration: underline;
+}
+
+.cell-component {
+  text-transform: capitalize;
+  width: 200px;
+}
+
+.cell-path {
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: var(--text-secondary);
+  width: 340px;
+}
+
+/* ---- Demo pages ---- */
+.demo-page {
+  padding: 20px;
+}

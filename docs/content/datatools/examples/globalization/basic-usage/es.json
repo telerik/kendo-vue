@@ -1,0 +1,53 @@
+{
+    "pager": {
+        "firstPage": "Ir a la primera página",
+        "previousPage": "Ir a la página anterior",
+        "nextPage": "Ir a la página siguiente",
+        "lastPage": "Ir a la última página",
+        "page": "Página",
+        "of": "de",
+        "info": "{0} - {1} de {2} ítems",
+        "itemsPerPage": "ítems por página"
+    },
+    "datepicker": {
+        "toggleCalendar": "Alternar calendario"
+    },
+    "calendar": {
+        "today": "Hoy"
+    },
+    "dateinput": {
+        "increment": "Incrementar valor",
+        "decrement": "Disminuir valor"
+    },
+    "numerictextbox": {
+        "increment": "Incrementar valor",
+        "decrement": "Disminuir valor"
+    },
+    "filter": {
+        "eqOperator": "Es igual a",
+        "notEqOperator": "No es igual a",
+        "isNullOperator": "Es nulo",
+        "isNotNullOperator": "No es nulo",
+        "isEmptyOperator": "Está vacío",
+        "isNotEmptyOperator": "No está vacío",
+        "startsWithOperator": "Comienza con",
+        "containsOperator": "Contiene",
+        "notContainsOperator": "No contiene",
+        "endsWithOperator": "Termina en",
+        "gteOperator": "Es mayor o igual que",
+        "gtOperator": "Es mayor que",
+        "lteOperator": "Es menor o igual que",
+        "ltOperator": "Es menor o igual que",
+        "isTrue": "Sí",
+        "isFalse": "No",
+        "afterOrEqualOperator": "Es posterior o igual a",
+        "afterOperator": "Es posterior",
+        "beforeOperator": "Es anterior",
+        "beforeOrEqualOperator": "Es anterior o igual a",
+        "andLogic": "Y",
+        "orLogic": "O",
+        "addExpression": "Agregar expresión",
+        "addGroup": "Añadir grupo",
+        "close": "Cerca"
+    }
+  }

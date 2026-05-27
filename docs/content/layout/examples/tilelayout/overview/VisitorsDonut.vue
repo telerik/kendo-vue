@@ -1,0 +1,21 @@
+<template>
+  <Chart :style="{ height: '100%' }">
+    <ChartSeries>
+      <ChartSeriesItem
+        :type="'donut'"
+        :dataItems="dataItems"
+        :categoryField="'type'"
+        :field="'value'"
+      />
+    </ChartSeries>
+    <ChartLegend :position="'bottom'" :visible="true" />
+  </Chart>
+</template>
+
+<script setup>
+import { Chart, ChartLegend, ChartSeries, ChartSeriesItem } from '@progress/kendo-vue-charts';
+
+defineProps({
+    dataItems: Array,
+});
+</script>

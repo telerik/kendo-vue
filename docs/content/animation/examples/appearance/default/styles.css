@@ -1,0 +1,19 @@
+.k-animation-container {
+  background-color: lightgray;
+}
+.k-animation-container > .k-child-animation-container {
+  color: lightgray;
+  background-color: #ff6757;
+}
+
+.content {
+  width: 100px;
+  padding: 10px;
+  font-size: 13px;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.example {
+  display: flex;
+}

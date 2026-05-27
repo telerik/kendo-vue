@@ -1,0 +1,5 @@
+
+# docs app build artifacts
+docs/node_modules/
+docs/dist/
+docs/package-lock.json

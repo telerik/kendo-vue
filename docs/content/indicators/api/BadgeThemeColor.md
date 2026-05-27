@@ -1,0 +1,22 @@
+---
+title: BadgeThemeColor
+description: "Learn how to build custom functionality when working with the Vue Indicators by Kendo UI with the help of the BadgeThemeColor."
+api_reference: true
+type: inner_api
+slug: api_indicators_badgethemecolor
+---
+
+# BadgeThemeColor
+Specifies the theme color of the Badge.
+
+The possible values are:
+* `base` (Default)&mdash;Applies base coloring.
+* `primary`&mdash;Applies coloring based on primary theme color.
+* `secondary`&mdash;Applies coloring based on secondary theme color.
+* `tertiary`&mdash; Applies coloring based on tertiary theme color.
+* `info`&mdash;Applies coloring based on info theme color.
+* `success`&mdash; Applies coloring based on success theme color.
+* `warning`&mdash; Applies coloring based on warning theme color.
+* `error`&mdash; Applies coloring based on error theme color.
+
+`type` BadgeThemeColor = "base" | "primary" | "secondary" | "tertiary" | "info" | "success" | "warning" | "error";

@@ -1,0 +1,309 @@
+<template>
+    <div class="demo-container"></div>
+    <div class="profile-demo card-container">
+        <div class="k-card custom-card">
+            <div class="card-row">
+                <div class="card-column no-flex">
+                    <div class="sidebar-container k-skeleton">
+                        <div class="avatar-name-container">
+                            <div class="name-container">
+                                <div class="k-skeleton skeleton-text"></div>
+                                <div class="k-skeleton skeleton-small-text-short"></div>
+                            </div>
+                        </div>
+                        <div class="description-container">
+                            <div class="k-skeleton skeleton-small-text"></div>
+                            <div class="k-skeleton skeleton-small-text"></div>
+                            <div class="k-skeleton skeleton-small-text"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-column">
+                    <div class="avatar-title-container">
+                        <div class="k-skeleton skeleton-avatar"></div>
+                        <h4 class="k-h4 k-font-size-xl">Additional Information</h4>
+                    </div>
+                    <div class="skeleton-container top">
+                        <div class="k-skeleton skeleton-box-small"></div>
+                        <div class="k-skeleton skeleton-box-large"></div>
+                    </div>
+                    <div class="component-container">
+                        <span class="start">Project Impact Summary</span>
+                        <TextArea
+                            :rows="4"
+                            input-suffix="suffix"
+                            flow="vertical"
+                            :show-clear-button="true"
+                            v-model="finalText"
+                            class="!k-flex-col !k-font-size-lg"
+                        >
+                            <template #suffix="{ props }">
+                                <InputSeparator orientation="horizontal" />
+
+                                <span :class="props.className">
+                                    <span
+                                        :class="{
+                                            istening: isListening,
+                                            '!k-font-size-md': true,
+                                            'k-font-style-italic': true,
+                                            'k-opacity-50': true,
+                                            'p-3': true,
+                                        }"
+                                    >
+                                        {{ isListening ? 'Listening...' : 'Click the mic to speak' }}
+                                    </span>
+                                    <span class="k-flex-1"></span>
+                                    <SpeechToTextButton
+                                        class="mx-1"
+                                        size="large"
+                                        fill-mode="flat"
+                                        theme-color="primary"
+                                        rounded="large"
+                                        @start="onStart"
+                                        @end="onEnd"
+                                        @error="onError"
+                                        @result="onResult"
+                                    />
+                                </span>
+                            </template>
+                        </TextArea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { SpeechToTextButton } from '@progress/kendo-vue-buttons';
+import { TextArea, InputSeparator } from '@progress/kendo-vue-inputs';
+
+// State variables
+const isListening = ref(false);
+const finalText = ref('Describe a project you worked on that had a strong impact.');
+const confidence = ref(null);
+
+// Event handlers
+const onStart = () => {
+    isListening.value = true;
+};
+
+const onEnd = () => {
+    isListening.value = false;
+};
+
+const onError = (event) => {
+    isListening.value = false;
+    console.error('Speech recognition error:', event);
+};
+
+const onResult = (event) => {
+    const { isFinal, alternatives } = event;
+
+    if (alternatives.length > 0) {
+        const result = alternatives[0];
+
+        if (isFinal) {
+            // If this is a final result, append it to our final text
+            finalText.value += (finalText.value ? ' ' : '') + result.transcript;
+            confidence.value = result.confidence;
+        }
+    }
+};
+</script>
+
+<style>
+.profile-demo.card-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-demo .custom-card {
+    padding: 32px;
+    width: 712px;
+    gap: 32px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.08);
+}
+
+.profile-demo .card-row {
+    display: flex;
+    gap: 32px;
+}
+
+.profile-demo .card-column {
+    flex: 1;
+}
+
+.profile-demo .no-flex {
+    flex: 0;
+}
+
+.profile-demo .sidebar-container,
+.profile-demo .avatar-name-container,
+.profile-demo .name-container,
+.profile-demo .description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-demo .sidebar-container {
+    padding: 30px 20px;
+    width: 180px;
+    height: 100%;
+    gap: 50px;
+}
+
+.profile-demo .avatar-name-container {
+    gap: 20px;
+}
+
+.profile-demo .name-container {
+    gap: 5px;
+}
+
+.profile-demo .description-container {
+    width: 100%;
+    gap: 15px;
+}
+
+.profile-demo .k-skeleton {
+    border-radius: 4px;
+    opacity: 0.4;
+}
+
+.profile-demo .sidebar-container .k-skeleton {
+    opacity: 0.8;
+}
+
+.profile-demo .skeleton-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+}
+
+.profile-demo .skeleton-text {
+    width: 104px;
+    height: 15px;
+}
+
+.profile-demo .skeleton-small-text {
+    width: 100%;
+    height: 10px;
+}
+
+.profile-demo .skeleton-small-text-short {
+    width: 56px;
+    height: 10px;
+}
+
+.profile-demo .skeleton-box-small {
+    width: 124px;
+    height: 15px;
+}
+
+.profile-demo .skeleton-box-large {
+    width: 100%;
+    height: 30px;
+}
+
+.profile-demo .skeleton-box-large-double {
+    width: 100%;
+    height: 56px;
+}
+
+.profile-demo .skeleton-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile-demo .avatar-title-container {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-demo .avatar-title-container .skeleton-avatar {
+    width: 48px;
+    height: 48px;
+    display: none;
+}
+
+.profile-demo .top {
+    margin-bottom: 20px;
+}
+
+.profile-demo .k-h4 {
+    margin-bottom: 0;
+    opacity: 0.2;
+}
+
+@media only screen and (max-width: 559px) {
+    .profile-demo .card-column.no-flex {
+        display: none !important;
+    }
+
+    .profile-demo .avatar-title-container .skeleton-avatar {
+        display: block;
+    }
+
+    .profile-demo .custom-card {
+        width: 360px;
+        gap: 48px;
+    }
+
+    .profile-demo .skeleton-box-large-double {
+        height: 72px;
+    }
+}
+
+@media only screen and (max-width: 359px) {
+    .profile-demo .custom-card {
+        padding: 24px;
+    }
+
+    .profile-demo .k-h4 {
+        font-size: 20px;
+    }
+
+    .profile-demo .avatar-title-container .skeleton-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .profile-demo .skeleton-box-large-double {
+        height: 78px;
+    }
+}
+kendo-textarea textarea {
+    width: 426px;
+}
+
+.component-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.component-container kendo-textarea {
+    align-self: stretch;
+}
+
+.component-container button[kendospeechtotextbutton] {
+    align-self: flex-end;
+}
+button[kendospeechtotextbutton] {
+    height: 38px;
+    width: 38px;
+}
+
+.start {
+    align-self: flex-start;
+}
+</style>

@@ -1,0 +1,21 @@
+<template>
+  <div>
+    <img :alt="`${dataItem.Ticker} icon`" :src="`${dataItem.Image}`" />
+    <span
+      :style="{
+        color: '#4B5FFA',
+        marginLeft: '5px',
+        fontWeight: 'bold',
+      }"
+    >
+      {{ dataItem[field] }}
+    </span>
+  </div>
+</template>
+
+<script setup>
+defineProps({
+    dataItem: Object,
+    field: String,
+});
+</script>

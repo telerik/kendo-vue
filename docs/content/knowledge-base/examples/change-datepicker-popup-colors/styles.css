@@ -1,0 +1,16 @@
+.inner-wrapper .k-calendar,
+.inner-wrapper .k-calendar table {
+  background-color: #8bc34a;
+}
+
+.inner-wrapper .k-calendar,
+.inner-wrapper .k-calendar table thead,
+.inner-wrapper .k-calendar,
+.inner-wrapper .k-calendar table td {
+  color: #ffff00;
+}
+
+.inner-wrapper .k-calendar table td.k-today span.k-link,
+.inner-wrapper .k-calendar div.k-calendar-header span {
+  color: #0000ff;
+}

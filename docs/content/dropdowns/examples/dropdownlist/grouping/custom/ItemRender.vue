@@ -1,0 +1,34 @@
+<template>
+  <li class="k-item" @click="handleClick">
+    <i
+      :style="{ color: 'green' }"
+      role="option"
+      :aria-selected="focused"
+      :class="itemClass"
+    >
+      {{ dataItem[textField] }} {{ index }}
+    </i>
+  </li>
+</template>
+
+<script setup>
+import { computed } from "vue";
+
+const props = defineProps({
+    index: Number,
+    dataItem: [Object, String, Number],
+    textField: String,
+    focused: Boolean,
+});
+
+const emit = defineEmits(["click"]);
+
+const itemClass = computed(() => ({
+    "k-item": true,
+    "k-state-focused": props.focused,
+}));
+
+function handleClick(e) {
+    emit("click", e);
+}
+</script>

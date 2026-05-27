@@ -1,0 +1,13 @@
+{
+  "name": "kendo-vue-docs-demos",
+  "version": "9.0.0",
+  "private": true,
+  "description": "Runnable Kendo UI for Vue documentation demos",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {"vue": "^3.5.0","vue-router": "^4.5.0","@progress/kendo-vue-animation": "9.0.0","@progress/kendo-vue-buttons": "9.0.0","@progress/kendo-vue-charts": "9.0.0","@progress/kendo-vue-common": "9.0.0","@progress/kendo-vue-conversational-ui": "9.0.0","@progress/kendo-vue-data-tools": "9.0.0","@progress/kendo-vue-dateinputs": "9.0.0","@progress/kendo-vue-dialogs": "9.0.0","@progress/kendo-vue-dropdowns": "9.0.0","@progress/kendo-vue-editor": "9.0.0","@progress/kendo-vue-excel-export": "9.0.0","@progress/kendo-vue-form": "9.0.0","@progress/kendo-vue-gauges": "9.0.0","@progress/kendo-vue-grid": "9.0.0","@progress/kendo-vue-indicators": "9.0.0","@progress/kendo-vue-inputs": "9.0.0","@progress/kendo-vue-intl": "9.0.0","@progress/kendo-vue-labels": "9.0.0","@progress/kendo-vue-layout": "9.0.0","@progress/kendo-vue-listbox": "9.0.0","@progress/kendo-vue-listview": "9.0.0","@progress/kendo-vue-notification": "9.0.0","@progress/kendo-vue-pdf": "9.0.0","@progress/kendo-vue-popup": "9.0.0","@progress/kendo-vue-progressbars": "9.0.0","@progress/kendo-vue-scheduler": "9.0.0","@progress/kendo-vue-scrollview": "9.0.0","@progress/kendo-vue-tooltip": "9.0.0","@progress/kendo-vue-treelist": "9.0.0","@progress/kendo-vue-treeview": "9.0.0","@progress/kendo-vue-upload": "9.0.0","@progress/kendo-svg-icons": "*","@progress/kendo-data-query": "*","@progress/kendo-date-math": "*","@progress/kendo-drawing": "*","@progress/kendo-file-saver": "*","@progress/kendo-intl": "*","@progress/kendo-licensing": "*","@progress/kendo-theme-default": "*","@progress/kendo-theme-bootstrap": "*","@faker-js/faker": "10.4.0","cldr-core": "48.0.0","cldr-dates-full": "48.0.0","cldr-numbers-full": "48.0.0","d3-scale-chromatic": "3.0.0","prosemirror-markdown": "1.13.4"},
+  "devDependencies": {"@vitejs/plugin-vue": "^5.0.0","@vitejs/plugin-vue-jsx": "^4.0.0","sass": "^1.69.0","typescript": "~5.7.0","vite": "^6.0.0"}
+}

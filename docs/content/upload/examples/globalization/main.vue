@@ -1,0 +1,44 @@
+<template>
+  <div>
+    <LocalizationProvider :language="'bg-BG'">
+      <IntlProvider :locale="'bg'">
+        <Upload
+          :default-files="[]"
+          :batch="false"
+          :multiple="true"
+          :with-credentials="false"
+          :save-url="'https://demos.telerik.com/service/v2/odata/upload/save'"
+          :remove-url="'https://demos.telerik.com/service/v2/odata/upload/remove'"
+        />
+      </IntlProvider>
+    </LocalizationProvider>
+  </div>
+</template>
+
+<script setup>
+import { Upload } from '@progress/kendo-vue-upload';
+import { IntlProvider, LocalizationProvider, loadMessages } from '@progress/kendo-vue-intl';
+
+const bgMessages = {
+    upload: {
+        cancel: 'Отмени',
+        clearSelectedFiles: 'Изчисти',
+        dropFilesHere: 'Пусни фаиловете тук за качване',
+        headerStatusUploaded: 'Готово',
+        headerStatusUploading: 'Качване...',
+        invalidFileExtension: 'Този тип фаил не е позволен.',
+        invalidFiles: 'Невалидни файлове. Моля проверете изискванията за качване.',
+        invalidMaxFileSize: 'Файлът е прекалено голям.',
+        invalidMinFileSize: 'Файлът е прекалено малък.',
+        remove: 'Премахни',
+        retry: 'Опитай отново',
+        select: 'Избери файлове...',
+        statusUploaded: 'Файловете са успешно качени.',
+        statusUploadFailed: 'Файловете не успяха да се качат.',
+        uploadSelectedFiles: 'Качи',
+        total: 'Общо',
+        files: 'файлове',
+    },
+};
+loadMessages(bgMessages, 'bg-BG');
+</script>

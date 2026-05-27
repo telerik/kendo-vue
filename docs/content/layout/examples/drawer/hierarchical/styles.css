@@ -1,0 +1,52 @@
+my-app {
+  padding: 0 !important;
+}
+
+.k-drawer-content {
+  padding: 20px;
+}
+
+.k-drawer-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.k-drawer-item {
+  align-items: center;
+  user-select: none;
+}
+.weather-icon {
+  display: block;
+  margin: 30px auto 10px;
+  width: 128px;
+  height: 128px;
+}
+.k-drawer-container .k-drawer-items .k-icon {
+  font-size: 20px;
+  margin-right: 16px;
+  height: 20px;
+}
+.custom-toolbar {
+  width: 100%;
+  background-color: #f6f6f6;
+  line-height: 10px;
+  border-bottom: inset;
+  border-bottom-width: 1px;
+  padding: 3px 8px;
+  color: #656565;
+}
+.title {
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 17px;
+}
+.item-descr {
+  margin-top: -5px;
+}
+.item-descr-wrap > span {
+  font-size: 70%;
+}
+.item-descr-wrap {
+  display: flex;
+  flex-direction: column;
+}

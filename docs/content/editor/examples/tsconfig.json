@@ -1,0 +1,30 @@
+{
+   "compilerOptions": {
+        "types": [],
+        "baseUrl": ".",
+        "sourceMap": false,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "ES5",
+        "jsx": "react",
+        "lib": [
+            "es2015",
+            "es2017",
+            "dom"
+        ],
+        "declaration": true,
+        "moduleResolution": "node",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strictNullChecks": true,
+        "paths": {
+            "@progress/kendo-vue-editor": [
+                "../../src/main.ts",
+            ]
+        }
+    },
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+    ]
+}

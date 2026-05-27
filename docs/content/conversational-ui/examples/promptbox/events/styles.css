@@ -1,0 +1,19 @@
+
+.profile-demo.card-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 20px;
+    top: 70px;
+    width: calc(100% - 40px);
+}
+
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+
+

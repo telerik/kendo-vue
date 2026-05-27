@@ -1,0 +1,166 @@
+.demo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.demo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.demo-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.demo-controls {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.control-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.tickets-section {
+    margin-bottom: 32px;
+    text-align: left;
+    width: 800px;
+    max-width: 100%;
+}
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 0;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.status-text {
+    font-size: 14px;
+    color: var(--kendo-color-on-app-surface, #475569);
+}
+
+.status-text strong {
+    color: var(--kendo-color-on-app-surface, #475569);
+    font-weight: 600;
+}
+
+.preview-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.preview-header {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background-color: var(--kendo-color-surface-alt);
+    border: 1px solid var(--kendo-color-border);
+    border-radius: 8px;
+}
+
+.preview-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--kendo-color-surface-alt);
+    border: 1px solid var(--kendo-color-border);
+    border-radius: 8px;
+}
+
+.preview-content-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.k-segmented-control.k-segmented-control {
+    border-radius: 0.5rem;
+    background-color: var(--kendo-color-base, #F1F5F9);
+}
+
+.k-segmented-control .k-segmented-control-thumb,
+.k-segmented-control .k-segmented-control-button {
+    border-radius: calc(0.5rem - 2px);
+}
+
+.k-segmented-control .k-segmented-control-thumb {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.k-segmented-control.k-segmented-control-md .k-segmented-control-button.k-segmented-control-button {
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--kendo-color-on-app-surface, #475569);
+}
+
+.k-segmented-control.k-segmented-control-md .k-segmented-control-button.k-segmented-control-button.k-selected {
+    color: var(--kendo-color-on-app-surface, #475569);
+}
+
+.k-segmented-control.k-segmented-control-lg .k-segmented-control-button.k-segmented-control-button {
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.75rem 0.75rem;
+    outline: none;
+    color: var(--kendo-color-on-app-surface, #475569);
+}
+
+.k-segmented-control.k-segmented-control-lg .k-segmented-control-button.k-segmented-control-button.k-selected {
+    color: var(--kendo-color-on-app-surface, #475569);
+}
+
+.k-segmented-control-stretched .k-segmented-control-button.k-segmented-control-button {
+    min-width: 0;
+}
+
+.control-group .k-menu-button {
+    border-radius: 0.5rem;
+    background-color: var(--kendo-color-base, #F1F5F9);
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--kendo-color-on-app-surface, #475569);
+    gap: 0.5rem;
+}
+
+.status-bar .k-button {
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--kendo-color-on-app-surface, #475569);
+    background-color: var(--kendo-color-surface-alt);
+    border: 1px solid var(--kendo-color-border);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.status-bar .k-button:hover {
+    background-color: var(--kendo-color-base-hover);
+    border-color: var(--kendo-color-border-alt);
+}
