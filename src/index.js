@@ -1,0 +1,2 @@
+// When clicking on the header of the datepicker, it closes the popup immediately after switching to year view.
+// This is because the click event handler for the empty space below the cells does not properly handle the case when no cell is selected.
