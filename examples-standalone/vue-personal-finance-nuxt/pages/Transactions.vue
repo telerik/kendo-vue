@@ -27,6 +27,6 @@ const onSelectionChange = (event) => {
 .transactions-panel, .details-panel { grid-column: span 12 / span 12; display: flex; flex: 1 1 0; flex-direction: column; }
 .details-panel { gap: var(--kendo-spacing-1); height: 100%; }
 @media (min-width: 768px) { .page-title { padding-inline: var(--kendo-spacing-15); } .transactions-layout { padding: var(--kendo-spacing-5); padding-inline: var(--kendo-spacing-15); } }
-@media (min-width: 1024px) { .transactions-layout { gap: var(--kendo-spacing-6); } }
-@media (min-width: 1280px) { .transactions-panel { grid-column: span 8 / span 8; } .details-panel { grid-column: span 4 / span 4; } }
+@media (min-width: 992px) { .transactions-layout { gap: var(--kendo-spacing-6); } }
+@media (min-width: 1200px) { .transactions-panel { grid-column: span 8 / span 8; } .details-panel { grid-column: span 4 / span 4; } }
 </style>

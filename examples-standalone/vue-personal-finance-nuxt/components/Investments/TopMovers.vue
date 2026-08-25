@@ -110,6 +110,5 @@ const currencies = ref([
 .mover-metric, .mover-total { align-items: flex-end; }
 .mover-total { justify-content: center; }
 @media (min-width: 576px) { .mover-row { gap: var(--kendo-spacing-0); } }
-@media (min-width: 1024px) { .mover-row { gap: var(--kendo-spacing-6); } }
-@media (min-width: 1536px) { .mover-row { gap: var(--kendo-spacing-6); } }
+@media (min-width: 992px) { .mover-row { gap: var(--kendo-spacing-6); } }
 </style>

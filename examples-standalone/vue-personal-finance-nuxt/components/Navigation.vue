@@ -1,14 +1,14 @@
 <template>
     <div>
         <Drawer
-        :style="{height: '100%', minWidth: '576px'}"
+        :style="{height: '100%', minWidth: '0'}"
         :mini-width="80"
         :items="drawerItems.map((item, index) => ({
         ...item,
         selected: index === selected,
       }))" :expanded="expanded" :mini="true" mode="overlay" position="start"
             @select="onSelect" @overlayclick="() => (expanded = false)">
-            <DrawerContent :style="{ maxWidth: '1140px', margin: 'auto', paddingLeft: '48px' }">
+            <DrawerContent :style="{ maxWidth: '1440px', margin: 'auto', paddingLeft: '48px' }">
                 <slot />
             </DrawerContent>
         </Drawer>
@@ -39,7 +39,8 @@ const props = defineProps({
 
 watch(() => props.goToRoute, (newValue) => {
     if (newValue) {
-        selected.value = newValue.itemIndex;
+        const itemIndex = drawerItems.findIndex((item) => item.route === newValue.itemTarget);
+        selected.value = itemIndex >= 0 ? itemIndex : selected.value;
         navigateTo(newValue.itemTarget);
     }
 });
@@ -49,11 +50,15 @@ const drawerItems = [
     { separator: true },
     { text: 'Home', selected: true, route: '/', svgIcon: gridIcon },
     { text: 'Transactions', route: '/transactions', svgIcon: arrowsSwapIcon },
+    { text: 'Transfer funds', route: '/transfers', svgIcon: arrowsSwapIcon },
+    { text: 'Budget planner', route: '/budgets', svgIcon: chartColumnStackedIcon },
     { text: 'Investments', route: '/investments', svgIcon: dollarIcon },
     { text: 'Analytics', route: '/analytics', svgIcon: chartColumnStackedIcon },
     { text: 'AI Assistant', route: '/ai-assistant', svgIcon: sparklesIcon },
     { separator: true },
+    { text: 'Profile', route: '/profile', svgIcon: gearIcon },
     { text: 'Settings', route: '/settings', svgIcon: gearIcon },
+    { text: 'Help & support', route: '/help', svgIcon: menuIcon },
 ];
 
 const onSelect = async (e) => {

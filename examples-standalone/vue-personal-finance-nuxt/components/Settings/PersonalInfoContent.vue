@@ -213,6 +213,6 @@ function onRestore(e) {
 .form-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--kendo-spacing-4); margin-bottom: var(--kendo-spacing-4); overflow: hidden; }
 .form-field { grid-column: span 5 / span 5; }
 .form-actions { display: flex; gap: var(--kendo-spacing-4); margin-top: var(--kendo-spacing-6); }
-@media (min-width: 1024px) { .form-row { gap: var(--kendo-spacing-10); } .form-field { grid-column: span 2 / span 2; } }
-@media (min-width: 1280px) { .form-field { grid-column: span 2 / span 2; } }
+@media (min-width: 992px) { .form-row { gap: var(--kendo-spacing-10); } .form-field { grid-column: span 2 / span 2; } }
+@media (min-width: 1200px) { .form-field { grid-column: span 2 / span 2; } }
 </style>

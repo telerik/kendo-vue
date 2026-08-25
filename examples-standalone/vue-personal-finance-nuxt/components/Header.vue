@@ -8,6 +8,7 @@
       <Avatar :size="'large'" rounded="full">
         <img
           src="/images/avatar-image.jpeg"
+          alt=""
           width="65"
           :style="{ verticalAlign: 'top' }"
         />
@@ -50,18 +51,25 @@
         :fill-mode="'solid'"
         :theme-color="'primary'"
         :rounded="'large'"
-        @click="navigateTo(6, 'ai-assistant')"
+        @click="navigateTo('ai-assistant')"
       >
         AI ASSISTANT
       </Button>
+      <Button
+        :fill-mode="'flat'"
+        :svg-icon="bellIcon"
+        aria-label="View notifications"
+        title="View notifications"
+        @click="navigateTo('notifications')"
+      />
       <DropDownList
         :style="{
-          backgroundColor: '#F5F5F5',
+          backgroundColor: 'var(--kendo-color-base-subtle)',
           width: '105px',
           border: '1px solid var(--kendo-color-opacity-border, var(--kendo-color-on-app-surface)A8)',
           fontSize: '16px',
           fontWeight: 400,
-          color: '#000000',
+          color: 'var(--kendo-color-on-app-surface)',
         }"
         rounded="large"
         :data-items="['USD', 'EUR']"
@@ -80,7 +88,7 @@ import { AutoComplete, DropDownList } from "@progress/kendo-vue-dropdowns";
 import { Button } from "@progress/kendo-vue-buttons";
 import { SvgIcon } from "@progress/kendo-vue-common";
 import { checkLocalStorageData } from "@/data/localStorageUtils";
-import { searchIcon } from "@progress/kendo-svg-icons";
+import { bellIcon } from "@progress/kendo-svg-icons";
 
 const personalInfo = ref(null);
 const emit = defineEmits(["navigate", "currencyChange"]);
@@ -88,10 +96,13 @@ const searchValue = ref("");
 const currency = ref("USD");
 
 const searchItems = [
-  { itemIndex: 2, text: "Transactions Overview", route: "/" },
-  { itemIndex: 3, text: "Transactions Details", route: "/transactions" },
-  { itemIndex: 4, text: "Investments", route: "/investments" },
-  { itemIndex: 5, text: "Analytics", route: "/analytics" },
+  { text: "Dashboard", route: "/" },
+  { text: "Transactions", route: "/transactions" },
+  { text: "Transfer funds", route: "/transfers" },
+  { text: "Budget planner", route: "/budgets" },
+  { text: "Investments", route: "/investments" },
+  { text: "Analytics", route: "/analytics" },
+  { text: "Help & support", route: "/help" },
 ];
 
 onBeforeMount(() => {
@@ -105,14 +116,13 @@ const onSearchChange = (event) => {
 
   if (dataItem) {
     emit("navigate", {
-      itemIndex: dataItem.itemIndex,
       itemTarget: dataItem.route,
     });
   }
 };
 
-const navigateTo = (itemIndex, itemTarget) => {
-  emit("navigate", { itemIndex, itemTarget });
+const navigateTo = (itemTarget) => {
+  emit("navigate", { itemTarget: `/${itemTarget}` });
 };
 
 const onCurrencyChange = (event) => {
@@ -131,5 +141,5 @@ const onCurrencyChange = (event) => {
 .header-actions { justify-content: flex-end; gap: var(--kendo-spacing-4); }
 @media (min-width: 576px) { .header-actions { justify-content: flex-start; } }
 @media (min-width: 768px) { .app-header { padding-inline: var(--kendo-spacing-15); } }
-@media (min-width: 1024px) { .app-header { padding-inline: var(--kendo-spacing-15); } }
+@media (min-width: 992px) { .app-header { padding-inline: var(--kendo-spacing-15); } }
 </style>

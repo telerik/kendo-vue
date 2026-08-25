@@ -13,6 +13,7 @@
       >
         <img
           src="/images/github-logo.png"
+          alt=""
           :style="{ width: '25px', height: '25px' }"
         />
         <span

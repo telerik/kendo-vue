@@ -12,7 +12,6 @@
 <script setup>
 import RelatedTopics from "@/components/AIAssistant/RelatedTopics.vue";
 import AIChat from "@/components/AIAssistant/AIChat.vue";
-
 </script>
 <style scoped>
 .page-title { margin: 0; padding: var(--kendo-spacing-5); }
@@ -20,6 +19,6 @@ import AIChat from "@/components/AIAssistant/AIChat.vue";
 .topics-panel, .chat-panel { grid-column: span 12 / span 12; display: flex; flex: 1 1 0; flex-direction: column; }
 .chat-panel { gap: var(--kendo-spacing-1); }
 @media (min-width: 768px) { .page-title { padding-inline: var(--kendo-spacing-15); } .assistant-layout { padding: var(--kendo-spacing-5); padding-inline: var(--kendo-spacing-15); } }
-@media (min-width: 1024px) { .assistant-layout { gap: var(--kendo-spacing-6); } }
-@media (min-width: 1280px) { .topics-panel { grid-column: span 8 / span 8; } .chat-panel { grid-column: span 4 / span 4; } }
+@media (min-width: 992px) { .assistant-layout { gap: var(--kendo-spacing-6); } }
+@media (min-width: 1200px) { .topics-panel { grid-column: span 8 / span 8; } .chat-panel { grid-column: span 4 / span 4; } }
 </style>
