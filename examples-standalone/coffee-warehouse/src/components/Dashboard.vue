@@ -1,299 +1,45 @@
 <template>
-  <div>
-    <div class="card-header-wrapper">
-      <h3 class="card-title">{{ teamEfficiencyMessage }}</h3>
-      <buttongroup>
-        <k-button
-          :togglable="true"
-          @click="buttonGroupClick($event, 0)"
-          :selected="selectedIndex === 0"
-        >
-          {{ trendMessage }}
-        </k-button>
-        <k-button
-          :togglable="true"
-          @click="buttonGroupClick($event, 1)"
-          :selected="selectedIndex === 1"
-        >
-          {{ volumeMessage }}
-        </k-button>
-      </buttongroup>
-      <div class="card-ranges">
-        <datepicker
-          style="width: 130px"
-          :value="dateRange.start"
-          @change="onFromDateChange"
-        >
-        </datepicker>
-        <span> - </span>
-        <datepicker
-          style="width: 130px"
-          :value="dateRange.end"
-          @change="onToDateChange"
-        >
-        </datepicker>
-      </div>
+  <section class="page">
+    <PageHeader title="Warehouse dashboard" subtitle="Live operational and commercial performance across all coffee warehouse zones." />
+    <div class="kpi-grid">
+      <article v-for="metric in metrics" :key="metric.label" class="kpi-card">
+        <p>{{ metric.label }}</p><strong>{{ metric.value }}</strong>
+        <span :class="metric.state">{{ metric.trend }} {{ metric.detail }}</span>
+      </article>
     </div>
-    <div v-if="selectedIndex === 0">
-      <Chart>
-        <ChartTooltip :render="myToolTipTemplate">
-          <template v-slot:myToolTipTemplate="{ props = { point: {} } }">
-            <div>
-              {{
-                provideIntlService(this)
-                  .formatDate(props.point.category, "MMMM yyyy")
-                  .toUpperCase()
-              }}
-              <br />
-              <div class="chart-tooltip">
-                {{
-                  provideIntlService(this).formatNumber(props.point.value, "n3")
-                }}
-              </div>
-            </div>
-          </template>
-        </ChartTooltip>
-        <ChartLegend
-          :position="'bottom'"
-          :orientation="'horizontal'"
-          :background="'var(--kendo-color-surface-alt)'"
-          :spacing="140"
-          :padding="{ left: 80, right: 80 }"
-        >
-        </ChartLegend>
-        <ChartCategoryAxis>
-          <ChartCategoryAxisItem
-            :labels="{ format: 'MMMM yyyy', rotation: 'auto' }"
-            :base-unit="'months'"
-            :min="dateRange.start"
-            :max="dateRange.end"
-            :categories="categories"
-          />
-        </ChartCategoryAxis>
-        <ChartSeries>
-          <ChartSeriesItem
-            v-for="(item, index) in series"
-            :key="index"
-            :type="'line'"
-            :data-items="item.data"
-            :name="item.name"
-          />
-        </ChartSeries>
-      </Chart>
+    <div class="dashboard-grid">
+      <article class="panel chart-panel">
+        <div class="panel-header"><div><h2>Order volume by team</h2><p>Completed orders per month, current quarter</p></div><span class="updated">Updated 4 min ago</span></div>
+        <Chart><ChartLegend :position="'bottom'" /><ChartCategoryAxis><ChartCategoryAxisItem :categories="months" /></ChartCategoryAxis><ChartSeries><ChartSeriesItem v-for="series in chartSeries" :key="series.name" :name="series.name" :data-items="series.data" :type="'line'" /></ChartSeries></Chart>
+      </article>
+      <article class="panel">
+        <div class="panel-header"><div><h2>Priority alerts</h2><p>Items requiring an operations response</p></div></div>
+        <ul class="alert-list">
+          <li><span class="status warning">Low stock</span><div><strong>Guatemala Antigua, 25 kg bags</strong><p>18 bags remain; reorder point is 40.</p></div><router-link to="/inventory">Review</router-link></li>
+          <li><span class="status error">Delayed</span><div><strong>PO-10482 from Vale Verde</strong><p>Inbound dock appointment is 1 day overdue.</p></div><router-link to="/purchase-orders">Open</router-link></li>
+          <li><span class="status success">On target</span><div><strong>Morning fulfilment rate</strong><p>96.4% of orders shipped before the cut-off.</p></div><router-link to="/operations">View</router-link></li>
+        </ul>
+      </article>
     </div>
-    <div v-else>
-      <Chart>
-        <ChartTooltip :render="myToolTipLineTemplate">
-          <template v-slot:myToolTipLineTemplate="{ props = { point: {} } }">
-            <div>
-              {{
-                provideIntlService(this)
-                  .formatDate(props.point.category, "MMMM yyyy")
-                  .toUpperCase()
-              }}
-              <br />
-              <div class="chart-tooltip">
-                {{
-                  provideIntlService(this).formatNumber(props.point.value, "n3")
-                }}
-              </div>
-            </div>
-          </template>
-        </ChartTooltip>
-        <ChartLegend
-          :position="'bottom'"
-          :orientation="'horizontal'"
-          :background="'var(--kendo-color-surface-alt)'"
-          :spacing="140"
-          :padding="{ left: 80, right: 80 }"
-        >
-        </ChartLegend>
-        <ChartCategoryAxis>
-          <ChartCategoryAxisItem
-            :labels="{ format: 'MMMM yyyy', rotation: 'auto' }"
-            :base-unit="'months'"
-            :min="dateRange.start"
-            :max="dateRange.end"
-            :categories="categories"
-          />
-        </ChartCategoryAxis>
-        <ChartSeries>
-          <ChartSeriesItem
-            v-for="(item, index) in series"
-            :key="index"
-            :type="'column'"
-            :data-items="item.data"
-            :color="item.color"
-            :name="item.name"
-          />
-        </ChartSeries>
-      </Chart>
-    </div>
-  </div>
+  </section>
 </template>
 
 <script>
-import {
-  Chart,
-  ChartSeries,
-  ChartSeriesItem,
-  ChartCategoryAxis,
-  ChartCategoryAxisItem,
-  ChartLegend,
-  ChartTooltip,
-} from "@progress/kendo-vue-charts";
-import { Button, ButtonGroup } from "@progress/kendo-vue-buttons";
-import { DatePicker } from "@progress/kendo-vue-dateinputs";
-
-import {
-  provideIntlService,
-  provideLocalizationService,
-} from "@progress/kendo-vue-intl";
-
-import { orders } from "../assets/orders";
-import "hammerjs";
-
+import { Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend } from "@progress/kendo-vue-charts";
+import PageHeader from "./PageHeader.vue";
 export default {
-  props: {
-    localizationLanguage: String,
-  },
-  components: {
-    Chart,
-    ChartSeries,
-    ChartSeriesItem,
-    ChartCategoryAxis,
-    ChartCategoryAxisItem,
-    ChartLegend,
-    ChartTooltip,
-    "k-button": Button,
-    buttongroup: ButtonGroup,
-    datepicker: DatePicker,
-  },
-  inject: {
-    kendoIntlService: { default: null },
-    kendoLocalizationService: { default: null },
-  },
-  data: function () {
+  components: { PageHeader, Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend },
+  data() {
     return {
-      selectedIndex: 0,
-      provideIntlService: provideIntlService,
-      myToolTipTemplate: "myToolTipTemplate",
-      myToolTipLineTemplate: "myToolTipLineTemplate",
-      orders: orders,
-      dateRange: {
-        start: new Date(2020, 0, 1),
-        end: new Date(2020, 4, 1),
-      },
-      series: null,
-      categories: null,
+      months: ["May", "Jun", "Jul", "Aug"],
+      chartSeries: [{ name: "Roasting", data: [184, 211, 198, 236] }, { name: "Fulfilment", data: [162, 194, 213, 227] }, { name: "Quality", data: [148, 171, 166, 189] }],
+      metrics: [
+        { label: "ORDERS SHIPPED TODAY", value: "1,248", trend: "Up 8.2%", detail: "vs. last Tuesday", state: "success" },
+        { label: "ON-TIME FULFILMENT", value: "96.4%", trend: "On target", detail: "target: 95%", state: "success" },
+        { label: "LOW-STOCK SKUS", value: "18", trend: "Needs review", detail: "6 more than yesterday", state: "warning" },
+        { label: "OPEN PURCHASE ORDERS", value: "42", trend: "Down 5", detail: "vs. last week", state: "success" },
+      ],
     };
-  },
-  created() {
-    this.categories = this.orders.map((dataItem) => {
-      return dataItem.orderDate;
-    });
-    this.series = [
-      {
-        name: "Tiger Team",
-        data: this.fetchData(1),
-      },
-      {
-        name: "Lemon Team",
-        data: this.fetchData(2),
-      },
-      {
-        name: "Organic Team",
-        data: this.fetchData(3),
-      },
-      {
-        name: "Ocean Team",
-        data: this.fetchData(4),
-      },
-    ];
-  },
-  computed: {
-    teamEfficiencyMessage() {
-      return provideLocalizationService(this).toLanguageString(
-        "teamEfficiency",
-        "Team Efficiency"
-      );
-    },
-    trendMessage() {
-      return provideLocalizationService(this).toLanguageString(
-        "trend",
-        "Trend"
-      );
-    },
-    volumeMessage() {
-      return provideLocalizationService(this).toLanguageString(
-        "volume",
-        "Volume"
-      );
-    },
-  },
-  methods: {
-    fetchData(team) {
-      return this.orders.map((dataItem) => {
-        if (
-          dataItem.teamID === team &&
-          dataItem.orderDate >= this.dateRange.start &&
-          dataItem.orderDate < this.dateRange.end
-        ) {
-          return dataItem.orderTotal;
-        }
-      });
-    },
-    buttonGroupClick(e, newIndex) {
-      this.selectedIndex = newIndex;
-    },
-    updateSeries() {
-      this.series.map((series, index) => {
-        return (series.data = this.fetchData(index + 1));
-      });
-    },
-    onFromDateChange(date) {
-      this.dateRange.start = date.value;
-      this.updateSeries();
-    },
-    onToDateChange(date) {
-      this.dateRange.end = date.value;
-      this.updateSeries();
-    },
   },
 };
 </script>
-
-<style scoped>
-.chart-tooltip {
-  text-align: center;
-  font-size: var(--kendo-font-size-sm);
-  font-weight: var(--kendo-font-weight-bold);
-}
-
-.card-header-wrapper {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: var(--kendo-spacing-4);
-}
-
-.card-title {
-  grid-column: 1 / 2;
-  grid-row: 1;
-  margin-block-start: var(--kendo-spacing-4);
-  margin-block-end: var(--kendo-spacing-4);
-  margin-inline-start: var(--kendo-spacing-0);
-  margin-inline-end: var(--kendo-spacing-0);
-}
-
-.k-button-group {
-  display: block;
-  margin-block-start: var(--kendo-spacing-4);
-  margin-block-end: var(--kendo-spacing-4);
-  margin-inline-start: var(--kendo-spacing-0);
-  margin-inline-end: var(--kendo-spacing-0);
-}
-.card-ranges {
-  margin-top: var(--kendo-spacing-4);
-  text-align: left;
-}
-</style>
