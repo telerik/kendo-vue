@@ -9,14 +9,6 @@
       <DropDownList :style="{ width: '230px', height: '30px' }" class="localeDropDownList" :value="currentLocale"
         :text-field="'language'" @change="localeChange" :data-items="locales">
       </DropDownList>
-      <DropDownList :data-items="themes" :text-field="'text'" :popup-settings="themesPopupSettings"
-        :value-render="myDropDownValueTemplate" class="ddl-theme" @change="onThemeChange">
-        <template v-slot:myDropDownValueTemplate="{}">
-          <div style="margin: auto 8px auto 10px">
-            <span class="k-icon k-font-icon k-i-palette"> </span>
-          </div>
-        </template>
-      </DropDownList>
       <Avatar :rounded="'full'" :type="'image'" :style="{ width: '40px', height: '40px', 'flex-basis': '40px' }">
         <img src="../assets/images/user.jpg" alt="" />
       </Avatar>
@@ -35,7 +27,6 @@ export default {
   },
   emits: {
     localeChange: null,
-    themeChange: null,
   },
   inject: {
     kendoLocalizationService: { default: null },
@@ -52,10 +43,6 @@ export default {
     },
   },
   methods: {
-    onThemeChange(e) {
-      this.themeValue = e.value;
-      this.$emit("themeChange", this.themeValue.value)
-    },
     localeChange(e) {
       this.currentLocale = e.target.value;
       this.$emit("localeChange", this.currentLocale);
@@ -66,30 +53,7 @@ export default {
   },
   data() {
     return {
-      theme: "default",
-      themeValue: {
-        text: "Default",
-        value: "kendo-theme-default"
-      },
       year: '2025',
-      themes: [
-        {
-          text: "Default",
-          value: "kendo-theme-default"
-        },
-        {
-          text: "Bootstrap",
-          value: "kendo-theme-bootstrap"
-        },
-        {
-          text: "Material",
-          value: "kendo-theme-material"
-        },
-      ],
-      myDropDownValueTemplate: "myDropDownValueTemplate",
-      themesPopupSettings: {
-        width: "150px",
-      },
       currentLocale: null,
       locales: [
         {
@@ -111,11 +75,6 @@ export default {
 </script>
 
 <style scoped>
-.ddl-theme {
-  width: 60px;
-  min-width: 60px;
-}
-
 .localeDropDownList {
   min-width: 100px;
   margin: 10px;

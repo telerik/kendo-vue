@@ -1,19 +1,17 @@
 <template>
-  <link rel="stylesheet" :href="themeLink" />
   <div id="app" class="app">
     <localization :language="localizationLanguage">
       <intl :locale="locale">
-        <Header @localeChange="onLocaleChange" @themeChange="onThemeChange" />
+        <Header @localeChange="onLocaleChange" />
         <div class="content-wrapper">
           <div class="column menu">
-            <MenuNavContainer :current-theme="currentTheme" />
+            <MenuNavContainer />
           </div>
           <div class="column content">
             <div class="k-drawer-container k-drawer-mini k-drawer-push">
               <div class="card-container">
                 <router-view
                   :localization-language="localizationLanguage"
-                  :current-theme="currentTheme"
                 ></router-view>
               </div>
             </div>
@@ -89,21 +87,14 @@ export default {
   data() {
     return {
       localizationLanguage: "en",
-      currentTheme: "kendo-theme-default",
     };
   },
   methods: {
     onLocaleChange(e) {
       this.localizationLanguage = e.language;
     },
-    onThemeChange(e) {
-      this.currentTheme = e;
-    },
   },
   computed: {
-    themeLink() {
-      return "https://unpkg.com/@progress/" + this.currentTheme + "@latest/dist/all.css"
-    },
     locale() {
       if (this.localizationLanguage === "Spanish") {
         return "es";
@@ -126,21 +117,22 @@ export default {
 }
 
 .column.content{
-  min-width: 500px;
+  min-width: min(100%, 31.25rem);
 }
 
 .k-item.k-menu-item.k-drawer-item.k-state-selected {
-  color: #ffffff;
+  color: var(--kendo-color-on-primary);
+  background-color: var(--kendo-color-primary);
 }
 
 .content-wrapper {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 13.75rem 1fr;
 }
 
 .k-drawer-container.k-drawer-push {
   display: inherit;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: var(--kendo-spacing-1);
+  padding-bottom: var(--kendo-spacing-1);
 }
 </style>

@@ -1,9 +1,10 @@
-// Global variables here
-$background-color: #D4D6E4;
+:root {
+  --kendo-color-app-surface: #d4d6e4;
+  --kendo-color-info: #71a6ff;
+  --kendo-font-family: "Roboto", sans-serif;
+  --kendo-translucency-base: 28%;
+  --kendo-translucency-blur-base: 8px;
+  --kendo-translucency-blur-step: 2px;
+}
+
 $info-background: #151950;
-$link-color: #71A6FF;
-$white: #FFFFFF;
-$tiger-team: #FF6358;
-$lemon-team: #FFD246;
-$organic-team: #55AB1D;
-$ocean-team: #28B4C8;

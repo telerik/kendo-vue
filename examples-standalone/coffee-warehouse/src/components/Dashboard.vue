@@ -56,7 +56,7 @@
         <ChartLegend
           :position="'bottom'"
           :orientation="'horizontal'"
-          :background="'#f4f5f8'"
+          :background="'var(--kendo-color-surface-alt)'"
           :spacing="140"
           :padding="{ left: 80, right: 80 }"
         >
@@ -103,7 +103,7 @@
         <ChartLegend
           :position="'bottom'"
           :orientation="'horizontal'"
-          :background="'#f4f5f8'"
+          :background="'var(--kendo-color-surface-alt)'"
           :spacing="140"
           :padding="{ left: 80, right: 80 }"
         >
@@ -196,22 +196,18 @@ export default {
       {
         name: "Tiger Team",
         data: this.fetchData(1),
-        color: "#FF6358",
       },
       {
         name: "Lemon Team",
         data: this.fetchData(2),
-        color: "#F7C62F",
       },
       {
         name: "Organic Team",
         data: this.fetchData(3),
-        color: "#55AB1D",
       },
       {
         name: "Ocean Team",
         data: this.fetchData(4),
-        color: "#28B4C8",
       },
     ];
   },
@@ -270,34 +266,34 @@ export default {
 <style scoped>
 .chart-tooltip {
   text-align: center;
-  font-size: 15px;
-  font-weight: bold;
+  font-size: var(--kendo-font-size-sm);
+  font-weight: var(--kendo-font-weight-bold);
 }
 
 .card-header-wrapper {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: var(--kendo-spacing-4);
 }
 
 .card-title {
   grid-column: 1 / 2;
   grid-row: 1;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-block-start: var(--kendo-spacing-4);
+  margin-block-end: var(--kendo-spacing-4);
+  margin-inline-start: var(--kendo-spacing-0);
+  margin-inline-end: var(--kendo-spacing-0);
 }
 
 .k-button-group {
   display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-block-start: var(--kendo-spacing-4);
+  margin-block-end: var(--kendo-spacing-4);
+  margin-inline-start: var(--kendo-spacing-0);
+  margin-inline-end: var(--kendo-spacing-0);
 }
 .card-ranges {
-  margin-top: 1rem;
+  margin-top: var(--kendo-spacing-4);
   text-align: left;
 }
 </style>

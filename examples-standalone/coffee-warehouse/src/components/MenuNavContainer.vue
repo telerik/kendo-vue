@@ -6,11 +6,14 @@
 <script>
 import { Menu } from "@progress/kendo-vue-layout";
 import { provideLocalizationService } from "@progress/kendo-vue-intl";
+import {
+  chartLineMarkersIcon,
+  gridIcon,
+  infoCircleIcon,
+  userIcon,
+} from "@progress/kendo-svg-icons";
 
 export default {
-  props: {
-    currentTheme: String,
-  },
   components: {
     "kendo-menu": Menu,
   },
@@ -21,9 +24,6 @@ export default {
     kendoLocalizationService: { default: null },
   },
   watch: {
-    currentTheme() {
-      this.updateSelectedMenuItem(this.selectedItemID);
-    },
     selectedItemID(e) {
       this.updateSelectedMenuItem(e);
     },
@@ -43,12 +43,8 @@ export default {
         {
           text: this.teamMessage,
           cssClass: this.teamClass,
-          cssStyle: {
-            paddingBottom: "10px",
-            paddingTop: "10px",
-            paddingLeft: "5px",
-          },
-          icon: "k-icon k-i-grid",
+          cssStyle: this.itemStyle,
+          svgIcon: gridIcon,
           data: {
             path: "/",
           },
@@ -57,12 +53,8 @@ export default {
         {
           text: this.dashboardMessage,
           cssClass: this.dashboardClass,
-          cssStyle: {
-            paddingBottom: "10px",
-            paddingTop: "10px",
-            paddingLeft: "5px",
-          },
-          icon: "k-icon k-i-chart-line-markers",
+          cssStyle: this.itemStyle,
+          svgIcon: chartLineMarkersIcon,
           data: {
             path: "/Dashboard",
           },
@@ -71,12 +63,8 @@ export default {
         {
           text: this.profileMessage,
           cssClass: this.profileClass,
-          cssStyle: {
-            paddingBottom: "10px",
-            paddingTop: "10px",
-            paddingLeft: "5px",
-          },
-          icon: "k-icon k-i-user",
+          cssStyle: this.itemStyle,
+          svgIcon: userIcon,
           data: {
             path: "/Profile",
           },
@@ -86,14 +74,19 @@ export default {
           text: this.infoMessage,
           cssClass: this.infoClass,
           cssStyle: {
-            borderTop: "1px solid red",
-            paddingBottom: "10px",
-            paddingTop: "10px",
-            paddingLeft: "5px",
+            ...this.itemStyle,
+            borderTop: "var(--kendo-spacing-1px) solid var(--kendo-color-border)",
           },
-          icon: "k-icon k-i-info",
+          svgIcon: infoCircleIcon,
           data: {
             path: "/Info",
+          },
+          itemStyle() {
+            return {
+              paddingBottom: "var(--kendo-spacing-2\\.5)",
+              paddingTop: "var(--kendo-spacing-2\\.5)",
+              paddingLeft: "var(--kendo-spacing-1\\.5)",
+            };
           },
           id: 4,
         },
@@ -124,28 +117,22 @@ export default {
       this.selectedItemID = e.item.id;
     },
     updateSelectedMenuItem(menuItemID) {
-      const themeName =
-        this.currentTheme === "kendo-theme-default"
-          ? "default"
-          : this.currentTheme === "kendo-theme-bootstrap"
-          ? "bootstrap"
-          : "material";
       this.teamClass =
         menuItemID === 1
-          ? themeName + " k-state-selected"
-          : themeName;
+          ? "k-state-selected"
+          : "";
       this.dashboardClass =
         menuItemID === 2
-          ? themeName + " k-state-selected"
-          : themeName;
+          ? "k-state-selected"
+          : "";
       this.profileClass =
         menuItemID === 3
-          ? themeName + " k-state-selected"
-          : themeName;
+          ? "k-state-selected"
+          : "";
       this.infoClass =
         menuItemID === 4
-          ? themeName + " k-state-selected"
-          : themeName;
+          ? "k-state-selected"
+          : "";
     },
   },
 };

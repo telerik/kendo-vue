@@ -2,8 +2,6 @@
 @import "./common.scss";
 @import './typography.scss';
 
-@import "@progress/kendo-font-icons/dist/index.css";
-
 $grid-columns: 12;
 $grid-gutter-width: 48px;
 $grid-column-width: 48px;
@@ -29,7 +27,7 @@ $container-max-widths: (
 .app-header>.project-name{
     text-align: left;
     letter-spacing: 0;
-    color: #000000;
+    color: var(--kendo-color-on-app-surface);
     opacity: 1;
   }
   
@@ -42,35 +40,35 @@ $container-max-widths: (
   }
   
   .logo {
-    font-weight: 700;
-    font-size: 24px;
+    font-weight: var(--kendo-font-weight-bold);
+    font-size: var(--kendo-font-size-xl);
   }
   
   .welcome {
     text-align: center;
-    font-weight: 900;
+    font-weight: var(--kendo-font-weight-black);
     letter-spacing: 0;
-    color: #000000;
+    color: var(--kendo-color-on-app-surface);
     opacity: 1;
   }
   
   .sub-header {
     text-align: center;
-    font-weight: 400;
+    font-weight: var(--kendo-font-weight-normal);
     letter-spacing: 0;
-    color: #919191;
+    color: var(--kendo-color-subtle);
     opacity: 1;
-    margin-bottom: 4rem;
+    margin-bottom: var(--kendo-spacing-16);
   }
   
   .get-started {
     text-align: center;
-    font-weight: 900;
-    font-size: 78px;
+    font-weight: var(--kendo-font-weight-black);
+    font-size: var(--kendo-font-size-xl);
     letter-spacing: 0;
-    color: #000000;
+    color: var(--kendo-color-on-app-surface);
     opacity: 1;
-    margin-bottom: 1rem;
+    margin-bottom: var(--kendo-spacing-4);
   }
   
   .kendoka {
@@ -80,8 +78,8 @@ $container-max-widths: (
   }
   
   .change-theme {
-    font-size: 14px;
-    color: #9098A5;
+    font-size: var(--kendo-font-size-sm);
+    color: var(--kendo-color-subtle);
   }
   
   .components-list>p>a {
@@ -100,7 +98,7 @@ $container-max-widths: (
   
   .copyright{
     letter-spacing: 0.33px;
-    color: #FFFFFF;
+    color: var(--kendo-color-on-primary);
     opacity: 0.6;
   }
   
@@ -129,7 +127,7 @@ $container-max-widths: (
       align-items: center;
       justify-content: space-between;
       height: 100%;
-      color: $white;
+      color: var(--kendo-color-on-primary);
   }
 
   .menu-button {
@@ -149,13 +147,13 @@ $container-max-widths: (
       flex: 1 0 auto;
       flex-direction: column;
       align-items: flex-start;
-      margin-left: 25px;
-      color: #ffffff;
+      margin-left: var(--kendo-spacing-6);
+      color: var(--kendo-color-on-primary);
       
         h1,
         h2 {
-          font-size: 1.75rem;
-          font-weight: 400;
+          font-size: var(--kendo-font-size-lg);
+          font-weight: var(--kendo-font-weight-normal);
         }
   }
 
@@ -164,8 +162,8 @@ $container-max-widths: (
       width: 40px;
       height: 40px;
       flex-basis: 40px;
-      margin: 0 25px;
-      box-shadow: 0 0 0px 1px $white;
+      margin: 0 var(--kendo-spacing-6);
+      box-shadow: 0 0 0 var(--kendo-spacing-1px) var(--kendo-color-on-primary);
   }
 
   .settings {
@@ -180,7 +178,7 @@ $container-max-widths: (
           align-items: center;
       }
       .vl {
-          border-left: 1px solid $white;
+          border-left: var(--kendo-spacing-1px) solid var(--kendo-color-on-primary);
           height: 25px;
           margin: 6px 15px;
       }
@@ -208,54 +206,21 @@ $container-max-widths: (
       align-items: center;
   }
   .vl {
-      border-left: 1px solid $white;
+      border-left: var(--kendo-spacing-1px) solid var(--kendo-color-on-primary);
       height: 25px;
       margin: 6px 15px;
   }
 }
 
-.k-menu-vertical > .k-menu-item.k-state-selected.material > .k-menu-link {
-  color: #ff4081;;
-}
-
-.k-menu-vertical > .k-menu-item.material > .k-menu-link {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.k-menu-vertical > .k-menu-item.k-state-selected.bootstrap > .k-menu-link {
-  color: #ffffff;
-}
-.k-menu-vertical > .k-menu-item.k-state-selected.bootstrap {
-    background-color: #0071eb;
-}
-.k-menu-vertical > .k-menu-item.bootstrap > .k-menu-link {
-  color: #212529;
-}
-
-.k-menu-vertical > .k-menu-item.k-state-selected.default > .k-menu-link {
-  color: #ffffff;
-}
-.k-menu-vertical > .k-menu-item.k-state-selected.default {
-    background-color: #ff6358;
-}
-.k-menu-vertical > .k-menu-item.default > .k-menu-link {
-  color: #424242;
-}
-
-.k-widget.k-dropdown.localeDropDownList, .k-widget.k-dropdown.ddl-theme{
-  background-color: #f5f5f5;
-  border-radius: 2px;
+.k-widget.k-dropdown.localeDropDownList {
+  background-color: var(--kendo-color-surface-alt);
+  border-radius: var(--kendo-border-radius-sm);
 }
 
 
 .k-menu.k-menu-vertical:not(.k-context-menu){
   padding:0;
 }
-.k-picker.ddl-theme {
-  width: 60px;
-  min-width: 60px;
-}
-
 .k-dropdownlist.localeDropDownList {
   min-width: 100px;
   margin: 10px;
