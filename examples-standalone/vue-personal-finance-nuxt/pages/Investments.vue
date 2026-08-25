@@ -1,13 +1,13 @@
 <template>
-     <h1 class="k-px-md-15 k-p-5 k-m-0">Investments</h1>
-      <div class="k-d-grid k-grid-cols-1 k-grid-cols-md-9 k-gap-5 k-p-md-5 k-px-md-15 k-p-5">
-        <div class="k-col-span-9 k-col-span-xl-4 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-gap-4">
+     <h1 class="page-title">Investments</h1>
+      <div class="investments-layout">
+        <div class="total-investments-panel">
             <TotalInvestments />
         </div>
-        <div class="k-col-span-9 k-col-span-xl-5 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-gap-4">
+        <div class="top-movers-panel">
             <TopMovers />
         </div>
-        <div class="k-col-span-9 k-col-span-md-9">
+        <div class="stock-chart-panel">
             <StockChart />
         </div>
       </div>
@@ -17,3 +17,11 @@ import TotalInvestments from "@/components/Investments/TotalInvestments.vue";
 import TopMovers from "@/components/Investments/TopMovers.vue";
 import StockChart from "@/components/Investments/StockChart.vue";
 </script>
+<style scoped>
+.page-title { margin: 0; padding: var(--kendo-spacing-5); }
+.investments-layout { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: var(--kendo-spacing-5); padding: var(--kendo-spacing-5); }
+.total-investments-panel, .top-movers-panel { grid-column: span 9 / span 9; display: flex; flex: 1 1 0; flex-direction: column; gap: var(--kendo-spacing-4); }
+.stock-chart-panel { grid-column: span 9 / span 9; }
+@media (min-width: 768px) { .page-title { padding-inline: var(--kendo-spacing-15); } .investments-layout { grid-template-columns: repeat(9, minmax(0, 1fr)); padding: var(--kendo-spacing-5); padding-inline: var(--kendo-spacing-15); } }
+@media (min-width: 1280px) { .total-investments-panel { grid-column: span 4 / span 4; } .top-movers-panel { grid-column: span 5 / span 5; } }
+</style>

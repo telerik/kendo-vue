@@ -1,10 +1,10 @@
 <template>
-  <FormElement className="k-d-grid k-gap-4">
+  <FormElement class="card-info-form-layout">
     <div
-      class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4"
+      class="form-row"
     >
       <FieldWrapper
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
         :style="{ width: '100%' }"
       >
         <Field :label="'Bank'" name="bank" :component="'myTemplate'">
@@ -20,10 +20,10 @@
       </FieldWrapper>
     </div>
     <div
-      class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4"
+      class="form-row"
     >
       <FieldWrapper
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
         :style="{
           width: '100%',
         }"
@@ -47,10 +47,10 @@
       </FieldWrapper>
     </div>
     <div
-      class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4"
+      class="form-row"
     >
       <FieldWrapper
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
         :style="{
           width: '100%',
         }"
@@ -71,7 +71,7 @@
         </Field>
       </FieldWrapper>
       <FieldWrapper
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
         :style="{
           width: '100%',
         }"
@@ -93,7 +93,7 @@
         </Field>
       </FieldWrapper>
     </div>
-    <div class="k-mt-6 k-d-flex k-gap-4">
+    <div class="form-actions">
       <KButton
         type="submit"
         :size="'small'"
@@ -149,3 +149,11 @@ function onRestore(e) {
   };
 }
 </script>
+<style scoped>
+.card-info-form-layout { display: grid; gap: var(--kendo-spacing-4); }
+.form-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--kendo-spacing-4); margin-bottom: var(--kendo-spacing-4); overflow: hidden; }
+.form-field { grid-column: span 5 / span 5; }
+.form-actions { display: flex; gap: var(--kendo-spacing-4); margin-top: var(--kendo-spacing-6); }
+@media (min-width: 1024px) { .form-row { gap: var(--kendo-spacing-10); } .form-field { grid-column: span 2 / span 2; } }
+@media (min-width: 1280px) { .form-field { grid-column: span 2 / span 2; } }
+</style>

@@ -1,9 +1,9 @@
 <template>
   <header
-    class="k-d-flex k-px-lg-15 k-px-md-15 k-px-sm-5 k-px-xs-5 k-py-6.5 k-gap-4 k-flex-wrap k-justify-content-between k-align-items-center"
+    class="app-header"
   >
     <div
-      class="k-d-flex-row k-shrink-0 k-flex-basis-0 k-flex-grow k-gap-2 k-align-items-center"
+      class="profile-section"
     >
       <Avatar :size="'large'" rounded="full">
         <img
@@ -13,21 +13,21 @@
         />
       </Avatar>
       <div
-        class="k-d-flex k-d-flex-col k-flex-nowrap k-gap-3 k-align-items-start"
+        class="profile-greeting"
       >
         <span
           v-if="personalInfo"
-          class="k-font-size-xl !k-m-0 k-font-bold k-white-space-nowrap k-h-6 k-align-middle"
+          class="profile-name"
         >
           Hi, {{ personalInfo.name }}
         </span>
-        <span class="k-font-size-md !k-m-0 k-font-medium k-white-space-nowrap">
+        <span class="profile-welcome">
           Welcome back
         </span>
       </div>
     </div>
-    <div class="k-flex-basis-0 k-shrink-0 k-flex-grow">
-      <div class="k-d-flex">
+    <div class="search-section">
+      <div class="search-control">
         <AutoComplete
           :style="{ width: '100%', minWidth: '215px', maxWidth: '360px' }"
           :size="'small'"
@@ -43,7 +43,7 @@
       </div>
     </div>
     <div
-      class="k-d-flex k-flex-basis-0 k-shrink-0 k-flex-grow k-justify-content-end k-justify-content-sm-start k-gap-4"
+      class="header-actions"
     >
       <Button
         :size="'small'"
@@ -120,3 +120,16 @@ const onCurrencyChange = (event) => {
   emit("currencyChange", event.target.value);
 };
 </script>
+<style scoped>
+.app-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--kendo-spacing-4); padding-block: calc(6.5 * var(--kendo-spacing-base)); padding-inline: var(--kendo-spacing-5); }
+.profile-section, .search-section, .header-actions { flex: 1 0 0; flex-shrink: 0; }
+.profile-section { display: flex; flex-direction: row; align-items: center; gap: var(--kendo-spacing-2); }
+.profile-greeting { display: flex; flex-direction: column; flex-wrap: nowrap; align-items: flex-start; gap: var(--kendo-spacing-3); }
+.profile-name { height: var(--kendo-spacing-6); margin: 0; font-size: var(--kendo-font-size-xl); font-weight: var(--kendo-font-weight-bold); line-height: 1; vertical-align: middle; white-space: nowrap; }
+.profile-welcome { margin: 0; font-size: var(--kendo-font-size-md); font-weight: var(--kendo-font-weight-medium); white-space: nowrap; }
+.search-control, .header-actions { display: flex; }
+.header-actions { justify-content: flex-end; gap: var(--kendo-spacing-4); }
+@media (min-width: 576px) { .header-actions { justify-content: flex-start; } }
+@media (min-width: 768px) { .app-header { padding-inline: var(--kendo-spacing-15); } }
+@media (min-width: 1024px) { .app-header { padding-inline: var(--kendo-spacing-15); } }
+</style>
