@@ -1,113 +1,50 @@
 <template>
-  <div class="row menu">
-    <div v-if="this.$route.path.toLowerCase() !== '/signin'"
-      class="dashboard-menu__sidebar col-3 text-white py-5">
-      <div id="nav">
-        <h1 id="app-title">Issues</h1>
-        <p id="app-subtitle">Sample Dashboard</p>
-        <hr />
-        <div class="nav nav-pills flex-column">
-          <Drawer ref="drawer" :expanded="expanded" :position="position" :width="300" :mode="mode" :items="
-            items.map((item, index) => ({
-              ...item,
-              selected: index === selectedId,
-            }))
-          " @select="onSelect">
-
-          </Drawer>
+    <div class="app-shell">
+        <aside class="sidebar" :class="{ 'is-open': navigationOpen }">
+            <RouterLink class="brand" to="/">
+                <strong>Northstar</strong>
+                <span>Project workspace</span>
+            </RouterLink>
+            <nav aria-label="Primary navigation">
+                <RouterLink v-for="item in navigation" :key="item.to" :to="item.to" @click="navigationOpen = false">
+                    <span>{{ item.label }}</span><span v-if="item.count" class="nav-count">{{ item.count }}</span>
+                </RouterLink>
+            </nav>
+            <div class="sidebar-footer">
+                <RouterLink to="/help">Help & support</RouterLink>
+                <RouterLink to="/settings">Settings</RouterLink>
+            </div>
+        </aside>
+        <div class="shell-content">
+            <header class="topbar">
+                <KButton class="menu-toggle" fill-mode="flat" aria-label="Toggle navigation" @click="navigationOpen = !navigationOpen">Menu</KButton>
+                <KInput class="global-search" aria-label="Global search" placeholder="Search projects, tasks, and people" />
+                <div class="topbar-actions">
+                    <RouterLink aria-label="View notifications" class="notification-link" to="/notifications">Notifications <span>2</span></RouterLink>
+                    <RouterLink class="user-link" to="/profile">Maya Chen</RouterLink>
+                </div>
+            </header>
+            <main class="content-area"><RouterView /></main>
         </div>
-
-      </div>
-      <div id="nav">
-        <div id="copy">
-          <p>Copyright &copy; {{ year }},<br /><a href="http://www.progress.com">Progress Software Corporation</a>
-            and/or
-            its
-            subsidiaries or affiliates.</p>
-          <p>All Rights Reserved.</p>
-        </div>
-      </div>
     </div>
-    <div class="col">
-      <DrawerContent>
-        <router-view />
-      </DrawerContent>
-    </div>
-  </div>
 </template>
 
 <script>
-import { Drawer, DrawerContent } from "@progress/kendo-vue-layout";
+import { Button } from '@progress/kendo-vue-buttons';
+import { Input } from '@progress/kendo-vue-inputs';
 
 export default {
-  name: "App",
-  components: { Drawer, DrawerContent },
-  mounted() {
-    this.$router.push(this.items[0].data);
-  },
-  data() {
-    return {
-      year: '2022',
-      items: [
-        {
-          text: "Dashboard",
-          selected: true,
-          data: {
-            path: "/",
-          },
-        },
-        {
-          text: "Issues",
-          data: {
-            path: "/issues",
-          },
-        },
-        {
-          text: "Profile",
-          data: {
-            path: "/profile",
-          },
-        },
-        {
-          text: "Sign In",
-          data: {
-            path: "/signin",
-          },
-        },
-      ],
-      expanded: true,
-      position: "start",
-      mode: "push",
-    };
-  },
-  methods: {
-    onSelect(e) {
-      this.$router.push(this.items[e.itemIndex].data);
-    }
-  },
-  computed: {
-    selectedId() {
-      return this.items.map((item) => item.data.path).indexOf(this.$route.path.toLowerCase());
-    }
-  }
+    components: { KButton: Button, KInput: Input },
+    data: () => ({
+        navigationOpen: false,
+        navigation: [
+            { label: 'Dashboard', to: '/' },
+            { label: 'Projects', to: '/projects' },
+            { label: 'My tasks', to: '/my-tasks', count: '4' },
+            { label: 'Team', to: '/team' },
+            { label: 'Calendar', to: '/calendar' },
+            { label: 'Reports', to: '/reports' }
+        ]
+    })
 };
 </script>
-
-<style>
-.dashboard-menu__sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: var(--dashboard-navigation-width);
-  background-color: var(--kendo-color-inverse);
-}
-
-#nav>div>div>div {
-  background-color: transparent;
-}
-
-#nav ul>li.k-drawer-item.k-selected {
-  color: var(--kendo-color-on-primary);
-  background-color: var(--kendo-color-primary);
-}
-</style>

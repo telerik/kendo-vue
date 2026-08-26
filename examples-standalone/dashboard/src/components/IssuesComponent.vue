@@ -39,13 +39,6 @@ import MilestoneTemplate from './IssuesTemplates/MilestoneTemplate.vue';
 import AssigneeTemplate from './IssuesTemplates/AssigneeTemplate.vue';
 
 window.ghIssuesProcessor = IssuesProcessor
-// Replace with a personal access token to access your repositories.
-// See https://github.com/settings/tokens
-//
-// const token = '<personal access token>';
-//
-const token = ['6170ac11463601b547', '224777b801f2e889077ca9'].join('');
-
 export default {
     components: {
         "Grid": Grid,
@@ -65,7 +58,6 @@ export default {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `token ${token}`,
             },
         }).then((response) => response.json())
             .then((data) => {
