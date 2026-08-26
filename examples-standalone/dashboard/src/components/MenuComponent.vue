@@ -1,14 +1,8 @@
 <template>
   <div class="row menu">
-    <div v-if="this.$route.path.toLowerCase() !== '/signin'" class="col-3 bg-inverse text-white py-5 k-vbox"
-      :style="{ 'background-color': '#252830', width: '311px', justifyContent: 'space-between' }">
+    <div v-if="this.$route.path.toLowerCase() !== '/signin'"
+      class="dashboard-menu__sidebar col-3 text-white py-5">
       <div id="nav">
-        <div style="margin-bottom:50px">
-          <div id="app-title">Change theme:</div>
-          <DropDownList :style="{ width: '230px' }" :data-items="themes" :text-field="'text'" :data-item-key="'value'"
-            :value="themeValue" @change="onThemeChange">
-          </DropDownList>
-        </div>
         <h1 id="app-title">Issues</h1>
         <p id="app-subtitle">Sample Dashboard</p>
         <hr />
@@ -43,32 +37,17 @@
 </template>
 
 <script>
-import { DropDownList } from "@progress/kendo-vue-dropdowns";
 import { Drawer, DrawerContent } from "@progress/kendo-vue-layout";
 
 export default {
   name: "App",
-  components: { Drawer, DrawerContent, DropDownList },
+  components: { Drawer, DrawerContent },
   mounted() {
     this.$router.push(this.items[0].data);
   },
   data() {
     return {
-      themeValue: {
-        text: "Kendo Theme Default",
-        value: "kendo-theme-default"
-      },
       year: '2022',
-      themes: [{
-        text: "Kendo Theme Default",
-        value: "kendo-theme-default"
-      }, {
-        text: "Kendo Theme Bootstrap",
-        value: "kendo-theme-bootstrap"
-      }, {
-        text: "Kendo Theme Material",
-        value: "kendo-theme-material"
-      }],
       items: [
         {
           text: "Dashboard",
@@ -101,14 +80,9 @@ export default {
       mode: "push",
     };
   },
-  emits: ['themeChange'],
   methods: {
     onSelect(e) {
       this.$router.push(this.items[e.itemIndex].data);
-    },
-    onThemeChange(e) {
-      this.themeValue = e.value;
-      this.$emit("themeChange", this.themeValue.value)
     }
   },
   computed: {
@@ -120,12 +94,20 @@ export default {
 </script>
 
 <style>
+.dashboard-menu__sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--dashboard-navigation-width);
+  background-color: var(--kendo-color-inverse);
+}
+
 #nav>div>div>div {
   background-color: transparent;
 }
 
 #nav ul>li.k-drawer-item.k-selected {
-  color: #111;
-  background-color: #1ca8dd;
+  color: var(--kendo-color-on-primary);
+  background-color: var(--kendo-color-primary);
 }
 </style>

@@ -21,7 +21,7 @@
                             <div class="row">
                                 <div class="col-md-3 text-xs-center">
                                     <Avatar :type="'image'" :size="null" class="custom-avatar">
-                                        <img :src="user.avatar_url" style="max-width: 100%" />
+                                        <img :src="user.avatar_url" class="profile__avatar-image" />
                                     </Avatar>
                                 </div>
                                 <div class="col-md-9">
@@ -101,7 +101,7 @@
                                 <KLabel>
                                     Old password
                                 </KLabel>
-                                <KInput :type="'password'" :style="{ width: '100%' }" />
+                                <KInput :type="'password'" class="profile__input--full-width" />
                             </div>
                             <div class="form-group">
                                 <KLabel>
@@ -135,8 +135,8 @@
             @close='onDeleteDialogClose'>
             <p>Account deletetion cannot be undone!</p>
             <DialogActionsBar>
-                <KButton @click="onDeleteDialogClose" style="width: 50%; float: left;">Cancel</KButton>
-                <KButton @click="onDeleteDialogClose" :theme-color="'primary'" style="width: 50%; float: left;">Delete
+                <KButton @click="onDeleteDialogClose" class="profile__dialog-action">Cancel</KButton>
+                <KButton @click="onDeleteDialogClose" :theme-color="'primary'" class="profile__dialog-action">Delete
                     Account</KButton>
             </DialogActionsBar>
         </Dialog>
@@ -218,3 +218,18 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.profile__avatar-image {
+    max-width: 100%;
+}
+
+.profile__input--full-width {
+    width: 100%;
+}
+
+.profile__dialog-action {
+    float: left;
+    width: 50%;
+}
+</style>

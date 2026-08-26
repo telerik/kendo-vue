@@ -26,13 +26,13 @@
                                     <strong>{{ issues.open + issues.closed }}</strong>
                                     <small>Active issues</small>
                                 </span>
-                                <Chart :style="{ height: '80px' }">
-                                    <ChartArea :height="80" :color="'#888'" />
+                                <Chart class="dashboard__compact-chart">
+                                    <ChartArea :height="80" :color="'var(--kendo-color-subtle)'" />
                                     <ChartSeriesDefaults />
                                     <ChartCategoryAxis>
                                         <ChartCategoryAxisItem :type="'date'" :base-unit="'days'" :labels="{
                                             step: 4,
-                                            font: '10px sans-serif', 
+                                            font: 'var(--kendo-font-size-xs) var(--kendo-font-family)',
                                             format: 'dd MMM', 
                                             rotation: 'auto'
                                         }" :major-grid-lines="{
@@ -48,7 +48,7 @@
                                     <ChartSeries>
                                         <ChartSeriesItem :data-items="issues.active" :type="'column'" :gap="0.5"
                                             :overlay="{ gradient: 'glass' }" :stack="true" :aggregate="'count'"
-                                            :color="'#888'" :field="'count'" :category-field="'date'" />
+                                            :color="'var(--kendo-color-subtle)'" :field="'count'" :category-field="'date'" />
                                     </ChartSeries>
                                 </Chart>
 
@@ -59,13 +59,13 @@
                                     <strong>{{ issues.closed }}</strong>
                                     <small>Closed issues</small>
                                 </span>
-                                <Chart :style="{ height: '80px' }">
-                                    <ChartArea :height="80" :color="'#27c46d'" />
+                                <Chart class="dashboard__compact-chart">
+                                    <ChartArea :height="80" :color="'var(--kendo-color-success)'" />
                                     <ChartSeriesDefaults />
                                     <ChartCategoryAxis>
                                         <ChartCategoryAxisItem :type="'date'" :base-unit="'days'" :labels="{
                                             step: 4,
-                                            font: '10px sans-serif', 
+                                            font: 'var(--kendo-font-size-xs) var(--kendo-font-family)',
                                             format: 'dd MMM',
                                             rotation: 'auto'
                                         }" :major-grid-lines="{
@@ -81,7 +81,7 @@
                                     <ChartSeries>
                                         <ChartSeriesItem :data-items="issues.groupedIssues.closed" :type="'column'"
                                             :gap="0.5" :overlay="{ gradient: 'glass' }" :stack="true"
-                                            :aggregate="'count'" :color="'#27c46d'" :field="'count'"
+                                            :aggregate="'count'" :color="'var(--kendo-color-success)'" :field="'count'"
                                             :category-field="'date'" />
                                     </ChartSeries>
                                 </Chart>
@@ -92,13 +92,13 @@
                                     <strong>{{ issues.open }}</strong>
                                     <small>Open issues</small>
                                 </span>
-                                <Chart :style="{ height: '80px' }">
-                                    <ChartArea :height="80" :color="'#CF3268'" />
+                                <Chart class="dashboard__compact-chart">
+                                    <ChartArea :height="80" :color="'var(--kendo-color-error)'" />
                                     <ChartSeriesDefaults />
                                     <ChartCategoryAxis>
                                         <ChartCategoryAxisItem :type="'date'" :base-unit="'days'" :labels="{
                                             step: 4,
-                                            font: '10px sans-serif', 
+                                            font: 'var(--kendo-font-size-xs) var(--kendo-font-family)',
                                             format: 'dd MMM',
                                             rotation: 'auto'
                                         }" :major-grid-lines="{
@@ -114,7 +114,7 @@
                                     <ChartSeries>
                                         <ChartSeriesItem :data-items="issues.groupedIssues.open" :type="'column'"
                                             :gap="0.5" :overlay="{ gradient: 'glass' }" :stack="true"
-                                            :aggregate="'count'" :color="'#CF3268'" :field="'count'"
+                                            :aggregate="'count'" :color="'var(--kendo-color-error)'" :field="'count'"
                                             :category-field="'date'" />
                                     </ChartSeries>
                                 </Chart>
@@ -137,14 +137,14 @@
                                     {{ calculatePercent(issues.closeRate.lowest.close_rate) }}%
                                     on {{ getDate(issues.closeRate.lowest.created_at) }}
                                 </p>
-                                <Chart :style="{ height: '80px' }" v-if="issues.closeRate.highest.close_rate">
+                                <Chart class="dashboard__compact-chart" v-if="issues.closeRate.highest.close_rate">
                                     <ChartArea :height="30" :margin-left="0" />
                                     <ChartLegend :visible="false" />
                                     <ChartValueAxis>
                                         <ChartValueAxisItem :min="0" :max="100" :major-ticks="{ visible: false }"
                                             :minor-ticks="{ visible: false }" :major-grid-lines="{ visible: false }"
                                             :labels="{ visible: false }" :line="{ visible: false }"
-                                            :plot-bands="[{ from: 0, to: 100, color: '#35C473' }]" />
+                                            :plot-bands="[{ from: 0, to: 100, color: 'var(--kendo-color-success)' }]" />
                                     </ChartValueAxis>
                                     <ChartCategoryAxis>
                                         <ChartCategoryAxisItem :major-ticks="{ visible: false }"
@@ -155,13 +155,14 @@
                                     <ChartSeries>
                                         <ChartSeriesItem :current-field="'current'" :target-field="'target'"
                                             :data-items="[{ target: 70, current: Math.round(issues.closeRate.average * 100) }]"
-                                            :type="'bullet'" :color="'#CF3268'" :gap="0" :target="{ color: '#fff' }" />
+                                            :type="'bullet'" :color="'var(--kendo-color-error)'" :gap="0"
+                                            :target="{ color: 'var(--kendo-color-on-primary)' }" />
                                     </ChartSeries>
                                 </Chart>
                             </div>
                         </div>
                         <h3>All issues</h3>
-                        <Chart :style="{ heigth: '80px' }">
+                        <Chart class="dashboard__all-issues-chart">
                             <ChartArea :height="400" />
                             <ChartLegend :visible="false" />
                             <ChartSeriesDefaults :type="'column'" :stack="true" :gap="0.6"
@@ -175,20 +176,20 @@
                                 </ChartCategoryAxisItem>
                             </ChartCategoryAxis>
                             <ChartValueAxis>
-                                <ChartValueAxisItem :major-grid-lines="{ step: 2, skip: 2, color: '#F0F2F2' }"
+                                <ChartValueAxisItem :major-grid-lines="{ step: 2, skip: 2, color: 'var(--kendo-color-border)' }"
                                     :labels="{ step: 2, skip: 2, 'margin-right': 4 }" :line="{ visible: false }" />
                             </ChartValueAxis>
                             <ChartSeries>
                                 <ChartSeriesItem :name="'open'" :field="'count'" :category-field="'date'"
                                     :aggregate="'count'" :data-items="issues.groupedIssues.open" :opacity="0.3"
-                                    :color="'#35C473'" :border="{
-                                        color: '#35C473',
+                                    :color="'var(--kendo-color-success)'" :border="{
+                                        color: 'var(--kendo-color-success)',
                                         opacity: 0.3
                                     }" />
                                 <ChartSeriesItem :name="'closed'" :field="'count'" :category-field="'date'"
                                     :aggregate="'count'" :data-items="issues.groupedIssues.closed" :opacity="0.3"
-                                    :color="'#CC3458'" :border="{
-                                        color: '#CC3458',
+                                    :color="'var(--kendo-color-error)'" :border="{
+                                        color: 'var(--kendo-color-error)',
                                         opacity: 0.3
                                     }" />
                             </ChartSeries>
@@ -233,11 +234,11 @@
                                     </ChartCategoryAxisItem>
                                 </ChartCategoryAxis>
                                 <ChartValueAxis>
-                                    <ChartValueAxisItem :major-grid-lines="{ step: 2, skip: 2, color: '#F0F2F2' }"
+                                    <ChartValueAxisItem :major-grid-lines="{ step: 2, skip: 2, color: 'var(--kendo-color-border)' }"
                                         :labels="{ step: 2, skip: 2, 'margin-right': 4 }" :line="{ visible: false }" />
                                 </ChartValueAxis>
                                 <ChartLegend :position="'top'"
-                                    :labels="{ font: '16px sans-serif', margin: { right: 40 } }" />
+                                    :labels="{ font: 'var(--kendo-font-size-md) var(--kendo-font-family)', margin: { right: 40 } }" />
                                 <ChartSeries>
                                     <ChartSeriesItem :name="'Enhancement'" :field="'value'" :category-field="'date'"
                                         :aggregate="'count'" :data-items="issues.typesDistribution.Enhancement"
@@ -395,3 +396,13 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.dashboard__compact-chart {
+    height: var(--kendo-spacing-20);
+}
+
+.dashboard__all-issues-chart {
+    height: calc(var(--kendo-spacing-20) * 5);
+}
+</style>
