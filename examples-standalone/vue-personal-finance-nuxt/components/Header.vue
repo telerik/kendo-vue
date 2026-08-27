@@ -97,7 +97,10 @@ const currency = ref("USD");
 
 const searchItems = [
   { text: "Dashboard", route: "/" },
-  { text: "Transactions", route: "/transactions" },
+{ text: "Account details", route: "/accounts/checking" },
+{ text: "Transactions", route: "/transactions" },
+{ text: "Cards", route: "/cards" },
+{ text: "Statements", route: "/statements" },
   { text: "Transfer funds", route: "/transfers" },
   { text: "Budget planner", route: "/budgets" },
   { text: "Investments", route: "/investments" },

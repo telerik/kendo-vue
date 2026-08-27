@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   css: [
-    '@progress/kendo-theme-meridian/dist/meridian-main-dark.css',
+    '@progress/kendo-theme-meridian/dist/meridian-main.css',
     '~/assets/styles/global.css',
   ],
   app: {

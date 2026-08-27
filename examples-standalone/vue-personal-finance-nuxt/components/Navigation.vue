@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { Drawer, DrawerContent } from '@progress/kendo-vue-layout';
 import {
     menuIcon,
@@ -26,6 +26,9 @@ import {
     chartColumnStackedIcon,
     sparklesIcon,
     gearIcon,
+    bankIcon,
+    banknoteIcon,
+    documentManagerIcon,
 } from '@progress/kendo-svg-icons';
 
 const expanded = ref(false);
@@ -49,7 +52,10 @@ const drawerItems = [
     { text: 'Menu', svgIcon: menuIcon },
     { separator: true },
     { text: 'Home', selected: true, route: '/', svgIcon: gridIcon },
+    { text: 'Accounts', route: '/accounts/checking', svgIcon: bankIcon },
     { text: 'Transactions', route: '/transactions', svgIcon: arrowsSwapIcon },
+    { text: 'Cards', route: '/cards', svgIcon: banknoteIcon },
+    { text: 'Statements', route: '/statements', svgIcon: documentManagerIcon },
     { text: 'Transfer funds', route: '/transfers', svgIcon: arrowsSwapIcon },
     { text: 'Budget planner', route: '/budgets', svgIcon: chartColumnStackedIcon },
     { text: 'Investments', route: '/investments', svgIcon: dollarIcon },

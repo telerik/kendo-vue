@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
-
 :root {
-    --kendo-font-family: Roboto, sans-serif;
+    --kendo-font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
     --kendo-translucency-base: 24%;
 }
 
