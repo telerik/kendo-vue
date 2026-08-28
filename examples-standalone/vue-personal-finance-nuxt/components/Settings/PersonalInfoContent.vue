@@ -154,7 +154,7 @@
         :rounded="'large'"
         :theme-color="'primary'"
         :style="{
-          color: '#131524',
+          color: 'var(--kendo-color-on-primary)',
           letterSpacing: '1.25px',
           fontWeight: '500',
         }"

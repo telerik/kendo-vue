@@ -1,15 +1,16 @@
 <template>
-    <div>
+    <div class="app-navigation">
         <Drawer
-        :style="{height: '100%', minWidth: '0'}"
         :mini-width="80"
         :items="drawerItems.map((item, index) => ({
         ...item,
         selected: index === selected,
       }))" :expanded="expanded" :mini="true" mode="overlay" position="start"
             @select="onSelect" @overlayclick="() => (expanded = false)">
-            <DrawerContent :style="{ maxWidth: '1440px', margin: 'auto', paddingLeft: '48px' }">
-                <slot />
+            <DrawerContent>
+                <div class="app-content-shell">
+                    <slot />
+                </div>
             </DrawerContent>
         </Drawer>
     </div>
@@ -80,3 +81,30 @@ const onSelect = async (e) => {
     }
 };
 </script>
+<style scoped>
+.app-navigation {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.app-navigation :deep(.k-drawer) {
+    background: var(--kendo-color-surface-alt);
+}
+
+.app-content-shell {
+    box-sizing: border-box;
+    width: min(1140px, calc(100% - var(--kendo-spacing-20)));
+    max-width: 1140px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: max(var(--kendo-spacing-20), calc((100% - var(--kendo-spacing-20) - 1140px) / 2 + var(--kendo-spacing-20)));
+    padding-inline: var(--kendo-spacing-15);
+}
+
+@media (max-width: 767px) {
+    .app-content-shell {
+        padding-inline: var(--kendo-spacing-5);
+    }
+}
+</style>

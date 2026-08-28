@@ -11,16 +11,14 @@ body {
     font-family: var(--kendo-font-family);
 }
 
+/* Keep Kendo badges in normal document flow until the component bug is fixed. */
+.k-badge {
+    position: relative !important;
+    transform: none !important;
+}
+
 .overlay-active {
     opacity: 0.2;
-}
-
-.k-drawer {
-    background: var(--kendo-color-surface-alt);
-}
-
-.k-drawer-item {
-    white-space: nowrap;
 }
 
 .positive {
@@ -146,11 +144,6 @@ header .k-picker-solid {
 
 .k-grid .k-chip {
     min-width: var(--kendo-spacing-20) !important;
-}
-
-.k-drawer-content {
-    min-height: 92vh;
-    margin-left: var(--kendo-spacing-20);
 }
 
 .k-arcgauge-label {

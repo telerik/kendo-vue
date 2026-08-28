@@ -17,10 +17,9 @@
         class="profile-greeting"
       >
         <span
-          v-if="personalInfo"
           class="profile-name"
         >
-          Hi, {{ personalInfo.name }}
+          Hi, {{ personalInfo?.name || "Maria" }}
         </span>
         <span class="profile-welcome">
           Welcome back

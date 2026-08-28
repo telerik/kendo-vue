@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="gauge-container">
-            <ArcGauge :value="value" :color="'#2196F3'" :style="{ width: '252px' }" :center-render="'myTemplate'">
+            <ArcGauge :value="value" :color="'var(--kendo-color-primary)'" :style="{ width: '252px' }" :center-render="'myTemplate'">
                 <template #myTemplate="{ props }">
                     <div :style="{    marginLeft: 'auto',
       marginRight: 'auto', color: props.color, fontSize: '28px', fontWeight: 700 }">

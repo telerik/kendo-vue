@@ -31,7 +31,7 @@
     <div
       class="weather-divider"
       :style="{
-        borderBottom: '1px solid var(--kendo-color-border, #FFFFFF33)',
+        borderBottom: '1px solid var(--kendo-color-border)',
       }"
     ></div>
     <div

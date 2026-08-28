@@ -32,7 +32,7 @@
     >
       <GridToolbar>
         <KButton
-          :style="{ backgroundColor: '#616161' }"
+          theme-color="secondary"
           :title="'Export Excel'"
           :svg-icon="fileExcelIcon"
           @click="excelExport"
