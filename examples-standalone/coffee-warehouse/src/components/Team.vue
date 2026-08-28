@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <section class="page team-page">
+    <PageHeader title="Team Members" subtitle="Review warehouse roles, coverage, and team availability." />
     <div class="card-header-wrapper">
       <h3 class="card-title">{{ teamMembersMessage }}</h3>
       <buttongroup>
@@ -59,7 +60,7 @@
         </template>
       </Grid>
     </pdfexport>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -70,6 +71,7 @@ import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { Grid, GridToolbar } from "@progress/kendo-vue-grid";
 import { Button, ButtonGroup } from "@progress/kendo-vue-buttons";
 import { provideLocalizationService } from "@progress/kendo-vue-intl";
+import PageHeader from "./PageHeader.vue";
 
 import EngagementComponent from "./GridComponents/EngagementComponent.vue";
 import IsOnlineComponent from "./GridComponents/IsOnlineComponent.vue";
@@ -82,6 +84,7 @@ import employees from "../assets/employees";
 export default {
   name: "App",
   components: {
+    PageHeader,
     Grid: Grid,
     toolbar: GridToolbar,
     pdfexport: GridPdfExport,
@@ -129,7 +132,8 @@ export default {
   },
   computed: {
     gridHeight() {
-      const newGridHeight = document.querySelectorAll(".k-drawer-container")[0].offsetHeight - 280;
+      const contentHeight = document.querySelector(".app-content")?.clientHeight || window.innerHeight;
+      const newGridHeight = contentHeight - 180;
       return newGridHeight < 500 ? 500 : newGridHeight;
     },
     take() {

@@ -15,9 +15,9 @@
       <article class="panel">
         <div class="panel-header"><div><h2>Priority alerts</h2><p>Items requiring an operations response</p></div></div>
         <ul class="alert-list">
-          <li><span class="status warning">Low stock</span><div><strong>Guatemala Antigua, 25 kg bags</strong><p>18 bags remain; reorder point is 40.</p></div><router-link to="/inventory">Review</router-link></li>
-          <li><span class="status error">Delayed</span><div><strong>PO-10482 from Vale Verde</strong><p>Inbound dock appointment is 1 day overdue.</p></div><router-link to="/purchase-orders">Open</router-link></li>
-          <li><span class="status success">On target</span><div><strong>Morning fulfilment rate</strong><p>96.4% of orders shipped before the cut-off.</p></div><router-link to="/operations">View</router-link></li>
+          <li><Badge theme-color="warning" :rounded="'small'">Low stock</Badge><div><strong>Guatemala Antigua, 25 kg bags</strong><p>18 bags remain; reorder point is 40.</p></div><router-link to="/inventory">Review</router-link></li>
+          <li><Badge theme-color="error" :rounded="'small'">Delayed</Badge><div><strong>PO-10482 from Vale Verde</strong><p>Inbound dock appointment is 1 day overdue.</p></div><router-link to="/purchase-orders">Open</router-link></li>
+          <li><Badge theme-color="success" :rounded="'small'">On target</Badge><div><strong>Morning fulfilment rate</strong><p>96.4% of orders shipped before the cut-off.</p></div><router-link to="/operations">View</router-link></li>
         </ul>
       </article>
     </div>
@@ -26,9 +26,10 @@
 
 <script>
 import { Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend } from "@progress/kendo-vue-charts";
+import { Badge } from "@progress/kendo-vue-indicators";
 import PageHeader from "./PageHeader.vue";
 export default {
-  components: { PageHeader, Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend },
+  components: { PageHeader, Badge, Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend },
   data() {
     return {
       months: ["May", "Jun", "Jul", "Aug"],

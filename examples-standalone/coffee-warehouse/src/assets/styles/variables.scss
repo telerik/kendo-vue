@@ -1,10 +1,8 @@
 :root {
-  --kendo-color-app-surface: #d4d6e4;
-  --kendo-color-info: #71a6ff;
   --kendo-font-family: "Roboto", sans-serif;
-  --kendo-translucency-base: 28%;
-  --kendo-translucency-blur-base: 8px;
+  --kendo-translucency-base: 25%;
+  --kendo-translucency-blur-base: 6px;
   --kendo-translucency-blur-step: 2px;
 }
 
-$info-background: #151950;
+$info-background: var(--kendo-color-inverse);

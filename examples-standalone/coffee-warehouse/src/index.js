@@ -2,6 +2,8 @@ import { createWebHistory, createRouter } from "vue-router";
 import Dashboard from "./components/Dashboard.vue";
 import ResourcePage from "./components/ResourcePage.vue";
 import AccountPage from "./components/AccountPage.vue";
+import Team from "./components/Team.vue";
+import Info from "./components/Info.vue";
 import NotFound from "./components/NotFound.vue";
 import Login from "./components/Login.vue";
 
@@ -14,6 +16,8 @@ const router = createRouter({
     { path: "/", component: Dashboard },
     resource("/inventory", "inventory"), resource("/purchase-orders", "purchase-orders"), resource("/sales-orders", "sales-orders"), resource("/suppliers", "suppliers"),
     resource("/planning", "planning"), resource("/operations", "operations"), resource("/assets", "assets"), resource("/manufacturing", "manufacturing"), resource("/finance", "finance"),
+    { path: "/team", name: "team-members", component: Team },
+    { path: "/info", name: "info", component: Info },
     account("/profile", "profile"), account("/settings", "settings"), account("/help", "help"), account("/notifications", "notifications"),
     { path: "/:pathMatch(.*)*", component: NotFound },
   ],
