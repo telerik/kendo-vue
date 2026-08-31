@@ -28,7 +28,7 @@
                                 <span>{{ project.team }} contributors · Due {{ project.deadline }}</span>
                             </div>
                             <div class="health-progress">
-                                <span class="status-badge" :class="statusClass(project.status)">{{ project.status }}</span>
+                                <KBadge class="status-badge" :theme-color="statusThemeColor(project.status)" size="small">{{ project.status }}</KBadge>
                                 <div class="progress-track" :aria-label="`${project.progress}% complete`"><span :style="{ width: `${project.progress}%` }"></span></div>
                             </div>
                         </article>
@@ -73,11 +73,12 @@
 
 <script>
 import { Button } from '@progress/kendo-vue-buttons';
+import { Badge } from '@progress/kendo-vue-indicators';
 import { Card, CardBody, CardHeader } from '@progress/kendo-vue-layout';
 import { projects, tasks } from '../shared/project-data';
 
 export default {
-    components: { KButton: Button, Card, CardBody, CardHeader },
+    components: { KButton: Button, KBadge: Badge, Card, CardBody, CardHeader },
     data: () => ({
         projects,
         tasks,
@@ -89,8 +90,8 @@ export default {
         ]
     }),
     methods: {
-        statusClass(status) {
-            return `status-${status.toLowerCase().replace(/\s+/g, '-')}`;
+        statusThemeColor(status) {
+            return { 'On track': 'success', 'At risk': 'warning', 'On hold': 'base' }[status] || 'base';
         }
     }
 };

@@ -18,7 +18,7 @@
             </div>
             <div class="project-grid">
                 <article v-for="project in projects" :key="project.id" class="project-card">
-                    <div class="card-meta"><span class="status-badge" :class="statusClass(project.status)">{{ project.status }}</span><span>{{ project.priority }} priority</span></div>
+                    <div class="card-meta"><KBadge class="status-badge" :theme-color="statusThemeColor(project.status)" size="small">{{ project.status }}</KBadge><span>{{ project.priority }} priority</span></div>
                     <h2><RouterLink :to="`/projects/${project.id}`">{{ project.name }}</RouterLink></h2>
                     <p>{{ project.description }}</p>
                     <div class="progress-track" :aria-label="`${project.progress}% complete`"><span :style="{ width: `${project.progress}%` }"></span></div>
@@ -33,7 +33,7 @@
                 <CardHeader>{{ project.name }}</CardHeader>
                 <CardBody>
                     <p>{{ project.description }}</p>
-                    <div class="card-meta"><span class="status-badge status-on-track">{{ project.status }}</span><span>{{ project.progress }}% complete · Due {{ project.deadline }}</span></div>
+                    <div class="card-meta"><KBadge class="status-badge" :theme-color="statusThemeColor(project.status)" size="small">{{ project.status }}</KBadge><span>{{ project.progress }}% complete · Due {{ project.deadline }}</span></div>
                     <div class="progress-track"><span :style="{ width: `${project.progress}%` }"></span></div>
                 </CardBody>
             </Card>
@@ -58,7 +58,7 @@
             <div class="member-grid">
                 <article v-for="member in members" :key="member.name" class="project-card">
                     <div class="avatar">{{ initials(member.name) }}</div><h2>{{ member.name }}</h2><p>{{ member.role }}</p>
-                    <span class="status-badge" :class="member.workload > 100 ? 'status-at-risk' : 'status-on-track'">{{ member.availability }}</span>
+                    <KBadge class="status-badge" :theme-color="availabilityThemeColor(member.availability)" size="small">{{ member.availability }}</KBadge>
                     <div class="progress-track" :aria-label="`${member.workload}% workload`"><span :style="{ width: `${Math.min(member.workload, 100)}%` }"></span></div>
                     <footer>{{ member.workload }}% allocated this sprint</footer>
                 </article>
@@ -95,12 +95,13 @@
 <script>
 import { Button } from '@progress/kendo-vue-buttons';
 import { Grid } from '@progress/kendo-vue-grid';
+import { Badge } from '@progress/kendo-vue-indicators';
 import { Input } from '@progress/kendo-vue-inputs';
 import { Card, CardBody, CardHeader } from '@progress/kendo-vue-layout';
 import { members, notifications, projects, tasks } from '../shared/project-data';
 
 export default {
-    components: { KButton: Button, KInput: Input, Grid, Card, CardBody, CardHeader },
+    components: { KButton: Button, KInput: Input, KBadge: Badge, Grid, Card, CardBody, CardHeader },
     props: { view: { type: String, required: true } },
     data() {
         return {
@@ -119,7 +120,8 @@ export default {
     },
     methods: {
         initials(name) { return name.split(' ').map((part) => part[0]).join(''); },
-        statusClass(status) { return `status-${status.toLowerCase().replace(/\s+/g, '-')}`; },
+        statusThemeColor(status) { return { 'On track': 'success', 'At risk': 'warning', 'On hold': 'base' }[status] || 'base'; },
+        availabilityThemeColor(availability) { return { Available: 'success', Limited: 'warning', 'Over allocated': 'error' }[availability] || 'base'; },
         markAllRead() { this.localNotifications.forEach((notification) => { notification.unread = false; }); }
     }
 };
