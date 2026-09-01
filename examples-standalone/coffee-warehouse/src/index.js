@@ -1,36 +1,25 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Team from "./components/Team.vue";
-import Profile from "./components/Profile.vue";
 import Dashboard from "./components/Dashboard.vue";
+import ResourcePage from "./components/ResourcePage.vue";
+import AccountPage from "./components/AccountPage.vue";
+import Team from "./components/Team.vue";
 import Info from "./components/Info.vue";
+import NotFound from "./components/NotFound.vue";
+import Login from "./components/Login.vue";
 
-const routes = [
-  {
-    path: "/",
-    name: "Team",
-    component: Team,
-    props: true
-  },
-  {
-    path: "/Profile",
-    name: "Profile",
-    component: Profile
-  },
-  {
-    path: "/Dashboard",
-    name: "Dashboard",
-    component: Dashboard
-  },
-  {
-    path: "/Info",
-    name: "Info",
-    component: Info
-  }
-];
-
+const resource = (path, module) => ({ path, component: ResourcePage, props: { module } });
+const account = (path, kind) => ({ path, component: AccountPage, props: { kind } });
 const router = createRouter({
-    history: createWebHistory("/kendo-vue/coffee-warehouse/"),
-  routes,
+  history: createWebHistory("/kendo-vue/coffee-warehouse/"),
+  routes: [
+    { path: "/login", component: Login },
+    { path: "/", component: Dashboard },
+    resource("/inventory", "inventory"), resource("/purchase-orders", "purchase-orders"), resource("/sales-orders", "sales-orders"), resource("/suppliers", "suppliers"),
+    resource("/planning", "planning"), resource("/operations", "operations"), resource("/assets", "assets"), resource("/manufacturing", "manufacturing"), resource("/finance", "finance"),
+    { path: "/team", name: "team-members", component: Team },
+    { path: "/info", name: "info", component: Info },
+    account("/profile", "profile"), account("/settings", "settings"), account("/help", "help"), account("/notifications", "notifications"),
+    { path: "/:pathMatch(.*)*", component: NotFound },
+  ],
 });
-
 export default router;

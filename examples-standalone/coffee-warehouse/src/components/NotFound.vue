@@ -1,0 +1,1 @@
+<template><section class="page empty-state"><h1>Error 404: Page Not Found</h1><p>The requested warehouse page does not exist or has been moved.</p><router-link class="k-button k-button-solid k-button-solid-primary" to="/">Go to Main Dashboard</router-link></section></template>

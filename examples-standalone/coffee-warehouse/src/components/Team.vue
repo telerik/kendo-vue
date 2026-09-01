@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <section class="page team-page">
+    <PageHeader title="Team Members" subtitle="Review warehouse roles, coverage, and team availability." />
     <div class="card-header-wrapper">
       <h3 class="card-title">{{ teamMembersMessage }}</h3>
       <buttongroup>
@@ -20,7 +21,7 @@
         @selectionchange="onSelectionChange" @headerselectionchange="onHeaderSelectionChange"
         @datastatechange="dataStateChange" @expandchange="expandChange">
         <toolbar>
-          <span class="k-textbox k-grid-search k-display-flex">
+          <span class="k-textbox k-grid-search team-grid-search">
             <k-input :style="{ width: '230px' }" :placeholder="gridSearchMessage" :value="searchWord" @input="onFilter">
             </k-input>
           </span>
@@ -59,7 +60,7 @@
         </template>
       </Grid>
     </pdfexport>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -70,6 +71,7 @@ import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { Grid, GridToolbar } from "@progress/kendo-vue-grid";
 import { Button, ButtonGroup } from "@progress/kendo-vue-buttons";
 import { provideLocalizationService } from "@progress/kendo-vue-intl";
+import PageHeader from "./PageHeader.vue";
 
 import EngagementComponent from "./GridComponents/EngagementComponent.vue";
 import IsOnlineComponent from "./GridComponents/IsOnlineComponent.vue";
@@ -82,6 +84,7 @@ import employees from "../assets/employees";
 export default {
   name: "App",
   components: {
+    PageHeader,
     Grid: Grid,
     toolbar: GridToolbar,
     pdfexport: GridPdfExport,
@@ -129,7 +132,8 @@ export default {
   },
   computed: {
     gridHeight() {
-      const newGridHeight = document.querySelectorAll(".k-drawer-container")[0].offsetHeight - 280;
+      const contentHeight = document.querySelector(".app-content")?.clientHeight || window.innerHeight;
+      const newGridHeight = contentHeight - 180;
       return newGridHeight < 500 ? 500 : newGridHeight;
     },
     take() {
@@ -434,7 +438,7 @@ export default {
       this.gridData = this.getData(slicedEmployees);
     },
     getSelectColumnWidth(theme) {
-      return theme === "kendo-theme-default" ? "42px" : theme === "kendo-theme-material" ? "65px" : "32px";
+      return "32px";
     }
   },
 };
@@ -449,32 +453,36 @@ td.text-center {
   display: inline-block;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: var(--kendo-border-radius-full);
   background-size: 32px 35px;
   background-position: center center;
   vertical-align: middle;
   line-height: 32px;
-  box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0, 0, 0, 0.2);
-  margin-left: 5px;
+  box-shadow: var(--kendo-elevation-1);
+  margin-left: var(--kendo-spacing-1);
 }
 
 .customer-name {
   display: inline-block;
   vertical-align: middle;
   line-height: 32px;
-  padding-left: 10px;
+  padding-left: var(--kendo-spacing-2\.5);
 }
 
 .red {
-  color: #d9534f;
+  color: var(--kendo-color-error-on-surface);
 }
 
 .text-bold {
-  font-weight: 600;
+  font-weight: var(--kendo-font-weight-semibold);
 }
 
 .export-buttons {
   margin-left: auto;
-  margin-right: 0;
+  margin-right: var(--kendo-spacing-0);
+}
+
+.team-grid-search {
+  display: flex;
 }
 </style>

@@ -1,17 +1,17 @@
 <template>
-  <Card class="k-p-4 k-gap-6 k-rounded-xxl k-h-full">
-    <div class="k-d-grid k-gap-2">
+  <Card class="card-info-card">
+    <div class="card-info-content">
       <div
         :style="{
           fontSize: '20px',
           letterSpacing: 'wide',
           fontWeight: '500',
         }"
-        class="k-gap-2"
+        class="card-info-title"
       >
         Card Information
       </div>
-      <div class="k-d-grid k-gap-6">
+      <div class="card-info-form">
         <KForm
           :key="cardInfo"
           :initial-values="cardInfo"
@@ -49,3 +49,9 @@ const handleSubmit = (dataItem) => {
 };
 
 </script>
+<style scoped>
+.card-info-card { height: 100%; padding: var(--kendo-spacing-4); gap: var(--kendo-spacing-6); border-radius: var(--kendo-border-radius-xxl); }
+.card-info-content { display: grid; gap: var(--kendo-spacing-2); }
+.card-info-title { gap: var(--kendo-spacing-2); }
+.card-info-form { display: grid; gap: var(--kendo-spacing-6); }
+</style>

@@ -1,127 +1,53 @@
 <template>
-  <div class="header header-bg">
-    <div class="nav-container">
-      <div class="title">
-        <h1>{{ warehouseMessage }}</h1>
-        <span class="vl"></span>
-        <h2>{{ teamMessage }}</h2>
-      </div>
-      <DropDownList :style="{ width: '230px', height: '30px' }" class="localeDropDownList" :value="currentLocale"
-        :text-field="'language'" @change="localeChange" :data-items="locales">
-      </DropDownList>
-      <DropDownList :data-items="themes" :text-field="'text'" :popup-settings="themesPopupSettings"
-        :value-render="myDropDownValueTemplate" class="ddl-theme" @change="onThemeChange">
-        <template v-slot:myDropDownValueTemplate="{}">
-          <div style="margin: auto 8px auto 10px">
-            <span class="k-icon k-font-icon k-i-palette"> </span>
-          </div>
-        </template>
-      </DropDownList>
-      <Avatar :rounded="'full'" :type="'image'" :style="{ width: '40px', height: '40px', 'flex-basis': '40px' }">
-        <img src="../assets/images/user.jpg" alt="" />
-      </Avatar>
+  <header class="app-header" :style="{ '--app-header-background-image': `url(${headerBg})` }">
+    <div class="header-start">
+      <button ref="menuButton" class="menu-toggle" type="button" :aria-label="navigationOpen ? 'Close navigation menu' : 'Open navigation menu'" aria-controls="primary-navigation" :aria-expanded="navigationOpen" @click="$emit('toggle-navigation')">
+        <SvgIcon :icon="menuIcon" :size="'small'" aria-hidden="true" />
+      </button>
+      <router-link class="brand" to="/">
+        <span class="brand-mark">CW</span>
+        <span>Coffee Warehouse</span>
+      </router-link>
     </div>
-  </div>
+    <div class="header-search-region">
+      <input class="global-search" type="search" aria-label="Search warehouse records" placeholder="Search orders, inventory, suppliers" />
+    </div>
+    <div class="header-actions">
+      <router-link class="notification-link" to="/notifications" aria-label="Notifications: 3 unread">
+        <SvgIcon :icon="bellIcon" :size="'small'" aria-hidden="true" />
+        <span class="notification-label">Notifications</span> <Badge class="notification-count" theme-color="error" :rounded="'full'" aria-hidden="true">3</Badge>
+      </router-link>
+      <router-link class="profile-link" to="/profile">
+        <Avatar :rounded="'full'" :type="'image'" :style="{ width: '32px', height: '32px' }">
+          <img src="../assets/images/user.jpg" alt="Peter Douglas" />
+        </Avatar>
+        <span>Peter Douglas</span>
+      </router-link>
+      <span class="locale" aria-label="Current language: English">
+        <span>EN</span><SvgIcon :icon="chevronDownIcon" :size="'small'" aria-hidden="true" />
+      </span>
+    </div>
+  </header>
 </template>
+
 <script>
 import { Avatar } from "@progress/kendo-vue-layout";
-import { DropDownList } from "@progress/kendo-vue-dropdowns";
-import { provideLocalizationService } from "@progress/kendo-vue-intl";
+import { SvgIcon } from "@progress/kendo-vue-common";
+import { Badge } from "@progress/kendo-vue-indicators";
+import { bellIcon, chevronDownIcon, menuIcon } from "@progress/kendo-svg-icons";
+import headerBg from "../assets/images/header-bg.png";
 
 export default {
-  components: {
-    Avatar,
-    DropDownList
-  },
-  emits: {
-    localeChange: null,
-    themeChange: null,
-  },
-  inject: {
-    kendoLocalizationService: { default: null },
-  },
-  computed: {
-    warehouseMessage() {
-      return provideLocalizationService(this).toLanguageString(
-        "warehouse",
-        "Coffee Warehouse"
-      );
-    },
-    teamMessage() {
-      return provideLocalizationService(this).toLanguageString("team", "Team");
-    },
+  components: { Avatar, Badge, SvgIcon },
+  props: { navigationOpen: Boolean },
+  emits: ["toggle-navigation"],
+  data() {
+    return { bellIcon, chevronDownIcon, headerBg, menuIcon };
   },
   methods: {
-    onThemeChange(e) {
-      this.themeValue = e.value;
-      this.$emit("themeChange", this.themeValue.value)
+    focusMenu() {
+      this.$refs.menuButton?.focus();
     },
-    localeChange(e) {
-      this.currentLocale = e.target.value;
-      this.$emit("localeChange", this.currentLocale);
-    },
-  },
-  created() {
-    this.currentLocale = this.locales[0];
-  },
-  data() {
-    return {
-      theme: "default",
-      themeValue: {
-        text: "Default",
-        value: "kendo-theme-default"
-      },
-      year: '2025',
-      themes: [
-        {
-          text: "Default",
-          value: "kendo-theme-default"
-        },
-        {
-          text: "Bootstrap",
-          value: "kendo-theme-bootstrap"
-        },
-        {
-          text: "Material",
-          value: "kendo-theme-material"
-        },
-      ],
-      myDropDownValueTemplate: "myDropDownValueTemplate",
-      themesPopupSettings: {
-        width: "150px",
-      },
-      currentLocale: null,
-      locales: [
-        {
-          language: "English",
-          locale: "en",
-        },
-        {
-          language: "French",
-          locale: "fr",
-        },
-        {
-          language: "Spanish",
-          locale: "es",
-        },
-      ],
-    };
   },
 };
 </script>
-
-<style scoped>
-.ddl-theme {
-  width: 60px;
-  min-width: 60px;
-}
-
-.localeDropDownList {
-  min-width: 100px;
-  margin: 10px;
-}
-
-.k-dropdownlist {
-  min-height: 30px;
-}
-</style>

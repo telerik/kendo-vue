@@ -1,12 +1,12 @@
 <template>
-    <Card class="k-rounded-xxl k-gap-1.5 k-p-4">
-        <div :style='{ fontSize: "20px", letterSpacing: "wide" }' class="k-pt-1px k-pb-1px k-pr-0 k-pl-0 k-gap-4">
+    <Card class="summary-card">
+        <div :style='{ fontSize: "20px", letterSpacing: "wide" }' class="summary-topic">
             {{ topic }}
         </div>
-        <div :style='{ fontSize: "24px", letterSpacing: "wide" }' class="k-pt-1px k-pb-1px k-pr-0 k-pl-0 k-gap-6">
+        <div :style='{ fontSize: "24px", letterSpacing: "wide" }' class="summary-amount">
             {{ amount }}
         </div>
-        <div :style='{ fontSize: "14px", letterSpacing: "wide" }' class="k-pt-1px k-pb-1px k-pr-0 k-pl-0 k-gap-6">
+        <div :style='{ fontSize: "14px", letterSpacing: "wide" }' class="summary-comparison">
             <span :class="positive ? 'positive' : 'negative'">{{ positive ? '+': undefined }}{{ percentage }}%</span> than the last
             month
         </div>
@@ -34,3 +34,8 @@ const props = defineProps({
 const positive = props.percentage >= 0 ? true : false;
 
 </script>
+<style scoped>
+.summary-card { padding: var(--kendo-spacing-4); gap: calc(1.5 * var(--kendo-spacing-base)); border-radius: var(--kendo-border-radius-xxl); }
+.summary-topic { padding-block: var(--kendo-spacing-1px); padding-inline: var(--kendo-spacing-0); gap: var(--kendo-spacing-4); }
+.summary-amount, .summary-comparison { padding-block: var(--kendo-spacing-1px); padding-inline: var(--kendo-spacing-0); gap: var(--kendo-spacing-6); }
+</style>

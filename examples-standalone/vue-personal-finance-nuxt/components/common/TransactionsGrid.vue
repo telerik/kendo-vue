@@ -1,6 +1,6 @@
 <template>
-  <Card class="k-p-4 k-gap-4 k-rounded-lg k-gap-3.5">
-    <div class="k-d-grid k-gap-4">
+  <Card class="transactions-card">
+    <div class="transactions-heading">
       <div
         :style="{
           fontSize: '20px',
@@ -32,7 +32,7 @@
     >
       <GridToolbar>
         <KButton
-          :style="{ backgroundColor: '#616161' }"
+          theme-color="secondary"
           :title="'Export Excel'"
           :svg-icon="fileExcelIcon"
           @click="excelExport"
@@ -41,7 +41,7 @@
         </KButton>
 
         <!-- <KButton
-          :style="{ backgroundColor: '#616161' }"
+          theme-color="secondary"
           :title="'Export PDF'"
           :svg-icon="filePdfIcon"
           @click="exportPDF"
@@ -211,3 +211,7 @@ const exportPDF = () => {
     });
 };
 </script>
+<style scoped>
+.transactions-card { padding: var(--kendo-spacing-4); gap: calc(3.5 * var(--kendo-spacing-base)); border-radius: var(--kendo-border-radius-lg); }
+.transactions-heading { display: grid; gap: var(--kendo-spacing-4); }
+</style>

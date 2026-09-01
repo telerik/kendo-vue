@@ -1,146 +1,91 @@
 <template>
-  <link rel="stylesheet" :href="themeLink" />
-  <div id="app" class="app">
-    <localization :language="localizationLanguage">
-      <intl :locale="locale">
-        <Header @localeChange="onLocaleChange" @themeChange="onThemeChange" />
-        <div class="content-wrapper">
-          <div class="column menu">
-            <MenuNavContainer :current-theme="currentTheme" />
-          </div>
-          <div class="column content">
-            <div class="k-drawer-container k-drawer-mini k-drawer-push">
-              <div class="card-container">
-                <router-view
-                  :localization-language="localizationLanguage"
-                  :current-theme="currentTheme"
-                ></router-view>
-              </div>
-            </div>
-          </div>
-        </div>
-      </intl>
-    </localization>
+  <div class="app-shell">
+    <Header ref="header" :navigation-open="navigationOpen" @toggle-navigation="toggleNavigation" />
+    <div class="app-body">
+      <MenuNavContainer ref="sidebar" :open="navigationOpen" @navigate="closeNavigation" />
+      <button v-if="navigationOpen" class="nav-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1" @click="closeNavigation"></button>
+      <main class="app-content">
+        <router-view />
+      </main>
+    </div>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import MenuNavContainer from "./components/MenuNavContainer.vue";
-import { enComponentMessages, enCustomMessages } from "./messages/en-US";
-import { esComponentMessages, esCustomMessages } from "./messages/es";
-import { frComponentMessages, frCustomMessages } from "./messages/fr";
-
-import {
-  load,
-  LocalizationProvider,
-  IntlProvider,
-  loadMessages,
-} from "@progress/kendo-vue-intl";
-import likelySubtags from "cldr-core/supplemental/likelySubtags.json";
-import currencyData from "cldr-core/supplemental/currencyData.json";
-import weekData from "cldr-core/supplemental/weekData.json";
-
-import numbers from "cldr-numbers-full/main/es/numbers.json";
-import caGregorian from "cldr-dates-full/main/es/ca-gregorian.json";
-import dateFields from "cldr-dates-full/main/es/dateFields.json";
-import timeZoneNames from "cldr-dates-full/main/es/timeZoneNames.json";
-import esNumbers from "cldr-numbers-full/main/es/numbers.json";
-import esCurrencies from "cldr-numbers-full/main/es/currencies.json";
-
-import frNumbers from "cldr-numbers-full/main/fr/numbers.json";
-import frCaGregorian from "cldr-dates-full/main/fr/ca-gregorian.json";
-import frDateFields from "cldr-dates-full/main/fr/dateFields.json";
-import frTimeZoneNames from "cldr-dates-full/main/fr/timeZoneNames.json";
-import frCurrencies from "cldr-numbers-full/main/fr/currencies.json";
-
-load(
-  likelySubtags,
-  currencyData,
-  weekData,
-  numbers,
-  caGregorian,
-  dateFields,
-  timeZoneNames,
-  esNumbers,
-  esCurrencies,
-  frNumbers,
-  frCaGregorian,
-  frDateFields,
-  frTimeZoneNames,
-  frCurrencies
-);
-
-loadMessages(enCustomMessages, "English");
-loadMessages(enComponentMessages, "English");
-loadMessages(esCustomMessages, "Spanish");
-loadMessages(esComponentMessages, "Spanish");
-loadMessages(frCustomMessages, "French");
-loadMessages(frComponentMessages, "French");
 
 export default {
-  name: "app",
-  components: {
-    Header,
-    MenuNavContainer,
-    localization: LocalizationProvider,
-    intl: IntlProvider,
-  },
+  components: { Header, MenuNavContainer },
   data() {
-    return {
-      localizationLanguage: "en",
-      currentTheme: "kendo-theme-default",
-    };
+    return { navigationOpen: false, navigationTrigger: null };
+  },
+  mounted() {
+    window.addEventListener("keydown", this.handleNavigationKeydown);
+    window.addEventListener("resize", this.handleViewportChange);
+  },
+  beforeUnmount() {
+    window.removeEventListener("keydown", this.handleNavigationKeydown);
+    window.removeEventListener("resize", this.handleViewportChange);
+    document.body.style.overflow = "";
+  },
+  watch: {
+    navigationOpen(open) {
+      document.body.style.overflow = open && this.isMobileViewport() ? "hidden" : "";
+      if (open) {
+        this.$nextTick(() => this.$refs.sidebar?.focusFirstItem());
+      }
+    },
   },
   methods: {
-    onLocaleChange(e) {
-      this.localizationLanguage = e.language;
+    isMobileViewport() {
+      return window.innerWidth < 768;
     },
-    onThemeChange(e) {
-      this.currentTheme = e;
+    handleViewportChange() {
+      if (!this.isMobileViewport() && this.navigationOpen) {
+        this.navigationOpen = false;
+      }
+    },
+    toggleNavigation() {
+      if (this.navigationOpen) {
+        this.closeNavigation();
+        return;
+      }
+      this.navigationTrigger = document.activeElement;
+      this.navigationOpen = true;
+    },
+    closeNavigation() {
+      if (!this.navigationOpen) return;
+      this.navigationOpen = false;
+      this.$nextTick(() => {
+        if (this.navigationTrigger?.isConnected) {
+          this.navigationTrigger.focus();
+        } else {
+          this.$refs.header?.focusMenu();
+        }
+        this.navigationTrigger = null;
+      });
+    },
+    handleNavigationKeydown(event) {
+      if (!this.navigationOpen || !this.isMobileViewport()) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        this.closeNavigation();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const links = Array.from(this.$refs.sidebar?.$el.querySelectorAll(".nav-item") || []);
+      if (!links.length) return;
+      const first = links[0];
+      const last = links[links.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     },
   },
-  computed: {
-    themeLink() {
-      return "https://unpkg.com/@progress/" + this.currentTheme + "@latest/dist/all.css"
-    },
-    locale() {
-      if (this.localizationLanguage === "Spanish") {
-        return "es";
-      }
-
-      if (this.localizationLanguage === "French") {
-        return "fr";
-      }
-
-      return "en";
-    },
-  }
 };
 </script>
-
-<style lang="scss">
-@import "./assets/styles/app.scss";
-.column {
-  display: inline-block;
-}
-
-.column.content{
-  min-width: 500px;
-}
-
-.k-item.k-menu-item.k-drawer-item.k-state-selected {
-  color: #ffffff;
-}
-
-.content-wrapper {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-}
-
-.k-drawer-container.k-drawer-push {
-  display: inherit;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
-    <Card class="k-p-4 k-gap-4 k-rounded-xxl k-gap-3.5">
-        <div class="k-d-grid k-gap-4">
+    <Card class="topics-card">
+        <div class="topics-content">
             <div :style='{
                 fontSize: "20px",
                 letterSpacing: "wide",
@@ -72,3 +72,7 @@ function handleAction(ev, itemId) {
 }
 
 </script>
+<style scoped>
+.topics-card { padding: var(--kendo-spacing-4); gap: calc(3.5 * var(--kendo-spacing-base)); border-radius: var(--kendo-border-radius-xxl); }
+.topics-content { display: grid; gap: var(--kendo-spacing-4); }
+</style>

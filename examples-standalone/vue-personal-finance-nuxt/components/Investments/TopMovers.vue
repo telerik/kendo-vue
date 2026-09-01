@@ -1,22 +1,22 @@
 <template>
-    <Card class="k-p-4 k-gap-6 k-rounded-xxl k-h-full">
-        <div class="k-d-grid k-gap-10">
+    <Card class="top-movers-card">
+        <div class="top-movers-content">
             <div :style="{
                 fontSize: '20px',
                 letterSpacing: 'wide',
                 fontWeight: '500',
-            }" class="k-gap-2">
+            }" class="top-movers-title">
                 Today’s Top 5 Movers
             </div>
-            <div class="k-d-grid k-gap-6 k-pb-5">
+            <div class="top-movers-list">
                 <ListView :data-items="currencies" :item="'listViewItem'" :style="{ width: '100%', border: 'none' }">
                     <template #listViewItem="{ props }">
-                        <div class="k-d-grid k-grid-cols-4 k-gap-lg-6 k-gap-xxl-6 k-gap-sm-0 k-rounded-md">
-                            <div class="k-d-flex k-align-items-center">
+                        <div class="mover-row">
+                            <div class="mover-identity">
                                 <Avatar rounded="full" type="image">
                                     <img :src="props.dataItem.avatar" :alt="props.dataItem.name" />
                                 </Avatar>
-                                <div class="k-d-flex k-flex-column k-gap-4px">
+                                <div class="mover-labels">
                                     <span :style="{ fontSize: '14px', fontWeight: '700' }">
                                         {{ props.dataItem.pair }}
                                     </span>
@@ -25,15 +25,15 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="k-d-flex k-flex-column k-gap-4px k-align-items-end">
+                            <div class="mover-metric">
                                 <span>{{ displayCurrencySign(props.dataItem.price, currency) }}</span>
                                 <Change :change="props.dataItem.change" :price="props.dataItem.price" />
                             </div>
-                            <div class="k-d-flex k-flex-column k-gap-4px k-align-items-end">
+                            <div class="mover-metric">
                                 <span>{{ displayCurrencySign(props.dataItem.price, currency) }}</span>
                                 <Change :change="props.dataItem.change" :price="props.dataItem.price" />
                             </div>
-                            <div class="k-d-flex k-flex-column k-align-items-end k-justify-content-center">
+                            <div class="mover-total">
                                 <span>{{ displayCurrencySign(props.dataItem.total, currency) }}</span>
                             </div>
                         </div>
@@ -97,3 +97,18 @@ const currencies = ref([
 ]);
 
 </script>
+<style scoped>
+.top-movers-card { height: 100%; padding: var(--kendo-spacing-4); gap: var(--kendo-spacing-6); border-radius: var(--kendo-border-radius-xxl); }
+.top-movers-content { display: grid; gap: var(--kendo-spacing-10); }
+.top-movers-title { gap: var(--kendo-spacing-2); }
+.top-movers-list { display: grid; gap: var(--kendo-spacing-6); padding-bottom: var(--kendo-spacing-5); }
+.mover-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-radius: var(--kendo-border-radius-md); }
+.mover-identity, .mover-labels, .mover-metric, .mover-total { display: flex; }
+.mover-identity { align-items: center; }
+.mover-labels, .mover-metric, .mover-total { flex-direction: column; }
+.mover-labels, .mover-metric { gap: var(--kendo-spacing-1); }
+.mover-metric, .mover-total { align-items: flex-end; }
+.mover-total { justify-content: center; }
+@media (min-width: 576px) { .mover-row { gap: var(--kendo-spacing-0); } }
+@media (min-width: 992px) { .mover-row { gap: var(--kendo-spacing-6); } }
+</style>

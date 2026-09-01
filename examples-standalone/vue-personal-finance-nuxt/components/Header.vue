@@ -1,33 +1,33 @@
 <template>
   <header
-    class="k-d-flex k-px-lg-15 k-px-md-15 k-px-sm-5 k-px-xs-5 k-py-6.5 k-gap-4 k-flex-wrap k-justify-content-between k-align-items-center"
+    class="app-header"
   >
     <div
-      class="k-d-flex-row k-shrink-0 k-flex-basis-0 k-flex-grow k-gap-2 k-align-items-center"
+      class="profile-section"
     >
       <Avatar :size="'large'" rounded="full">
         <img
           src="/images/avatar-image.jpeg"
+          alt=""
           width="65"
           :style="{ verticalAlign: 'top' }"
         />
       </Avatar>
       <div
-        class="k-d-flex k-d-flex-col k-flex-nowrap k-gap-3 k-align-items-start"
+        class="profile-greeting"
       >
         <span
-          v-if="personalInfo"
-          class="k-font-size-xl !k-m-0 k-font-bold k-white-space-nowrap k-h-6 k-align-middle"
+          class="profile-name"
         >
-          Hi, {{ personalInfo.name }}
+          Hi, {{ personalInfo?.name || "Maria" }}
         </span>
-        <span class="k-font-size-md !k-m-0 k-font-medium k-white-space-nowrap">
+        <span class="profile-welcome">
           Welcome back
         </span>
       </div>
     </div>
-    <div class="k-flex-basis-0 k-shrink-0 k-flex-grow">
-      <div class="k-d-flex">
+    <div class="search-section">
+      <div class="search-control">
         <AutoComplete
           :style="{ width: '100%', minWidth: '215px', maxWidth: '360px' }"
           :size="'small'"
@@ -43,25 +43,32 @@
       </div>
     </div>
     <div
-      class="k-d-flex k-flex-basis-0 k-shrink-0 k-flex-grow k-justify-content-end k-justify-content-sm-start k-gap-4"
+      class="header-actions"
     >
       <Button
         :size="'small'"
         :fill-mode="'solid'"
         :theme-color="'primary'"
         :rounded="'large'"
-        @click="navigateTo(6, 'ai-assistant')"
+        @click="navigateTo('ai-assistant')"
       >
         AI ASSISTANT
       </Button>
+      <Button
+        :fill-mode="'flat'"
+        :svg-icon="bellIcon"
+        aria-label="View notifications"
+        title="View notifications"
+        @click="navigateTo('notifications')"
+      />
       <DropDownList
         :style="{
-          backgroundColor: '#F5F5F5',
+          backgroundColor: 'var(--kendo-color-base-subtle)',
           width: '105px',
           border: '1px solid var(--kendo-color-opacity-border, var(--kendo-color-on-app-surface)A8)',
           fontSize: '16px',
           fontWeight: 400,
-          color: '#000000',
+          color: 'var(--kendo-color-on-app-surface)',
         }"
         rounded="large"
         :data-items="['USD', 'EUR']"
@@ -80,7 +87,7 @@ import { AutoComplete, DropDownList } from "@progress/kendo-vue-dropdowns";
 import { Button } from "@progress/kendo-vue-buttons";
 import { SvgIcon } from "@progress/kendo-vue-common";
 import { checkLocalStorageData } from "@/data/localStorageUtils";
-import { searchIcon } from "@progress/kendo-svg-icons";
+import { bellIcon } from "@progress/kendo-svg-icons";
 
 const personalInfo = ref(null);
 const emit = defineEmits(["navigate", "currencyChange"]);
@@ -88,10 +95,16 @@ const searchValue = ref("");
 const currency = ref("USD");
 
 const searchItems = [
-  { itemIndex: 2, text: "Transactions Overview", route: "/" },
-  { itemIndex: 3, text: "Transactions Details", route: "/transactions" },
-  { itemIndex: 4, text: "Investments", route: "/investments" },
-  { itemIndex: 5, text: "Analytics", route: "/analytics" },
+  { text: "Dashboard", route: "/" },
+{ text: "Account details", route: "/accounts/checking" },
+{ text: "Transactions", route: "/transactions" },
+{ text: "Cards", route: "/cards" },
+{ text: "Statements", route: "/statements" },
+  { text: "Transfer funds", route: "/transfers" },
+  { text: "Budget planner", route: "/budgets" },
+  { text: "Investments", route: "/investments" },
+  { text: "Analytics", route: "/analytics" },
+  { text: "Help & support", route: "/help" },
 ];
 
 onBeforeMount(() => {
@@ -105,14 +118,13 @@ const onSearchChange = (event) => {
 
   if (dataItem) {
     emit("navigate", {
-      itemIndex: dataItem.itemIndex,
       itemTarget: dataItem.route,
     });
   }
 };
 
-const navigateTo = (itemIndex, itemTarget) => {
-  emit("navigate", { itemIndex, itemTarget });
+const navigateTo = (itemTarget) => {
+  emit("navigate", { itemTarget: `/${itemTarget}` });
 };
 
 const onCurrencyChange = (event) => {
@@ -120,3 +132,16 @@ const onCurrencyChange = (event) => {
   emit("currencyChange", event.target.value);
 };
 </script>
+<style scoped>
+.app-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--kendo-spacing-4); padding-block: calc(6.5 * var(--kendo-spacing-base)); padding-inline: var(--kendo-spacing-5); }
+.profile-section, .search-section, .header-actions { flex: 1 0 0; flex-shrink: 0; }
+.profile-section { display: flex; flex-direction: row; align-items: center; gap: var(--kendo-spacing-2); }
+.profile-greeting { display: flex; flex-direction: column; flex-wrap: nowrap; align-items: flex-start; gap: var(--kendo-spacing-3); }
+.profile-name { height: var(--kendo-spacing-6); margin: 0; font-size: var(--kendo-font-size-xl); font-weight: var(--kendo-font-weight-bold); line-height: 1; vertical-align: middle; white-space: nowrap; }
+.profile-welcome { margin: 0; font-size: var(--kendo-font-size-md); font-weight: var(--kendo-font-weight-medium); white-space: nowrap; }
+.search-control, .header-actions { display: flex; }
+.header-actions { justify-content: flex-end; gap: var(--kendo-spacing-4); }
+@media (min-width: 576px) { .header-actions { justify-content: flex-start; } }
+@media (min-width: 768px) { .app-header { padding-inline: var(--kendo-spacing-15); } }
+@media (min-width: 992px) { .app-header { padding-inline: var(--kendo-spacing-15); } }
+</style>

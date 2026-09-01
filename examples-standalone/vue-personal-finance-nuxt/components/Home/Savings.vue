@@ -1,6 +1,6 @@
 <template>
-    <Card class="k-p-4 k-gap-4 k-rounded-xxl k-gap-1.5">
-        <div class="k-d-grid k-gap-4">
+    <Card class="savings-card">
+        <div class="savings-heading">
           <div
             :style='{
               fontSize: "20px",
@@ -69,3 +69,7 @@ defineProps({
     },
 });
 </script>
+<style scoped>
+.savings-card { padding: var(--kendo-spacing-4); gap: calc(1.5 * var(--kendo-spacing-base)); border-radius: var(--kendo-border-radius-xxl); }
+.savings-heading { display: grid; gap: var(--kendo-spacing-4); }
+</style>

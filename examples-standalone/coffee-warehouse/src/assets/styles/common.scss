@@ -13,11 +13,11 @@ a {
 
 // App styles
 .k-drawer-container {
-    background-color: $background-color;
+    background-color: var(--kendo-color-app-surface);
     min-height: 100%;
 
     .k-drawer {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        box-shadow: var(--kendo-elevation-4);
 
         &.k-drawer-start {
             border-right-width: 0;
@@ -41,21 +41,21 @@ a {
 
 .card-container {
     min-height: 100%;
-    background-color: $white;
-    padding: 40px 0;
+    background-color: color-mix(in srgb, var(--kendo-color-surface) 72%, transparent);
+    padding: var(--kendo-spacing-10) var(--kendo-spacing-0);
     text-align: center;
 
     .card-header-wrapper {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 1rem;
+        margin-bottom: var(--kendo-spacing-4);
     }
 
     &.grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        column-gap: 10px;
-        row-gap: 1em;
+        column-gap: var(--kendo-spacing-2\.5);
+        row-gap: var(--kendo-spacing-4);
     }
 
     .card-buttons {
@@ -70,14 +70,8 @@ a {
 
     .chart-tooltip {
         text-align: center;
-        font-size: 15px;
-        font-weight: bold;
-    }
-
-    .card-ranges .k-i-calendar {
-        color: #656565;
-        cursor: pointer;
-        margin-right: 5px;
+        font-size: var(--kendo-font-size-sm);
+        font-weight: var(--kendo-font-weight-bold);
     }
 
     .card-ranges {
@@ -108,7 +102,7 @@ a {
     }
     .card-container {
         text-align: initial;
-        padding: 30px;
+        padding: var(--kendo-spacing-8);
 
         &.grid {
             grid-template-columns: repeat(2, 1fr);
@@ -138,9 +132,9 @@ a {
         display: inherit;
     }
     .card-container {
-        margin: 25px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: var(--kendo-spacing-6);
+        border-radius: var(--kendo-border-radius-md);
+        box-shadow: var(--kendo-elevation-2);
 
         &.grid {
             grid-template-columns: repeat(3, 1fr);
@@ -178,7 +172,7 @@ a {
 
         .card-buttons,
         .card-ranges {
-            margin-top: 1rem;
+            margin-top: var(--kendo-spacing-4);
             text-align: left;
         }
     }
@@ -187,7 +181,7 @@ a {
 // Dashboard page
 .dashboard-page {
     .k-grid-toolbar .k-textbox {
-        margin-bottom: 10px;
+        margin-bottom: var(--kendo-spacing-2\.5);
     }
 }
 
@@ -207,7 +201,7 @@ a {
 @media (min-width: 768px) {
     .dashboard-page {
         .card-container:last-of-type {
-            padding-top: 30px;
+            padding-top: var(--kendo-spacing-8);
         }
     }
 }
@@ -221,32 +215,32 @@ a {
     .personal-card {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-row-gap: 1em;
-        row-gap: 1em;
+        grid-row-gap: var(--kendo-spacing-4);
+        row-gap: var(--kendo-spacing-4);
     }
 
     .k-card-header {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: var(--kendo-spacing-2\.5);
+        padding-right: var(--kendo-spacing-2\.5);
     }
 
     .card-title {
         grid-column: 1 / -1;
     }
     .k-hbox {
-        padding: 0 20px;
+        padding: var(--kendo-spacing-0) var(--kendo-spacing-5);
         background: transparent;
         align-items: center;
     }
     .k-card-title {
-        font-size: 15px;
-        margin-bottom: -6px;
+        font-size: var(--kendo-font-size-sm);
+        margin-bottom: calc(var(--kendo-spacing-1\.5) * -1);
         text-align: left;
     }
     .k-card-subtitle {
         margin-top: 0;
         text-transform: uppercase;
-        font-size: 11px;
+        font-size: var(--kendo-font-size-xs);
     }
     .disabled {
         opacity: 0.5;
@@ -318,8 +312,8 @@ a {
 
     .k-form .k-form-field {
         display: block;
-        padding: 0 15px;
-        margin-top: 1.5rem;
+        padding: var(--kendo-spacing-0) var(--kendo-spacing-4);
+        margin-top: var(--kendo-spacing-6);
     }
 
     .k-form .k-label {
@@ -331,11 +325,11 @@ a {
     }
 
     .k-form-field:first-of-type .k-avatar {
-        margin: 0 auto 1rem;
+        margin: var(--kendo-spacing-0) auto var(--kendo-spacing-4);
     }
 
     hr {
-        margin-top: 2rem;
+        margin-top: var(--kendo-spacing-8);
         opacity: 0.2;
     }
 
@@ -374,10 +368,10 @@ a {
 
 // Info page
 .info-page {
-    background-color: #06163e;
+    background-color: $info-background;
     background-image: url('./assets/images/info-bg.png');
     background-position: right 0px top 0px;
-    color: $white;
+    color: var(--kendo-color-on-primary);
     background-repeat: no-repeat;
     opacity: 0.9;
 
@@ -388,11 +382,11 @@ a {
         font-family: Metric, Helvetica, Arial, sans-serif;
     }
     a:not(.k-button) {
-        color: $link-color;
+        color: var(--kendo-color-info);
     }
 
     .content {
-        padding-top: 40px;
+        padding-top: var(--kendo-spacing-10);
         margin: 0 auto;
         position: relative;
         background-image: url('./assets/images/info-bg-line.png');
@@ -402,17 +396,17 @@ a {
     .section-1 {
         text-align: center;
         h1 {
-            font-size: 48px;
-            font-weight: bold;
+            font-size: var(--kendo-font-size-xl);
+            font-weight: var(--kendo-font-weight-bold);
         }
 
         h2 {
-            font-size: 30px;
-            margin-bottom: 53px;
+            font-size: var(--kendo-font-size-lg);
+            margin-bottom: var(--kendo-spacing-12);
         }
 
         .button-group {
-            margin-bottom: 30px;
+            margin-bottom: var(--kendo-spacing-8);
 
             .k-button {
                 display: block;
@@ -429,21 +423,21 @@ a {
             align-content: center;
 
             .github-text {
-                margin-left: 15px;
+                margin-left: var(--kendo-spacing-4);
             }
         }
     }
 
     .section-2 {
         text-align: center;
-        margin-top: 40px;
-        padding: 0 15px;
+        margin-top: var(--kendo-spacing-10);
+        padding: var(--kendo-spacing-0) var(--kendo-spacing-4);
     }
 
     .section-3 {
         column-count: 2;
-        margin-top: 40px;
-        padding: 0 15px;
+        margin-top: var(--kendo-spacing-10);
+        padding: var(--kendo-spacing-0) var(--kendo-spacing-4);
         text-align: center;
 
         ul {
@@ -455,20 +449,20 @@ a {
 
     .package-item {
         display: inline-block;
-        margin-top: 20px;
+        margin-top: var(--kendo-spacing-5);
     }
 
     .package-title a {
-        font-size: 17px;
-        color: #cccccc;
+        font-size: var(--kendo-font-size-md);
+        color: var(--kendo-color-on-primary);
         text-transform: uppercase;
     }
 
     .component-link {
-        padding: 5px 0;
+        padding: var(--kendo-spacing-1) var(--kendo-spacing-0);
 
         a {
-            font-size: 20px;
+            font-size: var(--kendo-font-size-lg);
         }
     }
 
@@ -488,11 +482,11 @@ a {
 
         .section-1 {
             h1 {
-                font-size: 71px;
+                font-size: var(--kendo-font-size-xl);
             }
 
             h2 {
-                font-size: 38px;
+                font-size: var(--kendo-font-size-xl);
             }
 
             .button-group {

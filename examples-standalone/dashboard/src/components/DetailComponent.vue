@@ -29,7 +29,7 @@
         </div>
         <div v-if="dataItem.assignee" class="col-sm-2">
             <span class="small d-block text-muted">Assignee</span>
-            <img :src="dataItem.assignee.avatar_url" style=' width: 30px; height: 30px' class='img-circle' />
+            <img :src="dataItem.assignee.avatar_url" class="issue-detail__avatar img-circle" />
             {{ dataItem.assignee ? dataItem.assignee.login : '' }}
         </div>
     </div>
@@ -71,3 +71,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.issue-detail__avatar {
+    width: var(--kendo-spacing-8);
+    height: var(--kendo-spacing-8);
+}
+</style>

@@ -3,12 +3,13 @@
     <div class="info-page main-content">
       <div class="content">
         <div class="section-1">
-          <h1>Kendo UI for Vue</h1>
-          <h2>Build Professional-Grade Vue UI</h2>
+          <h1>Coffee Warehouse</h1>
+          <h2>Powered by Kendo UI for Vue</h2>
 
           <a
             class="github-link"
             target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/telerik/kendo-vue/tree/master/examples-standalone/coffee-warehouse"
           >
             <img src="../assets/images/github-icon.svg" alt="github icon" />

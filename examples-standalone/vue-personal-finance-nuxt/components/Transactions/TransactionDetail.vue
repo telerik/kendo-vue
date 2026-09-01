@@ -1,16 +1,16 @@
 <template>
-  <div v-if="status" class="k-d-grid k-gap-3">
+  <div v-if="status" class="status-detail">
     <Label :editor-id="editorId">{{ label }}</Label>
     <StatusBadge :data-item="{ orderStatus: value }" :height="'28px'" />
   </div>
   <div
     v-if="label === 'Payment Method' && getPaymentMethodImage(value)"
-    class="k-d-grid k-gap-2.5"
+    class="payment-method-detail"
   >
     <Label :editor-id="editorId">{{ label }}</Label>
     <img :src="getPaymentMethodImage(value)" alt="Payment Method" />
   </div>
-  <div v-if="!status && label !== 'Payment Method'" class="k-d-grid k-gap-1">
+  <div v-if="!status && label !== 'Payment Method'" class="transaction-detail">
     <Label :editor-id="editorId">{{ label }}</Label>
     <DateInput
       v-if="label === 'Time'"
@@ -22,7 +22,7 @@
       v-else
       :id="editorId"
       :style="{
-        backgroundColor: '#2A2A2A',
+        backgroundColor: 'var(--kendo-color-base)',
       }"
       :fillMode="'flat'"
       :rounded="'large'"
@@ -51,7 +51,7 @@ defineProps({
     type: String,
   },
   value: {
-    type: String || Date,
+    type: [String, Date],
   },
   status: {
     type: Boolean,
@@ -63,3 +63,9 @@ defineProps({
   },
 });
 </script>
+<style scoped>
+.status-detail, .payment-method-detail, .transaction-detail { display: grid; }
+.status-detail { gap: var(--kendo-spacing-3); }
+.payment-method-detail { gap: calc(2.5 * var(--kendo-spacing-base)); }
+.transaction-detail { gap: var(--kendo-spacing-1); }
+</style>

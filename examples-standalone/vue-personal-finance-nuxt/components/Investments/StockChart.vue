@@ -1,13 +1,13 @@
 <template>
-    <Card class="k-p-4 k-gap-6 k-rounded-xxl" :style="{ minHeight: '410px' }">
-      <div class="k-d-grid k-gap-6">
+    <Card class="stock-chart-card" :style="{ minHeight: '410px' }">
+      <div class="stock-chart-content">
         <div
           :style="{ fontSize: '20px', letterSpacing: 'wide', fontWeight: '500' }"
-          class="k-gap-2"
+          class="stock-chart-title"
         >
           Stock Chart
         </div>
-        <div class="k-d-grid k-gap-6">
+        <div class="stock-chart-tabs">
           <TabStrip  :tabs="tabs" :selected="selected" @select="handleSelect">
             <template #solarFlux = {props}>
                 <StockChartComponent :data="solarFluxData" />
@@ -50,3 +50,8 @@ const tabs = ref([
 ]);
 
 </script>
+<style scoped>
+.stock-chart-card { padding: var(--kendo-spacing-4); gap: var(--kendo-spacing-6); border-radius: var(--kendo-border-radius-xxl); }
+.stock-chart-content, .stock-chart-tabs { display: grid; gap: var(--kendo-spacing-6); }
+.stock-chart-title { gap: var(--kendo-spacing-2); }
+</style>

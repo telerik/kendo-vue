@@ -1,11 +1,11 @@
 <template>
-  <FormElement className="k-d-grid k-gap-4">
+  <FormElement class="personal-info-form-layout">
     <div
-      class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4"
+      class="form-row"
     >
       <FieldWrapper
         :style="{ width: '100%' }"
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
       >
         <Field :label="'Name'" name="name" :component="'myTemplate'">
           <template #myTemplate="{ props }">
@@ -20,7 +20,7 @@
       </FieldWrapper>
       <FieldWrapper
         :style="{ width: '100%' }"
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
       >
         <Field :label="'Surname'" name="surname" :component="'myTemplate'">
           <template #myTemplate="{ props }">
@@ -35,11 +35,11 @@
       </FieldWrapper>
     </div>
     <div
-      class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4"
+      class="form-row"
     >
       <FieldWrapper
         :style="{ width: '100%' }"
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
       >
         <Field :label="'Email'" name="email" :component="'myTemplate'">
           <template #myTemplate="{ props }">
@@ -54,7 +54,7 @@
       </FieldWrapper>
       <FieldWrapper
         :style="{ width: '100%' }"
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
       >
         <Field name="tag" :label="'Tag'" :component="'myTemplate'">
           <template #myTemplate="{ props }">
@@ -69,11 +69,11 @@
       </FieldWrapper>
     </div>
     <div
-      class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4"
+      class="form-row"
     >
       <FieldWrapper
         :style="{ width: '100%' }"
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
       >
         <Field :label="'Birthday'" name="birthday" :component="'myTemplate'">
           <template #myTemplate="{ props }">
@@ -88,7 +88,7 @@
       </FieldWrapper>
       <FieldWrapper
         :style="{ width: '100%' }"
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
       >
         <Field
           :label="'Country'"
@@ -114,11 +114,11 @@
       </FieldWrapper>
     </div>
     <div
-      class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4"
+      class="form-row"
     >
       <FieldWrapper
         :style="{ width: '100%' }"
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
       >
         <Field :label="'Address'" name="address" :component="'myTemplate'">
           <template #myTemplate="{ props }">
@@ -133,7 +133,7 @@
       </FieldWrapper>
       <FieldWrapper
         :style="{ width: '100%' }"
-        class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2"
+        class="form-field"
       >
         <Field :label="'Post Code'" name="postcode" :component="'myTemplate'">
           <template #myTemplate="{ props }">
@@ -147,14 +147,14 @@
         </Field>
       </FieldWrapper>
     </div>
-    <div class="k-mt-6 k-d-flex k-gap-4">
+    <div class="form-actions">
       <KButton
         type="submit"
         :size="'small'"
         :rounded="'large'"
         :theme-color="'primary'"
         :style="{
-          color: '#131524',
+          color: 'var(--kendo-color-on-primary)',
           letterSpacing: '1.25px',
           fontWeight: '500',
         }"
@@ -208,3 +208,11 @@ function onRestore(e) {
   };
 }
 </script>
+<style scoped>
+.personal-info-form-layout { display: grid; gap: var(--kendo-spacing-4); }
+.form-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--kendo-spacing-4); margin-bottom: var(--kendo-spacing-4); overflow: hidden; }
+.form-field { grid-column: span 5 / span 5; }
+.form-actions { display: flex; gap: var(--kendo-spacing-4); margin-top: var(--kendo-spacing-6); }
+@media (min-width: 992px) { .form-row { gap: var(--kendo-spacing-10); } .form-field { grid-column: span 2 / span 2; } }
+@media (min-width: 1200px) { .form-field { grid-column: span 2 / span 2; } }
+</style>
