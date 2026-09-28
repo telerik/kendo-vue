@@ -25,7 +25,7 @@
     </div>
     <div class="footer-copyright">
       <div :style="{ fontSize: '14px', fontWeight: 400, letterSpacing: 0 }">
-        Copyright © 2025 Progress Software. All rights reserved.
+        Copyright © 2026 Progress Software. All rights reserved.
       </div>
     </div>
   </div>

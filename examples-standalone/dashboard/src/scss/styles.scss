@@ -22,13 +22,17 @@ a:hover { text-decoration: underline; }
 .brand strong { font-size: var(--kendo-font-size-xl); }
 .brand span, .sidebar-footer { color: var(--kendo-color-inverse-subtle); font-size: var(--kendo-font-size-sm); }
 .sidebar nav { display: grid; gap: var(--kendo-spacing-1); }
+.nav-heading { padding: var(--kendo-spacing-4) var(--kendo-spacing-3) var(--kendo-spacing-1); color: var(--kendo-color-inverse-subtle); font-size: var(--kendo-font-size-xs); text-transform: uppercase; letter-spacing: .08em; }
 .sidebar nav a, .sidebar-footer a { display: flex; align-items: center; justify-content: space-between; min-height: 2.75rem; padding: var(--kendo-spacing-2) var(--kendo-spacing-3); border-radius: var(--kendo-border-radius-md); color: inherit; }
 .sidebar nav a.router-link-exact-active { color: var(--kendo-color-on-primary); background: var(--kendo-color-primary); }
+.sidebar-footer label { padding: 0 var(--kendo-spacing-3); color: var(--kendo-color-inverse-subtle); }
+.sidebar-footer .k-dropdownlist { width: 100%; }
 .nav-count, .notification-link span { display: grid; min-width: 1.25rem; height: 1.25rem; place-items: center; border-radius: var(--kendo-border-radius-full); color: var(--kendo-color-on-secondary); background: var(--kendo-color-secondary); font-size: var(--kendo-font-size-xs); }
 .sidebar-footer { display: grid; gap: var(--kendo-spacing-1); margin-top: auto; }
 .shell-content { min-width: 0; min-height: 0; overflow-y: auto; }
 .topbar { display: flex; align-items: center; gap: var(--kendo-spacing-4); min-height: 4.5rem; padding: var(--kendo-spacing-3) var(--kendo-spacing-6); border-bottom: 1px solid var(--kendo-color-border); background: var(--kendo-color-surface-alt); }
 .global-search { max-width: 30rem; }
+.topbar-title { color: var(--kendo-color-subtle); font-size: var(--kendo-font-size-sm); }
 .topbar-actions { display: flex; align-items: center; gap: var(--kendo-spacing-4); margin-left: auto; }
 .notification-link { display: flex; align-items: center; gap: var(--kendo-spacing-2); }
 .user-link { font-weight: var(--kendo-font-weight-medium); }
@@ -46,7 +50,29 @@ h2 { margin: 0; font-size: var(--kendo-font-size-lg); }
 .kpi-card span, .kpi-card small, .project-card p, .project-card footer { color: var(--kendo-color-subtle); }
 .kpi-card strong { font-size: 1.75rem; font-weight: var(--kendo-font-weight-semibold); }
 .dashboard-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--kendo-spacing-4); }
+.dashboard-actions, .period-toolbar { display: flex; align-items: center; gap: var(--kendo-spacing-3); }
+.period-toolbar { flex-wrap: wrap; padding: var(--kendo-spacing-3) 0; border-top: 1px solid var(--kendo-color-border); border-bottom: 1px solid var(--kendo-color-border); color: var(--kendo-color-subtle); }
+.period-toolbar a { margin-left: auto; }
+.chart-description { margin: 0 0 var(--kendo-spacing-4); color: var(--kendo-color-subtle); font-size: var(--kendo-font-size-sm); }
+.activity-chart { height: 21rem; }
+.breakdown-chart { height: 19rem; }
+.data-message { padding: var(--kendo-spacing-4); border: 1px solid var(--kendo-color-border); border-radius: var(--kendo-border-radius-md); background: var(--kendo-color-surface); }
 .wide-card { grid-column: span 2; }
+.issues-grid { min-width: 0; }
+.issues-grid .k-grid-content { min-height: 20rem; }
+.issue-status { display: inline-block; width: var(--kendo-spacing-2); height: var(--kendo-spacing-2); margin-right: var(--kendo-spacing-2); border-radius: var(--kendo-border-radius-full); vertical-align: middle; background: var(--kendo-color-success); }
+.issue-status.closed { background: var(--kendo-color-error); }
+.issue-labels { display: flex; flex-wrap: wrap; gap: var(--kendo-spacing-2); }
+.issue-label { display: inline-block; padding: var(--kendo-spacing-1) var(--kendo-spacing-2); margin: var(--kendo-spacing-1); border-radius: var(--kendo-border-radius-sm); color: var(--kendo-color-secondary-on-subtle); background: var(--kendo-color-secondary-subtle); font-size: var(--kendo-font-size-xs); }
+.issue-detail { display: grid; gap: var(--kendo-spacing-4); padding: var(--kendo-spacing-6); background: var(--kendo-color-surface); }
+.issue-detail h2, .issue-detail h3, .issue-detail p { margin: 0; }
+.issue-detail h2 small { color: var(--kendo-color-subtle); font-size: var(--kendo-font-size-sm); }
+.issue-detail dl { display: flex; flex-wrap: wrap; gap: var(--kendo-spacing-6); margin: 0; }
+.issue-detail dt { color: var(--kendo-color-subtle); font-size: var(--kendo-font-size-xs); }
+.issue-detail dd { margin: 0; }
+.issue-state { display: inline-block; margin-bottom: var(--kendo-spacing-2); color: var(--kendo-color-success-on-surface); text-transform: capitalize; }
+.issue-state.closed { color: var(--kendo-color-error-on-surface); }
+.issue-description { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 18rem; overflow-y: auto; }
 .project-health-list, .compact-list, .timeline, .notification-list { display: grid; gap: var(--kendo-spacing-4); padding: 0; margin: 0; list-style: none; }
 .health-row { display: flex; align-items: center; justify-content: space-between; gap: var(--kendo-spacing-6); padding-bottom: var(--kendo-spacing-4); border-bottom: 1px solid var(--kendo-color-border); }
 .health-row > div:first-child, .compact-list li, .timeline li, .notification-list li { display: grid; gap: var(--kendo-spacing-1); }
@@ -85,4 +111,7 @@ h2 { margin: 0; font-size: var(--kendo-font-size-lg); }
 }
 @media (width < 576px) {
     .topbar { padding: var(--kendo-spacing-3); }.global-search { display: none; }.topbar-actions { gap: var(--kendo-spacing-2); }.user-link { display: none; }.content-area { padding: var(--kendo-spacing-4); }.page-header, .health-row { flex-direction: column; align-items: stretch; }.kpi-grid, .dashboard-grid, .project-grid, .member-grid, .detail-grid { grid-template-columns: 1fr; }.wide-card { grid-column: auto; }.health-progress { justify-items: stretch; min-width: 0; }.toolbar { flex-wrap: wrap; }.toolbar .k-input { max-width: none; width: 100%; }
+    .dashboard-actions { flex-wrap: wrap; }
+    .period-toolbar a { margin-left: 0; }
+    .issues-page { overflow-x: auto; }
 }

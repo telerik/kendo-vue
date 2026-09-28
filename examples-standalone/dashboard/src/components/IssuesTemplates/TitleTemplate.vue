@@ -1,6 +1,6 @@
 <template>
     <td>
-        <span :class="['issue-status', dataItem.state === 'open' ? 'issue-open' : 'issue-closed']"></span>
+        <span :class="['issue-status', dataItem.state]" aria-hidden="true"></span>
         {{ dataItem.title }}
     </td>
 </template>

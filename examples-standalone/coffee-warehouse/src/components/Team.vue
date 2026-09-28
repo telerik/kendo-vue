@@ -438,7 +438,7 @@ export default {
       this.gridData = this.getData(slicedEmployees);
     },
     getSelectColumnWidth(theme) {
-      return "32px";
+      return "48px";
     }
   },
 };

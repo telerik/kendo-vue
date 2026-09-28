@@ -30,6 +30,11 @@ import {
     bankIcon,
     banknoteIcon,
     documentManagerIcon,
+    moneyExchangeIcon,
+    piggyBankIcon,
+    chartPieIcon,
+    userIcon,
+    questionCircleIcon,
 } from '@progress/kendo-svg-icons';
 
 const expanded = ref(false);
@@ -57,15 +62,15 @@ const drawerItems = [
     { text: 'Transactions', route: '/transactions', svgIcon: arrowsSwapIcon },
     { text: 'Cards', route: '/cards', svgIcon: banknoteIcon },
     { text: 'Statements', route: '/statements', svgIcon: documentManagerIcon },
-    { text: 'Transfer funds', route: '/transfers', svgIcon: arrowsSwapIcon },
-    { text: 'Budget planner', route: '/budgets', svgIcon: chartColumnStackedIcon },
+    { text: 'Transfer funds', route: '/transfers', svgIcon: moneyExchangeIcon },
+    { text: 'Budget planner', route: '/budgets', svgIcon: piggyBankIcon },
     { text: 'Investments', route: '/investments', svgIcon: dollarIcon },
-    { text: 'Analytics', route: '/analytics', svgIcon: chartColumnStackedIcon },
+    { text: 'Analytics', route: '/analytics', svgIcon: chartPieIcon },
     { text: 'AI Assistant', route: '/ai-assistant', svgIcon: sparklesIcon },
     { separator: true },
-    { text: 'Profile', route: '/profile', svgIcon: gearIcon },
+    { text: 'Profile', route: '/profile', svgIcon: userIcon },
     { text: 'Settings', route: '/settings', svgIcon: gearIcon },
-    { text: 'Help & support', route: '/help', svgIcon: menuIcon },
+    { text: 'Help & support', route: '/help', svgIcon: questionCircleIcon },
 ];
 
 const onSelect = async (e) => {

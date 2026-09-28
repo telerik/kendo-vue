@@ -1,80 +1,25 @@
 <template>
-    <div class="row my-4">
-        <div class="col-sm-12">
-            <span :class="['badge', dataItem.state === 'open' ? 'badge-success' : 'badge-danger']">
-                {{ dataItem.state }}
-            </span>
-            <h3 class=" h1">
-                {{ dataItem.title }}
-                <span class="text-muted">#{{ dataItem.number }}</span>
-            </h3>
+    <article class="issue-detail">
+        <header>
+            <span :class="['issue-state', dataItem.state]">{{ dataItem.state }}</span>
+            <h2>{{ dataItem.title }} <small>#{{ dataItem.number }}</small></h2>
+        </header>
+        <dl>
+            <div><dt>Created</dt><dd>{{ new Date(dataItem.created_at).toLocaleDateString() }}</dd></div>
+            <div v-if="dataItem.closed_at"><dt>Closed</dt><dd>{{ new Date(dataItem.closed_at).toLocaleDateString() }}</dd></div>
+            <div><dt>Milestone</dt><dd>{{ dataItem.milestone?.title || 'None' }}</dd></div>
+            <div><dt>Author</dt><dd>{{ dataItem.user?.login || 'Unknown' }}</dd></div>
+            <div><dt>Assignee</dt><dd>{{ dataItem.assignee?.login || 'Unassigned' }}</dd></div>
+        </dl>
+        <div v-if="dataItem.labels?.length" class="issue-labels">
+            <span v-for="label in dataItem.labels" :key="label.id" class="issue-label">{{ label.name }}</span>
         </div>
-    </div>
-    <div class="row my-4">
-        <div class="col-sm-2">
-            <span class="small d-block text-muted">Created on</span>
-            {{ (new Date(dataItem.created_at)).toDateString() }}
-        </div>
-        <div v-if="dataItem.closed_at" class="col-sm-2">
-            <span class="small d-block text-muted">Closed on</span>
-            {{ (new Date(dataItem.closed_at)).toDateString() }}
-        </div>
-        <div class="col-sm-2">
-            <span class="small d-block text-muted">Milestone</span>
-            {{ dataItem.milestone ? dataItem.milestone.title : '' }}
-        </div>
-        <div class="col-sm-2">
-            <span class="small d-block text-muted">Author</span>
-            {{ dataItem.user.login }}
-        </div>
-        <div v-if="dataItem.assignee" class="col-sm-2">
-            <span class="small d-block text-muted">Assignee</span>
-            <img :src="dataItem.assignee.avatar_url" class="issue-detail__avatar img-circle" />
-            {{ dataItem.assignee ? dataItem.assignee.login : '' }}
-        </div>
-    </div>
-    <div class="row my-4">
-        <div class="col-sm-3">
-            <h4 class="small text-muted">Labels</h4>
-            <span v-for="(label, index) in dataItem.labels" class="badge"
-                :style="{ 'background-color': getColor(dataItem.labels[index].name) }"> {{
-                        dataItem.labels[index].name
-                }}</span>
-        </div>
-        <div class="col-sm-9">
-            <h4 class="small text-muted">Description</h4>
-            <div v-html="mdText">
-            </div>
-        </div>
-    </div>
+        <h3>Description</h3>
+        <p class="issue-description">{{ dataItem.body || 'No description provided.' }}</p>
+        <a :href="dataItem.html_url" target="_blank" rel="noopener noreferrer">Open issue on GitHub ↗</a>
+    </article>
 </template>
-<script>
-import { marked } from 'marked'
-import { IssuesProcessor } from '../shared/issues-processor'
 
-export default {
-    props: {
-        dataItem: Object
-    },
-    computed: {
-        colors(){
-            return IssuesProcessor.getColors();
-        },
-        mdText() {
-            return marked.parse(this.dataItem.body);
-        }
-    },
-    methods: {
-        getColor(colorName) {
-            return this.colors[colorName.toUpperCase()] || this.colors.OTHER
-        }
-    }
-}
+<script setup lang="ts">
+defineProps<{ dataItem: any }>();
 </script>
-
-<style scoped>
-.issue-detail__avatar {
-    width: var(--kendo-spacing-8);
-    height: var(--kendo-spacing-8);
-}
-</style>

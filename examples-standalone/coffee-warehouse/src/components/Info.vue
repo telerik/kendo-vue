@@ -3,6 +3,7 @@
     <div class="info-page main-content">
       <div class="content">
         <div class="section-1">
+          <span class="info-eyebrow">ABOUT THE DEMO</span>
           <h1>Coffee Warehouse</h1>
           <h2>Powered by Kendo UI for Vue</h2>
 
@@ -12,7 +13,7 @@
             rel="noopener noreferrer"
             href="https://github.com/telerik/kendo-vue/tree/master/examples-standalone/coffee-warehouse"
           >
-            <img src="../assets/images/github-icon.svg" alt="github icon" />
+            <img src="../assets/images/github-icon.svg" alt="" />
             <span class="github-text">
               {{ getSourceMessage }}
             </span>
@@ -282,8 +283,8 @@
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.telerik.com/kendo-vue-ui/components/styling/theme-default/"
-                    >Default Theme</a
+                    href="https://www.telerik.com/kendo-vue-ui/components/styling/theme-meridian/"
+                      >Meridian Theme</a
                   >
                 </li>
                 <li class="component-link">

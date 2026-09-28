@@ -1,6 +1,6 @@
 "use strict";
 
-import { IssuesModel } from './issues-model';
+import { IssuesModel } from './issues-model.js';
 
 const colors = {
     'SEV: LOW': '#ff9800',
@@ -79,7 +79,7 @@ export class IssuesProcessor {
     }
 
     static flatten(data) {
-        return data.reduce((agg, curr) => agg.concat(curr));
+        return data.reduce((agg, curr) => agg.concat(curr), []);
     }
 
     static aggregate(data, field) {
@@ -108,10 +108,10 @@ export class IssuesProcessor {
             };
         });
 
-        if (rate && rate.length === 0) {
+        if (rate.length === 0) {
             return {
-                lowest: 0,
-                highest: 0,
+                lowest: { close_rate: 0 },
+                highest: { close_rate: 0 },
                 average: 0
             }
         }
@@ -131,22 +131,11 @@ export class IssuesProcessor {
     }
 
     static groupLabels(data) {
-        const labels = this.aggregate(this.flatten(data.map(item => item.labels)), 'name');
-        const low = (labels['SEV: Low'] / data.length);
-        const medium = labels['SEV: Medium'] / data.length;
-        const high = labels['SEV: High'] / data.length;
-        const enhancement = labels['Enhancement'] / data.length;
-        const feature = labels['Feature'] / data.length;
-        const other = 1 - low - medium - high - enhancement - feature;
-
-        return [
-            { type: 'SEV: LOW', value: parseFloat(low.toFixed(2)) },
-            { type: 'SEV: MEDIUM', value: parseFloat(medium.toFixed(2)) },
-            { type: 'SEV: HIGH', value: parseFloat(high.toFixed(2)) },
-            { type: 'ENHANCEMENT', value: parseFloat(enhancement.toFixed(2)) },
-            { type: 'FEATURE', value: parseFloat(feature.toFixed(2)) },
-            { type: 'OTHER', value: parseFloat(other.toFixed(2)) }
-        ];
+        const counts = this.aggregate(data.map(item => ({
+            type: this.cleanupLabels(item.labels)
+        })), 'type');
+        return ['SEV: Low', 'SEV: Medium', 'SEV: High', 'Enhancement', 'Feature', 'Others']
+            .map(type => ({ type: type.toUpperCase(), value: counts[type] || 0 }));
     }
 
     static distribution(data) {

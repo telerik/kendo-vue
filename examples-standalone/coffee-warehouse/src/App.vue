@@ -1,24 +1,60 @@
 <template>
-  <div class="app-shell">
-    <Header ref="header" :navigation-open="navigationOpen" @toggle-navigation="toggleNavigation" />
-    <div class="app-body">
-      <MenuNavContainer ref="sidebar" :open="navigationOpen" @navigate="closeNavigation" />
-      <button v-if="navigationOpen" class="nav-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1" @click="closeNavigation"></button>
-      <main class="app-content">
-        <router-view />
-      </main>
-    </div>
-  </div>
+  <LocalizationProvider :language="localizationLanguage">
+    <IntlProvider :locale="locale">
+      <div class="app-shell">
+        <Header ref="header" :navigation-open="navigationOpen" :current-locale="localizationLanguage" @toggle-navigation="toggleNavigation" @locale-change="onLocaleChange" />
+        <div class="app-body">
+          <MenuNavContainer ref="sidebar" :open="navigationOpen" @navigate="closeNavigation" />
+          <button v-if="navigationOpen" class="nav-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1" @click="closeNavigation"></button>
+          <main class="app-content">
+            <router-view />
+          </main>
+        </div>
+      </div>
+    </IntlProvider>
+  </LocalizationProvider>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import MenuNavContainer from "./components/MenuNavContainer.vue";
+import { enComponentMessages, enCustomMessages } from "./messages/en-US";
+import { esComponentMessages, esCustomMessages } from "./messages/es";
+import { frComponentMessages, frCustomMessages } from "./messages/fr";
+import { load, loadMessages, LocalizationProvider, IntlProvider } from "@progress/kendo-vue-intl";
+import likelySubtags from "cldr-core/supplemental/likelySubtags.json";
+import currencyData from "cldr-core/supplemental/currencyData.json";
+import weekData from "cldr-core/supplemental/weekData.json";
+import esNumbers from "cldr-numbers-full/main/es/numbers.json";
+import esCurrencies from "cldr-numbers-full/main/es/currencies.json";
+import esCaGregorian from "cldr-dates-full/main/es/ca-gregorian.json";
+import esDateFields from "cldr-dates-full/main/es/dateFields.json";
+import esTimeZoneNames from "cldr-dates-full/main/es/timeZoneNames.json";
+import frNumbers from "cldr-numbers-full/main/fr/numbers.json";
+import frCurrencies from "cldr-numbers-full/main/fr/currencies.json";
+import frCaGregorian from "cldr-dates-full/main/fr/ca-gregorian.json";
+import frDateFields from "cldr-dates-full/main/fr/dateFields.json";
+import frTimeZoneNames from "cldr-dates-full/main/fr/timeZoneNames.json";
+
+load(likelySubtags, currencyData, weekData, esNumbers, esCurrencies, esCaGregorian, esDateFields, esTimeZoneNames, frNumbers, frCurrencies, frCaGregorian, frDateFields, frTimeZoneNames);
+for (const [language, custom, component] of [
+  ["English", enCustomMessages, enComponentMessages],
+  ["Spanish", esCustomMessages, esComponentMessages],
+  ["French", frCustomMessages, frComponentMessages],
+]) {
+  loadMessages(custom, language);
+  loadMessages(component, language);
+}
 
 export default {
-  components: { Header, MenuNavContainer },
+  components: { Header, MenuNavContainer, LocalizationProvider, IntlProvider },
   data() {
-    return { navigationOpen: false, navigationTrigger: null };
+    return { navigationOpen: false, navigationTrigger: null, localizationLanguage: "English" };
+  },
+  computed: {
+    locale() {
+      return { English: "en", French: "fr", Spanish: "es" }[this.localizationLanguage];
+    },
   },
   mounted() {
     window.addEventListener("keydown", this.handleNavigationKeydown);
@@ -38,6 +74,9 @@ export default {
     },
   },
   methods: {
+    onLocaleChange(language) {
+      this.localizationLanguage = language;
+    },
     isMobileViewport() {
       return window.innerWidth < 768;
     },

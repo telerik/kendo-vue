@@ -14,8 +14,8 @@ const router = createRouter({
   routes: [
     { path: "/login", component: Login },
     { path: "/", component: Dashboard },
-    resource("/inventory", "inventory"), resource("/purchase-orders", "purchase-orders"), resource("/sales-orders", "sales-orders"), resource("/suppliers", "suppliers"),
-    resource("/planning", "planning"), resource("/operations", "operations"), resource("/assets", "assets"), resource("/manufacturing", "manufacturing"), resource("/finance", "finance"),
+    resource("/inventory", "inventory"), resource("/purchase-orders", "purchase-orders"),
+    resource("/operations", "operations"), resource("/finance", "finance"),
     { path: "/team", name: "team-members", component: Team },
     { path: "/info", name: "info", component: Info },
     account("/profile", "profile"), account("/settings", "settings"), account("/help", "help"), account("/notifications", "notifications"),
