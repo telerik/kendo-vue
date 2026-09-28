@@ -7,34 +7,23 @@
         <span :class="metric.state">{{ metric.trend }} {{ metric.detail }}</span>
       </article>
     </div>
-    <div class="dashboard-grid">
-      <article class="panel chart-panel">
+    <article class="panel chart-panel">
         <div class="panel-header">
           <div><h2>Order volume by team</h2><p>Completed orders per month, May–August 2026</p></div>
-          <label class="chart-range">Date range <DateRangePicker :value="dateRange" :min="firstDate" :max="lastDate" @change="onDateRangeChange" /></label>
+          <div class="chart-range"><span>Date range</span><DateRangePicker :value="dateRange" :min="firstDate" :max="lastDate" @change="onDateRangeChange" /></div>
         </div>
         <Chart v-if="filteredMonths.length"><ChartLegend :position="'bottom'" /><ChartCategoryAxis><ChartCategoryAxisItem :categories="filteredMonths" /></ChartCategoryAxis><ChartSeries><ChartSeriesItem v-for="series in filteredChartSeries" :key="series.name" :name="series.name" :data-items="series.data" :type="'line'" /></ChartSeries></Chart>
         <p v-else class="chart-empty">No order data for the selected date range.</p>
-      </article>
-      <article class="panel">
-        <div class="panel-header"><div><h2>Priority alerts</h2><p>Items requiring an operations response</p></div></div>
-        <ul class="alert-list">
-          <li><Badge theme-color="warning" :rounded="'small'">Low stock</Badge><div><strong>Guatemala Antigua, 25 kg bags</strong><p>18 bags remain; reorder point is 40.</p></div><router-link to="/inventory">Review</router-link></li>
-          <li><Badge theme-color="error" :rounded="'small'">Delayed</Badge><div><strong>PO-10482 from Vale Verde</strong><p>Inbound dock appointment is 1 day overdue.</p></div><router-link to="/purchase-orders">Open</router-link></li>
-          <li><Badge theme-color="success" :rounded="'small'">On target</Badge><div><strong>Morning fulfilment rate</strong><p>96.4% of orders shipped before the cut-off.</p></div><router-link to="/operations">View</router-link></li>
-        </ul>
-      </article>
-    </div>
+    </article>
   </section>
 </template>
 
 <script>
 import { Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend } from "@progress/kendo-vue-charts";
 import { DateRangePicker } from "@progress/kendo-vue-dateinputs";
-import { Badge } from "@progress/kendo-vue-indicators";
 import PageHeader from "./PageHeader.vue";
 export default {
-  components: { PageHeader, Badge, DateRangePicker, Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend },
+  components: { PageHeader, DateRangePicker, Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend },
   data() {
     return {
       firstDate: new Date(2026, 4, 1),

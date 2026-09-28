@@ -1,23 +1,27 @@
 <template>
-  <div>
-    <div class="info-page main-content">
+  <div class="info-page main-content">
       <div class="content">
-        <div class="section-1">
-          <span class="info-eyebrow">ABOUT THE DEMO</span>
-          <h1>Coffee Warehouse</h1>
-          <h2>Powered by Kendo UI for Vue</h2>
-
-          <a
-            class="github-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/telerik/kendo-vue/tree/master/examples-standalone/coffee-warehouse"
-          >
-            <img src="../assets/images/github-icon.svg" alt="" />
-            <span class="github-text">
-              {{ getSourceMessage }}
-            </span>
-          </a>
+        <div class="info-hero">
+          <div class="section-1">
+            <h1>Kendo UI for Vue</h1>
+            <h2>Build Professional-Grade Vue UI</h2>
+            <div class="info-actions">
+              <a href="https://www.telerik.com/try/kendo-vue-ui" target="_blank" rel="noopener noreferrer" class="info-action info-action-primary">{{ startFreeTrialMessage }}</a>
+              <a href="https://www.telerik.com/purchase/kendo-ui" target="_blank" rel="noopener noreferrer" class="info-action info-action-secondary">{{ buyNowMessage }}</a>
+            </div>
+            <a
+              class="github-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/telerik/kendo-vue/tree/master/examples-standalone/coffee-warehouse"
+            >
+              <img src="../assets/images/github-icon.svg" alt="" />
+              <span class="github-text">{{ getSourceMessage }}</span>
+            </a>
+          </div>
+          <div class="info-illustration" aria-hidden="true">
+            <img src="../assets/images/vue-kendoka.svg" alt="" />
+          </div>
         </div>
 
         <div class="section-2">
@@ -136,6 +140,14 @@
                     rel="noopener noreferrer"
                     href="https://www.telerik.com/kendo-vue-ui/components/dateinputs/datepicker/"
                     >DatePicker</a
+                  >
+                </li>
+                <li class="component-link">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.telerik.com/kendo-vue-ui/components/dateinputs/daterangepicker/"
+                    >DateRangePicker</a
                   >
                 </li>
               </ul>
@@ -284,7 +296,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.telerik.com/kendo-vue-ui/components/styling/theme-meridian/"
-                      >Meridian Theme</a
+                    >Meridian Theme</a
                   >
                 </li>
                 <li class="component-link">
@@ -309,7 +321,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -317,6 +328,18 @@ import { provideLocalizationService } from "@progress/kendo-vue-intl";
 
 export default {
   computed: {
+    startFreeTrialMessage() {
+      return provideLocalizationService(this).toLanguageString(
+        "startFreeTrial",
+        "Start Free Trial"
+      );
+    },
+    buyNowMessage() {
+      return provideLocalizationService(this).toLanguageString(
+        "buyNow",
+        "Buy Now"
+      );
+    },
     getSourceMessage() {
       return provideLocalizationService(this).toLanguageString(
         "getSource",

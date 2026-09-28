@@ -445,6 +445,10 @@ export default {
 </script>
 
 <style>
+.team-page .card-header-wrapper {
+  margin-bottom: var(--kendo-spacing-2);
+}
+
 td.text-center {
   text-align: center;
 }

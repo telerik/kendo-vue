@@ -4,49 +4,55 @@
       <button ref="menuButton" class="menu-toggle" type="button" :aria-label="navigationOpen ? 'Close navigation menu' : 'Open navigation menu'" aria-controls="primary-navigation" :aria-expanded="navigationOpen" @click="$emit('toggle-navigation')">
         <SvgIcon :icon="menuIcon" :size="'small'" aria-hidden="true" />
       </button>
-      <router-link class="brand" to="/">
-        <span class="brand-mark">CW</span>
-        <span>{{ translate("warehouse", "Coffee Warehouse") }}</span>
+      <router-link class="brand" to="/" :aria-label="translate('warehouse', 'Coffee Warehouse')">
+        <span class="brand-full">{{ translate("warehouse", "Coffee Warehouse") }}</span>
+        <span class="brand-short">{{ translate("warehouseShort", "Coffee") }}</span>
       </router-link>
-    </div>
-    <div class="header-search-region">
-      <input class="global-search" type="search" :aria-label="translate('searchRecords', 'Search warehouse records')" :placeholder="translate('searchPlaceholder', 'Search orders, inventory, suppliers')" />
     </div>
     <div class="header-actions">
-      <router-link class="notification-link" to="/notifications" aria-label="Notifications: 3 unread">
-        <SvgIcon :icon="bellIcon" :size="'small'" aria-hidden="true" />
-        <span class="notification-label">{{ translate("notifications", "Notifications") }}</span> <Badge class="notification-count" theme-color="error" :rounded="'full'" aria-hidden="true">3</Badge>
-      </router-link>
+      <DropDownList
+        class="locale-picker"
+        :data-items="locales"
+        text-field="language"
+        data-item-key="language"
+        :value="selectedLocale"
+        :aria-label="translate('language', 'Language')"
+        @change="$emit('locale-change', $event.value.language)"
+      />
       <router-link class="profile-link" to="/profile">
         <Avatar :rounded="'full'" :type="'image'" :style="{ width: '32px', height: '32px' }">
           <img src="../assets/images/user.jpg" alt="Peter Douglas" />
         </Avatar>
         <span>Peter Douglas</span>
       </router-link>
-      <select class="locale" :value="currentLocale" :aria-label="translate('language', 'Language')" @change="$emit('locale-change', $event.target.value)">
-        <option value="English">EN</option>
-        <option value="French">FR</option>
-        <option value="Spanish">ES</option>
-      </select>
     </div>
   </header>
 </template>
 
 <script>
 import { Avatar } from "@progress/kendo-vue-layout";
+import { DropDownList } from "@progress/kendo-vue-dropdowns";
 import { SvgIcon } from "@progress/kendo-vue-common";
-import { Badge } from "@progress/kendo-vue-indicators";
 import { provideLocalizationService } from "@progress/kendo-vue-intl";
-import { bellIcon, menuIcon } from "@progress/kendo-svg-icons";
+import { menuIcon } from "@progress/kendo-svg-icons";
 import headerBg from "../assets/images/header-bg.png";
 
 export default {
-  components: { Avatar, Badge, SvgIcon },
+  components: { Avatar, DropDownList, SvgIcon },
   props: { navigationOpen: Boolean, currentLocale: { type: String, required: true } },
   emits: ["toggle-navigation", "locale-change"],
   inject: { kendoLocalizationService: { default: null } },
   data() {
-    return { bellIcon, headerBg, menuIcon };
+    return {
+      headerBg,
+      menuIcon,
+      locales: [{ language: "English" }, { language: "French" }, { language: "Spanish" }],
+    };
+  },
+  computed: {
+    selectedLocale() {
+      return this.locales.find((locale) => locale.language === this.currentLocale);
+    },
   },
   methods: {
     translate(key, fallback) {

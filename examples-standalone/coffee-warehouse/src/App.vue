@@ -6,7 +6,7 @@
         <div class="app-body">
           <MenuNavContainer ref="sidebar" :open="navigationOpen" @navigate="closeNavigation" />
           <button v-if="navigationOpen" class="nav-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1" @click="closeNavigation"></button>
-          <main class="app-content">
+          <main class="app-content" :class="{ 'info-content': $route.name === 'info' }">
             <router-view />
           </main>
         </div>

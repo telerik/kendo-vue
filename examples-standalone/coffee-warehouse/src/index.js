@@ -1,24 +1,17 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Dashboard from "./components/Dashboard.vue";
-import ResourcePage from "./components/ResourcePage.vue";
-import AccountPage from "./components/AccountPage.vue";
+import Profile from "./components/Profile.vue";
 import Team from "./components/Team.vue";
 import Info from "./components/Info.vue";
 import NotFound from "./components/NotFound.vue";
-import Login from "./components/Login.vue";
 
-const resource = (path, module) => ({ path, component: ResourcePage, props: { module } });
-const account = (path, kind) => ({ path, component: AccountPage, props: { kind } });
 const router = createRouter({
   history: createWebHistory("/kendo-vue/coffee-warehouse/"),
   routes: [
-    { path: "/login", component: Login },
-    { path: "/", component: Dashboard },
-    resource("/inventory", "inventory"), resource("/purchase-orders", "purchase-orders"),
-    resource("/operations", "operations"), resource("/finance", "finance"),
-    { path: "/team", name: "team-members", component: Team },
+    { path: "/", alias: "/team", name: "team-members", component: Team },
+    { path: "/dashboard", name: "dashboard", component: Dashboard },
+    { path: "/profile", name: "profile", component: Profile },
     { path: "/info", name: "info", component: Info },
-    account("/profile", "profile"), account("/settings", "settings"), account("/help", "help"), account("/notifications", "notifications"),
     { path: "/:pathMatch(.*)*", component: NotFound },
   ],
 });
