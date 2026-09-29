@@ -10,9 +10,13 @@
     <article class="panel chart-panel">
         <div class="panel-header">
           <div><h2>Order volume by team</h2><p>Completed orders per month, May–August 2026</p></div>
+          <ButtonGroup aria-label="Chart view">
+            <KButton :togglable="true" :selected="chartMode === 'trend'" :aria-pressed="chartMode === 'trend'" @click="chartMode = 'trend'">{{ trendMessage }}</KButton>
+            <KButton :togglable="true" :selected="chartMode === 'volume'" :aria-pressed="chartMode === 'volume'" @click="chartMode = 'volume'">{{ volumeMessage }}</KButton>
+          </ButtonGroup>
           <div class="chart-range"><span>Date range</span><DateRangePicker :value="dateRange" :min="firstDate" :max="lastDate" @change="onDateRangeChange" /></div>
         </div>
-        <Chart v-if="filteredMonths.length"><ChartLegend :position="'bottom'" /><ChartCategoryAxis><ChartCategoryAxisItem :categories="filteredMonths" /></ChartCategoryAxis><ChartSeries><ChartSeriesItem v-for="series in filteredChartSeries" :key="series.name" :name="series.name" :data-items="series.data" :type="'line'" /></ChartSeries></Chart>
+        <Chart v-if="filteredMonths.length" :key="chartMode"><ChartLegend :position="'bottom'" /><ChartCategoryAxis><ChartCategoryAxisItem :categories="filteredMonths" /></ChartCategoryAxis><ChartSeries><ChartSeriesItem v-for="series in filteredChartSeries" :key="series.name" :name="series.name" :data-items="series.data" :type="chartMode === 'trend' ? 'line' : 'column'" /></ChartSeries></Chart>
         <p v-else class="chart-empty">No order data for the selected date range.</p>
     </article>
   </section>
@@ -20,12 +24,16 @@
 
 <script>
 import { Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend } from "@progress/kendo-vue-charts";
+import { Button as KButton, ButtonGroup } from "@progress/kendo-vue-buttons";
 import { DateRangePicker } from "@progress/kendo-vue-dateinputs";
+import { provideLocalizationService } from "@progress/kendo-vue-intl";
 import PageHeader from "./PageHeader.vue";
 export default {
-  components: { PageHeader, DateRangePicker, Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend },
+  components: { PageHeader, KButton, ButtonGroup, DateRangePicker, Chart, ChartSeries, ChartSeriesItem, ChartCategoryAxis, ChartCategoryAxisItem, ChartLegend },
+  inject: { kendoLocalizationService: { default: null } },
   data() {
     return {
+      chartMode: "trend",
       firstDate: new Date(2026, 4, 1),
       lastDate: new Date(2026, 7, 31),
       dateRange: { start: new Date(2026, 4, 1), end: new Date(2026, 7, 31) },
@@ -40,6 +48,12 @@ export default {
     };
   },
   computed: {
+    trendMessage() {
+      return provideLocalizationService(this).toLanguageString("trend", "Trend");
+    },
+    volumeMessage() {
+      return provideLocalizationService(this).toLanguageString("volume", "Volume");
+    },
     visibleMonthIndexes() {
       const { start, end } = this.dateRange;
       if (!start || !end) return [];

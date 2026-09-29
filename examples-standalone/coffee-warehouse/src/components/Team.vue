@@ -119,6 +119,8 @@ export default {
       },
       employees: employees,
       gridData: [],
+      gridHeight: 500,
+      gridResizeObserver: null,
       skip: 0,
       group: [],
       sort: [],
@@ -130,14 +132,23 @@ export default {
     this.gridData = this.getData(this.employees);
     this.onTeamChange(25);
   },
-  computed: {
+  mounted() {
+    this.gridResizeObserver = new ResizeObserver(this.updateGridHeight);
+    this.gridResizeObserver.observe(this.$el);
+    window.addEventListener("resize", this.updateGridHeight);
+  },
+  beforeUnmount() {
+    this.gridResizeObserver.disconnect();
+    window.removeEventListener("resize", this.updateGridHeight);
+  },
+  watch: {
     gridHeight() {
-      const contentHeight = document.querySelector(".app-content")?.clientHeight || window.innerHeight;
-      const newGridHeight = contentHeight - 180;
-      return newGridHeight < 500 ? 500 : newGridHeight;
+      this.skip = 0;
+      this.gridData = this.getData(this.teamItems());
     },
+  },
+  computed: {
     take() {
-      //Divide the Grid Heigh by the height of a single row
       return Math.floor(this.gridHeight / 56);
     },
     selectedDataItems() {
@@ -328,6 +339,15 @@ export default {
     },
   },
   methods: {
+    updateGridHeight() {
+      const gridElement = this.$el.querySelector(".k-grid");
+      if (!gridElement) return;
+      const bottomPadding = parseFloat(getComputedStyle(this.$el.parentElement).paddingBottom);
+      this.gridHeight = Math.max(320, Math.floor(window.innerHeight - gridElement.getBoundingClientRect().top - bottomPadding));
+    },
+    teamItems() {
+      return this.myTeamSelected ? this.employees.slice(25, 50) : this.employees.slice(0, 100);
+    },
     onFilter(e) {
       let inputValue = e.value;
       this.searchWord = inputValue;
@@ -392,7 +412,7 @@ export default {
       this.skip = dataState.skip;
       this.sort = dataState.sort;
       this.filter = dataState.filter;
-      this.gridData = this.myTeamSelected? this.getData(this.employees.slice(0, 25)) : this.getData(this.employees);
+      this.gridData = this.getData(this.teamItems());
     },
     dataStateChange: function (event) {
       this.createAppState(event.data);
@@ -426,16 +446,9 @@ export default {
       event.dataItem[this.selectedField] = !event.dataItem[this.selectedField];
     },
     onTeamChange(pageSize) {
-      let slicedEmployees;
-
-      if (pageSize === 25) {
-        slicedEmployees = this.employees.slice(pageSize, pageSize * 2);
-        this.myTeamSelected = true;
-      } else {
-        slicedEmployees = this.employees.slice(0, pageSize);
-        this.myTeamSelected = false;
-      }
-      this.gridData = this.getData(slicedEmployees);
+      this.myTeamSelected = pageSize === 25;
+      this.skip = 0;
+      this.gridData = this.getData(this.teamItems());
     },
     getSelectColumnWidth(theme) {
       return "48px";
