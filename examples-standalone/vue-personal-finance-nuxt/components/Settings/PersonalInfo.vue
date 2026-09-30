@@ -1,17 +1,17 @@
 <template>
-  <Card class="k-p-4 k-gap-6 k-rounded-xxl">
-    <div class="k-d-grid k-gap-2">
+  <Card class="personal-info-card">
+    <div class="personal-info-content">
       <div
         :style="{
           fontSize: '20px',
           letterSpacing: 'wide',
           fontWeight: '500',
         }"
-        class="k-gap-2"
+        class="personal-info-title"
       >
         Personal Information
       </div>
-      <div class="k-d-grid k-gap-6">
+      <div class="personal-info-form">
         <KForm
           :key="personalInfo"
           :initial-values="personalInfo"
@@ -49,3 +49,9 @@ const handleSubmit = (dataItem) => {
   localStorage.setItem(personalInfoKey, JSON.stringify(dataItem));
 };
 </script>
+<style scoped>
+.personal-info-card { padding: var(--kendo-spacing-4); gap: var(--kendo-spacing-6); border-radius: var(--kendo-border-radius-xxl); }
+.personal-info-content { display: grid; gap: var(--kendo-spacing-2); }
+.personal-info-title { gap: var(--kendo-spacing-2); }
+.personal-info-form { display: grid; gap: var(--kendo-spacing-6); }
+</style>

@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-// Import our custom CSS
+import "@progress/kendo-theme-meridian/dist/all.css";
 import './assets/styles/app.scss'
 
 import router from "./index.js";

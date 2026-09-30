@@ -15,6 +15,8 @@ export const esCustomMessages = {
     saveChanges: 'Guardar cambios',
     cancel: 'Cancelar',
     warehouse: 'Almacén De Café',
+    warehouseShort: 'Café',
+    warehouseSection: 'Almacén',
     startFreeTrial: 'Iniciar prueba gratuita',
     buyNow: 'Comprar ahora',
     getSource: 'Obtenga el código fuente en GitHub',

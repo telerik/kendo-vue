@@ -1,19 +1,19 @@
 <template>
-    <Card class="k-p-4 k-gap-6 k-rounded-xxl k-h-full">
-      <div class="k-d-grid k-gap-6">
+    <Card class="calendar-card">
+      <div class="calendar-heading">
         <div
           :style='{
             fontSize: "20px",
             letterSpacing: "wide",
             fontWeight: "500",
           }'
-          class="k-gap-2"
+          class="calendar-title"
         >
           Calendar
         </div>
       </div>
 
-      <div class="k-d-grid k-gap-6 k-justify-content-center k-align-items-center">
+      <div class="calendar-content">
         <Calendar />
       </div>
     </Card>
@@ -22,3 +22,9 @@
 import { Card } from "@progress/kendo-vue-layout";
 import { Calendar } from "@progress/kendo-vue-dateinputs";
 </script>
+<style scoped>
+.calendar-card { height: 100%; padding: var(--kendo-spacing-4); gap: var(--kendo-spacing-6); border-radius: var(--kendo-border-radius-xxl); }
+.calendar-heading, .calendar-content { display: grid; gap: var(--kendo-spacing-6); }
+.calendar-title { gap: var(--kendo-spacing-2); }
+.calendar-content { justify-content: center; align-items: center; }
+</style>

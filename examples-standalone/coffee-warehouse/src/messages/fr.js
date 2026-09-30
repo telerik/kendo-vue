@@ -15,6 +15,8 @@ export const frCustomMessages = {
     saveChanges: 'Sauvegarder les modifications',
     cancel: 'Annuler',
     warehouse: 'Entrepôt De Café',
+    warehouseShort: 'Café',
+    warehouseSection: 'Entrepôt',
     startFreeTrial: "Démarrer l'essai gratuit",
     buyNow: 'Acheter maintenant',
     getSource: 'Récupérer le code source sur GitHub',

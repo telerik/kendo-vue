@@ -1,17 +1,17 @@
 <template>
-    <Card class="k-p-4 k-gap-6 k-rounded-xxl k-h-full">
-      <div class="k-d-grid k-gap-6">
+    <Card class="total-investments-card">
+      <div class="total-investments-content">
         <div
           :style='{
             fontSize: "20px",
             letterSpacing: "wide",
             fontWeight: "500",
           }'
-          class="k-gap-2"
+          class="total-investments-title"
         >
           Total Investments
         </div>
-        <div class="k-d-grid k-gap-6">
+        <div class="total-investments-chart">
           <Chart :style="{ width: '100%', height: '320px' }">
             <ChartLegend :offset-x="0" :labels="{ margin: '6px' }" :position="isBigScreen() ? 'right' : 'bottom'"/>
             <ChartSeries>
@@ -59,3 +59,8 @@ const isBigScreen = () => {
 };
 
 </script>
+<style scoped>
+.total-investments-card { height: 100%; padding: var(--kendo-spacing-4); gap: var(--kendo-spacing-6); border-radius: var(--kendo-border-radius-xxl); }
+.total-investments-content, .total-investments-chart { display: grid; gap: var(--kendo-spacing-6); }
+.total-investments-title { gap: var(--kendo-spacing-2); }
+</style>

@@ -1,8 +1,8 @@
 <template>
-  <Card class="k-p-4 k-gap-4 k-rounded-xxl k-gap-3.5">
-    <div class="k-d-grid k-gap-4">
+  <Card class="cashflow-card">
+    <div class="cashflow-content">
       <div
-        class="k-d-flex k-align-items-center k-gap-2 k-justify-content-between"
+        class="chart-heading"
       >
         <div
           :style="{
@@ -13,11 +13,11 @@
         >
           Money Cashflow
         </div>
-        <div class="k-d-flex k-align-items-center k-gap-6">
+        <div class="chart-legend">
           <div
             v-for="(item, idx) in series"
             :key="idx"
-            class="k-d-flex k-align-items-center k-gap-1"
+            class="legend-item"
             @click="() => (item.visible = !item.visible)"
           >
             <div
@@ -132,3 +132,11 @@ const defaultSeries = [
 
 const series = ref(defaultSeries);
 </script>
+<style scoped>
+.cashflow-card { padding: var(--kendo-spacing-4); gap: calc(3.5 * var(--kendo-spacing-base)); border-radius: var(--kendo-border-radius-xxl); }
+.cashflow-content { display: grid; gap: var(--kendo-spacing-4); }
+.chart-heading, .chart-legend, .legend-item { display: flex; align-items: center; }
+.chart-heading { justify-content: space-between; gap: var(--kendo-spacing-2); }
+.chart-legend { gap: var(--kendo-spacing-6); }
+.legend-item { gap: var(--kendo-spacing-1); }
+</style>

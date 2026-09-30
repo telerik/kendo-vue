@@ -1,23 +1,23 @@
 <template>
-    <h1 class="k-px-md-15 k-p-5 k-m-0">Settings</h1>
-    <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-mb-5 k-overflow-hidden k-p-md-5 k-px-md-15 k-p-5">
-        <div class="k-col-span-12 k-col-span-xl-7 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow">
+    <h1 class="page-title">Settings</h1>
+    <div class="settings-layout">
+        <div class="wide-panel">
             <PersonalInfo />
         </div>
-        <div class="k-col-span-12 k-col-span-xl-5 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-gap-1 k-h-full">
-            <Calendar />
-        </div>
-        <div class="k-col-span-12 k-col-span-xl-7 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow">
+        <div class="wide-panel">
           <CardInfo />
-        </div>
-        <div class="k-col-span-12 k-col-span-xl-5 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-gap-1 k-h-full">
-          <Weather />
         </div>
     </div>
 </template>
 <script setup>
-import Calendar from "@/components/Settings/Calendar.vue";
 import PersonalInfo from "@/components/Settings/PersonalInfo.vue";
 import CardInfo from "@/components/Settings/CardInfo.vue";
-import Weather from "@/components/Settings/Weather.vue";
 </script>
+<style scoped>
+.page-title { margin: 0; padding: var(--kendo-spacing-5); }
+.settings-layout { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--kendo-spacing-4); margin-bottom: var(--kendo-spacing-5); overflow: hidden; padding: var(--kendo-spacing-5); }
+.wide-panel { grid-column: span 12 / span 12; display: flex; flex: 1 1 0; flex-direction: column; }
+@media (min-width: 768px) { .page-title { padding-inline: var(--kendo-spacing-15); } .settings-layout { padding: var(--kendo-spacing-5); padding-inline: var(--kendo-spacing-15); } }
+@media (min-width: 992px) { .settings-layout { gap: var(--kendo-spacing-6); } }
+@media (min-width: 1200px) { .wide-panel { grid-column: span 6 / span 6; } }
+</style>

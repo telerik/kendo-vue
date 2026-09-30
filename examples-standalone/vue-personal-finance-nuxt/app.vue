@@ -1,8 +1,10 @@
 <template>
-  <Navigation :go-to-route="goToRoute">
-    <Header @navigate="onNavigate" @currency-change="onCurrencyChange"/>
-    <NuxtPage />
-  </Navigation>
+  <ClientOnly>
+    <Navigation :go-to-route="goToRoute">
+      <Header @navigate="onNavigate" @currency-change="onCurrencyChange"/>
+      <NuxtPage />
+    </Navigation>
+  </ClientOnly>
   <Footer />
 </template>
 

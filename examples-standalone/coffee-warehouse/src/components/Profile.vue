@@ -1,19 +1,24 @@
 <template>
-<div>
-  <k-form @submit="handleSubmit" :initial-values="formValues">
-    <formcontent />
-  </k-form>
-  </div>
+  <section class="page profile-page">
+    <PageHeader title="Profile" subtitle="Manage your warehouse account and contact details." />
+    <div class="panel profile-panel">
+      <k-form @submit="handleSubmit" :initial-values="formValues">
+        <formcontent />
+      </k-form>
+    </div>
+  </section>
 </template>
 
 <script>
 import { Form } from "@progress/kendo-vue-form";
 import FormContent from "./ProfileComponents/FormContent.vue";
+import PageHeader from "./PageHeader.vue";
 
 export default {
   components: {
     "k-form": Form,
     formcontent: FormContent,
+    PageHeader,
   },
   data() {
     return {

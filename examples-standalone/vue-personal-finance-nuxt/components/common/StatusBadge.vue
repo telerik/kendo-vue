@@ -1,6 +1,10 @@
 <template>
-    <Chip :style='{ backgroundColor: backgroundColor(dataItem), color: "#121710", height: height, width: "fit-content" }'
-        :text="dataItem.orderStatus" :rounded="'large'" />
+    <Chip
+        :class="statusClass(dataItem)"
+        :style="{ height: height, width: 'fit-content' }"
+        :text="dataItem.orderStatus"
+        :rounded="'large'"
+    />
 </template>
 <script setup>
 import { Chip } from "@progress/kendo-vue-buttons";
@@ -15,16 +19,23 @@ const props = defineProps({
     },
 });
 
-const backgroundColor = (dataItem) => {
+const statusClass = (dataItem) => {
     switch (dataItem.orderStatus) {
         case "Pending":
-            return "#FFE19C";
+            return "status-pending";
         case "Published":
-            return "#A7DB97";
+            return "status-published";
         case "Postponed":
-            return "#D77B8B";
+            return "status-postponed";
         default:
-            return "#CCCCCC"; // Gray for unknown status
+            return "status-unknown";
     }
 };
 </script>
+
+<style scoped>
+:deep(.status-pending) { color: var(--kendo-color-warning-on-subtle); background: var(--kendo-color-warning-subtle); }
+:deep(.status-published) { color: var(--kendo-color-success-on-subtle); background: var(--kendo-color-success-subtle); }
+:deep(.status-postponed) { color: var(--kendo-color-error-on-subtle); background: var(--kendo-color-error-subtle); }
+:deep(.status-unknown) { color: var(--kendo-color-on-base); background: var(--kendo-color-base-subtle); }
+</style>

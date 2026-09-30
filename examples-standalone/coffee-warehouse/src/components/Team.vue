@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <section class="page team-page">
+    <PageHeader title="Team Members" subtitle="Review warehouse roles, coverage, and team availability." />
     <div class="card-header-wrapper">
       <h3 class="card-title">{{ teamMembersMessage }}</h3>
       <buttongroup>
@@ -20,7 +21,7 @@
         @selectionchange="onSelectionChange" @headerselectionchange="onHeaderSelectionChange"
         @datastatechange="dataStateChange" @expandchange="expandChange">
         <toolbar>
-          <span class="k-textbox k-grid-search k-display-flex">
+          <span class="k-textbox k-grid-search team-grid-search">
             <k-input :style="{ width: '230px' }" :placeholder="gridSearchMessage" :value="searchWord" @input="onFilter">
             </k-input>
           </span>
@@ -59,7 +60,7 @@
         </template>
       </Grid>
     </pdfexport>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -70,6 +71,7 @@ import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { Grid, GridToolbar } from "@progress/kendo-vue-grid";
 import { Button, ButtonGroup } from "@progress/kendo-vue-buttons";
 import { provideLocalizationService } from "@progress/kendo-vue-intl";
+import PageHeader from "./PageHeader.vue";
 
 import EngagementComponent from "./GridComponents/EngagementComponent.vue";
 import IsOnlineComponent from "./GridComponents/IsOnlineComponent.vue";
@@ -82,6 +84,7 @@ import employees from "../assets/employees";
 export default {
   name: "App",
   components: {
+    PageHeader,
     Grid: Grid,
     toolbar: GridToolbar,
     pdfexport: GridPdfExport,
@@ -116,6 +119,8 @@ export default {
       },
       employees: employees,
       gridData: [],
+      gridHeight: 500,
+      gridResizeObserver: null,
       skip: 0,
       group: [],
       sort: [],
@@ -127,13 +132,23 @@ export default {
     this.gridData = this.getData(this.employees);
     this.onTeamChange(25);
   },
-  computed: {
+  mounted() {
+    this.gridResizeObserver = new ResizeObserver(this.updateGridHeight);
+    this.gridResizeObserver.observe(this.$el);
+    window.addEventListener("resize", this.updateGridHeight);
+  },
+  beforeUnmount() {
+    this.gridResizeObserver.disconnect();
+    window.removeEventListener("resize", this.updateGridHeight);
+  },
+  watch: {
     gridHeight() {
-      const newGridHeight = document.querySelectorAll(".k-drawer-container")[0].offsetHeight - 280;
-      return newGridHeight < 500 ? 500 : newGridHeight;
+      this.skip = 0;
+      this.gridData = this.getData(this.teamItems());
     },
+  },
+  computed: {
     take() {
-      //Divide the Grid Heigh by the height of a single row
       return Math.floor(this.gridHeight / 56);
     },
     selectedDataItems() {
@@ -324,6 +339,15 @@ export default {
     },
   },
   methods: {
+    updateGridHeight() {
+      const gridElement = this.$el.querySelector(".k-grid");
+      if (!gridElement) return;
+      const bottomPadding = parseFloat(getComputedStyle(this.$el.parentElement).paddingBottom);
+      this.gridHeight = Math.max(320, Math.floor(window.innerHeight - gridElement.getBoundingClientRect().top - bottomPadding));
+    },
+    teamItems() {
+      return this.myTeamSelected ? this.employees.slice(25, 50) : this.employees.slice(0, 100);
+    },
     onFilter(e) {
       let inputValue = e.value;
       this.searchWord = inputValue;
@@ -388,7 +412,7 @@ export default {
       this.skip = dataState.skip;
       this.sort = dataState.sort;
       this.filter = dataState.filter;
-      this.gridData = this.myTeamSelected? this.getData(this.employees.slice(0, 25)) : this.getData(this.employees);
+      this.gridData = this.getData(this.teamItems());
     },
     dataStateChange: function (event) {
       this.createAppState(event.data);
@@ -422,25 +446,22 @@ export default {
       event.dataItem[this.selectedField] = !event.dataItem[this.selectedField];
     },
     onTeamChange(pageSize) {
-      let slicedEmployees;
-
-      if (pageSize === 25) {
-        slicedEmployees = this.employees.slice(pageSize, pageSize * 2);
-        this.myTeamSelected = true;
-      } else {
-        slicedEmployees = this.employees.slice(0, pageSize);
-        this.myTeamSelected = false;
-      }
-      this.gridData = this.getData(slicedEmployees);
+      this.myTeamSelected = pageSize === 25;
+      this.skip = 0;
+      this.gridData = this.getData(this.teamItems());
     },
     getSelectColumnWidth(theme) {
-      return theme === "kendo-theme-default" ? "42px" : theme === "kendo-theme-material" ? "65px" : "32px";
+      return "48px";
     }
   },
 };
 </script>
 
 <style>
+.team-page .card-header-wrapper {
+  margin-bottom: var(--kendo-spacing-2);
+}
+
 td.text-center {
   text-align: center;
 }
@@ -449,32 +470,36 @@ td.text-center {
   display: inline-block;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: var(--kendo-border-radius-full);
   background-size: 32px 35px;
   background-position: center center;
   vertical-align: middle;
   line-height: 32px;
-  box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0, 0, 0, 0.2);
-  margin-left: 5px;
+  box-shadow: var(--kendo-elevation-1);
+  margin-left: var(--kendo-spacing-1);
 }
 
 .customer-name {
   display: inline-block;
   vertical-align: middle;
   line-height: 32px;
-  padding-left: 10px;
+  padding-left: var(--kendo-spacing-2\.5);
 }
 
 .red {
-  color: #d9534f;
+  color: var(--kendo-color-error-on-surface);
 }
 
 .text-bold {
-  font-weight: 600;
+  font-weight: var(--kendo-font-weight-semibold);
 }
 
 .export-buttons {
   margin-left: auto;
-  margin-right: 0;
+  margin-right: var(--kendo-spacing-0);
+}
+
+.team-grid-search {
+  display: flex;
 }
 </style>

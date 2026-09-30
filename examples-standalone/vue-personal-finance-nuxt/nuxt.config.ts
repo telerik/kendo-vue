@@ -5,9 +5,9 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   devtools: { enabled: true },
-  css: ['~/assets/styles/global.css',
-    '@progress/kendo-theme-material/dist/material-main-dark.css',
-    '@progress/kendo-theme-utils/dist/all.css',
+  css: [
+    '@progress/kendo-theme-meridian/dist/meridian-main.css',
+    '~/assets/styles/global.css',
   ],
   app: {
     baseURL: '/vue-personal-finance-nuxt/'

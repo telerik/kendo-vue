@@ -1,5 +1,5 @@
 <template>
-    <div class="k-d-flex k-justify-content-between">
+    <div class="progressbar-label">
         <label>{{ title }}</label>
         <span>
             {{ displayCurrencyValue(value, currency) }}
@@ -29,3 +29,6 @@ defineProps({
     },
 });
 </script>
+<style scoped>
+.progressbar-label { display: flex; justify-content: space-between; }
+</style>

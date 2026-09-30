@@ -1,16 +1,16 @@
 <template>
-    <Card class="k-p-4 k-gap-6 k-rounded-xxl k-h-full">
-        <div class="k-d-grid k-gap-6">
+    <Card class="chat-card">
+        <div class="chat-content">
             <div :style='{
                 fontSize: "20px",
                 letterSpacing: "wide",
                 fontWeight: "500",
             }'
-          class="k-gap-2"
+          class="chat-title"
         >
           Chat with Roby
         </div>
-        <div class="k-d-grid k-gap-6">
+        <div class="prompt-section">
           <AIPrompt />
         </div>
       </div>
@@ -20,3 +20,8 @@
 import { Card } from "@progress/kendo-vue-layout";
 import AIPrompt from "./AIPrompt.vue";
 </script>
+<style scoped>
+.chat-card { height: 100%; padding: var(--kendo-spacing-4); gap: var(--kendo-spacing-6); border-radius: var(--kendo-border-radius-xxl); }
+.chat-content, .prompt-section { display: grid; gap: var(--kendo-spacing-6); }
+.chat-title { gap: var(--kendo-spacing-2); }
+</style>

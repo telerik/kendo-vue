@@ -1,49 +1,25 @@
 <template>
-  <link rel="stylesheet" :href="themeLink" />
-  <div id="app" class="app">
-    <MenuComponent @theme-change="onThemeChange" />
-  </div>
+  <link v-if="selectedTheme !== 'meridian'" rel="stylesheet" :href="themeStyles[selectedTheme]" />
+  <RouterView v-if="isStandalone" />
+  <MenuComponent v-else :theme="selectedTheme" @theme-change="changeTheme" />
 </template>
 
-<script>
-import MenuComponent from './components/MenuComponent.vue'
+<script setup lang="ts">
+import { computed, ref } from 'vue';
+import { useRoute } from 'vue-router';
+import MenuComponent from './components/MenuComponent.vue';
+import defaultTheme from '@progress/kendo-theme-default/dist/all.css?url';
+import bootstrapTheme from '@progress/kendo-theme-bootstrap/dist/all.css?url';
+import materialTheme from '@progress/kendo-theme-material/dist/all.css?url';
 
+const themeStyles = { default: defaultTheme, bootstrap: bootstrapTheme, material: materialTheme };
+const route = useRoute();
+const isStandalone = computed(() => ['Login', 'Register', 'NotFound'].includes(String(route.name)));
+const storedTheme = localStorage.getItem('dashboard-theme');
+const selectedTheme = ref(storedTheme && ['meridian', ...Object.keys(themeStyles)].includes(storedTheme) ? storedTheme : 'meridian');
 
-export default {
-  components: {
-    MenuComponent
-  },
-  data() {
-    return {
-      currentTheme: "kendo-theme-default"
-    }
-  },
-  methods: {
-    onThemeChange(value) {
-      this.currentTheme = value;
-    }
-  },
-  computed: {
-    themeLink() {
-      return "https://unpkg.com/@progress/" + this.currentTheme + "@latest/dist/all.css"
-    }
-  }
+function changeTheme(theme: string) {
+  selectedTheme.value = theme;
+  localStorage.setItem('dashboard-theme', theme);
 }
 </script>
-
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>

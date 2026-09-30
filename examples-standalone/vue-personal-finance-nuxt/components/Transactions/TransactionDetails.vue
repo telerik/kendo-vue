@@ -1,14 +1,14 @@
 <template>
-    <Card class="k-p-4 k-gap-6 k-rounded-xxl k-h-full">
-        <div class="k-d-grid k-gap-6">
+    <Card class="transaction-details-card">
+        <div class="transaction-details-content">
             <div :style='{
                 fontSize: "20px",
                 letterSpacing: "wide",
                 fontWeight: "500",
-            }' class="k-gap-2">
+            }' class="transaction-details-title">
                 Transaction Details
             </div>
-            <div class="k-d-grid k-gap-6">
+            <div class="transaction-details-list">
                 <TransactionDetail :label="'Merchant'" :value="merchant" />
                 <TransactionDetail :label="'Order Status'" :value="orderStatus" :status="true" />
                 <TransactionDetail :label="'Time'" :value="dateOfPurchase" />
@@ -57,3 +57,8 @@ watch(() => props.transactionData, (newValue) => {
 
 
 </script>
+<style scoped>
+.transaction-details-card { height: 100%; padding: var(--kendo-spacing-4); gap: var(--kendo-spacing-6); border-radius: var(--kendo-border-radius-xxl); }
+.transaction-details-content, .transaction-details-list { display: grid; gap: var(--kendo-spacing-6); }
+.transaction-details-title { gap: var(--kendo-spacing-2); }
+</style>

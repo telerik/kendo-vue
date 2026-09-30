@@ -1,6 +1,8 @@
-# Kendo UI for Vue Dashboard Application
+# Coffee Warehouse
 
-The current example shows how the Native Grid, Charts, Inputs, Labels, etc. component can be combined in a real-life application. The project uses Vue 3 in Vite. 
+This Vue 3 and Vite example combines Kendo UI for Vue Grid, Charts, DateRangePicker, and Form components with the Meridian theme. Team Members is the landing page and demonstrates Grid selection, filtering, and exports in a viewport-sized Grid. The dashboard chart can be filtered by date and switched between Trend and Volume views, the profile page shows a validated form, and the Info page links to component documentation, the product trial, and the source code.
+
+Use the language selector in the header to switch between English, French, and Spanish for translated navigation and Kendo UI controls.
 
 ## Project setup
 
